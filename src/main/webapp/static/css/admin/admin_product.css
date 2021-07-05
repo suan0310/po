@@ -1,0 +1,134 @@
+.mainbox tr th {
+    background-color: #e4e4e4;
+}
+
+.mainbox td,
+th {
+    border-bottom: 2px solid #efefef;
+    height: 50px;
+    font-size: 20px;
+}
+
+.mainbox table {
+    width: 1150px;
+}
+
+.mainbox td {
+    text-align: center;
+}
+
+table {
+    margin-top: 20px;
+}
+
+.purchase {
+    width: 1150px;
+    margin-bottom: 10px;
+}
+
+.purchase>h4 {
+    margin: 10px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.log {
+    display: flex;
+    align-items: center;
+}
+
+#selectbox1,
+#selectbox2 {
+    width: 80px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+#serchvalue {
+    width: 200px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+.btn {
+    width: 60px;
+    height: 30px;
+    background-color: #badbf9;
+    color: white;
+    font-weight: bold;
+    border: 1px #badbf9;
+}
+
+.btn:hover {
+    color: #badbf9;
+    background-color: white;
+}
+
+#addndel {
+    margin-left: 575px;
+}
+
+#manager td div {
+    display: flex;
+    justify-content: center;
+}
+
+#manager td input {
+    align-items: center;
+    width: 70px;
+    height: 25px;
+}
+
+.sizebtn input {
+    width: 25px;
+    height: 25px;
+    margin: 2px;
+    background-color: #badbf9;
+    color: white;
+    font-weight: bold;
+    border: 1px #badbf9;
+}
+
+.sizebtn input:hover {
+    color: #badbf9;
+    background-color: white;
+}
+
+.picbtn input {
+    width: 15px;
+    height: 25px;
+    margin: 2px;
+    background-color: #badbf9;
+    color: white;
+    font-weight: bold;
+    border: 1px #badbf9;
+}
+
+.stock input {
+    width: 75px;
+    height: 30px;
+}
+
+.price input {
+    width: 75px;
+    height: 30px;
+}
+
+.productname input {
+    width: 45px;
+    height: 30px;
+}
+
+.colorinp input {
+    width: 145px;
+    height: 30px;
+}
+
+.picbtn input:hover {
+    color: #badbf9;
+    background-color: white;
+}
+
+.menu:nth-of-type(2) {
+    transform: scale3d(1.2, 1.2, 0.3) translate(-7%, -5%);
+}

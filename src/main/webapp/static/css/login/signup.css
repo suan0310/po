@@ -1,0 +1,106 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.outbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* 높이를 기준으로 가운데 정렬 */
+  height: 100vh;
+}
+div h1 {
+  /* 글자 가운데 정렬 */
+  text-align: center;
+  font-size: 40px;
+  font-family: "맑은 고딕";
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.signup {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border: 3px solid #badbf9;
+  width: 325px;
+  height: 430px;
+}
+/* 회원가입 */
+.signup h1 {
+  font-size: 20px;
+  font-family: "맑은 고딕", sans-serif;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+/* 아이디 비번등 */
+.signup .info label {
+  padding-top: 5px;
+  margin-left: 30px;
+  color: black;
+  font-size: 10px;
+  float: left;
+}
+/* id칸 조절 */
+.signup .id {
+  width: 250px;
+  height: 25px;
+  margin-left: -10px;
+  margin-bottom: 10px;
+  border: 1px solid #707070;
+}
+.signup .passwd {
+  width: 250px;
+  height: 25px;
+  margin-left: -10px;
+  margin-bottom: 5px;
+  border: 1px solid #707070;
+}
+.signup .repasswd {
+  width: 250px;
+  height: 25px;
+  margin-left: -10px;
+  margin-bottom: 10px;
+  border: 1px solid #707070;
+}
+.signup .email {
+  width: 120px;
+  height: 25px;
+  margin-left: 5px;
+  outline: #707070;
+}
+
+.signup .select2 {
+  width: 120px;
+  font-size: 10px;
+  height: 25px;
+}
+
+.signup .select1 {
+  width: 260px;
+  height: 25px;
+}
+.signup .answer {
+  width: 260px;
+  height: 25px;
+  margin-top: 5px;
+}
+input::placeholder {
+  color: #707070;
+  padding-left: 15px;
+  font-size: 10px;
+  font-family: "맑은고딕";
+}
+.signup .btn {
+  width: 250px;
+  height: 35px;
+  margin: 15px;
+  background-color: #badbf9;
+  color: white;
+  font-weight: bold;
+  border: 1px #badbf9;
+}
+.signup .btn:hover {
+  color: #badbf9;
+  background-color: white;
+}

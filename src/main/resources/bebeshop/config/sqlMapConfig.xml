@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='utf-8'  ?>
+<!DOCTYPE configuration PUBLIC './/mybatis.org//DTD config 3.0//EN'
+		'http://mybatis.org/dt/mybatis-3-config.dtd'>
+<configuration>		
+ 		<properties resource='config/jdbc.properties'>
+				<property name='driver'  value='oracle.jdbc.driver.OracleDriver'/>
+		</properties> 
+		
+		 <!-- <properties resource='config/hr.properties'/>  -->
+			
+		
+		<settings>
+			<setting name='cacheEnabled' value='false'/>
+			<setting name='localCacheScope' value='STATEMENT'/>
+		</settings>
+		
+		<typeAliases>
+				<typeAlias type='ch02.domain.User'  alias='user'/>
+				<package name='ch03.domain'/>
+		</typeAliases>
+		
+		<environments default='hr'>
+			<environment id='development'>
+					<transactionManager type= 'JDBC'/>
+					<dataSource type='POOLED'>
+							<property name='driver'  value='${driver}' />
+							<property name='url' value='${url}'/>
+							<property name='username' value='${username}'/>
+							<property name= 'password' value='${password}'/>
+					</dataSource>
+			</environment>
+			<environment id='hr'>
+					<transactionManager type= 'JDBC'/>
+					<dataSource type='POOLED'>
+							<property name='driver'  value='${driver}' />
+							<property name='url' value='${url}'/>
+							<property name='username' value='${username}'/>
+							<property name= 'password' value='${password}'/>
+					</dataSource>
+			</environment>
+		</environments>
+		
+		<mappers>
+				<mapper resource='ch05/ex05/sqlMap.xml'/>
+				<mapper resource='ch05/ex06/sqlMap.xml'/>
+
+
+		</mappers>
+</configuration>
