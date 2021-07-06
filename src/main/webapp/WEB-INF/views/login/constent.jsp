@@ -42,8 +42,8 @@
                     - 생성정보 수집 툴을 통한 수집</textarea>
                     <br>
                     <div class="checkbox">
-                        <input type="radio" class="agr" name="checkbox"></input><label>동의</label>
-                        <input type="radio" class="disagr" name="checkbox"></input><label>미동의</label>
+                        <input type="radio" class="agr" name="checkbox1"></input><label>동의</label>
+                        <input type="radio" class="disagr" name="checkbox1"></input><label>미동의</label>
                     </div>
                     <textarea class="text1" cols="33" rows="7">[이용약관]                        제1장총칙
                                                                     가. 수집하는 개인정보의 항목첫째, 회사는 회원가 입, 원활한 고객상담, 각종 서비스의 제공을 위해 최초 회원가입 당시 아래와 같은 최소한의 개인정보를 필수항목으로 수집하고 있습니다.
