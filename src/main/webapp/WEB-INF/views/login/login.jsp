@@ -23,7 +23,7 @@
                    <!-- 한줄로 내리기 위해 div 처리 -->
                    <div class="checkbx"><input type="checkbox" class="check" checked>&nbsp<label>아이디 저장</label></div>
                    <input type="submit" value="로그인" class="btn">
-                   <div class="found"><h6><a href="#">아이디 찾기</a></h6>&nbsp|&nbsp<h6><a href="#">비밀번호 찾기</a></h6>&nbsp|&nbsp<h6><a href="#">회원가입</a></h6></div>
+                   <div class="found"><h6><a href="/login/findid">아이디 찾기</a></h6>&nbsp|&nbsp<h6><a href="/login/findpasswd">비밀번호 찾기</a></h6>&nbsp|&nbsp<h6><a href="/login/constent">회원가입</a></h6></div>
                    <div class="social">
                     <img src="/img/facebook.jpg" width=25; id="fb";>
                     <img src="/img/kakao.png" width=25; id="kao";>
