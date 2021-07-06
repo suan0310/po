@@ -50,7 +50,7 @@ table {
     margin-right: 10px;
 }
 
-.btn {
+.btnn {
     width: 60px;
     height: 30px;
     background-color: #badbf9;
@@ -59,7 +59,7 @@ table {
     border: 1px #badbf9;
 }
 
-.btn:hover {
+.btnn:hover {
     color: #badbf9;
     background-color: white;
 }
