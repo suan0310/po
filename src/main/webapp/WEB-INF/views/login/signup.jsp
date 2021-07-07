@@ -13,19 +13,20 @@
     <div class="outbox">
         <div class="inbox">
             <h1>JOIN WITH US</h1>
-            <form action="#" method="POST">
+            <form action="/signup" method="POST">
                 <div class="signup">
                     <h1>회원가입</h1> 
                         <div class="info">
                             <label>아이디 *</label><br>
-                            <input type="id" class="id" placeholder="영문 or 숫자로 6자 이상 입력해주세요" required>
+                            <input type="id" name="id" class="id" placeholder="영문 or 숫자로 6자 이상 입력해주세요" required>
+                            
                             <br><label>비밀번호 *</label><br>
-                            <input type="password" class="passwd" placeholder="영문,숫자,특수문자포함 8자 이상" required>
+                            <input type="password" name="passwd" class="passwd" placeholder="영문,숫자,특수문자포함 8자 이상" required>
                         <br><label>비밀번호 재확인 *</label><br>
                         <input type="password" class="repasswd" placeholder="비밀번호를 다시 한번 입력해주세요" required>
                         <br><label>이메일</label><br>
                         <div class="form">
-                            <span class="email"><input type="text" name="email_id" class="email" caption="이메일" maxlength="80"
+                            <span class="email"><input type="text" name="email" class="email" caption="이메일" maxlength="80"
                                     value="" placeholder="입력해주세요"" required></span>
                             <span class="space">@</span>
                             <span class="email"></span>
@@ -41,7 +42,7 @@
                             </span>
                             <br><label>질문</label><br>
                             <span class="question"></span>
-                            <span class="select1"><select class="select1" name="sel_question" > 
+                            <span class="select1"><select class="select1" name="question" > 
                                     <option value="질문1">질문1</option>
                                     <option value="질문2">질문2</option>
                                     <option value="질문3">질문3</option>
@@ -50,10 +51,11 @@
                                 </select>
                             </span>
                         </div>                        
-                        <input type="text" class="answer" placeholder="답변을 적어주세요" required>
+                        <input type="text" name="answer" class="answer" placeholder="답변을 적어주세요" required>
                     </div>                        
                     <input type="submit" value="회원가입" class="btn">
                 </div>
+                </form>
         </div>
     </div>
 </body>
