@@ -8,9 +8,7 @@
           <setting name="mapUnderscoreToCamelCase" value="true"/>
     </settings>
     <typeAliases>
-          <typeAlias alias="userVO" type="com.bebe.spring.login.vo.userVO"/>
+          <typeAlias alias="FruitsVo" type="com.bebe.spring.mybatis.vo.FruitsVo"/>
           <!-- <typeAlias alias="FruitsVo" type="com.bebe.spring.mybatis.vo.FruitsVo"/> -->
     </typeAliases>
-    
- 
 </configuration>

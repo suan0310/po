@@ -8,18 +8,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.bebe.spring.login.service.userService;
-import com.bebe.spring.login.vo.userVO;
 
 @Controller
 @RequestMapping(value = "/login")
 public class LoginController {
-	private final userService userService;
-
-	@Inject
-	public LoginController(userService userService) {
-		this.userService = userService; 
-	}
 
 	@RequestMapping(value = "login",method = RequestMethod.GET)
 	public String loginGet() {
@@ -33,17 +25,6 @@ public class LoginController {
 		return "/login/signup";
 	}
 
-	// 회원가입 처리
-	@RequestMapping(value = "/signup", method = RequestMethod.POST)
-	public String signupPOST(userVO userVO, RedirectAttributes redirectAttributes) throws Exception {
-		System.out.println("처리");
-		String hashedPw = BCrypt.hashpw(userVO.getPasswd(), BCrypt.gensalt());
-		userVO.setPasswd(hashedPw);
-		userService.register(userVO);
-		redirectAttributes.addAttribute("msg", "REGISTERD");
-
-		return "redirect:/login/login";
-	}
 
 	@RequestMapping(value = "findid")
 	public String findidGet() {

@@ -4,15 +4,15 @@
 
 <mapper namespace="com.bebe.spring.mybatis.dao.FruitsDao"> <!-- 실행 인터페이스위치 -->
 
-	<select id="selectAll" resultType="FruitsVo">
-		<!-- resultType가 projectVO인 이유는 mybatis-config.xml에서 설정해줬기 때문 -->
+<select id="selectAll" resultType="FruitsVo">
+<!-- 		resultType가 projectVO인 이유는 mybatis-config.xml에서 설정해줬기 때문 -->
 		select * from fruits
-		<!-- query문 들어가는곳 -->
+<!-- 		query문 들어가는곳 -->
 	</select>
 
 	<select id="selectOne" resultType="FruitsVo" parameterType="java.lang.Integer">
-		<!-- resultType가 projectVO인 이유는 mybatis-config.xml에서 설정해줬기 때문 -->
+<!-- 		resultType가 projectVO인 이유는 mybatis-config.xml에서 설정해줬기 때문 -->
 		select * from fruits where code = #{code}
-	</select>
+	</select> 
 
 </mapper>
