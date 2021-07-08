@@ -13,7 +13,7 @@
     <div class="outbox">
         <div class="inbox">
             <h1>JOIN WITH US</h1>
-            <form action="/signup" method="POST">
+            <form action="/login/signup" method="POST">
                 <div class="signup">
                     <h1>회원가입</h1> 
                         <div class="info">
@@ -31,7 +31,7 @@
                             <span class="space">@</span>
                             <span class="email"></span>
                             <span class="select">
-                                <select class="select2" name="sel_email" >
+                                <select class="select2" >
                                     <option value="etc">선택해주세요</option>
                                     <option value="naver.com">naver.com</option>
                                     <option value="gmail.com">gmail.com</option>

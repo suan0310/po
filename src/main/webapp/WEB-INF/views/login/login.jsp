@@ -15,11 +15,11 @@
     <div class="outbx">
        <div class="inbx">
            <h1>WELCOME</h1>
-           <form action="#" method="POST">
+           <form action="/login" method="POST">
                <div class="login">
                    <h1>로그인</h1>
-                   <input type="id" class="id" placeholder="아이디">
-                   <input type="password" class="passwd" placeholder="비밀번호">
+                   <input name ="id" type="id" class="id" placeholder="아이디">
+                   <input name="passwd" type="password" class="passwd" placeholder="비밀번호">
                    <!-- 한줄로 내리기 위해 div 처리 -->
                    <div class="checkbx"><input type="checkbox" class="check" checked>&nbsp<label>아이디 저장</label></div>
                    <input type="submit" value="로그인" class="btn">

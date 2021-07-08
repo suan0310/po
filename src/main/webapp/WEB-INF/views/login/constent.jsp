@@ -13,7 +13,7 @@
     <div class="outbox">
         <div class="inbox">
             <h1>JOIN WITH US</h1>
-            <form action="/login/signup" method="POST">
+            <form action="/login/signup" method="GET">
                 <div class="constent">
                     <h1>동의서</h1>
                     <textarea class="text" cols="33" rows="7">[이용약관]                        제1장총칙
