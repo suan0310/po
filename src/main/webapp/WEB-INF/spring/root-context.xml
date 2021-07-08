@@ -36,12 +36,12 @@ SqlSessionFactory를 생성해주는 SqlSessionFactoryBean 객체를 먼저 설�
 	
 	<!-- 지정된 베이스 패키지에서 DAO(Mapper) 를 검색하여 등록합니다. -->
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer"> 
-		<property name="basePackage" value="com.bebe.spring.login.dao" /> 
+		<property name="basePackage" value="com.bebe.spring" /> 
 	</bean>
 	
-	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer"> 
+<!-- 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer"> 
 		<property name="basePackage" value="com.bebe.spring.mybatis.dao" /> 
-	</bean>
+	</bean> -->
 	
 	<!-- 트랜잭션 매니저 bean 을 등록합니다. -->
 	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager"> 
