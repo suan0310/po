@@ -7,25 +7,24 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/header.css">
-    <link rel="stylesheet" href="/css/board/adminPostWrite.css">
+    <link rel="stylesheet" href="/css/board/admin_edit.css">
     <script>
-    function btnI(){ 
-        var answer;
-		answer = confirm("등록 하시겠습니까?");
-		if(answer == true){
-			location = "adminNotice.html";
-		}else {   
-        };
-    }
-    function btnC(){ 
-        var answer;
-		answer = confirm("취소 하시겠습니까?");
-		if(answer == true){
-			location = "adminNotice.html";
-		}else {   
-        };
-    }
+        function btnU(){ 
+            var answer1;
+            answer1 = confirm("수정 하시겠습니까?");
+            if(answer1 == true){
+                location = "adminNotice.html";
+            }else {   
+            };
+        }
+        function btnD(){ 
+            var answer1;
+            answer1 = confirm("삭제 하시겠습니까?");
+            if(answer1 == true){
+                location = "adminNotice.html";
+            }else {   
+            };
+        }
     </script>
     <title>Document</title>
 </head>
@@ -33,7 +32,7 @@
 <body>
     <div class="background">
         <header>
-            <%@ include file= "../header/header.jsp" %>
+           <%@ include file= "../header/header.jsp" %>
         </header>
         <div class="main">
             <div class="post">
@@ -61,8 +60,8 @@
             </div>
             </br>
             <div class="buttonMenu">
-                <input type="button" value="등록" class="button" onclick="javascript:btnI()">
-                <input type="button" value="취소" class="button" onclick="javascript:btnC()">
+                <input type="button" value="수정" class="button" onclick="javascript:btnU()">
+                <input type="button" value="삭제" class="button" onclick="javascript:btnD()">
             </div>
         </div>
     </div>

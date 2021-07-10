@@ -40,7 +40,7 @@ public class HomeController {
 
 		model.addAttribute("serverTime", formattedDate);
 
-		return "admin/user_mng";
+		return "index/index";
 	}
 
 }
