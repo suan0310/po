@@ -3,7 +3,7 @@ package com.bebe.spring.vo;
 import lombok.Data;
 
 @Data
-public class AdressVO {
+public class AddressVO {
 
 	private String id;
 	private int orderNo;
