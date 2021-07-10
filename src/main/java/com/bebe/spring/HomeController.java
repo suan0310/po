@@ -1,12 +1,6 @@
 package com.bebe.spring;
 
-//二쇱꽍���삙
-//0705 二쇱꽍���삙�엯�땲�떎.
-//0705二쇱꽍 �썑嫄댁엯�땲�떎.
-//0705二쇱꽍 �젙�쁽�엯�땲�떎.
-//0705�씪二쇱꽍 �삤�슜�슧�엯�땲�떎.
-//0705二쇱꽍 �씠�닔�븞�엯�땲�떎.
-//0705二쇱꽍 �쟾�삎吏꾩엯�땲�떎.
+//bean이뭔데
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.Locale;
