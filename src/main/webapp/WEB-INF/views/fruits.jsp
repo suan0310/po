@@ -15,7 +15,6 @@
 			<tr>
 				<th>code</th>
 				<th>name</th>
-				<th>color</th>
 				<th>price</th>
 			</tr>
 		</thead>
@@ -24,7 +23,6 @@
 				<tr>
 					<td>${item.code}</td>
 					<td>${item.name}</td>
-					<td>${item.color}</td>
 					<td>${item.price}</td>
 				</tr>
 			</c:forEach>
