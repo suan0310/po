@@ -1,12 +1,12 @@
 package com.bebe.spring;
 
-//주석은혜
-//0705 주석은혜입니다.
-//0705주석 후건입니다.
-//0705주석 정현입니다.
-//0705일주석 오용욱입니다.
-//0705주석 이수안입니다.
-//0705주석 전형진입니다.
+//二쇱꽍���삙
+//0705 二쇱꽍���삙�엯�땲�떎.
+//0705二쇱꽍 �썑嫄댁엯�땲�떎.
+//0705二쇱꽍 �젙�쁽�엯�땲�떎.
+//0705�씪二쇱꽍 �삤�슜�슧�엯�땲�떎.
+//0705二쇱꽍 �씠�닔�븞�엯�땲�떎.
+//0705二쇱꽍 �쟾�삎吏꾩엯�땲�떎.
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -40,7 +40,7 @@ public class HomeController {
 
 		model.addAttribute("serverTime", formattedDate);
 
-		return "user/purchaseHistory";
+		return "admin/user_mng";
 	}
 
 }

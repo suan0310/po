@@ -21,7 +21,7 @@
 		<tbody>
 			<c:forEach var="item" items="${list}">
 				<tr>
-					<td>${item.codeNo}</td>
+					<td>${item.CNo}</td>
 					<td>${item.name}</td>
 					<td>${item.price}</td>
 				</tr>
