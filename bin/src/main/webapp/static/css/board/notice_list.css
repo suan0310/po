@@ -1,0 +1,83 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.background{
+    width: 100vw;
+    height: 100vh;
+    background-color: #badbf9;
+}
+header{
+    width: 100vw;
+    height: 100px;
+    position: fixed;
+    background-color: #fff;
+    border: 1px solid #707070;
+    box-shadow: 3px 3px 3px #0909094a;
+}
+header .headerbx{
+    width: 80%;
+    margin: 0 auto;
+}
+
+.main{
+    height: 100vh;
+    width: 80%;
+    background-color: #fff;
+    margin: 0 auto;
+}
+
+.FAQ{
+    padding: 150px 0px 0px 0px;
+    width: 80%;
+    margin:auto;
+}
+
+.notice{
+    padding: 50px 0px 0px 0px;
+    width: 80%;
+    margin:auto;
+}
+
+
+table{
+    width: 100%;
+    border-top: 1px solid #707070;
+    border-collapse: collapse;
+    padding: 5px;
+}
+
+th{
+    background-color: #e4e4e4;
+}
+th, td{
+    height: 25px;
+    font-size: 12px;
+    text-align: center;
+    border-bottom: 2px solid #e4e4e4;
+    
+}
+
+
+.paging{
+    
+    text-align: center;
+}
+
+.paging a{
+    color: #707070;
+    padding: 4px;
+    text-decoration: none;
+}
+
+
+.paging a:hover{
+    color: black;
+    font-weight: bold;
+}
+
+.paging .page:focus{
+    color: black;
+    font-weight: bold;
+}

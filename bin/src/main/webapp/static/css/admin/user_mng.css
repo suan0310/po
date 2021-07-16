@@ -1,0 +1,65 @@
+#userid {
+    width: 300px;
+}
+
+#useremail {
+    width: 500px;
+}
+
+#management {
+    width: 100px;
+}
+
+.mainbox tr th {
+    background-color: #e4e4e4;
+}
+
+.mainbox th {
+    border-bottom: 2px solid #efefef;
+    height: 50px;
+    font-size: 20px;
+}
+
+.mainbox td {
+    border-bottom: 2px solid #efefef;
+    height: 50px;
+    font-size: 12px;
+}
+
+.mainbox table {
+    /*     border-collapse: collapse; */
+    width: 1150px;
+}
+
+.mainbox td {
+    text-align: center;
+}
+
+.purchase {
+    width: 1150px;
+    margin-bottom: 10px;
+}
+
+.purchase>h4 {
+    margin: 10px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.mainbox table td input {
+    width: 60px;
+    height: 30px;
+    background-color: #badbf9;
+    color: white;
+    font-weight: bold;
+    border: 1px #badbf9;
+}
+
+.mainbox table td input:hover {
+    color: #badbf9;
+    background-color: white;
+}
+
+.menu:nth-of-type(4) {
+    transform: scale3d(1.2, 1.2, 0.3) translate(-7%, -5%);
+}

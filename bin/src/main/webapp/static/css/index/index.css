@@ -1,0 +1,220 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* -----------------헤더영역--------------------- */
+
+/* -----------------메인영역--------------------- */
+.main{
+    height: 2500px;
+    width: 80%;
+    background-color: #fff;
+    margin: 0 auto;
+}
+/* -----------------메인영역(slide)--------------------- */
+.main .slide{
+    width: 80%;
+    top: 100px;
+    position: absolute;
+}
+.main .slide img{
+    object-fit: cover;
+    position: absolute;
+}
+.main .slide .fa{
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    font-size: 40px;
+    color: black;
+    top: 170px;
+    left: 3%;
+}
+
+.main .slide .fa-arrow-right{
+    left: 95%;
+}
+.main .slide .radios{
+    position: absolute;
+    margin-left: 45%;
+    top: 320px;
+    font-size: 50px;
+}
+.main .slide .radios input[type="radio"]{
+     width: 18px;
+     height: 18px;
+ 
+}
+/* -----------------메인영역(Time Sale)--------------------- */
+
+.main .Tsale{
+    position: relative;
+    top: 570px;
+}
+.main .Tsale .name{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+}
+.main .Tsale .Tbxs{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.main .Tsale .Tbxs .Tbx:hover{
+    box-shadow: 3px 3px 10px gray;
+    border: 1px solid #7070;
+}
+.main .Tsale .Tbxs .Tbx{
+    transition: 0.1s ease-in;
+}
+.main .Tsale .Tbxs .Tbx img{
+    width: 250px;
+    height: 300px;
+    background-image: url(a.jpg);
+    margin: 20px;
+    box-shadow: 5px 5px 3px #0909094a;
+}
+
+.main .Tsale .Tbxs .Tbx a{
+    text-decoration: none;
+    color: black;
+}
+.main .Tsale .Tbxs .Tbx a h1{
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.main .Tsale .Tbxs .Tbx a .price{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 5px;
+}
+.main .Tsale .Tbxs .Tbx a .price h6{
+    font-size: 12px;
+    margin-right: 5px;
+    text-decoration:line-through
+}
+.main .Tsale .Tbxs .Tbx a .price h4{
+    font-size: 12px;
+    margin-left: 5px;
+}
+.main .Tsale .Tbxs .Tbx a .price h4{
+    font-size: 12px;
+    margin-left: 5px;
+}
+.main .Tsale .Tbxs .Tbx span{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* -----------------메인영역(인기상품)--------------------- */
+
+.main .Fsale{
+    position: relative;
+    top: 640px;
+}
+.main .Fsale .name{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+}
+.main .Fsale .Fbxs{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+.main .Fsale .Fbxs .Fbx{
+    transition: 0.1s ease-in;
+}
+.main .Fsale .Fbxs .Fbx:hover{
+    transform: translatey(-20px);
+}
+.main .Fsale .Fbxs .Fbx img{
+    width: 250px;
+    height: 300px;
+    margin: 20px;
+    box-shadow: 5px 5px 3px #0909094a;
+}
+.main .Fsale .Fbxs .Fbx a{
+    text-decoration: none;
+    color: black;
+}
+.main .Fsale .Fbxs .Fbx a h1{
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.main .Fsale .Fbxs .Fbx a .price{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 5px;
+}
+.main .Fsale .Fbxs .Fbx a .price h6{
+    font-size: 12px;
+    margin-right: 5px;
+    text-decoration:line-through
+}
+.main .Fsale .Fbxs .Fbx a .price h4{
+    font-size: 12px;
+    margin-left: 5px;
+}
+.main .Fsale .Fbxs .Fbx a .price h4{
+    font-size: 12px;
+    margin-left: 5px;
+}
+/* -----------------메인영역(베스트 리뷰)--------------------- */ 
+.main .review{
+    position: relative;
+    top: 700px;
+    left: 15%;
+}
+.main .review .rvname{
+    width: 200px;
+    height: 100px;
+    border: 5px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-style: double;
+}
+.main .review .rvboxs{
+    display: flex;
+    align-items: center;
+}
+.main .review .rvboxs .rvbox{
+    font-size: 13px;
+    margin-top: 45px;
+    border: 1px solid black;
+    width: 370px;
+    height: 120px;
+    padding-left: 40px;
+    padding-top: 15px;
+    box-shadow: 5px 5px 10px gray;
+}
+.main .review .rvboxs .rvbox.left{
+    margin-right: 5%;
+}
+.main .review .rvboxs .rvbox.right{
+    margin-left: 5%;
+}
+
+.main .review .rvboxs .rvbox span{
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+    color: coral;
+}
+.main .review .rvboxs .rvbox span h3{
+    color: black;
+}
