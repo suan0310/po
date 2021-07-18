@@ -6,9 +6,9 @@ import lombok.Data;
 
 @Data
 public class Criteria {
-	private String mainCategoryName;
+	private String mainCategory;
 	   private int productNo;
-	   private String subCategoryName;
+	   private String subCategory;
 	   private String productName;
 	   private int productPrice;
 	   private Date productDate;

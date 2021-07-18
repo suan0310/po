@@ -43,24 +43,24 @@
 					<ul>
 							<li class="drop-down"><span>강아지</span>
 								<ul >
-									<li><a href="/product/searchPage?subCategoryName=101&page=1 ">용품</a></li>
-									<li><a href="/product/searchPage?subCategoryName=102&page=1 ">의류</a></li>
+									<li><a href="/product/searchPage?subCategory=101&page=1 ">용품</a></li>
+									<li><a href="/product/searchPage?subCategory=102&page=1 ">의류</a></li>
 								</ul>
 							</li>
 							<li class="drop-down"><span>고양이</span>
 								<ul >
-									<li><a href="/product/searchPage?subCategoryName=101&page=1 ">용품</a></li>
-									<li><a href="/product/searchPage?subCategoryName=102&page=1 ">의류</a></li>
+									<li><a href="/product/searchPage?subCategory=201&page=1 ">용품</a></li>
+									<li><a href="/product/searchPage?subCategory=202&page=1">의류</a></li>
 								</ul>
 							</li>
-							<li><a href="/product/searchPage?subCategoryName=3&page=1 ">사료</a></li>
-							<li><a href="/product/searchPage?subCategoryName=4&page=1 ">간식</a></li>
+							<li><a href="/product/searchPage?subCategory=3&page=1 ">사료</a></li>
+							<li><a href="/product/searchPage?subCategory=4&page=1 ">간식</a></li>
 						</ul>
 						
 					</div>
 					<c:forEach items="${list}" var="row" varStatus="status">
 						<c:if test="${status.index == 0 }">
-							<c:set var="sbc" value="${row.subCategoryName}" />
+							<c:set var="sbc" value="${row.subCategory}" />
 						</c:if>
 						<c:if test="${status.index %3==0 }">
 							<div class="probxs">
@@ -82,16 +82,16 @@
 							<div class="pager">
 					<ul>
 						<c:if test="${pg.prev}">
-							<li><a href="/product/searchPage?subCategoryName=${sbc}&page=${pg.startPage-1}">이전</a></li>
+							<li><a href="/product/searchPage?subCategory=${sbc}&page=${pg.startPage-1}">이전</a></li>
 						</c:if>
 
 						<c:forEach begin="${pg.startPage}" end="${pg.endPage}" var="idx">
-							<li><a href="/product/searchPage?subCategoryName=${sbc}&page=${idx}">${idx}</a>
+							<li><a href="/product/searchPage?subCategory=${sbc}&page=${idx}">${idx}</a>
 							</li>
 						</c:forEach>
 
 						<c:if test="${pg.next && pg.endPage > 0}">
-							<li><a href="/product/searchPage?subCategoryName=${sbc}&page=${pg.startPage+1}">다음</a></li>
+							<li><a href="/product/searchPage?subCategory=${sbc}&page=${pg.startPage+1}">다음</a></li>
 						</c:if>
 					</ul>
 				</div>
@@ -101,7 +101,7 @@
 			<script>
 				function selChange() {
 					var sel = document.getElementById('cntPerPage').value;
-					location.href = "searchPage?c=${row.sub_category_name }&nowPage=${paging.nowPage}&cntPerPage="
+					location.href = "searchPage?c=${row.sub_category}&nowPage=${paging.nowPage}&cntPerPage="
 						+ sel;
 				}
 			</script>
