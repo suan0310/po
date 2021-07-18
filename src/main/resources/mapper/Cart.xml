@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.bebe.spring.user.dao.CartDAO">
+	<select id="cart" resultType="CartVO">
+			select p.*,c.* from cart c inner join product p on c.product_no=p.product_no where c.id='aaa'
+	</select>
+	<delete id="delete">
+			delete cart where id='aaa' and product_no=#{productNo}
+	</delete>
+	<select id="order" resultType="CartVO">
+			select p.*,c.* from cart c inner join product p on c.product_no=p.product_no where c.id='aaa' and product_no=#{productNo}
+	
+	</select>
+</mapper>
+
+
+
+

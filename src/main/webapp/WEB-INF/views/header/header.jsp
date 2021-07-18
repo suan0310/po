@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 
 <link rel="stylesheet" href="/css/header.css">
 <div class="headerbx">
@@ -7,20 +8,18 @@
 
     <!--------------------- 상단 아이디 및 아이콘이 들어가는 공간 --------------------->
     <div class="menubx">
-        <h6 class="shop"><a href="#">SHOP</a></h6>
+        <h6 class="shop"><a href="/product/searchPage?subCategoryName=101&page=1">SHOP</a></h6>
         <input type="button" value="회원" class="pos">
-        <h6><a href="#">HONGGILDONG님</a></h4>
-            <h6><a href="#">이벤트</a></h6>
-            <h6><a href="#">게시판</a></h6>
+        <h6><a href="">HONGGILDONG님</a></h4>
+            <h6><a href="/order/order">이벤트</a></h6>
+            <h6><a href="/index">게시판</a></h6>
             <h6><a href="#">로그아웃</a></h6>
             <a href="#"><img src="/img/cart.png" alt="cart" width="20px" height="20px"></a>
             <img src="/img/search.png" alt="search" width="20px" height="20px" class="btn">
     </div>
-    <form action="" method="POST">
-        <div class="search"><input type="text"><i class="fa fa-times" aria-hidden="true"></i>
-        </div>
-    </form>
-
+  		<form method="get" action="/header"> 
+        <div class="search"><input type="text" name=saerch  value="${keyword}"><i class="fa fa-times" aria-hidden="true"></i></div>
+        </form>
 </div>
 
 <script type="text/javascript" src="/js/search.js"></script>

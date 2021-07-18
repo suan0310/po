@@ -4,17 +4,17 @@
     box-sizing: border-box;
 }
 
-/* -----------------헤더영역--------------------- */
+/* -----------------�뿤�뜑�쁺�뿭--------------------- */
 
-/* -----------------메인영역--------------------- */
+/* -----------------硫붿씤�쁺�뿭--------------------- */
 .main{
-    height: 2500px;
+    height: 3500px;
     width: 80%;
     background-color: #fff;
     margin: 0 auto;
 }
-/* -----------------메인영역(slide)--------------------- */
-.main .slide{
+/* -----------------硫붿씤�쁺�뿭(slide)--------------------- */
+/* .main .slide{
     width: 80%;
     top: 100px;
     position: absolute;
@@ -46,12 +46,12 @@
      width: 18px;
      height: 18px;
  
-}
-/* -----------------메인영역(Time Sale)--------------------- */
+} */
+/* -----------------硫붿씤�쁺�뿭(Time Sale)--------------------- */
 
 .main .Tsale{
     position: relative;
-    top: 570px;
+    top: 100px;
 }
 .main .Tsale .name{
     display: flex;
@@ -114,11 +114,11 @@
     justify-content: center;
 }
 
-/* -----------------메인영역(인기상품)--------------------- */
+/* -----------------硫붿씤�쁺�뿭(�씤湲곗긽�뭹)--------------------- */
 
 .main .Fsale{
     position: relative;
-    top: 640px;
+    top: 350px;
 }
 .main .Fsale .name{
     display: flex;
@@ -173,11 +173,10 @@
     font-size: 12px;
     margin-left: 5px;
 }
-/* -----------------메인영역(베스트 리뷰)--------------------- */ 
+/* -----------------硫붿씤�쁺�뿭(踰좎뒪�듃 由щ럭)--------------------- */ 
 .main .review{
     position: relative;
-    top: 700px;
-    left: 15%;
+    top: 600px;
 }
 .main .review .rvname{
     width: 200px;
@@ -187,34 +186,62 @@
     justify-content: center;
     align-items: center;
     border-style: double;
+    margin-left: 44%;
 }
 .main .review .rvboxs{
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 .main .review .rvboxs .rvbox{
     font-size: 13px;
     margin-top: 45px;
     border: 1px solid black;
-    width: 370px;
-    height: 120px;
-    padding-left: 40px;
+    width: 400px;
+    height: 150px;
+    text-align: center;
     padding-top: 15px;
     box-shadow: 5px 5px 10px gray;
 }
-.main .review .rvboxs .rvbox.left{
-    margin-right: 5%;
-}
+
 .main .review .rvboxs .rvbox.right{
-    margin-left: 5%;
+   margin : 2% 5% 2% 5%;
 }
 
 .main .review .rvboxs .rvbox span{
     display: flex;
     align-items: center;
+    justify-content:center;
     margin-bottom: 5px;
     color: coral;
 }
 .main .review .rvboxs .rvbox span h3{
     color: black;
 }
+
+.slide{
+    width: 300vw;
+    height: 600px;
+    transition:  transform 0.5s;
+}
+
+.slideimg{
+    width: 100vw;
+    height: 200px;
+    float: left;
+}
+.slidebtn{
+    margin-top: 10px;
+    text-align: center;
+    
+}
+
+.slidebtn1,
+.slidebtn2,
+.slidebtn3{
+    width: 20px;
+    height: 20px;
+    background-color: #badbf9;
+    border: none;
+}
+

@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/user/cart.css">
+    <link rel="stylesheet" href="/css/user/cart.css?">
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
     <title>Document</title>
 </head>
@@ -37,77 +37,38 @@
                             <th style="width: 100px;">문의</th>
                             <th style="width: 100px; border-right: hidden;">제품선택</th>
                         </tr>
+                        <form >
+                        <c:forEach items="${cart}" var="cart">
                         <tr>
                             <td style="border-left: hidden" align=right><img src="/img/bebe.png" alt="a" width="120px" height="120px"></td>
                             <td style="border-left: hidden" align="left">
-                                <h3>강아지 장난감 종합선물세트</h2>
-                                    <h4>50종 종합(제품명)</h2>
-                                        <h3>사이즈: S</h2>
-                                            <h2>8,000원</h1>
+                                <h3>제품명 : ${cart.productName}</h3>                             
+                                        <h3>사이즈 : ${cart.productSize}    컬러 : ${cart.productColor}</h3>                         
                             </td>
-                            <td align=center>4개</td>
+                            <td align=center>${cart.quantity}</td>
 
                             <td align=center>
-                                <h1>32,000원</h1>
+                                <h1>${cart.quantity*cart.productPrice}원</h1>
                             </td>
                             <td align=center>
-                                <input id="purchaseBtn" type="button" value="문의">
+                            <a href="/product/detail&product_no=${cart.productNo}">문의</a>
                             </td>
                             <td align=center style=" border-right: hidden"><input type="checkbox" name="" id="">
                             </td>
                         </tr>
-                        <tr>
-                            <td style="border-left: hidden" align=right><img src="/img/bebe.png" alt="a" width="120px" height="120px"></td>
-                            <td style="border-left: hidden" align="left">
-                                <h3>강아지 장난감 종합선물세트</h2>
-                                    <h4>50종 종합(제품명)</h2>
-                                        <h3>사이즈: S</h2>
-                                            <h2>8,000원</h1>
-                            </td>
-                            <td align=center>4개</td>
-
-                            <td align=center>
-                                <h1>32,000원</h1>
-                            </td>
-                            <td align=center>
-                                <input id="purchaseBtn" type="button" value="문의">
-                            </td>
-                            <td align=center style=" border-right: hidden"><input type="checkbox" name="" id="">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="border-left: hidden" align=right><img src="/img/bebe.png" alt="a" width="120px" height="120px"></td>
-                            <td style="border-left: hidden" align="left">
-                                <h3>강아지 장난감 종합선물세트</h2>
-                                    <h4>50종 종합(제품명)</h2>
-                                        <h3>사이즈: S</h2>
-                                            <h2>8,000원</h1>
-                            </td>
-                            <td align=center>4개</td>
-
-                            <td align=center>
-                                <h1>32,000원</h1>
-                            </td>
-                            <td align=center>
-                                <input id="purchaseBtn" type="button" value="문의">
-                            </td>
-                            <td align=center style=" border-right: hidden"><input type="checkbox" name="" id="">
-                            </td>
-                        </tr>
-
+                        </c:forEach>
 
                     </table>
                     <input id="purchaseBtn" type="button" value="모두결제">
                     <input id="purchaseBtn" type="button" value="삭제하기">
                     <input id="purchaseBtn" type="button" value="선택상품 결제">
 
-
+					</form>
                 </div>
             </div>
         </div>
     </div>
 </body>
-
 
 
 <script type="text/javascript">
