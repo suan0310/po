@@ -1,0 +1,25 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  margin: 50px;
+}
+
+.track_detail h1 {
+  border-bottom: 1px solid #707070;
+  width: 600px;
+}
+.track_detail {
+  font-family: "µ¸¿ò", dotum, sans-serif;
+}
+
+.track_detail{
+	display: flex;
+}
+
+.track_detail>div{
+height: 100px;
+width: 100px;
+}

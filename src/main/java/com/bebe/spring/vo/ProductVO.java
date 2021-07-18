@@ -8,8 +8,8 @@ import lombok.Data;
 public class ProductVO {
    
    private int productNo;
-   private String subCategoryName;
-   private String mainCategoryName;
+   private String subCategory;
+   private String mainCategory;
    private String productName;
    private int productPrice;
    private String productImg1;

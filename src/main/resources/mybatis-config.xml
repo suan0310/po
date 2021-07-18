@@ -8,8 +8,14 @@
           <setting name="mapUnderscoreToCamelCase" value="true"/>
     </settings>
     <typeAliases>
-          <typeAlias alias="LoginVo" type="com.bebe.spring.login.vo.LoginVo" />
-          <typeAlias alias="FruitsVo" type="com.bebe.spring.mybatis.vo.FruitsVo"/> 
+          <typeAlias alias="UsersVO" type="com.bebe.spring.vo.UsersVO" />
+          <typeAlias alias="ProductOptionsVO" type="com.bebe.spring.vo.ProductOptionsVO"/> 
+          <typeAlias alias="ProductSearchVO" type="com.bebe.spring.vo.ProductSearchVO"/> 
+          <typeAlias alias="OptionsVO" type="com.bebe.spring.vo.OptionsVO"/> 
+          <typeAlias alias="OrdersVO" type="com.bebe.spring.vo.OrdersVO"/> 
+          <typeAlias alias="OrdersSearchVO" type="com.bebe.spring.vo.OrdersSearchVO"/> 
+          <typeAlias alias="ProductOrdersVO" type="com.bebe.spring.vo.ProductOrdersVO"/> 
+          <typeAlias alias="OrdersAddressVO" type="com.bebe.spring.vo.OrdersAddressVO"/> 
     </typeAliases>
 </configuration>
 

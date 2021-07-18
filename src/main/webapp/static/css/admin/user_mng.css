@@ -23,7 +23,7 @@
 .mainbox td {
     border-bottom: 2px solid #efefef;
     height: 50px;
-    font-size: 12px;
+    font-size: 15px;
 }
 
 .mainbox table {
@@ -46,7 +46,7 @@
     font-weight: bold;
 }
 
-.mainbox table td input {
+.mainbox .deletbtn {
     width: 60px;
     height: 30px;
     background-color: #badbf9;
@@ -55,7 +55,13 @@
     border: 1px #badbf9;
 }
 
-.mainbox table td input:hover {
+.idinput{
+	text-align: center;
+	border: none;
+	font-size: 15px;
+}
+
+.mainbox .deletbtn:hover {
     color: #badbf9;
     background-color: white;
 }
