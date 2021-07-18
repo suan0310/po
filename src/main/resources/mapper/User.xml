@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.bebe.spring.user.dao.UserDao"> <!-- 실행 인터페이스위치 -->
+
+<select id="selectOrdersList" parameterType="String" resultType="ProductOrdersVO">
+		<!--  select  a.order_no, a.id, a.product_no, a.order_qty, a.order_price, a.sts_delivery, a.sts_cancel, a.order_date, a.order_color, a.order_size, b.product_name, b.product_price -->
+	  	select  a.*, b.product_name, b.product_price  
+     	from (select * from orders) a, (select * from product) b WHERE a.id = #{value} AND b.product_no = a.product_no order by order_date desc
+</select>
+<select id="selectAddress" parameterType="_int" resultType="OrdersAddressVO">
+		SELECT a.*, b.* FROM address a, orders b WHERE a.order_no = #{value} AND b.order_no = a.order_no		
+</select>
+
+<update id="updatePostCancel" parameterType="_int">
+			UPDATE orders SET sts_cancel = '취소대기'  WHERE order_no = #{orderNo}
+</update>
+
+</mapper>

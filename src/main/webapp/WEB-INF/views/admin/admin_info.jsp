@@ -12,7 +12,7 @@
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 
 
-    <title>Document</title>
+<title>Document</title>
 </head>
 
 <body>
@@ -36,16 +36,17 @@
                     <table class="info_table">
                         <tr>
                             <td id="fixinfo">아이디</td>
-                            <td id="userinfo">Manager</td>
+                            <td id="userinfo">${id}</td>
                         </tr>
                         <tr>
                             <td id="fixinfo">이메일</td>
-                            <td id="userinfo">Manager@naver.com</td>
+                            <td id="userinfo">admin@spring.com</td>
                         </tr>
                     </table>
                 </div>
 
                 <div>
+                	<form action="admin_info" method="post" onsubmit="return check()">
                     <div class="passwd">
                         <h4>비밀번호변경</h4>
                         <h5>*고객님의 비밀번호를 변경해 주세요.</h5>
@@ -53,37 +54,50 @@
                         <table>
                             <tr>
                                 <td id="fixinfo">현재 비밀번호</td>
-                                <td id="pw"><input type="password" name="nowpw" id="nowpw" placeholder="현재 비밀번호를 입력해주세요."></td>
+                                <td id="pw"><input type="password" name="nowpasswd" id="nowpw" placeholder="현재 비밀번호를 입력해주세요."></td>
                             </tr>
 
+					
                             <tr>
                                 <td id="fixinfo">새 비밀번호</td>
-                                <td id="pw"><input type="password" name="newpw" id="newpw" placeholder="영어대소문자 + 숫자 + 특수문자 조합 6~12자리">
+                                <td id="pw"><input type="password" name="passwd" id="newpw" placeholder="영어대소문자 + 숫자 + 특수문자 조합 6~12자리">
                                     <h6>영문 대소문자+숫자+특수문자 조합하여 6~12자리 가능하며, 특수문자는 !,@,#,$,%,^만 사용가능합니다.</h6>
                                 </td>
                             </tr>
                             <tr>
                                 <td id="fixinfo">새 비밀번호 확인</td>
-                                <td id="pw"><input type="password" name="newpwch" id="newpwch"></td>
+                                <td id="pw"><input type="password"  id="newpwch"></td>
                             </tr>
                         </table>
                     </div>
                     <div class="bt">
-                        <input class="btn" type="submit" value="비밀번호 변경">
+                        <input class="button" type="submit" value="비밀번호 변경">                           
                     </div>
+                 </form>
 
+				<input type="hidden" value ="${success}"  id="check"/>
 
                 </div>
             </div>
         </div>
     </div>
 </body>
-<script type="text/javascript" src="/js/search.js"></script>
 
-<script type="text/javascript">
-    $(document).ready(function() {
-        $('.aside').load("admin_aside.html");
-    });
+<script>
+function check(){
+	var newpw = $('#newpw').val();
+	console.log(newpw);
+	var newpwch = $('#newpwch').val();
+	console.log(newpwch);
+	if(newpw != newpwch) {
+		alert("비밀번호가 같지않습니다");
+		return false;
+	}		
+  return confirm('비밀번호를 변경하시겠습니까?');		
+};
 </script>
+<script type="text/javascript" src="/js/search.js"></script>
+<script type="text/javascript" src="/js/info.js"></script>
+
 
 </html>
