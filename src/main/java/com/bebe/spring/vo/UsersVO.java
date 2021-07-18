@@ -9,6 +9,6 @@ public class UsersVO {
 	private String emailId;
 	private String question;
 	private String answer;
-	private String emailDomian;
+	private String emailDomain;
 }
 

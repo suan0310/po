@@ -13,27 +13,27 @@
     </div>
     <div class="menulist">
         <div class="menu">
-            <a href="/html/admin/admin_info.html"><img src="/img/menu.png" alt="메뉴사진">
+            <a href="admin_info"><img src="/img/menu.png" alt="메뉴사진">
                 <p>관리자 정보</p>
             </a>
         </div>
         <div class="menu">
-            <a href="/html/admin/admin_product.html"><img src="/img/menu.png" alt="메뉴사진">
+            <a href="product_add"><img src="/img/menu.png" alt="메뉴사진">
+                <p>상품추가</p>
+            </a>
+        </div>
+        <div class="menu">
+            <a href="product_mng"><img src="/img/menu.png" alt="메뉴사진">
                 <p>재고 관리</p>
             </a>
         </div>
         <div class="menu">
-            <a href="/html/admin/admin_productadd.html"><img src="/img/menu.png" alt="메뉴사진">
-                <p>상품 추가</p>
-            </a>
-        </div>
-        <div class="menu">
-            <a href="/html/admin/admin_usermana.html"><img src="/img/menu.png" alt="메뉴사진">
+            <a href="user_mng"><img src="/img/menu.png" alt="메뉴사진">
                 <p>회원 관리</p>
             </a>
         </div>
         <div class="menu">
-            <a href="/html/admin/admin_orderlog.html"><img src="/img/menu.png" alt="메뉴사진">
+            <a href="order_mng"><img src="/img/menu.png" alt="메뉴사진">
                 <p>주문 현황</p>
             </a>
         </div>

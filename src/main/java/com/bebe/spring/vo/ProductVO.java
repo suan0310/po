@@ -9,7 +9,9 @@ public class ProductVO {
    
    private String mainCategoryName;
    private int productNo;
-   private String subCategoryName;
+
+   private String subCategory;
+   private String mainCategory;
    private String productName;
    private int productPrice;
    private Date productDate;

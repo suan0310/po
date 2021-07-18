@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.bebe.spring.admin.dao.AdminDao"> <!-- 실행 인터페이스위치 -->
+
+<update id="updatePasswd" parameterType="String">
+		update users set passwd = #{value} where id='admin'
+</update>
+
+<insert id="insertProduct" parameterType="ProductOptionsVO">
+		INSERT ALL
+		INTO product (product_no, sub_category, main_category, product_name, product_price, product_date)
+		VALUES(
+		#{subCategory}||nextno.NEXTVAL,
+		#{subCategory},
+		#{mainCategory},
+		#{productName},
+		#{productPrice},
+<!-- 	#{productImg1},
+		#{productImg2},
+		#{productImg3},
+		#{productImg4},  -->
+		TO_DATE(SYSDATE,'YYYY-MM-DD'))
+		
+		INTO options
+		VALUES(
+		#{subCategory}||nextno.NEXTVAL,
+		#{productColor},
+		#{productSize},
+		#{productStock})
+		
+		SELECT * FROM DUAL
+</insert>
+
+<insert id="insertOptions" parameterType="OptionsVO">
+		INSERT INTO options 	VALUES(
+		#{productNo},
+		#{productColor},
+		#{productSize},
+		#{productStock})
+</insert>
+
+
+<select id="selectProductList"  resultType="ProductOptionsVO">
+		 SELECT * FROM product WHERE sub_category = #{subCategory}
+ 		 <if test="searchWord != null">
+		 	AND product_name LIKE '%'||#{searchWord}||'%'
+		 </if> 
+</select>
+
+<select id="selectOrdersList" resultType="OrdersVO">
+		SELECT * FROM orders 
+		<choose>
+		 <when test="mainSelect == 1">
+		 	WHERE sts_delivery LIKE #{subSelect}
+		 </when> 
+		 <when test="mainSelect == 2">
+		 	WHERE sts_cancel LIKE #{subSelect}
+		 </when>
+		 <when test="mainSelect == 3">
+		 	WHERE id LIKE #{searchWord}
+		 </when> 
+		 <when test="mainSelect == 4">
+		 	WHERE order_no = #{searchWord}
+		 </when> 
+		 </choose>
+</select>
+
+
+<select id="selectUsers" resultType="UsersVO">
+		SELECT * FROM users WHERE NOT (id = 'admin')
+</select>
+
+
+
+<select id="selectOptions" resultType="OptionsVO">
+		SELECT * FROM options
+</select>
+
+<delete id="deleteUser" parameterType="String">
+		DELETE FROM users WHERE id = '${value}'
+</delete>
+
+<delete id="deleteProduct" parameterType="int">
+		DELETE FROM product WHERE product_no = ${value}
+</delete> 
+
+<delete id="deleteOptions" parameterType="int">
+		DELETE FROM options WHERE product_no = ${value}
+</delete> 
+
+<update id="updateOrderSts" parameterType="OrdersVO">
+		UPDATE orders SET sts_delivery=#{stsDelivery} , sts_cancel = #{stsCancel} WHERE order_no = #{orderNo}
+</update>
+
+
+
+
+</mapper>

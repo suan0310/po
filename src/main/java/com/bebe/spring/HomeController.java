@@ -34,7 +34,9 @@ public class HomeController {
 
 		model.addAttribute("serverTime", formattedDate);
 
-		return "/user/cart";
+
+		return "/index/index";
+
 	}
 	
 
