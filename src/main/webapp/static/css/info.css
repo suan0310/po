@@ -93,7 +93,7 @@ td {
     font-weight: bold;
 }
 
-.btn {
+.button {
     width: 100px;
     height: 30px;
     background-color: #badbf9;
@@ -102,7 +102,7 @@ td {
     border: 1px #badbf9;
 }
 
-.btn:hover {
+.button:hover {
     color: #badbf9;
     background-color: white;
 }

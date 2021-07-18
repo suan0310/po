@@ -1,4 +1,4 @@
-$(function() {
+/*$(function() {
   $('.purchaseBtn1').click( function() {
     if( $(this).val() == '취소' ) {
       $(this).val('취소완료');
@@ -10,3 +10,6 @@ $(function() {
     }
   });
 });
+*/
+
+function showPopup() { window.open("/user/post_info", "배송 정보", "width=800, height=387, left=600, top=250"); }
