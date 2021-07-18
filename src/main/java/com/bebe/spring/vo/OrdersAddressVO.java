@@ -1,5 +1,6 @@
 package com.bebe.spring.vo;
 
+
 import java.util.Date;
 
 import lombok.Data;

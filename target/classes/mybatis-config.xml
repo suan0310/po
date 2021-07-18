@@ -6,8 +6,17 @@
 <configuration>
     <settings>
           <setting name="mapUnderscoreToCamelCase" value="true"/>
+          <setting name="jdbcTypeForNull" value="NULL"/>
     </settings>
     <typeAliases>
+          <typeAlias alias="LoginVo" type="com.bebe.spring.login.vo.LoginVo" />
+          <typeAlias alias="FruitsVo" type="com.bebe.spring.mybatis.vo.FruitsVo"/> 
+          <typeAlias alias="ProductVO" type ="com.bebe.spring.vo.ProductVO"/>
+          <typeAlias alias= "OrdersAddressVO" type="com.bebe.spring.vo.OrdersAddressVO"/>
+          <typeAlias alias="Criteria" type="com.bebe.spring.vo.Criteria"/>
+          <typeAlias alias="pager" type="com.bebe.spring.vo.pager"/>
+          <typeAlias alias="ReviewVO" type = "com.bebe.spring.vo.ReviewVO"/>
+         <typeAlias alias="CartVO" type="com.bebe.spring.vo.CartVO"/>
           <typeAlias alias="UsersVO" type="com.bebe.spring.vo.UsersVO" />
           <typeAlias alias="ProductOptionsVO" type="com.bebe.spring.vo.ProductOptionsVO"/> 
           <typeAlias alias="ProductSearchVO" type="com.bebe.spring.vo.ProductSearchVO"/> 

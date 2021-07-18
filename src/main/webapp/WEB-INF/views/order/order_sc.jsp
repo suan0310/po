@@ -23,7 +23,7 @@
         <section class="confirm">
             <h1>결제가 완료되었습니다.</h1>
             <h4>감사합니다.</h4>
-            <a href="#"><input type="button" value="확인"></a>
+            <a href="/index/index"><input type="button" value="확인"></a>
         </section>
     </div>
     

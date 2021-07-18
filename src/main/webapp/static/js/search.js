@@ -1,7 +1,6 @@
 let btn = document.querySelector(".btn");
         let search = document.querySelector(".search");
-        let bell = document.querySelector(".bell");
-        let alarm = document.querySelector(".alarm");
+
         let cls = document.querySelector(".fa");
         let header = document.querySelector("#header");
 
@@ -15,14 +14,6 @@ let btn = document.querySelector(".btn");
 
         cls.addEventListener('click', () => {
             search.classList.remove("active")
-        });
-
-        bell.addEventListener('click', () => {
-            if (alarm.classList.contains("active")) {
-                alarm.classList.remove("active")
-            } else {
-                alarm.classList.add("active")
-            }
         });
 
         document.addEventListener('scroll', () => {
