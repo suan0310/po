@@ -11,3 +11,4 @@ public class UsersVO {
 	private String answer;
 	private String emailDomain;
 }
+

@@ -14,7 +14,7 @@ body{
 /* header .headerbx .search .fa:hover{
     transform: rotateY(360deg);
 } */
-/* -----------------메인영역--------------------- */
+/* -----------------硫붿씤�쁺�뿭--------------------- */
 
 .main{
     height: 200vh;
@@ -22,16 +22,16 @@ body{
     background-color: #fff;
     margin: 0 auto;
     display: flex;
-    justify-content: center;
+ 
     align-items: center;
     flex-direction: column;
 
 }
-/* -----------------주문하기--------------------- */
+/* -----------------二쇰Ц�븯湲�--------------------- */
 
 .main .orderbx{
     margin-bottom: 100px;
-    margin-top: 80px;
+    margin-top: 170px;
 }
 .main .orderbx .title{
     font-size: 25px;
@@ -75,7 +75,7 @@ body{
     font-size: 20px;
     margin-top: 10px;
 }
-/* -----------------배송영역--------------------- */
+/* -----------------諛곗넚�쁺�뿭--------------------- */
 
 .main .postbx{
 margin-bottom: 100px;
@@ -127,7 +127,7 @@ margin-bottom: 100px;
     font-size: 12px;
     /* border: 1px solid black; */
 }
-/* -----------------결제영역--------------------- */
+/* -----------------寃곗젣�쁺�뿭--------------------- */
 .main .paybx{
 margin-bottom: 50px;
 }
@@ -149,6 +149,9 @@ margin-bottom: 50px;
     font-size: 15px;
     font-family: 'Jua', sans-serif;
     font-weight: 100;
+}
+.hpay{
+	margin-left: 50%;
 }
 .main .hpay .cancel{
     width: 100px;
