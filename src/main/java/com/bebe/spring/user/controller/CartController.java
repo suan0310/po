@@ -53,7 +53,7 @@ public class CartController {
 		return mav;
 	}
 	
-	@RequestMapping(value="/goOrder", method=RequestMethod.POST)
+	@RequestMapping(value="/goOrder", method=RequestMethod.GET)
 	public ModelAndView order(CartVO cv, @RequestParam(value="RowCheck") List<String> chArr) {
 		ModelAndView mav= new ModelAndView("/order/order");
 		int productNo=0;
@@ -61,6 +61,7 @@ public class CartController {
 			productNo= Integer.parseInt(i);
 			cv.setProductNo(productNo);
 			cartService.order(cv);
+			mav.addObject("order",cartService.order(cv));
 		}
 		mav.addObject("order",cartService.order(cv));
 		return mav;

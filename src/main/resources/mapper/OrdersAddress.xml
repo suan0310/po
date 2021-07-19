@@ -8,5 +8,5 @@
 		into address values('okkk',or_no.nextval ,#{zipcode},#{addr},#{addrDetail},#{tel},#{addrReceiver}, #{addrRequest})
 		select * from dual
 	</insert>
-
+	
 </mapper>
