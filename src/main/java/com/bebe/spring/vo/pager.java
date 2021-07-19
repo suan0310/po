@@ -1,10 +1,6 @@
 package com.bebe.spring.vo;
 
-import java.util.Date;
-
-import org.springframework.beans.factory.annotation.Autowired;
-
-import com.bebe.spring.search.service.SearchService;
+import org.springframework.web.util.UriComponentsBuilder;
 
 import lombok.Data;
 
@@ -43,6 +39,16 @@ public class pager {
 			
 			next = endPage * cri.getPerPageNum()>=totalCount? false:true;
 	}
-	
+	public String makeQuery(int page, boolean needSearch) {
+		UriComponentsBuilder uriComponentsBuilder = UriComponentsBuilder.newInstance()
+			.queryParam("page", page)
+			.queryParam("perPageNum", this.cri.getPerPageNum());
+		//검색 한 경우		
+		if (this.cri.getKeyword() != null) {
+			uriComponentsBuilder			
+				.queryParam("keyword", this.cri.getKeyword());
+		}
+		return uriComponentsBuilder.build().encode().toString();
+	}
 	
 }

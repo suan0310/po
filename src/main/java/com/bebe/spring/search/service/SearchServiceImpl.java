@@ -18,15 +18,32 @@ public class SearchServiceImpl implements SearchService {
 
 	@Override
 	public Integer count(Criteria cri) {
-		
 		return searchDao.count(cri);
+	}
+	@Override
+	public List<ProductVO> getlist(Criteria cri) {
+		return searchDao.getlist(cri);
 	}
 
 
 	@Override
-	public List<ProductVO> getlist(Criteria cri) {
-		
-		return searchDao.getlist(cri);
+	public Integer scount(Criteria cri) {
+		// TODO Auto-generated method stub
+		System.out.println("쟤");
+		System.out.println(searchDao.scount(cri));
+		System.out.println(cri);
+		return searchDao.scount(cri);
+	}
+
+
+	@Override
+	public List<ProductVO> searchlist(Criteria cri) {
+		// TODO Auto-generated method stub
+		System.out.println("얘");
+		System.out.println(searchDao.searchlist(cri));
+		System.out.println(searchDao);
+		System.out.println(cri);
+		return searchDao.searchlist(cri);
 	}
 
 }

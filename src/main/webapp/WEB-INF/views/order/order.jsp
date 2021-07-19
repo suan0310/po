@@ -38,11 +38,12 @@
 								<th style="width: 100px;">할인금액</th>
 								<th style="border-right: hidden">결제금액</th>
 							</tr>
+							<c:forEach items="${order}" var="cart">
 							<tr>
 								<td style="border-left: hidden" align=right><img
 									src="/img/a.jpg" alt="a" width="120px" height="120px"></td>
 								<td style="border-left: hidden" align="left">
-									<h2>강아지 장난감 종합선물세트</h2>
+									<h2>${cart.productName }</h2>
 									<h2>50종 종합(제품명)</h2>
 									<h2>사이즈: S</h2>
 									<h1>8,000원</h1>
@@ -53,7 +54,7 @@
 									<h1>8,000원</h1>
 								</td>
 							</tr>
-
+							</c:forEach>
 
 
 
