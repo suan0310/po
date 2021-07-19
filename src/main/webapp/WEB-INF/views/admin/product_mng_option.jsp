@@ -34,7 +34,7 @@
 
     <input class="button" value="추가" id="addOp" type="submit">
     </form>
-    
+    <input class="button" value="닫기" type="text" id="close">
 </body>
 <script>
 
@@ -43,7 +43,11 @@
 	alert("옵션이 추가되었습니다.") ;
  }
  });
-
+ 
+ $('#close').click(function() {
+	 window.opener.location.reload();    //부모창 reload
+	 window.close();    //현재 팝업창 Close
+	 });
  
 </script>
 </html>
