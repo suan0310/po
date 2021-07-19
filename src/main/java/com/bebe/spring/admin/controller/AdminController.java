@@ -190,7 +190,7 @@ public class AdminController {
 		mv.addObject("userlist", userlist);		
 		return mv;
 	}		
-	
+	//오용욱 테스트
 	//유저 관리 페이지 - 삭제 버튼 눌렀을 때
 	@RequestMapping(value="/user_mng", method = RequestMethod.POST)
 	public ModelAndView adminUsermngPost(String id) {
@@ -201,6 +201,6 @@ public class AdminController {
 		mv.addObject("userlist", userlist);		
 		return mv;
 	}	
-		
+		//주석ㄴㄴㄴㄴ
 //주석 오용욱 테스트
 }
