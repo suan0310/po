@@ -61,8 +61,10 @@ public class CartController {
 			productNo= Integer.parseInt(i);
 			cv.setProductNo(productNo);
 			cartService.order(cv);
+			mav.addObject("order",cartService.order(cv));
 		}
 		mav.addObject("order",cartService.order(cv));
+		System.out.println(cartService.order(cv));
 		return mav;
 	}
 		

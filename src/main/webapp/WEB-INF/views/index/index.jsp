@@ -99,7 +99,7 @@
 					<div class="Fbxs">
 				</c:if>
 				<div class="Fbx">
-					<a href="/product/proudct_deatail?product_no=${row.productNo }">
+					<a href="/product/product_deatail?product_no=${row.productNo }">
 						<img src="/img/a.jpg" alt="a">
 						<h1>${row.productName}</h1>
 						<div class="price">

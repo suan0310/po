@@ -8,15 +8,26 @@
 
 	
 	<select id="count" resultType="Integer" parameterType="Criteria">
-		select count(*) from product	where sub_category_name=#{subCategoryName}
+		select count(*) from product	where sub_category=#{subCategory}
 	</select>
 	
 	
 	<select id="getlist" resultType="ProductVO" parameterType="Criteria">
 
-	select product_no,product_name,product_price,sub_category_name, product_date from 
-      (select rownum rnum,product_no, product_name, product_price, sub_category_name, product_date from  
-        (select * from product where sub_category_name = #{subCategoryName} order by product_date desc)) 
+	select product_no,product_name,product_price,sub_category, product_date from 
+      (select rownum rnum,product_no, product_name, product_price, sub_category, product_date from  
+        (select * from product where sub_category = #{subCategory} order by product_date desc)) 
+            where rnum between #{num} and #{nuum} order by product_date
+	</select>
+	
+	<select id="scount" resultType="Integer" parameterType="Criteria">
+		select count(*) from product where product_name like '%'||#{keyword}||'%'
+	</select>
+	<select id="searchlist" resultType="ProductVO" parameterType="Criteria">
+
+	select product_no,product_name,product_price, product_date from 
+      (select rownum rnum,product_no, product_name, product_price, product_date from  
+        (select * from product where product_name like '%'||#{keyword}||'%' order by product_date desc)) 
             where rnum between #{num} and #{nuum} order by product_date
 	</select>
 	

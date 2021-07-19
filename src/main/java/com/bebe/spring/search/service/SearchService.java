@@ -12,5 +12,6 @@ public interface SearchService {
 //출력
 	public List<ProductVO> getlist(Criteria cri);
 
-
+	public Integer scount(Criteria cri);
+	public List<ProductVO> searchlist(Criteria cri);
 }
