@@ -53,7 +53,7 @@ public class CartController {
 		return mav;
 	}
 	
-	@RequestMapping(value="/goOrder", method=RequestMethod.GET)
+	@RequestMapping(value="/goOrder", method=RequestMethod.POST)
 	public ModelAndView order(CartVO cv, @RequestParam(value="RowCheck") List<String> chArr) {
 		ModelAndView mav= new ModelAndView("/order/order");
 		int productNo=0;
