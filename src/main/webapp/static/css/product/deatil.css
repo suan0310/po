@@ -88,7 +88,6 @@ td {
   margin-top: 239px;
   margin-left: 300px;
   width: 800px;
-  height: auto;
 }
 
 #cont1 {
@@ -165,7 +164,6 @@ td {
 }
 
 #request-popup-click {  /*답변시*/
-  display: none;
   font-size: 13px;
   border: 1px solid;
   width: 600px;
@@ -173,9 +171,21 @@ td {
   height: 850px;
   position: absolute;
   margin-left: 600px;
-  display: show;
   top: 300px;
 }
+
+
+
+#request-popup-newclick{
+	
+ font-size: 13px;
+  border: 1px solid;
+  width: 300px;
+  background-color:#f7c10c;
+  height: 500px;
+  position: left;
+}
+
 
 .customer-reviews1,
 .customer-reviews2 {

@@ -5,6 +5,7 @@
 
 <configuration>
     <settings>
+<<<<<<< HEAD
           <setting name="mapUnderscoreToCamelCase" value="true"/>
           <setting name="jdbcTypeForNull" value="NULL"/>
     </settings>
@@ -23,6 +24,15 @@
           <typeAlias alias="OrdersSearchVO" type="com.bebe.spring.vo.OrdersSearchVO"/> 
           <typeAlias alias="ProductOrdersVO" type="com.bebe.spring.vo.ProductOrdersVO"/> 
           <typeAlias alias="OrdersAddressVO" type="com.bebe.spring.vo.OrdersAddressVO"/> 
+=======
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+        <setting name="jdbcTypeForNull" value="NULL" />
+    </settings>
+    <typeAliases>
+          <typeAlias alias="FruitsVo" type="com.bebe.spring.mybatis.vo.FruitsVo"/>
+          <typeAlias alias="LoginVo" type="com.bebe.spring.login.vo.LoginVo" />
+          <typeAlias alias="DetailVO" type="com.bebe.spring.vo.ProductVO"/> 
+>>>>>>> origin/nikki_work
     </typeAliases>
 </configuration>
 
