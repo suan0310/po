@@ -80,6 +80,7 @@ window.open(url, "배송정보", option).focus();
 
 function stsCheck(sts){
 	if(sts == '취소대기') return false;
+	else if(sts == '취소완료') return false;
 	else return true;	
 	}
 
