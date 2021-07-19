@@ -64,6 +64,7 @@ public class CartController {
 			mav.addObject("order",cartService.order(cv));
 		}
 		mav.addObject("order",cartService.order(cv));
+		System.out.println(cartService.order(cv));
 		return mav;
 	}
 		
