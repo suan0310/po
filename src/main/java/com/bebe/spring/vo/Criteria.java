@@ -2,6 +2,8 @@ package com.bebe.spring.vo;
 
 import java.util.Date;
 
+import org.springframework.web.util.UriComponentsBuilder;
+
 import lombok.Data;
 
 @Data
@@ -19,7 +21,7 @@ public class Criteria {
 	   private int productSales;
 	   private int productTimesale;   
 	
-	
+	   private String keyword;
 	
 	private int page;
 	private int perPageNum;
@@ -30,6 +32,7 @@ public class Criteria {
 	public Criteria() {
 		this.page = 1;
 		this.perPageNum =6;
+		this.keyword= null;
 
 	}
 
@@ -64,4 +67,19 @@ public class Criteria {
 	public int getPage() {
 		return page;
 	}
+	
+	
+	
+	
+	public String makeQuery() {
+		UriComponentsBuilder uriComponentsBuilder = UriComponentsBuilder.newInstance()
+				.queryParam("page", page)
+				.queryParam("perPageNum", this.perPageNum);
+				
+	
+			uriComponentsBuilder.queryParam("keyword", this.keyword);
+
+		return uriComponentsBuilder.build().encode().toString();
+	}
+	
 }
