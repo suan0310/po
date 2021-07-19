@@ -5,11 +5,13 @@
 
 <configuration>
     <settings>
-          <setting name="mapUnderscoreToCamelCase" value="true"/>
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+        <setting name="jdbcTypeForNull" value="NULL" />
     </settings>
     <typeAliases>
+          <typeAlias alias="FruitsVo" type="com.bebe.spring.mybatis.vo.FruitsVo"/>
           <typeAlias alias="LoginVo" type="com.bebe.spring.login.vo.LoginVo" />
-          <typeAlias alias="FruitsVo" type="com.bebe.spring.mybatis.vo.FruitsVo"/> 
+          <typeAlias alias="DetailVO" type="com.bebe.spring.vo.ProductVO"/> 
     </typeAliases>
 </configuration>
 

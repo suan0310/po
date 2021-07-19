@@ -23,7 +23,7 @@ public class LoginController {
 		return "/login/login";
 	}	
 	
-	@RequestMapping(value = "", method = RequestMethod.POST)
+	@RequestMapping(value = "/login.do", method = RequestMethod.GET)
 	public String loginPost(LoginVo loginVo) {
 		System.out.println("로그인페이지 이동");
 		int num = loginService.selectUser(loginVo);
