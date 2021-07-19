@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+
+<mapper namespace="com.bebe.spring.search.dao.SearchDAO"> <!-- 실행 인터페이스위치 -->
+
+	
+	<select id="count" resultType="Integer" parameterType="Criteria">
+		select count(*) from product	where sub_category=#{subCategory}
+	</select>
+	
+	
+	<select id="getlist" resultType="ProductVO" parameterType="Criteria">
+
+	select product_no,product_name,product_price,sub_category, product_date from 
+      (select rownum rnum,product_no, product_name, product_price, sub_category, product_date from  
+        (select * from product where sub_category = #{subCategory} order by product_date desc)) 
+            where rnum between #{num} and #{nuum} order by product_date
+	</select>
+	
+	<select id="scount" resultType="Integer" parameterType="Criteria">
+		select count(*) from product where product_name like '%'||#{keyword}||'%'
+	</select>
+	<select id="searchlist" resultType="ProductVO" parameterType="Criteria">
+
+	select product_no,product_name,product_price, product_date from 
+      (select rownum rnum,product_no, product_name, product_price, product_date from  
+        (select * from product where product_name like '%'||#{keyword}||'%' order by product_date desc)) 
+            where rnum between #{num} and #{nuum} order by product_date
+	</select>
+	
+
+	
+	
+</mapper>
+
