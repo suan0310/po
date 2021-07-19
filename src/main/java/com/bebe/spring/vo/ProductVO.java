@@ -7,16 +7,18 @@ import lombok.Data;
 @Data
 public class ProductVO {
    
+   private String mainCategoryName;
    private int productNo;
+
    private String subCategory;
    private String mainCategory;
    private String productName;
    private int productPrice;
+   private Date productDate;
    private String productImg1;
    private String productImg2;
    private String productImg3;
    private String productImg4;
-   private Date productDate;
    private int productSales;
    private int productTimesale;   
 
