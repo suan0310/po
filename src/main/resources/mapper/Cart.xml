@@ -10,7 +10,7 @@
 	<delete id="delete">
 		delete cart where id='aaa' and product_no=#{productNo}
 	</delete>
-	<select id="order" resultType="CartVO">
+	<select id="order" resultType="List" parameterType="CartVO">
 		<!-- select p.* , c.* -->
 		<!-- from cart c inner join product p on c.product_no=p.product_no where 
 			c.id='aaa' and p.product_no=#{productNo} -->
