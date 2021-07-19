@@ -5,7 +5,6 @@
 
 <configuration>
     <settings>
-<<<<<<< HEAD
           <setting name="mapUnderscoreToCamelCase" value="true"/>
           <setting name="jdbcTypeForNull" value="NULL"/>
     </settings>
@@ -15,7 +14,7 @@
           <typeAlias alias="Criteria" type="com.bebe.spring.vo.Criteria"/>
           <typeAlias alias="pager" type="com.bebe.spring.vo.pager"/>
           <typeAlias alias="ReviewVO" type = "com.bebe.spring.vo.ReviewVO"/>
-         <typeAlias alias="CartVO" type="com.bebe.spring.vo.CartVO"/>
+          <typeAlias alias="CartVO" type="com.bebe.spring.vo.CartVO"/>
           <typeAlias alias="UsersVO" type="com.bebe.spring.vo.UsersVO" />
           <typeAlias alias="ProductOptionsVO" type="com.bebe.spring.vo.ProductOptionsVO"/> 
           <typeAlias alias="ProductSearchVO" type="com.bebe.spring.vo.ProductSearchVO"/> 
@@ -24,16 +23,10 @@
           <typeAlias alias="OrdersSearchVO" type="com.bebe.spring.vo.OrdersSearchVO"/> 
           <typeAlias alias="ProductOrdersVO" type="com.bebe.spring.vo.ProductOrdersVO"/> 
           <typeAlias alias="OrdersAddressVO" type="com.bebe.spring.vo.OrdersAddressVO"/> 
-=======
-        <setting name="mapUnderscoreToCamelCase" value="true"/>
-        <setting name="jdbcTypeForNull" value="NULL" />
-    </settings>
-    <typeAliases>
-          <typeAlias alias="FruitsVo" type="com.bebe.spring.mybatis.vo.FruitsVo"/>
-          <typeAlias alias="LoginVo" type="com.bebe.spring.login.vo.LoginVo" />
-          <typeAlias alias="DetailVO" type="com.bebe.spring.vo.ProductVO"/> 
->>>>>>> origin/nikki_work
-    </typeAliases>
+          <typeAlias alias="DetailVO" type="com.bebe.spring.vo.DetailVO"/> 
+ </typeAliases>
+
+    
 </configuration>
 
 

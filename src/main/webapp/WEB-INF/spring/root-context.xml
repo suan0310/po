@@ -43,10 +43,10 @@ SqlSessionFactory를 생성해주는 SqlSessionFactoryBean 객체를 먼저 설�
 		<property name="basePackage" value="com.bebe.spring.mybatis.dao" /> 
 	</bean> -->
 	
-	<!-- 트랜잭션 매니저 bean 을 등록합니다. -->
+	<!-- 트랜잭션 매니저 bean 을 등록합니다. 
 	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager"> 
 		<property name="dataSource" ref="dataSource" /> 
-	</bean>
+	</bean>-->
 	
 	<!-- 아노테이션 기반의 트랜잭션을 사용합니다. --> 
 <!-- 	<tx:annotation-driven transaction-manager="transactionManager"/>  -->
