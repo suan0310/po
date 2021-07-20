@@ -25,7 +25,7 @@
 				<%@ include file="admin_aside.jsp"%>
 			</div>
 
-			<div class="mainbox">
+			<div class="mainbox" >
 				<div class="purchase">
 					<h4>재고 관리</h4>
 					<hr style="border: solid black 2px;">
@@ -48,8 +48,8 @@
 				</form>
 			
 				<input id="delbtn" class="button" value="삭제" type="button" readonly>
-				<div id="productmain">
-					<div id="productlist">
+				<div id="productmain" style="overflow:auto; height: 600px;">
+					<div id="productlist" >
 				<table id="manager">
 					<tr>
 						<th >선택</th>

@@ -28,7 +28,7 @@ public class DetailController {
 
 	@RequestMapping(value = "", method = RequestMethod.GET)
 	public String detail(Model model, DetailVO vo, HttpSession session) {
-		session.setAttribute("userid", "hoogun30");
+		session.setAttribute("userid", "admin");
 
 		List<DetailVO> listMain = detailService.selectDetailMain(vo);
 		List<DetailVO> listOne = detailService.selectOne(vo);

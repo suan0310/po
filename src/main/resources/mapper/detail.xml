@@ -32,22 +32,30 @@
 	<select id="selectReview" parameterType="DetailVO"
 		resultType="DetailVO">
 		select rv_no, id, rv_star, rv_date, rv_content, rv_best from review
-		where rv_no <![CDATA[ < ]]>
-		(select max(rv_no) from review where product_no= #{productNo}) order by rv_date desc
+		where product_no= #{productNo} and rv_no <![CDATA[ < ]]>
+		(select max(rv_no) from review ) order by rv_date desc
 	</select>
 	
 	<select id="selectRvBest1" parameterType="DetailVO" resultType="DetailVO">
-	select * from review where product_no = #{productNo} and rv_best = 1
+		select a.*, b.product_name
+		from review a, product b
+		where rv_best = 1
+		and a.product_no = b.product_no
+		order by product_name
 	</select>
 	
-	<select id="selectRvBest0" parameterType="DetailVO" resultType="DetailVO">
-	select * from review where product_no = #{productNo} and rv_best = 0
+	<select id="selectRvBest0" parameterType="DetailVO" resultType="DetailVO">	
+		select a.*, b.product_name
+		from review a, product b
+		where rv_best = 0
+		and a.product_no = b.product_no
+		order by product_name
 	</select>
 
 	<!-- 별점평균 -->
 	<select id="selectStarAvg" resultType="double" parameterType="DetailVO">
-		select avg(rv_star) as avg from review where product_no
-		= #{productNo}
+		select avg(rv_star) as avg from review 
+		where product_no = #{productNo}
 	</select>
 
 	<!-- 별점개수 -->
@@ -71,7 +79,9 @@
 			qs_title,
 			qs_date,
 			qs_secret
- 		from question order by qs_no desc
+ 			from question
+		where product_no = #{productNo}
+ 		 order by qs_no desc
 	</select>
  
 	<select id="selectOneQuestion" resultType="DetailVO" parameterType="DetailVO" >
@@ -79,7 +89,7 @@
 		a.qs_title, a.qs_content, b.qs_answer 
 		from question a, answer b
 		where b.qs_no = a.qs_no 
-		and a.qs_no = #{qsNo}		
+		and a.qs_no = #{qsNo}	
 	</select>
 	
 	<select id="selectOptions" resultType="DetailVO" parameterType="DetailVO">

@@ -19,6 +19,6 @@ function selDelete(){
  function selOrder(){
  	var frm = document.cart;
  	frm.action="/user/goOrder";
- 	frm.method="post";
+ 	frm.method="get";
  	frm.submit();
  	}

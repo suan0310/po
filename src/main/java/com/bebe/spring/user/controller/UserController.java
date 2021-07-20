@@ -16,7 +16,7 @@ import com.bebe.spring.vo.OrdersAddressVO;
 import com.bebe.spring.vo.ProductOrdersVO;
 
 @Controller
-@RequestMapping(value="user")
+@RequestMapping(value="/user")
 public class UserController {
 
 	@Resource (name="userService")
