@@ -9,6 +9,6 @@ public interface CartDAO {
 		public int delete(CartVO cv);
 		
 		
-		public List<CartVO> order(CartVO cv);
+		public CartVO order(CartVO cv);
 		
 }

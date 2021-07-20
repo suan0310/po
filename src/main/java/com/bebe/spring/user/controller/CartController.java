@@ -1,5 +1,6 @@
 package com.bebe.spring.user.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -53,17 +54,20 @@ public class CartController {
 		return mav;
 	}
 	
-	@RequestMapping(value="/goOrder", method=RequestMethod.POST)
+	@RequestMapping(value="/goOrder", method=RequestMethod.GET)
 	public ModelAndView order(CartVO cv, @RequestParam(value="RowCheck") List<String> chArr) {
 		ModelAndView mav= new ModelAndView("/order/order");
+		ArrayList<CartVO> list = new ArrayList<>();
+		
 		int productNo=0;
 		for(String i:chArr) {
 			productNo= Integer.parseInt(i);
 			cv.setProductNo(productNo);
-			cartService.order(cv);
-			mav.addObject("order",cartService.order(cv));
+//			cartService.order(cv);
+			list.add(cartService.order(cv));
 		}
-		mav.addObject("order",cartService.order(cv));
+		mav.addObject("order", list);
+		System.out.println(mav);
 		System.out.println(cartService.order(cv));
 		return mav;
 	}
