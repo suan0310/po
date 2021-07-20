@@ -9,6 +9,7 @@
           <setting name="jdbcTypeForNull" value="NULL"/>
     </settings>
     <typeAliases>
+<<<<<<< HEAD
           <typeAlias alias="ProductVO" type ="com.bebe.spring.vo.ProductVO"/>
           <typeAlias alias= "OrdersAddressVO" type="com.bebe.spring.vo.OrdersAddressVO"/>
           <typeAlias alias="Criteria" type="com.bebe.spring.vo.Criteria"/>
@@ -27,6 +28,14 @@
  </typeAliases>
 
     
+=======
+          <typeAlias alias="LoginVo" type="com.bebe.spring.login.vo.LoginVo" />
+          <typeAlias alias="FruitsVo" type="com.bebe.spring.mybatis.vo.FruitsVo"/> 
+          <typeAlias alias="UsersVO" type="com.bebe.spring.vo.UsersVO" />
+    	  <typeAlias alias="QuestionVO" type="com.bebe.spring.vo.QuestionVO" />
+    	  <typeAlias alias="ReviewVO" type="com.bebe.spring.vo.ReviewVO" />
+    </typeAliases>
+>>>>>>> origin/suan_work
 </configuration>
 
 

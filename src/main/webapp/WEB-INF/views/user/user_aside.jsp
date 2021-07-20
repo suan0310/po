@@ -2,33 +2,34 @@
     pageEncoding="UTF-8"%>
 
 <link rel="stylesheet" href="/css/aside.css">
-
+<%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <div class="half">
     <div class="name">
         <h4>마이페이지</h4> <br>
-        <p>hoogun30님 안녕하세요!</p>
+        <p>${users.id}님 안녕하세요!</p>
     </div>
     <div class="point">
         <img src="/img/man.png" alt="사람이미지"><br>
     </div>
     <div class="menulist">
         <div class="menu">
-            <a href="/html/user/user_info.html"><img src="/img/menu.png" alt="메뉴사진">
+            <a href="/user/user_info"><img src="/img/menu.png" alt="메뉴사진">
                 <p>회원 정보</p>
             </a>
         </div>
         <div class="menu">
-            <a href="/html/user/myLog.html"><img src="/img/menu.png" alt="메뉴사진">
+            <a href="/user/mylog"><img src="/img/menu.png" alt="메뉴사진">
                 <p>나의 활동</p>
             </a>
         </div>
         <div class="menu">
-            <a href="/html/user/basket.html"><img src="/img/menu.png" alt="메뉴사진">
+            <a href="/user/basket"><img src="/img/menu.png" alt="메뉴사진">
                 <p>장바구니</p>
             </a>
         </div>
         <div class="menu">
-            <a href="/html/user/purchaseHistory.html"><img src="/img/menu.png" alt="메뉴사진">
+            <a href="/user/purchase_History"><img src="/img/menu.png" alt="메뉴사진">
                 <p>구매 내역</p>
             </a>
         </div>
