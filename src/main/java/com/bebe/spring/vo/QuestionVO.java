@@ -1,8 +1,7 @@
 package com.bebe.spring.vo;
 
-import java.util.Date;
-
 import lombok.Data;
+import java.util.Date;
 
 @Data
 public class QuestionVO {

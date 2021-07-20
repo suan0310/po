@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <link rel="stylesheet" href="/css/header.css">
 <div class="headerbx">
@@ -9,7 +10,7 @@
     <div class="menubx">
         <h6 class="shop"><a href="#">SHOP</a></h6>
         <input type="button" value="회원" class="pos">
-        <h6><a href="#">HONGGILDONG님</a></h4>
+        <h6><a href="/user/user_info">${users.id}님 </a></h4>
             <h6><a href="#">이벤트</a></h6>
             <h6><a href="#">게시판</a></h6>
             <h6><a href="#">로그아웃</a></h6>

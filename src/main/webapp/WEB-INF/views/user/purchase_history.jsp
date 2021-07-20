@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -10,7 +12,7 @@
     <link rel="stylesheet" href="/css/user/purchase_history.css">
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 
-    <title>Document</title>
+    <title>bebeshop</title>
 </head>
 
 <body>
@@ -33,76 +35,70 @@
                         <tr>
                             <th style="width: 100px; border-left : hidden;"> 주문번호</th>
                             <th colspan="2">제품정보</th>
-                            <th style="width: 100px;">수량</th>
                             <th style="width: 150px;">결제금액</th>
-                            <th style="width: 100px;">문의</th>
-                            <th style="width: 100px; border-right: hidden;">주문취소</th>
+                            <th style="width: 150px;">배송 현황</th>
+                            
+                            <th style="width: 150px; border-right: hidden;">반품/취소</th>
                         </tr>
                         <tr>
                             <td style="width: 100px; border-left: hidden"> 12312312</th>
-                                <td align=right><img src="/img/bebe.png" alt="a" width="120px" height="120px"></td>
-                                <td style="border-left: hidden" align="left">
-                                    <h3>강아지 장난감 종합선물세트</h2>
-                                        <h4>50종 종합(제품명)</h2>
-                                            <h3>사이즈: S</h2>
-                                                <h2>8,000원</h1>
-                                </td>
-                                <td align=center>4개</td>
+                            <td align=right><img src="/img/bebe.png" alt="a" width="120px" height="120px"></td>
+                            <td style="border-left: hidden" align="left">
+                                <h3>강아지 장난감 종합선물세트</h2>
+                                    <h4>50종 종합(제품명)</h2>
+                                        <h3>사이즈: S / 수량 : 4개</h2>
+                                            <h2>8,000원</h1>
+                            </td>
+                            
+                            <td align=center>
+                                <h1>32,000원</h1>
+                            </td>
+                            <td align=center><input id="postBtn" type="button" value="배송확인"></td>
 
-                                <td align=center>
-                                    <h1>32,000원</h1>
-                                </td>
-                                <td align=center>
-                                    <input id="purchaseBtn" type="button" value="문의">
-                                </td>
-                                <td align=center style=" border-right: hidden">
-                                    <input class="purchaseBtn1" type="button" value="취소" />
+                            <td align=center style=" border-right: hidden">
+                                <input class="purchaseBtn1" type="button" value="취소" />
 
-                                </td>
+                            </td>
                         </tr>
                         <tr>
                             <td style="width: 100px; border-left: hidden"> 12312312</th>
-                                <td align=right><img src="/img/bebe.png" alt="a" width="120px" height="120px"></td>
-                                <td style="border-left: hidden" align="left">
-                                    <h3>강아지 장난감 종합선물세트</h2>
-                                        <h4>50종 종합(제품명)</h2>
-                                            <h3>사이즈: S</h2>
-                                                <h2>8,000원</h1>
-                                </td>
-                                <td align=center>4개</td>
+                            <td align=right><img src="/img/bebe.png" alt="a" width="120px" height="120px"></td>
+                            <td style="border-left: hidden" align="left">
+                                <h3>강아지 장난감 종합선물세트</h2>
+                                    <h4>50종 종합(제품명)</h2>
+                                        <h3>사이즈: S / 수량 : 4개</h2>
+                                            <h2>8,000원</h1>
+                            </td>
+                            <td align=center>
+                                <h1>32,000원</h1>
+                            </td>
+                            <td align=center><input id="postBtn" type="button" value="배송확인"></td>
 
-                                <td align=center>
-                                    <h1>32,000원</h1>
-                                </td>
-                                <td align=center>
-                                    <input id="purchaseBtn" type="button" value="문의">
-                                </td>
-                                <td align=center style=" border-right: hidden">
-                                    <input class="purchaseBtn1" type="button" value="취소" />
-
-                                </td>
+                            
+                            
+                            <td align=center style=" border-right: hidden">
+                                <input class="purchaseBtn1" type="button" value="취소" />
+                            </td>
                         </tr>
                         <tr>
                             <td style="width: 100px; border-left: hidden"> 12312312</th>
-                                <td align=right><img src="/img/bebe.png" alt="a" width="120px" height="120px"></td>
-                                <td style="border-left: hidden" align="left">
-                                    <h3>강아지 장난감 종합선물세트</h2>
-                                        <h4>50종 종합(제품명)</h2>
-                                            <h3>사이즈: S</h2>
-                                                <h2>8,000원</h1>
-                                </td>
-                                <td align=center>4개</td>
+                            <td align=right><img src="/img/bebe.png" alt="a" width="120px" height="120px"></td>
+                            <td style="border-left: hidden" align="left">
+                                <h3>강아지 장난감 종합선물세트</h2>
+                                    <h4>50종 종합(제품명)</h2>
+                                        <h3>사이즈: S / 수량 : 4개</h2>
+                                            <h2>8,000원</h1>
+                            </td>
+                          
+                            <td align=center>
+                                <h1>32,000원</h1>
+                            </td>
+                              <td align=center><input id="postBtn" type="button" value="배송확인"></td>
 
-                                <td align=center>
-                                    <h1>32,000원</h1>
-                                </td>
-                                <td align=center>
-                                    <input id="purchaseBtn" type="button" value="문의">
-                                </td>
-                                <td align=center style=" border-right: hidden">
-                                    <input class="purchaseBtn1" type="button" value="취소" />
+                            <td align=center style=" border-right: hidden">
+                                <input class="purchaseBtn1" type="button" value="취소" />
 
-                                </td>
+                            </td>
                         </tr>
 
                     </table>
