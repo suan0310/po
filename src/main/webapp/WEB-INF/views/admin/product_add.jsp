@@ -91,17 +91,18 @@
 							</div>
 						</div>
 						<div id="imgbox">
-							제품이미지<br> <input type="file" accept="image/*" value="1" onchange="previewImage(this, 'img1')" /> 
-							<input type="file" accept="image/*" value="2" 	onchange="previewImage(this, 'img2')" /> <br> 
+							제품이미지<br> <input type="file" id="imgfile"  /> 
+	<!-- 						<input type="file" accept="image/*" value="2" 	onchange="previewImage(this, 'img2')" /> <br> 
 								<input type="file" accept="image/*" value="3"		onchange="previewImage(this, 'img3')" /> 
-								<input type="file"	accept="image/*" value="4" onchange="previewImage(this, 'img4')" />
+								<input type="file"	accept="image/*" value="4" onchange="previewImage(this, 'img4')" /> -->
 							<div class="imgsubbox">
-								<div id="img1"></div>
-								<div id="img2"></div>
+								<div id="img1"><img src="" /></div>
+<!-- 								<div id="img2"></div>
 								<div id="img3"></div>
-								<div id="img4"></div>
-							</div>
+								<div id="img4"></div> -->
+							</div>							
 						</div>
+						<%=request.getRealPath("/") %>
 					</div>
 				</form>
 			</div>
@@ -109,7 +110,17 @@
 	</div>
 </body>
 
-
+<script type="text/javascript">
+$("#imgfile").change(function(){
+	alert("함수탑승");
+   if(this.files && this.files[0]) {
+    var reader = new FileReader;
+    reader.onload = function(data) {
+     $("#img1 img").attr("src", data.target.result).width(200);        
+    }
+    reader.readAsDataURL(this.files[0]);
+   }
+  });</script>
 <script type="text/javascript" src="/js/search.js"></script>
 <script type="text/javascript " src="/js/admin_product_add.js?ver=2"></script>
 

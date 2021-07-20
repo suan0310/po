@@ -85,8 +85,8 @@ public class AdminController {
 		
 		adminService.updateOrderSts(orderVo);
 		
-		ModelAndView mv = new ModelAndView("/admin/order_mng");
-		return mv;
+		ModelAndView mav = new ModelAndView("/admin/order_mng");
+		return mav;
 	}	
 	
 
@@ -201,7 +201,5 @@ public class AdminController {
 		mv.addObject("userlist", userlist);		
 		return mv;
 	}	
-		//주석ㄴㄴㄴㄴ
-	//용욱이 되라
-//주석 오용욱 테스트
+
 }
