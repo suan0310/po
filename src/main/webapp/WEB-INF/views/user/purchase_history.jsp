@@ -35,10 +35,11 @@
                         <tr>
                             <th style="width: 100px; border-left : hidden;"> 주문번호</th>
                             <th colspan="2">제품정보</th>
+                            <th >제품수량</th>
                             <th style="width: 150px;">결제금액</th>
-                            <th style="width: 150px;">배송 현황</th>
+                            <th style="width: 150px;">배송현황</th>
                             
-                            <th style="width: 150px; border-right: hidden;">반품/취소</th>
+                            <th style="width: 150px; border-right: hidden;">취소현황</th>
                         </tr>
                        
                        <c:forEach items="${polist}" var="list">

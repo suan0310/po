@@ -24,7 +24,7 @@
             </a>
         </div>
         <div class="menu">
-            <a href="/user/basket"><img src="/img/menu.png" alt="메뉴사진">
+            <a href="/user/cart2"><img src="/img/menu.png" alt="메뉴사진">
                 <p>장바구니</p>
             </a>
         </div>
