@@ -28,7 +28,7 @@ public class CartServiceImpl implements CartService {
 	}
 
 	@Override
-	public List<CartVO> order(CartVO cv) {
+	public CartVO order(CartVO cv) {
 		// TODO Auto-generated method stub
 		return cartDAO.order(cv);
 	}
