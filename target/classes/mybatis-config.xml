@@ -9,6 +9,7 @@
           <setting name="jdbcTypeForNull" value="NULL"/>
     </settings>
     <typeAliases>
+
           <typeAlias alias="ProductVO" type ="com.bebe.spring.vo.ProductVO"/>
           <typeAlias alias= "OrdersAddressVO" type="com.bebe.spring.vo.OrdersAddressVO"/>
           <typeAlias alias="Criteria" type="com.bebe.spring.vo.Criteria"/>
@@ -24,9 +25,10 @@
           <typeAlias alias="ProductOrdersVO" type="com.bebe.spring.vo.ProductOrdersVO"/> 
           <typeAlias alias="OrdersAddressVO" type="com.bebe.spring.vo.OrdersAddressVO"/> 
           <typeAlias alias="DetailVO" type="com.bebe.spring.vo.DetailVO"/> 
- </typeAliases>
+    	  <typeAlias alias="QuestionVO" type="com.bebe.spring.vo.QuestionVO" />
+    	  <typeAlias alias="ReviewVO" type="com.bebe.spring.vo.ReviewVO" />
+    </typeAliases>
 
-    
 </configuration>
 
 
