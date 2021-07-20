@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.bebe.spring.detail.dao.DetailDao">
+	<!-- 실행 인터페이스위치 -->
+
+	<select id="selectDetailMain" parameterType="DetailVO"
+		resultType="DetailVO">
+		select
+		product_no,
+		product_name,
+		product_price,
+		product_img1,
+		product_img2,
+		product_img3,
+		product_img4
+		from product where product_no =
+		#{productNo}
+	</select>
+
+
+	<select id="selectOne" parameterType="DetailVO"
+		resultType="DetailVO">
+		<!-- select id, rv_star, rv_content, rv_date from review where rv_no = 
+			(select max(rv_no) from review) -->
+		select rv_no, id, rv_star, rv_content, rv_date, rv_best from review
+		where rv_no =
+		(select max(rv_no) from review where product_no= #{productNo})
+	</select>
+
+	<select id="selectReview" parameterType="DetailVO"
+		resultType="DetailVO">
+		select rv_no, id, rv_star, rv_date, rv_content, rv_best from review
+		where product_no= #{productNo} and rv_no <![CDATA[ < ]]>
+		(select max(rv_no) from review ) order by rv_date desc
+	</select>
+	
+	<select id="selectRvBest1" parameterType="DetailVO" resultType="DetailVO">
+		select a.*, b.product_name
+		from review a, product b
+		where rv_best = 1
+		and a.product_no = b.product_no
+		order by product_name
+	</select>
+	
+	<select id="selectRvBest0" parameterType="DetailVO" resultType="DetailVO">	
+		select a.*, b.product_name
+		from review a, product b
+		where rv_best = 0
+		and a.product_no = b.product_no
+		order by product_name
+	</select>
+
+	<!-- 별점평균 -->
+	<select id="selectStarAvg" resultType="double" parameterType="DetailVO">
+		select avg(rv_star) as avg from review 
+		where product_no = #{productNo}
+	</select>
+
+	<!-- 별점개수 -->
+	<select id="starCnt" resultType="DetailVO" parameterType="DetailVO">
+		select rv_star, count(*) as cnt from review where
+		product_no = #{productNo} group by rv_star
+	</select>
+
+	<!-- 별점 합 -->
+	<select id="starTotal" resultType="int" parameterType="DetailVO">
+		select
+		sum(count(*)) as total from review where product_no = #{productNo}
+		group by rv_star
+	</select>
+	
+	 <select id="selectAllQuestion" resultType="DetailVO" parameterType="DetailVO" >
+		select 
+			rownum,
+			qs_no,
+			id,
+			qs_title,
+			qs_date,
+			qs_secret
+ 			from question
+		where product_no = #{productNo}
+ 		 order by qs_no desc
+	</select>
+ 
+	<select id="selectOneQuestion" resultType="DetailVO" parameterType="DetailVO" >
+		select 
+		a.qs_title, a.qs_content, b.qs_answer 
+		from question a, answer b
+		where b.qs_no = a.qs_no 
+		and a.qs_no = #{qsNo}	
+	</select>
+	
+	<select id="selectOptions" resultType="DetailVO" parameterType="DetailVO">
+		select product_color from options where product_no= #{productNo} and product_stock!=0
+		 group by product_color
+	</select>
+	
+	<select id="selectSecondOptions" resultType="DetailVO" parameterType="DetailVO">
+		select product_size from options where 
+		product_no= #{productNo} and 
+        product_color = #{productColor} and 		
+		product_stock!=0
+	</select>
+	
+	<select id="selectStock" resultType="Integer" parameterType="DetailVO">
+		select product_stock from options where 
+		product_no= #{productNo} and 
+        product_color = #{productColor} and 		
+        product_size = #{productSize}
+	</select>
+
+	<insert id="insertReview" parameterType="DetailVO">
+		INSERT INTO review(rv_no, id, product_no, rv_content, rv_date, rv_star,
+		rv_best)
+		VALUES (
+		SEQ_AI.NEXTVAL, #{id}, #{productNo}, #{rvContent}, TO_DATE(SYSDATE,'YYYY-MM-DD'),
+		#{rvStar}, 0
+		)
+	</insert>
+
+	<insert id="insertQuestion" parameterType="DetailVO">
+	insert into question
+		values(
+		nextno_question.nextval,
+		#{productNo},
+		#{id},
+		#{qsTitle},
+		#{qsContent},
+		#{qsSecret},
+		TO_DATE(SYSDATE,'YYYY-MM-DD')
+		)
+	</insert>
+	
+	<insert id="insertAnswer"  parameterType="DetailVO">
+		insert into answer values(
+        nextno_answer.nextval, '답변준비중입니다.'
+        )
+	</insert>
+	
+	<insert id="updateAnswer" parameterType="DetailVO">
+		update answer 
+		set qs_answer = #{qsAnswer}
+		where qs_no = #{qsNo}
+	</insert>
+
+	<insert id="updateQuestion" parameterType="DetailVO">
+		update question
+		set
+		qs_title = #{qsTitle},
+		qs_content = #{qsContent}
+		where 
+		qs_no = #{qsNo}
+		
+	</insert>
+
+	<delete id="delQuestion">
+		delete question where qs_no = #{qsNo}
+	</delete>
+	
+	<delete id="delAnswer">
+		delete answer where qs_no = #{qsNo}
+	</delete>
+
+	<update id="updateRvBest1" parameterType="int">
+	update review set
+        rv_best = 1 
+        where rv_no = ${value}
+	</update>
+	
+	<update id="updateRvBest0" parameterType="int">
+	update review set
+        rv_best = 0 
+        where rv_no = ${value}
+	</update>
+	
+	<insert id="insertCart" parameterType="DetailVO">
+	insert into cart values(
+	#{productNo}, #{id, jdbcType=VARCHAR}, #{quantity}, #{productColor}, #{productSize}
+	)
+	</insert>
+	
+	<select id="selectCart"  parameterType="DetailVO" resultType="DetailVO">
+	select a.*, b.product_price from 
+		cart a, product b
+	where 
+		a.id= #{id} and
+		a.product_no = b.product_no
+	</select>
+	
+	<select id="selectProductPrice"  parameterType="DetailVO" resultType="Integer">
+		select product_price from product where product_no = #{productNo}
+	</select>
+
+</mapper>

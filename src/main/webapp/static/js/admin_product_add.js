@@ -8,14 +8,14 @@
 // })
 
     
-function previewImage(targetObj, View_area) {
+/*function previewImage(targetObj, View_area) {
     var preview = document.getElementById(View_area); //div id
     var ua = window.navigator.userAgent;
 
     var files = targetObj.files;
     for (var i = 0; i < files.length; i++) {
         var file = files[i];
-        var imageType = /image.*/; //이미지 파일일경우만.. 뿌려준다.
+        var imageType = /image.*; //이미지 파일일경우만.. 뿌려준다.
         if (!file.type.match(imageType))
             continue;
         var prevImg = document.getElementById("prev_" + View_area); //이전에 미리보기가 있다면 삭제
@@ -48,7 +48,18 @@ function previewImage(targetObj, View_area) {
             }
         }
     }
-}
+}*/
+
+/*  $("#imgfile").change(function(){
+	alert("함수탑승")
+   if(this.files && this.files[0]) {
+    var reader = new FileReader;
+    reader.onload = function(data) {
+     $("#img1 img").attr("src", data.target.result).width(500);        
+    }
+    reader.readAsDataURL(this.files[0]);
+   }
+  });*/
 
 function itemChange(){
  var changeItem = ["용품","의류","사료","간식"];  
