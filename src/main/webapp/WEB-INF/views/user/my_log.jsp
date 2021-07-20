@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -10,7 +13,7 @@
 
     <link rel="stylesheet" href="/css/user/my_log.css">
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-    <title>Document</title>
+    <title>bebeshop</title>
 </head>
 
 <body>
@@ -25,75 +28,57 @@
             <div class="aside">
             	<%@ include file="user_aside.jsp" %>
             </div>
-
+<form action="mylog" method="post">
             <div class="mainbox">
                 <div class="log">
                     <h4>나의 활동</h4>
                     <hr style="border: 2px black solid;">
                     <input type="date" id="log_date" name="log_date" value="2021-06-30">
-                    <select id="select" name="select">
-                        <option value="select">선택사항</option>
+                    
+                    
+                    
+                    <select id="select" name="select" required>
+                        <option value="">선택사항</option>
                         <option value="question">문의</option>
                         <option value="review">리뷰</option>
                     </select>
-                    <input id="btn" type="button" value="검색">
+                    <input id="btn" type="submit" value="검색">
+                    
+                    </form>
+                    
                     <hr style="border: 1px #cfcfcf solid;">
                 </div>
                 <div class="log_table">
                     <table>
                         <tr>
                             <th id="table_date">작성일자</th>
-                            <th id="table_select">선택사항</th>
+                            <th id="table_select">상품번호</th>
                             <th id="table_content">작성내용</th>
                         </tr>
+                       <c:if test="${select eq 'question'}"> 
+                        <c:forEach items="${list}" var="q">
                         <tr>
-                            <td>2021.06.01</td>
-                            <td>문의</td>
-                            <td><a href="#">어려워요</a></td>
+                            <td><fmt:formatDate value="${q.qsDate}" pattern="yy-MM-dd"/></td>
+                            <td><a href="/productdetail?productNo= ${q.productNo}">${q.productNo}</a></td>
+                            <td>${q.qsContent}</td>
                         </tr>
+                        </c:forEach>
+                        </c:if>
+                        
+                        <c:if test="${select eq 'review'}"> 
+                        <c:forEach items="${list}" var="r">
                         <tr>
-                            <td>2021.05.03</td>
-                            <td>리뷰</td>
-                            <td>너무 어려워요</td>
+                            <td><fmt:formatDate value="${r.rvDate}" pattern="yy-MM-dd"/> </td>
+                            <td><a href="#">${r.productNo}</a></td>
+                            <td>${r.rvContent}</td>
                         </tr>
-                        <tr>
-                            <td>2021.06.01</td>
-                            <td>문의</td>
-                            <td>어려워요</td>
-                        </tr>
-                        <tr>
-                            <td>2021.05.03</td>
-                            <td>리뷰</td>
-                            <td>너무 어려워요</td>
-                        </tr>
-                        <tr>
-                            <td>2021.06.01</td>
-                            <td>문의</td>
-                            <td>어려워요</td>
-                        </tr>
-                        <tr>
-                            <td>2021.05.03</td>
-                            <td>리뷰</td>
-                            <td>너무 어려워요</td>
-                        </tr>
-                        <tr>
-                            <td>2021.06.01</td>
-                            <td>문의</td>
-                            <td>어려워요</td>
-                        </tr>
-                        <tr>
-                            <td>2021.05.03</td>
-                            <td>리뷰</td>
-                            <td>너무 어려워요</td>
-                        </tr>
-                        <tr>
-                            <td>2021.05.03</td>
-                            <td>리뷰</td>
-                            <td>너무 어려워요</td>
-                        </tr>
+                        </c:forEach>
+                          </c:if>
+                        
                     </table>
                 </div>
             </div>
+            
         </div>
     </div>
 </body>
