@@ -29,13 +29,10 @@ public class HomeController {
 
 		model.addAttribute("serverTime", formattedDate);
 
-<<<<<<< HEAD
 
 		return "/index/index";
 
-=======
-		return "user/my_log";
->>>>>>> origin/suan_work
+
 	}
 	
 

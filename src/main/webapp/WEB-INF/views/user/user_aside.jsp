@@ -29,7 +29,7 @@
             </a>
         </div>
         <div class="menu">
-            <a href="/user/purchase_History"><img src="/img/menu.png" alt="메뉴사진">
+            <a href="/user/purchase_history"><img src="/img/menu.png" alt="메뉴사진">
                 <p>구매 내역</p>
             </a>
         </div>

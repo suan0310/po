@@ -1,11 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<<<<<<< HEAD
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-=======
-<%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
->>>>>>> origin/suan_work
+
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -47,7 +43,6 @@
                        
                        <c:forEach items="${polist}" var="list">
                         <tr>
-<<<<<<< HEAD
                                 <td style="width: 100px; border-left: hidden">${list.orderNo}</td>
                                 <td align=right><img src="/img/bebe.png" alt="a" width="120px" height="120px"></td>
                                 <td style="border-left: hidden" align="left">
@@ -69,68 +64,6 @@
                                 </td>
                         </tr>
                         </c:forEach>
-=======
-                            <td style="width: 100px; border-left: hidden"> 12312312</th>
-                            <td align=right><img src="/img/bebe.png" alt="a" width="120px" height="120px"></td>
-                            <td style="border-left: hidden" align="left">
-                                <h3>강아지 장난감 종합선물세트</h2>
-                                    <h4>50종 종합(제품명)</h2>
-                                        <h3>사이즈: S / 수량 : 4개</h2>
-                                            <h2>8,000원</h1>
-                            </td>
-                            
-                            <td align=center>
-                                <h1>32,000원</h1>
-                            </td>
-                            <td align=center><input id="postBtn" type="button" value="배송확인"></td>
-
-                            <td align=center style=" border-right: hidden">
-                                <input class="purchaseBtn1" type="button" value="취소" />
-
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="width: 100px; border-left: hidden"> 12312312</th>
-                            <td align=right><img src="/img/bebe.png" alt="a" width="120px" height="120px"></td>
-                            <td style="border-left: hidden" align="left">
-                                <h3>강아지 장난감 종합선물세트</h2>
-                                    <h4>50종 종합(제품명)</h2>
-                                        <h3>사이즈: S / 수량 : 4개</h2>
-                                            <h2>8,000원</h1>
-                            </td>
-                            <td align=center>
-                                <h1>32,000원</h1>
-                            </td>
-                            <td align=center><input id="postBtn" type="button" value="배송확인"></td>
-
-                            
-                            
-                            <td align=center style=" border-right: hidden">
-                                <input class="purchaseBtn1" type="button" value="취소" />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="width: 100px; border-left: hidden"> 12312312</th>
-                            <td align=right><img src="/img/bebe.png" alt="a" width="120px" height="120px"></td>
-                            <td style="border-left: hidden" align="left">
-                                <h3>강아지 장난감 종합선물세트</h2>
-                                    <h4>50종 종합(제품명)</h2>
-                                        <h3>사이즈: S / 수량 : 4개</h2>
-                                            <h2>8,000원</h1>
-                            </td>
-                          
-                            <td align=center>
-                                <h1>32,000원</h1>
-                            </td>
-                              <td align=center><input id="postBtn" type="button" value="배송확인"></td>
-
-                            <td align=center style=" border-right: hidden">
-                                <input class="purchaseBtn1" type="button" value="취소" />
-
-                            </td>
-                        </tr>
-
->>>>>>> origin/suan_work
                     </table>
                 </div>
             </div>

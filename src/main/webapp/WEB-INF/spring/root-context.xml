@@ -39,7 +39,6 @@ SqlSessionFactory를 생성해주는 SqlSessionFactoryBean 객체를 먼저 설�
 		<property name="basePackage" value="com.bebe.spring" /> 
 	</bean>
 	
-	<context:component-scan base-package="com.first" />
 <!-- 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer"> 
 		<property name="basePackage" value="com.bebe.spring.mybatis.dao" /> 
 	</bean> -->
