@@ -37,6 +37,7 @@
 									<tr style="background-color: #badbf9; color: white;">
 										<th>&nbsp</th>
 										<th>리뷰번호</th>
+										<th>제품명</th>
 										<th>ID</th>
 										<th>별점</th>
 										<th>등록날짜</th>
@@ -47,6 +48,7 @@
 											<td><input type="checkbox" name="cntRvNo" id="cntRvNoBest"
 													value="${r.rvNo}"></td>
 											<td>${r.rvNo}</td>
+											<td>${r.productName}</td>
 											<td>${r.id}</td>
 											<td>${r.rvStar}</td>
 											<td>
@@ -71,6 +73,7 @@
 									<tr style="background-color: #badbf9; color: white;">
 										<th>&nbsp</th>
 										<th>리뷰번호</th>
+										<th>제품명</th>
 										<th>ID</th>
 										<th>별점</th>
 										<th>등록날짜</th>
@@ -82,6 +85,7 @@
 												<td><input type="checkbox" name="cntRvNo" id="cntRvNoUser"
 														value="${r.rvNo}"></td>
 												<td>${r.rvNo}</td>
+												<td>${r.productName}</td>
 												<td>${r.id}</td>
 												<td>${r.rvStar}</td>
 												<td>
