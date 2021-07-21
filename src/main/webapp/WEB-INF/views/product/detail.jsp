@@ -94,13 +94,13 @@
             <div class="detail-img-small">
                 <div class="smallimg">
                     <img src="${m.productImg1}" id="img1" alt="준비중입니다." style="width: 120px;"
-                        onclick="chageImg('${m.productImg1}')" />
+                        onclick="changeImg('${m.productImg1}')" />
                     <img src="${m.productImg2}" id="img2" alt="준비중입니다." style="width: 120px;"
-                        onclick="chageImg('${m.productImg2}')" />
+                        onclick="changeImg('${m.productImg2}')" />
                     <img src="${m.productImg3}" id="img3" alt="준비중입니다." style="width: 120px;"
-                        onclick="chageImg('${m.productImg3}')" />
-                    <img src="${m.productImg4}" id="img4" alt="준비중입니다." style="width: 120px;"
-                        onclick="chageImg('${m.productImg4}')" />
+                        onclick="changeImg('${m.productImg3}')" />
+                    <img src="${m.productImg4}" id="img4" alt="준비중입니다." style="width: 120px;"	
+                        onclick="changeImg('${m.productImg4}')" />
                 </div>
             </div>
             </c:forEach>
@@ -498,9 +498,11 @@
                     element.checked = true;
                 }
 
-                function chageImg(str) {
+                function changeImg(str) {
                     document.getElementById("bigImg").src = str;
                 }
+                
+                
                 //===================
                 $("#questionTable tr").click(function () {
 
