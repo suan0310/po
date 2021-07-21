@@ -12,18 +12,21 @@
 
 <insert id="insertProduct" parameterType="ProductOptionsVO">
 		INSERT ALL
-		INTO product (product_no, sub_category, main_category, product_name, product_price, product_date)
+		INTO product
+		 <!-- (product_no, sub_category, main_category, product_name, product_price, product_img1, product_img2, product_date) -->
 		VALUES(
 		#{subCategory}||nextno.NEXTVAL,
 		#{subCategory},
 		#{mainCategory},
 		#{productName},
 		#{productPrice},
-<!-- 	#{productImg1},
+ 		#{productImg1},
 		#{productImg2},
 		#{productImg3},
-		#{productImg4},  -->
-		TO_DATE(SYSDATE,'YYYY-MM-DD'))
+		#{productImg4},
+		TO_DATE(SYSDATE,'YYYY-MM-DD'),
+		0,
+		0)
 		
 		INTO options
 		VALUES(
