@@ -18,7 +18,6 @@ let btn = document.querySelector(".btn");
 
         document.addEventListener('scroll', () => {
             let currentScrollValue = document.documentElement.scrollTop;
-            console.log(currentScrollValue)
             if (currentScrollValue > 100) {
                 header.animate({ opacity: "0" }, 500)
                 header.animate({ opacity: "1" }, 500)
