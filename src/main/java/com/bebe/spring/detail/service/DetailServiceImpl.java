@@ -173,8 +173,13 @@ public class DetailServiceImpl implements DetailService {
 public Integer selectProductPrice(DetailVO vo) {
 	// TODO Auto-generated method stub
 	return detailDao.selectProductPrice(vo);
-}
+	}
 
+@Override
+public Integer selectOneReview(DetailVO vo) {
+	// TODO Auto-generated method stub
+	return detailDao.selectOneReview(vo);
+	}
 }
 
 

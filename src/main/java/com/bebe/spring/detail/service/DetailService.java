@@ -30,6 +30,7 @@ public interface DetailService {
 	Integer delAnswer(DetailVO vo);
 	Integer updateRvBest1(int[] cntRvNo);
 	Integer updateRvBest0(int[] cntRvNo);
+	Integer selectOneReview(DetailVO vo);
 	
 	//cart
 	Integer insertCart(DetailVO vo);
