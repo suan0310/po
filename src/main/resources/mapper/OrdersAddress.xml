@@ -15,5 +15,9 @@
 	
 				</foreach>
 			</insert>
+			
+			<select id="count" resultType="int"> 
+				select count(*) from product where product_no = #{productNo} 
+			</select>
 		
 </mapper>

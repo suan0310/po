@@ -17,11 +17,12 @@ public class IndexServiceImpl implements IndexService {
 	@Override
 	public List<ProductVO> newItem(ProductVO pv) {
 		// TODO Auto-generated method stub
+		System.out.println("aaa");
 		return indexDAO.newItem(pv);
 	}
 	@Override
 	public List<ProductVO> hotItem(ProductVO pv) {
-		System.out.println("이건");
+		System.out.println("2.서비스");
 		return indexDAO.hotItem(pv);
 	}
 
