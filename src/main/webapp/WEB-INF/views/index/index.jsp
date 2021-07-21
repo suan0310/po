@@ -25,7 +25,7 @@
 			<div class="slide">
 			<c:forEach items="${slide}" var="slide" >
 				<div class="slideimg">
-					<img src="${slide.productImg1 }" width="80%" height="800px">
+					<img src="#" width="80%" height="800px">
 				</div>
 			</c:forEach>
 <!-- 				<div class="slideimg"> -->
@@ -99,8 +99,8 @@
 					<div class="Fbxs">
 				</c:if>
 				<div class="Fbx">
-					<a href="/product/product_deatail?product_no=${row.productNo }">
-						<img src="/img/a.jpg" alt="a">
+					<a href="/productdetail?product_no=${row.productNo }">
+						<img src="${row.productImg1 }" alt="a">
 						<h1>${row.productName}</h1>
 						<div class="price">
 							<h4>${row.productPrice}원</h4>
