@@ -59,7 +59,7 @@
 						<th >색상 / 사이즈 : 재고</th>
 						<th>판매량</th>
 					</tr>
-
+				<table id="manager">
 					<input type="hidden" value="${map.psVo.searchWord}" id="searchWordval">
 					
 					<c:forEach var="list" items="${map.productlist}" varStatus="st">
@@ -120,7 +120,7 @@
 								</div>
 							</td>					
 							</tr>
-									</c:forEach>
+						</c:forEach>
 					</table>	
 					</div>						
 				</table>

@@ -91,10 +91,11 @@
 							</div>
 						</div>
 						<div id="imgbox">
-							제품이미지<br> <input type="file" class="imgfile"  name="file"/> 
-								<input type="file" accept="image/*"  class="imgfile"  	name="file" /> <br> 
-								<input type="file" accept="image/*"  class="imgfile" 	name="file"/> 
-								<input type="file"	accept="image/*"  class="imgfile"  name="file" /> 
+							<h3>제품이미지</h3><br>
+							    첫번째 이미지<input type="file" accept="image/* " class="imgfile"  name="file"	/>
+							    두번째 이미지<input type="file" accept="image/*"  class="imgfile"  	name="file" /><br>
+								세번째 이미지<input type="file" accept="image/*"  class="imgfile" 	name="file"/> 
+								네번째 이미지<input type="file"	accept="image/*"  class="imgfile"  name="file" />  
 							<div class="imgsubbox">
 								<div id="img1"><img src="" /></div>
 								<div id="img2"><img src="" /></div><br>
@@ -112,15 +113,14 @@
 <script type="text/javascript">
 
 $(".imgfile").change(function(){
-	var index = $(".imgfile").index(this) + 1; 
-
-   if(this.files && this.files[0]) {
-    var reader = new FileReader;
-    reader.onload = function(data) {
-     $('#img'+index+' img').attr("src", data.target.result).width(200);        
-    }
-    reader.readAsDataURL(this.files[0]);
-   }
+	var index = $(".imgfile").index(this) + 1; 		
+		   if(this.files && this.files[0]) {
+		    var reader = new FileReader;
+		    reader.onload = function(data) {
+		     $('#img'+index+' img').attr("src", data.target.result).width(200);        
+		    }
+		    reader.readAsDataURL(this.files[0]);
+		   }
   });
   
   
