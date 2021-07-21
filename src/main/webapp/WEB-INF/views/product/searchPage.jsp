@@ -66,7 +66,7 @@
 							<div class="probxs">
 						</c:if>
 						<div class="probx">
-							<a href="/productdetail?productNo=${row.productNo}"> <img src="/img/a.jpg" alt="a">
+							<a href="/productdetail?productNo=${row.productNo}"> <img src="${row.productImg1}" alt="a">
 								<h1>${row.productName }</h1>
 								<div class="price">
 									<h4>${row.productPrice }원</h4>

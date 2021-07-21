@@ -100,7 +100,7 @@
 				</c:if>
 				<div class="Fbx">
 					<a href="/product/product_deatail?product_no=${row.productNo }">
-						<img src="/img/a.jpg" alt="a">
+						<img src="${row.proudctImg1}" alt="a">
 						<h1>${row.productName}</h1>
 						<div class="price">
 							<h4>${row.productPrice}원</h4>

@@ -4,7 +4,7 @@
 
 <link rel="stylesheet" href="/css/header.css?ver=1">
 <div class="headerbx">
-    <img src="/img/logo.png" alt="logo" width="100px" height="100px">
+   <a href="/index/index"><img src="/img/logo.png" alt="logo" width="100px" height="100px"></a>
 
     <!--------------------- 상단 아이디 및 아이콘이 들어가는 공간 --------------------->
     <div class="menubx">
