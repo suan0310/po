@@ -28,6 +28,7 @@ public class DetailController {
 
 	@RequestMapping(value = "", method = RequestMethod.GET)
 	public String detail(Model model, DetailVO vo, HttpSession session) {
+
 		session.setAttribute("userid", "admin");
 
 		List<DetailVO> listMain = detailService.selectDetailMain(vo);
@@ -36,9 +37,25 @@ public class DetailController {
 		List<DetailVO> listAllQuestion = detailService.selectAllQuestion(vo);
 		List<DetailVO> listOptions = detailService.selectOptions(vo);
 
-		double avg = Math.round(detailService.selectStarAvg(vo) * 10) / 10.0;
-		List<DetailVO> listStar = detailService.starCnt(vo);
-		int starTotal = detailService.starTotal(vo);
+		List<DetailVO> listStar = null;
+		int starTotal = 0;
+		Double avg = 0.0;
+		
+		Integer rv = detailService.selectOneReview(vo);
+		System.out.println("rv: "+rv);
+		
+		if(rv !=null) {
+			listStar = detailService.starCnt(vo);
+			starTotal = detailService.starTotal(vo);
+			avg = Math.round(detailService.selectStarAvg(vo) * 10) / 10.0;
+		} else {
+			
+		}
+		
+		System.out.println("listStar " + listStar);
+		System.out.println(starTotal);
+		System.out.println(avg);
+		
 		model.addAttribute("detMain", listMain);
 		model.addAttribute("rvOne", listOne);
 		model.addAttribute("rvAll", listAll);
