@@ -25,13 +25,14 @@
                 <header>
                     <%@ include file="../header/header.jsp" %>
                 </header>
-                <!--제품상세페이지-->
+                <!--제품상세페이지-->       
                 <form name="order">
                     <c:forEach var="m" items="${detMain}">
                         <div class="main">
                             <div class="detail-img-big">
                                 <center><img src="${m.productImg1}" id="bigImg" alt="" width="500px"
                                         style="margin-top: 5px;" />
+                                      
                                 </center>
                             </div>
                             <div class="detail-order">
@@ -41,7 +42,8 @@
                                     <input type="hidden" id="tmpMax" />
                                     <table>
                                         <th colspan="2" style="font-size: 30px; font-weight: bold;">
-                                            ${m.productName}</th>
+                                            ${m.productName}
+                                        </th>
                                         <tr>
                                             <td colspan="2">&nbsp</td>
                                         </tr>
@@ -263,7 +265,6 @@
                                            <td>
                                            <fmt:formatDate value="${q.qsDate}" pattern="yy-MM-dd" />
                                            </td>
-                                            <%-- <td>${q.qsDate}</td> --%>
                                             <td class="qsSecret" style="display:none;" 
                                             value="${q.qsSecret}">${q.qsSecret}</td>
                                             <td>

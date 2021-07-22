@@ -25,7 +25,6 @@ public class DetailController {
 	@Resource(name = "detailService")
 	private DetailService detailService;
 
-
 	@RequestMapping(value = "", method = RequestMethod.GET)
 	public String detail(Model model, DetailVO vo, HttpSession session) {
 
