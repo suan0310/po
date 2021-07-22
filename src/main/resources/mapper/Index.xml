@@ -13,8 +13,8 @@
 
 
 	<select id="hotItem"  resultType="ProductVO" >
-		select product_no,product_name,product_price, product_sales from
-		(select rownum rnum,product_no, product_name, product_price, product_sales from
+		select product_no,product_name,product_price, product_img1, product_sales from
+		(select rownum rnum,product_no, product_name, product_price, product_img1, product_sales from
 		(select * from product order by product_sales desc))
 		where rnum between 1 and 6 order by product_sales desc
 	</select>

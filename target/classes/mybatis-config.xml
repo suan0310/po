@@ -10,8 +10,8 @@
     </settings>
     <typeAliases>
 
-          <typeAlias alias="ProductVO" type ="com.bebe.spring.vo.ProductVO"/>
           <typeAlias alias= "OrdersAddressVO" type="com.bebe.spring.vo.OrdersAddressVO"/>
+          <typeAlias alias="ProductVO" type ="com.bebe.spring.vo.ProductVO"/>
           <typeAlias alias="Criteria" type="com.bebe.spring.vo.Criteria"/>
           <typeAlias alias="pager" type="com.bebe.spring.vo.pager"/>
           <typeAlias alias="ReviewVO" type = "com.bebe.spring.vo.ReviewVO"/>
