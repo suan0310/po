@@ -1,17 +1,18 @@
 package com.bebe.spring.order.controller;
 
-import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.bebe.spring.order.service.OrdersService;
+import com.bebe.spring.vo.CartVO;
 import com.bebe.spring.vo.OrdersAddressVO;
 
 @Controller
@@ -36,17 +37,20 @@ public class OrdersController {
 //	}
 //	
 	@RequestMapping(value="/order", method = RequestMethod.POST)
-	public ModelAndView orderInfo(ModelAndView mav, List<OrdersAddressVO> vo) {
+	public ModelAndView orderInfo(ModelAndView mav, @RequestParam(value="productNo") Integer[] pn,OrdersAddressVO oav) {
+		
+		for(int i =0; i<pn.length;i++) {
+			oav.setProductNo(pn[i]);
+			orderService.insertOrders(oav);
+			orderService.deleteCart(oav);
+		}
+		
+		System.out.println(oav);
+		
+			
 	
 		
-		
-		
-		
-		
-//		mav.addObject(count);
-//		
-////		mav.addObject(orderService.insertOrders(vo));
-//		mav.setViewName("/order/order_sc");
+     	mav.setViewName("/order/order_sc");
 			
 		return mav;
 	}

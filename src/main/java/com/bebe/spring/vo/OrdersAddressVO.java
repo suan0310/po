@@ -2,6 +2,7 @@ package com.bebe.spring.vo;
 
 
 import java.util.Date;
+import java.util.List;
 
 import lombok.Data;
 
@@ -18,7 +19,6 @@ public class OrdersAddressVO {
 	private String tel;
 	private String addrReceiver;
 	private String addrRequest;
-	
 	
 	//orders
 	private int productNo;
