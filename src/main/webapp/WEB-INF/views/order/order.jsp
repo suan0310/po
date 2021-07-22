@@ -38,23 +38,14 @@
 								<th style="width: 100px;">상품금액</th>
 								<th style="border-right: hidden">결제금액</th>
 							</tr>
-<<<<<<< HEAD
-							<c:forEach items="${order}" var="cart" varStatus="index">
-=======
 							<c:forEach items="${order}" var="cart" varStatus="stauts">
 							<c:set var="price" value="${cart.productPrice}" />
 							<c:set var="quantity" value="${cart.quantity}" />
->>>>>>> origin/oyw_work
 							<tr>
 								<td style="border-left: hidden" align=right><img
 									src="/img/a.jpg" alt="a" width="120px" height="120px"></td>
 								<td style="border-left: hidden" align="left">
-<<<<<<< HEAD
-									<input type="hidden" name="count"  value="${cart.count}">
-									<input type="hidden" name="productNo" value="${cart.productNo}" >
-=======
 									<input type="hidden" name="productNo" value="${cart.productNo}">
->>>>>>> origin/oyw_work
 									<h2 >${cart.productName }</h2>
 									<h2><input type="hidden" name="orderSize" value="${cart.productSize}">
 									 사이즈 : ${cart.productSize}  </h2>

@@ -96,7 +96,7 @@
 </delete> 
 
 <update id="updateOrderSts" parameterType="OrdersVO">
-		UPDATE orders SET sts_delivery=#{stsDelivery} , sts_cancel = #{stsCancel} WHERE order_no = #{orderNo}
+		UPDATE orders SET sts_delivery = #{stsDelivery} , sts_cancel = #{stsCancel} WHERE order_no = #{orderNo}
 </update>
 
 

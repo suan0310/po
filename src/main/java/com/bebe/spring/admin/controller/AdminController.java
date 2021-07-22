@@ -88,7 +88,6 @@ public class AdminController {
 	@RequestMapping(value = "/sts_update", method = RequestMethod.POST)
 	public ModelAndView adminOrderStsPost(OrdersVO orderVo) {
 		System.out.println("관리자 주문관리 POST 진입");
-
 		adminService.updateOrderSts(orderVo);
 
 		ModelAndView mav = new ModelAndView("/admin/order_mng");
@@ -117,12 +116,7 @@ public class AdminController {
 
 		for (int i = 0; i < file.length; i++) {
 			if (file[i].getOriginalFilename() != null && file[i].getOriginalFilename() != "") {
-<<<<<<< HEAD
 				fileName = UploadFileUtils.fileUpload(imgUploadPath, file[i].getOriginalFilename(), file[i].getBytes());
-=======
-				fileName = UploadFileUtils.fileUpload(imgUploadPath, file[i].getOriginalFilename(), file[i].getBytes(),
-						ymdPath);
->>>>>>> origin/oyw_work
 			} else {
 				fileName = uploadPath + File.separator + "images" + File.separator + "none.png";
 			}

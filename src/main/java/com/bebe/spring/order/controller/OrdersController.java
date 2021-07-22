@@ -19,38 +19,7 @@ import com.bebe.spring.vo.OrdersVO;
 public class OrdersController {
 	@Inject
 	OrdersService orderService;
-<<<<<<< HEAD
 
-	@RequestMapping(value = "/order", method = RequestMethod.POST)
-	public ModelAndView orderInfo(ModelAndView mav, @RequestParam("count") int count, OrdersAddressVO oaVO) {
-		System.out.println(count);
-
-//		mav.addObject(count);
-//		
-////		mav.addObject(orderService.insertOrders(vo));
-//		mav.setViewName("/order/order_sc");
-
-		return mav;
-	}
-
-=======
-//	@Inject
-//	CartService cartService;
-//	
-//	@RequestMapping(value="/order", method = RequestMethod.POST)
-//	public ModelAndView orderInfo(ModelAndView mav, List<OrdersVO> ov,
-//			OrdersAddressVO oav) {
-//		
-//		for(int i =0; i<ov.size();i++) {
-//			System.out.println("OV출력"+ ov);
-////			orderService.insertOrders(oav);
-////			orderService.deleteCart(oav);
-//		}
-////		System.out.println(oav);	
-//     	mav.setViewName("/order/order_sc");	
-//		return mav;
-//	}	
-//}
 	@RequestMapping(value="/order", method = RequestMethod.POST)
 	public ModelAndView orderInfo(ModelAndView mav, @RequestParam(value="productNo") Integer[] pn,
 			@RequestParam(value="orderPrice") Integer[] pr, @RequestParam(value="orderColor") String[] color,
@@ -69,5 +38,5 @@ public class OrdersController {
      	mav.setViewName("/order/order_sc");	
 		return mav;
 	}	
->>>>>>> origin/oyw_work
+
 }
