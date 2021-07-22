@@ -38,21 +38,33 @@
 								<th style="width: 100px;">상품금액</th>
 								<th style="border-right: hidden">결제금액</th>
 							</tr>
+<<<<<<< HEAD
 							<c:forEach items="${order}" var="cart" varStatus="index">
+=======
+							<c:forEach items="${order}" var="cart" varStatus="stauts">
+							<c:set var="price" value="${cart.productPrice}" />
+							<c:set var="quantity" value="${cart.quantity}" />
+>>>>>>> origin/oyw_work
 							<tr>
 								<td style="border-left: hidden" align=right><img
 									src="/img/a.jpg" alt="a" width="120px" height="120px"></td>
 								<td style="border-left: hidden" align="left">
+<<<<<<< HEAD
 									<input type="hidden" name="count"  value="${cart.count}">
 									<input type="hidden" name="productNo" value="${cart.productNo}" >
+=======
+									<input type="hidden" name="productNo" value="${cart.productNo}">
+>>>>>>> origin/oyw_work
 									<h2 >${cart.productName }</h2>
-									<h2 name="orderSize">사이즈 : ${cart.productSize} </h2>
-									<h2 name ="orderColor">컬러 : ${cart.productColor}</h2>
+									<h2><input type="hidden" name="orderSize" value="${cart.productSize}">
+									 사이즈 : ${cart.productSize}  </h2>
+									<h2><input type="hidden" name="orderColor" value="${cart.productColor}">
+									 컬러 : ${cart.productColor} </h2>
 								</td>
-								<td align=center  name="orderQty">${cart.quantity}개</td>
-								<td align=center  name= "orderPrice">${cart.productPrice}원</td>
-								<td style="border-right: hidden" align=center>
-									<h1>${cart.productPrice*cart.quantity}원</h1>
+								<td align=center><input type="hidden" name="orderQty" value="${cart.quantity}">${cart.quantity}개</td>
+								<td align=center  >${cart.productPrice}원</td>
+								<td style="border-right: hidden" align=center >
+									<h1><input type="hidden" name="orderPrice" value="${cart.productPrice*cart.quantity}"/> ${cart.productPrice*cart.quantity}원</h1>
 								</td>
 							</tr>
 							</c:forEach>
