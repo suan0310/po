@@ -84,7 +84,7 @@
 </body>
 
 <script>
-function check(){
+/* function check(){
 	var newpw = $('#newpw').val();
 	console.log(newpw);
 	var newpwch = $('#newpwch').val();
@@ -94,10 +94,11 @@ function check(){
 		return false;
 	}		
   return confirm('비밀번호를 변경하시겠습니까?');		
-};
+}; */
 </script>
 <script type="text/javascript" src="/js/search.js"></script>
 <script type="text/javascript" src="/js/info.js"></script>
+<script type="text/javascript" src="/js/pwcheck.js"></script>
 
 
 </html>
