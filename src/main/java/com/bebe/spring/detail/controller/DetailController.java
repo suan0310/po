@@ -25,7 +25,6 @@ public class DetailController {
 	@Resource(name = "detailService")
 	private DetailService detailService;
 
-
 	@RequestMapping(value = "", method = RequestMethod.GET)
 	public String detail(Model model, DetailVO vo, HttpSession session) {
 
@@ -191,7 +190,6 @@ public class DetailController {
 		Map<String, Integer> map = new HashMap<String, Integer>();
 		Integer stock = detailService.selectStock(vo);
 		map.put("stock", stock);
-
 		return map;
 	}
 	
