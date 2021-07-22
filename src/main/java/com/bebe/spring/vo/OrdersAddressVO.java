@@ -30,4 +30,8 @@ public class OrdersAddressVO {
 	private String orderColor;
 	private String orderSize;
 	
+	private List<OrdersAddressVO> oaVO;
+	public void setOaVO(List<OrdersAddressVO> oaVO) {
+		this.oaVO= oaVO;
+	}
 }
