@@ -39,7 +39,7 @@
 
 
 <beans:bean class="java.lang.String" id="uploadPath">
- <beans:constructor-arg value="C:\project\work\bebeshop\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\bebeshop\resources" />
+  <beans:constructor-arg value="C:\project\work\bebeshop\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\bebeshop\resources" /> 
 </beans:bean>
 
 

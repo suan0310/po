@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="/css/admin/product_add.css?ver=2">
+<link rel="stylesheet" href="/css/admin/product_add.css?ver=4">
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <title>Document</title>
 </head>
@@ -56,13 +56,13 @@
 								</div>
 							</div>
 							<div>
-								상품명<br> <input type="text" name="productName" required>
+								상품명<br> <input type="text" name="productName" required style="width:250px;height:30px;font-size:16px;">
 							</div>
 							<div>
-								수량<br> <input type="text" name="productStock" required>
+								수량<br> <input type="text" name="productStock" required style="width:250px;height:30px;font-size:16px;">
 							</div>
 							<div>
-								금액<br> <input type="text" name="productPrice" required>
+								금액<br> <input type="text" name="productPrice" required style="width:250px;height:30px;font-size:16px;">
 							</div>
 							<div>
 								사이즈
@@ -101,6 +101,7 @@
 								<div id="img2"><img src="" /></div><br>
 								<div id="img3"><img src="" /></div>
 								<div id="img4"><img src="" /></div> 
+								<%=request.getRealPath("/") %>
 							</div>							
 						</div>
 					</div>

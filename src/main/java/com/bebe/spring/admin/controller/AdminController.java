@@ -111,26 +111,28 @@ public class AdminController {
 
 		// 파일 업로드 처리 로직
 		String imgUploadPath = uploadPath + File.separator + "imgUpload";
-		String ymdPath = UploadFileUtils.calcPath(imgUploadPath);
+//		String ymdPath = UploadFileUtils.calcPath(imgUploadPath);
 		String fileName = null;
+
 
 		for (int i = 0; i < file.length; i++) {
 			if (file[i].getOriginalFilename() != null && file[i].getOriginalFilename() != "") {
-				fileName = UploadFileUtils.fileUpload(imgUploadPath, file[i].getOriginalFilename(), file[i].getBytes(), ymdPath);
+				fileName = UploadFileUtils.fileUpload(imgUploadPath, file[i].getOriginalFilename(), file[i].getBytes());
 			} else {
 				fileName = uploadPath + File.separator + "images" + File.separator + "none.png";
 			}
-
+			System.out.println("여기까지 성공");
 			if (i == 0)
-				productOpVo.setProductImg1(File.separator + "imgUpload" + ymdPath + File.separator + fileName);
+				productOpVo.setProductImg1(File.separator + "imgUpload" +  File.separator + fileName);
 			else if (i == 1)
-				productOpVo.setProductImg2(File.separator + "imgUpload" + ymdPath + File.separator + fileName);
+				productOpVo.setProductImg2(File.separator + "imgUpload" +  File.separator + fileName);
 			else if (i == 2)
-				productOpVo.setProductImg3(File.separator + "imgUpload" + ymdPath + File.separator + fileName);
+				productOpVo.setProductImg3(File.separator + "imgUpload" + File.separator + fileName);
 			else if (i == 3)
-				productOpVo.setProductImg4(File.separator + "imgUpload" + ymdPath + File.separator + fileName);
+				productOpVo.setProductImg4(File.separator + "imgUpload" +  File.separator + fileName);
 		}
 
+		System.out.println(productOpVo.toString());
 		adminService.insertProduct(productOpVo);
 
 		return "/admin/product_add";
@@ -187,7 +189,7 @@ public class AdminController {
 	// 재고관리 페이지 - 옵션추가 버튼 눌렀을때
 	@RequestMapping(value = "/productMngOption", method = RequestMethod.GET)
 	public ModelAndView popupGet(@RequestParam(value = "pno") int pNo, @RequestParam(value = "pname") String pName) {
-
+		System.out.println("옵션추가버튼 매핑완료");
 		ModelAndView mav = new ModelAndView("/admin/product_mng_option");
 		mav.addObject("pNo", pNo);
 		mav.addObject("pName", pName);
@@ -216,7 +218,6 @@ public class AdminController {
 		return mv;
 	}
 
-	// 오용욱 테스트
 	// 유저 관리 페이지 - 삭제 버튼 눌렀을 때
 	@RequestMapping(value = "/user_mng", method = RequestMethod.POST)
 	public ModelAndView adminUsermngPost(String id) {
