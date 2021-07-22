@@ -116,20 +116,25 @@ public class AdminController {
 
 		for (int i = 0; i < file.length; i++) {
 			if (file[i].getOriginalFilename() != null && file[i].getOriginalFilename() != "") {
-				fileName = UploadFileUtils.fileUpload(imgUploadPath, file[i].getOriginalFilename(), file[i].getBytes());
-			} else {
-				fileName = uploadPath + File.separator + "images" + File.separator + "none.png";
-			}
-			System.out.println("여기까지 성공");
-			if (i == 0)
-				productOpVo.setProductImg1(File.separator + "imgUpload" +  File.separator + fileName);
-			else if (i == 1)
-				productOpVo.setProductImg2(File.separator + "imgUpload" +  File.separator + fileName);
-			else if (i == 2)
-				productOpVo.setProductImg3(File.separator + "imgUpload" + File.separator + fileName);
-			else if (i == 3)
-				productOpVo.setProductImg4(File.separator + "imgUpload" +  File.separator + fileName);
+				fileName = UploadFileUtils.fileUpload(imgUploadPath, file[i].getOriginalFilename(), file[i].getBytes());				
+				if (i == 0)
+					productOpVo.setProductImg1(File.separator + "imgUpload" +  File.separator + fileName);
+				else if (i == 1)
+					productOpVo.setProductImg2(File.separator + "imgUpload" +  File.separator + fileName);
+				else if (i == 2)
+					productOpVo.setProductImg3(File.separator + "imgUpload" + File.separator + fileName);
+				else if (i == 3)
+					productOpVo.setProductImg4(File.separator + "imgUpload" +  File.separator + fileName);
+			} 
+//			else {
+//				fileName = uploadPath + File.separator + "images" + File.separator + "none.png";
+//			}
 		}
+		
+		System.out.println(productOpVo.getProductImg1());
+		System.out.println(productOpVo.getProductImg2());
+		System.out.println(productOpVo.getProductImg3());
+		System.out.println(productOpVo.getProductImg4());
 
 		System.out.println(productOpVo.toString());
 		adminService.insertProduct(productOpVo);
