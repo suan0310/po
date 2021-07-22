@@ -80,8 +80,7 @@
                                             <td>수량</td>
                                             <td>
                                                 <!--수량은 min/ max이용-->
-                                                <input type="number" id="quantity" name="quantity" min="1" max="100"
-                                                    placeholder="1" />
+                                                <input type="number" id="quantity" name="quantity" min="1" value="1" />
                                     </table>
                                     <hr color="grey" size="1px" style="margin-top: 30px;">
                                     <br>
