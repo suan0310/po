@@ -6,6 +6,6 @@ import java.util.Map;
 import com.bebe.spring.vo.OrdersAddressVO;
 
 public interface OrdersService {
-	Integer insertOrders(List<OrdersAddressVO> vo );
-	
+	Integer insertOrders(OrdersAddressVO oav );
+	Integer deleteCart(OrdersAddressVO oav);
 }

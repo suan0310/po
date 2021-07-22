@@ -29,10 +29,38 @@ function itemChange(){
 
 
 $('#delbtn').click(function() {
-	var frm = document.formproduct;	
-	frm.action = "/admin/deleteProduct";
-	frm.method = "post";
-	frm.submit();
+	
+/*	var proNo = new Array();
+        var obj_length = document.getElementsByName("checkproductno").length;
+  
+        for (var i=0; i<obj_length; i++) {
+            if (document.getElementsByName("checkproductno")[i].checked == true) {
+                proNo[i] = document.getElementsByName("checkproductno")[i].value;
+				console.log(proNo[i]);
+            }
+        }*/
+
+/*	var frm = document.createElement('form');	
+	frm.setAttribute('method','post');
+	frm.setAttribute('action',"/admin/deleteProduct")
+	document.charset = "utf-8";
+	var hiddenField = document.createElement('input');
+	hiddenField.setAttribute('checkproductno',)*/
+	
+	
+/*	jQuery.ajaxSettings.traditional = true;
+	$.ajax({
+    url: "/admin/deleteProduct",
+    type: 'post',
+    data: {"checkproductno": proNo},
+    success: function (data) {
+            alert("데이터 전송이 성공적으로 끝났을 때 실행");
+        }
+});*/
+   var frm = document.formproduct;
+		frm.action = "/admin/deleteProduct";
+		frm.method = "post";
+		frm.submit();
  });
 
 
