@@ -10,12 +10,13 @@
 <!-- 	</insert> -->
 			<insert id="insertOrders" parameterType="OrdersAddressVO">
 					insert all
-					into orders values (or_no.nextval,'okkk',#{productNo},#{orderQty},#{orderPrice},'배송준비','취소',SYSDATE) 
+					into orders values (or_no.nextval,'okkk',#{productNo},#{orderQty},#{orderPrice},'배송준비','취소',SYSDATE,#{orderColor},#{orderSize}) 
 					into address values('okkk',or_no.nextval ,#{zipcode},#{addr},#{addrDetail},#{tel},#{addrReceiver}, #{addrRequest}) 
 					select * from dual
 			</insert>
 			<delete id="deleteCart">
 				delete from cart where product_no=#{productNo}
 			</delete>
+
 		
 </mapper>

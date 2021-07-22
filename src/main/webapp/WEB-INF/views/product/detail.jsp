@@ -94,22 +94,13 @@
             <div class="detail-img-small">
                 <div class="smallimg">
                     <img src="${m.productImg1}" class="img1" alt="준비중입니다." style="width: 120px;"/>
-<%--                         onclick="changeImg('${m.productImg1}')" /> --%>
                     <img src="${m.productImg2}" class="img1" alt="준비중입니다." style="width: 120px;"/>
-<%--                       onclick="changeImg('${m.productImg2}')" />  --%>
                     <img src="${m.productImg3}" class="img1" alt="준비중입니다." style="width: 120px;"/>
-<%--                         onclick="changeImg('${m.productImg3}')" /> --%>
                     <img src="${m.productImg4}" class="img1" alt="준비중입니다." style="width: 120px;"/>
-<!--                         onclick="changeImg('${m.productImg4}')" /> -->
                 </div>
             </div>
             </c:forEach>
             
-            <!-- <div class="img1">
-            <img alt="제품 사진 준비중입니다." src="/img/1.1.jpg">
-            </div> -->
-            
-
             <div class="reivew-request-tab">
                 <div class="tabmenu">
                     <input type="radio" name="tab" id="tab2" />
@@ -354,6 +345,7 @@
                     var i = 1;
                 	<c:forEach var="star" items="${rvStar}">
                 	var tmp = ${star.cnt};
+                	console.log("tmp: "+tmp);
                 	total += tmp;
                 	</c:forEach>
                 	console.log("total: "+total);
@@ -362,34 +354,8 @@
                 	$("#"+i+"star").css('width', a+"%");
                 	console.log("그래서 몇 프로라고요?"+a);
                 	i++;
-                	</c:forEach>
-                	
+                	</c:forEach>                	
                 });
-                
-                
-                
-                /*
-                <div class="w3-orange" style="height: 24px; width: 35%">
-                이거 foreach를 위에서 돌리지 않고, 아래 스크립트에서 돌려서
-                이중for문을 써서 i++로 조건을 걸어서
-                처음에 포이치 돌리면서
-                   var i = 1
-                
-                $(".w3-orange").attr("id", "bar"+i);  아니면 "bar${i}" 둘중하나일듯
-                var starrate = ${r.rvStar}*nn 이런식? 
-                $("#bar"+i).attr("style", "width=${r.rvStar}*nn %"") 이거안먹히면
-             	$("#bar"+i).attr("style", "width=starrate%")
-                i++;
-                
-                /$(".w3-orange").attr("id", "bar${i}")? 이런식으로?
-                		그담에 바로
-                		$("#bar${j}").attr("style", "width=${rvStar}*nn %")
-                		
-                		id1, 2, 3, 4,5까지 값을 준다음에
-              이런식으로 for를 여러변 돌리기
-                
-                */
-                
                 
                 
                 //문의글 비밀글 아이콘처리
@@ -400,8 +366,7 @@
 						$(this).find('td').eq(6).attr("hidden", true);
 					}else{
 						
-					}
-										
+					}				
 				});
                 	
                 });
@@ -504,11 +469,6 @@
                 	$('#bigImg').attr("src",$(this).attr("src"));
                 });
                 
-/*                 function changeImg(str) {
-                	console.log(str);
-                    document.getElementById("bigImg").src = str; */
-                
-                
                 //===================
                 $("#questionTable tr").click(function () {
 
@@ -595,7 +555,8 @@
                 	var productSize = $("#opt2").val();
                 	console.log(id+quantity+productColor+productSize);
                 	
-                	var max = parseInt($('#tmpMax').val());
+                	/* var max = parseInt($('#tmpMax').val()); */
+                	var max = 100;
                 	var qty = parseInt($('#quantity').val());
                 	
                 	if(qty>0){
@@ -643,17 +604,10 @@
                 function changeStarColor(ratingArg) {
                   let rating = ratingArg;
                   for (let i = 1;i <= rating;i++) {
-                    //$(`.star-${i}`).attr("id", "selected");
                     $(".star-"+i).attr("id", "selected");
-                    //$(".star-1").attr("id", "selected");
-                    //$(".star-2").attr("id", "selected");
                   }
                   for (let i = rating + 1;i <= 5;i++) {
-                    //$(`.star-${i}`).attr("id", "unselected");
                     $(".star-"+i).attr("id", "unselected");
-                    //$(".star-3").attr("id", "unselected");
-                    //$(".star-4").attr("id", "unselected");
-                    //$(".star-5").attr("id", "unselected");
                   }
                   $(".autoRating > span").html(rating);
                 }

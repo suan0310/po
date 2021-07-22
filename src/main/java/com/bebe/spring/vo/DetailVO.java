@@ -42,9 +42,9 @@ public class DetailVO {
 	private int quantity;
 
 	// star
-	private double avg;
+	private Double avg;
 	private int cnt;
-	private double sum;
+	private Double sum;
 
 	// qs
 	private int qsNo;

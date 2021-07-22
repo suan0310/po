@@ -28,6 +28,11 @@
 		where rv_no =
 		(select max(rv_no) from review where product_no= #{productNo})
 	</select>
+	
+	<select id="selectOneReview" resultType="Integer" parameterType="DetailVO">
+		select rv_star from review where product_no = #{productNo} 
+		and rownum = 1
+	</select>
 
 	<select id="selectReview" parameterType="DetailVO"
 		resultType="DetailVO">
@@ -53,7 +58,7 @@
 	</select>
 
 	<!-- 별점평균 -->
-	<select id="selectStarAvg" resultType="double" parameterType="DetailVO">
+	<select id="selectStarAvg" resultType="Double" parameterType="DetailVO">
 		select avg(rv_star) as avg from review 
 		where product_no = #{productNo}
 	</select>
