@@ -61,7 +61,7 @@
                                             <td>색상</td>
                                             <td>
                                                 <select name="productColor" id="opt1">
-                                                    <option value="none" selected>색상을 선택하세요</option>
+                                                    <option value="non" selected>색상을 선택하세요</option>
                                                     <c:forEach var="o" items="${detOptions}">
                                                         <option value="${o.productColor }">${o.productColor }</option>
                                                     </c:forEach>
@@ -380,8 +380,7 @@
                     $('#opt1').on('change', function () {
 
                         color = $('#opt1').val();
-                        if (color != 'none') {
-                            alert('현재 셀렉트 값: ' + color);
+                        if (color != 'non') {
                             console.log('Ajax를 실행합니다.');
 
                             $.ajax({
@@ -392,7 +391,6 @@
                                 dataType: "json",
                                 data: "productColor=" + color + "&productNo=" + productNo,
                                 success: function (data) {
-                                    alert("success");
                                     console.log(data.size[0].productSize);
                                     console.log(Object.keys(data.size).length);
                                     console.log("여기서시작");
@@ -419,16 +417,15 @@
                     //재고값받아오기
                     $('#opt2').on('change', function () {
                         var selectedSize = $('#opt2').val();
-                        alert(selectedSize);
                         $.ajax({
                             url: "/productdetail/options.stock",
                             type: "GET",
                             contentType: 'application/json; charset=utf-8',
                             dataType: "json",
-                            data: "productColor=" + color + "&productNo=1111"
+                            data: "productColor=" + color + "&productNo="+productNo
                                 + "&productSize=" + selectedSize,
                             success: function (data) {
-                                alert("success");
+                            	console.log(data.stock);
                                 $('#tmpMax').val(data.stock);
                                 console.log("tmpMax " + $('#tmpMax').val());
                                 $('#quantity').prop('max', $('#tmpMax').val());
@@ -556,7 +553,8 @@
                 	var productSize = $("#opt2").val();
                 	console.log(id+quantity+productColor+productSize);
                 	
-                	var max = parseInt($('#tmpMax').val());
+                	/* var max = parseInt($('#tmpMax').val()); */
+                	var max = 100;
                 	var qty = parseInt($('#quantity').val());
                 	
                 	if(qty>0){

@@ -8,12 +8,15 @@
 <!-- 		into address values('okkk',or_no.nextval ,#{zipcode},#{addr},#{addrDetail},#{tel},#{addrReceiver}, #{addrRequest}) -->
 <!-- 		select * from dual -->
 <!-- 	</insert> -->
-			<insert id="insertOrders" parameterType="list">
-				<foreach collection="list" item="i" separator=" " open="Insert all" close="select * from dual">
-					into orders values (or_no.nextval,'okkk',#{i.productNo},#{i.orderQty},#{i.orderPrice},'배송준비','취소') 
-					into address values('okkk',or_no.nextval ,#{i.zipcode},#{i.addr},#{i.addrDetail},#{i.tel},#{i.addrReceiver}, #{i.addrRequest}) 
-	
-				</foreach>
+			<insert id="insertOrders" parameterType="OrdersAddressVO">
+					insert all
+					into orders values (or_no.nextval,'okkk',#{productNo},#{orderQty},#{orderPrice},'배송준비','취소',SYSDATE,#{orderColor},#{orderSize}) 
+					into address values('okkk',or_no.nextval ,#{zipcode},#{addr},#{addrDetail},#{tel},#{addrReceiver}, #{addrRequest}) 
+					select * from dual
 			</insert>
+			<delete id="deleteCart">
+				delete from cart where product_no=#{productNo}
+			</delete>
+
 		
 </mapper>

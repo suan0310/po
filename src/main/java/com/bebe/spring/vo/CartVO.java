@@ -12,7 +12,7 @@ public class CartVO {
 	private String productSize;
 	private String productColor;
 	private int[] checkArr;
-	
+	private int count;
 	
 	   private String mainCategoryName;
 	   private String subCategoryName;

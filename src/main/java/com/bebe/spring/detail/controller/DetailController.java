@@ -190,7 +190,6 @@ public class DetailController {
 		Map<String, Integer> map = new HashMap<String, Integer>();
 		Integer stock = detailService.selectStock(vo);
 		map.put("stock", stock);
-
 		return map;
 	}
 	

@@ -1,7 +1,6 @@
 package com.bebe.spring.admin.controller;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -89,7 +88,6 @@ public class AdminController {
 	@RequestMapping(value = "/sts_update", method = RequestMethod.POST)
 	public ModelAndView adminOrderStsPost(OrdersVO orderVo) {
 		System.out.println("관리자 주문관리 POST 진입");
-
 		adminService.updateOrderSts(orderVo);
 
 		ModelAndView mav = new ModelAndView("/admin/order_mng");
@@ -112,26 +110,33 @@ public class AdminController {
 
 		// 파일 업로드 처리 로직
 		String imgUploadPath = uploadPath + File.separator + "imgUpload";
-		String ymdPath = UploadFileUtils.calcPath(imgUploadPath);
+//		String ymdPath = UploadFileUtils.calcPath(imgUploadPath);
 		String fileName = null;
+
 
 		for (int i = 0; i < file.length; i++) {
 			if (file[i].getOriginalFilename() != null && file[i].getOriginalFilename() != "") {
-				fileName = UploadFileUtils.fileUpload(imgUploadPath, file[i].getOriginalFilename(), file[i].getBytes(), ymdPath);
-			} else {
-				fileName = uploadPath + File.separator + "images" + File.separator + "none.png";
-			}
-
-			if (i == 0)
-				productOpVo.setProductImg1(File.separator + "imgUpload" + ymdPath + File.separator + fileName);
-			else if (i == 1)
-				productOpVo.setProductImg2(File.separator + "imgUpload" + ymdPath + File.separator + fileName);
-			else if (i == 2)
-				productOpVo.setProductImg3(File.separator + "imgUpload" + ymdPath + File.separator + fileName);
-			else if (i == 3)
-				productOpVo.setProductImg4(File.separator + "imgUpload" + ymdPath + File.separator + fileName);
+				fileName = UploadFileUtils.fileUpload(imgUploadPath, file[i].getOriginalFilename(), file[i].getBytes());				
+				if (i == 0)
+					productOpVo.setProductImg1(File.separator + "imgUpload" +  File.separator + fileName);
+				else if (i == 1)
+					productOpVo.setProductImg2(File.separator + "imgUpload" +  File.separator + fileName);
+				else if (i == 2)
+					productOpVo.setProductImg3(File.separator + "imgUpload" + File.separator + fileName);
+				else if (i == 3)
+					productOpVo.setProductImg4(File.separator + "imgUpload" +  File.separator + fileName);
+			} 
+//			else {
+//				fileName = uploadPath + File.separator + "images" + File.separator + "none.png";
+//			}
 		}
+		
+		System.out.println(productOpVo.getProductImg1());
+		System.out.println(productOpVo.getProductImg2());
+		System.out.println(productOpVo.getProductImg3());
+		System.out.println(productOpVo.getProductImg4());
 
+		System.out.println(productOpVo.toString());
 		adminService.insertProduct(productOpVo);
 
 		return "/admin/product_add";
@@ -188,7 +193,7 @@ public class AdminController {
 	// 재고관리 페이지 - 옵션추가 버튼 눌렀을때
 	@RequestMapping(value = "/productMngOption", method = RequestMethod.GET)
 	public ModelAndView popupGet(@RequestParam(value = "pno") int pNo, @RequestParam(value = "pname") String pName) {
-
+		System.out.println("옵션추가버튼 매핑완료");
 		ModelAndView mav = new ModelAndView("/admin/product_mng_option");
 		mav.addObject("pNo", pNo);
 		mav.addObject("pName", pName);
@@ -217,7 +222,6 @@ public class AdminController {
 		return mv;
 	}
 
-	// 오용욱 테스트
 	// 유저 관리 페이지 - 삭제 버튼 눌렀을 때
 	@RequestMapping(value = "/user_mng", method = RequestMethod.POST)
 	public ModelAndView adminUsermngPost(String id) {
