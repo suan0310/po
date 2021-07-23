@@ -52,6 +52,11 @@ td {
   height: 80px;
   margin-left: 200px;
 }
+
+.img1{
+	width: 120px;
+}
+
 .detail-order {
   float: right;
   width: 550px;
@@ -83,12 +88,16 @@ td {
   cursor: pointer;
 }
 
+
+
+/*
 .reivew-request-tab {
   float: left;
-  margin-top: 239px;
+  margin-top: 100px;
   margin-left: 300px;
   width: 800px;
 }
+*/
 
 #cont1 {
   margin-top: -50px;
@@ -102,6 +111,15 @@ td {
   display: none;
   float: right;
 }
+
+.reivew-request-tab {
+  float: left;
+  margin-top: -1610px;
+  margin-left: 500px;
+  width: 800px;
+}
+
+
 
 .tabmenu label {
   display: inline-block;
@@ -232,4 +250,14 @@ i {
 #yellowstar{
     color: #f7c10c  ;
 }
+
+#quantity{
+	width: 100px;
+}
+
+.w3-orange{
+	height: 24px; 
+	width: 0;
+}
+
 /* =========================은혜 끝!!! 제품상세페이지 12~17장 ========================= */
