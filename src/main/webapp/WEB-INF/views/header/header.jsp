@@ -18,8 +18,8 @@
             <a href="/user/cart2"><img src="/img/cart.png" alt="cart" width="20px" height="20px"></a>
             <img src="/img/search.png" alt="search" width="20px" height="20px" class="btn">
     </div>
-  		<form method="get" action="/product/searchPage2"> 
-        <div class="search"><input type="text"  value="${keyword}" name="keyword"  id="keyword"><i class="fa fa-times" aria-hidden="true"></i></div>
+  		<form method="get" action="/product/searchPage"> 
+        <div class="search"><input type="text"  value="${keyword}" name="keyword" id="keyword"><i class="fa fa-times" aria-hidden="true"></i></div>
         </form>
 </div>
 

@@ -12,23 +12,23 @@
 	</select>
 	
 	
-	<select id="getlist" resultType="ProductVO" parameterType="Criteria">
+	<select id="getlist" resultType="Criteria" parameterType="Criteria">
 
 	select product_no,product_name,product_price,sub_category, product_date,product_img1 from 
       (select rownum rnum,product_no, product_name, product_price, sub_category, product_date,product_img1 from  
         (select * from product where sub_category = #{subCategory} order by product_date desc)) 
-            where rnum between #{num} and #{nuum} order by product_date
+            where rnum between #{num} and #{nuum} order by product_date desc
 	</select>
 	
 	<select id="scount" resultType="Integer" parameterType="Criteria">
 		select count(*) from product where product_name like '%'||#{keyword}||'%'
 	</select>
-	<select id="searchlist" resultType="ProductVO" parameterType="Criteria">
+	<select id="searchlist" resultType="Criteria" parameterType="Criteria">
 
 	select product_no,product_name,product_price, product_date,product_img1 from 
       (select rownum rnum,product_no, product_name, product_price, product_date,product_img1 from  
         (select * from product where product_name like '%'||#{keyword}||'%' order by product_date desc)) 
-            where rnum between #{num} and #{nuum} order by product_date
+            where rnum between #{num} and #{nuum} order by product_date desc
 	</select>
 	
 
