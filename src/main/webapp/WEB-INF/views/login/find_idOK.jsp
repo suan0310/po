@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,33 +15,35 @@
 <body>
     <div class="outbox">
         <div class="inbox">
-          
+            
                 <div class="findid">
-                  
                     <div class="id">
                         <img src="/img/findid.png" width="90px">
                         <div class="id_test">
                             <h3>아이디 찾기</h3>
                         </div>
                     </div>
-					<form action="#" method="POST">
+
                     <div class="write">
-                         <span class="email"><input type="text" name="emailId" class="email" caption="이메일" maxlength="80"
-                                    value="" placeholder="입력해주세요"" required></span>
-                            <span class="space">@</span>
-                            <span class="email"></span>
-                            <span class="select">
-                                <select class="select2" name="emailDomain" >
-                                    <option value="etc">선택해주세요</option>
-                                    <option value="naver.com">naver.com</option>
-                                    <option value="gmail.com">gmail.com</option>
-                                    <option value="nate.com">nate.com</option>
-                                    <option value="hanmail.net">hanmail.net</option>
-                                    <option value="korea.com">korea.com</option>
-                                </select><br>
-                        <input type="submit" value="확인" class="btn">
+                     				<!-- 이름과 전화번호가 일치하지 않을 때-->
+						<c:if test="${check == 1}">
+							<script>
+								opener.document.findform.name.value = "";
+								opener.document.findform.phone.value = "";
+							</script>
+							<br>
+							<label>일치하는 정보가 존재하지 않습니다.</label>
+						</c:if>
+
+						<!-- 이름과 비밀번호가 일치하지 않을 때 -->
+						<c:if test="${check == 0 }">
+						<br>
+							<label>찾으시는 아이디는(은) ' ${id}' 입니다.</label>
+							<div class="form-label-group">
+							</div>
+						</c:if>
+
                     </div>
-                    </form>
                     <div class="secondinfo">
                         
                         <button class="btn_info"  onClick="location.href='/login/findpasswd'">비밀번호 찾기</button>
@@ -48,7 +51,7 @@
 
                     </div>
                 </div>
-            
+           
         </div>
     </div>
     
