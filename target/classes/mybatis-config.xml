@@ -4,13 +4,18 @@
  "http://mybatis.org/dtd/mybatis-3-config.dtd">
 
 <configuration>
-    <settings>
-          <setting name="mapUnderscoreToCamelCase" value="true"/>
-    </settings>
-    <typeAliases>
-          <typeAlias alias="LoginVo" type="com.bebe.spring.login.vo.LoginVo" />
-          <typeAlias alias="FruitsVo" type="com.bebe.spring.mybatis.vo.FruitsVo"/> 
-    </typeAliases>
+	<settings>
+		<setting name="mapUnderscoreToCamelCase" value="true" />
+		<setting name="jdbcTypeForNull" value="NULL"/>
+	</settings>
+	<typeAliases>
+		<typeAlias alias="LoginVo"
+			type="com.bebe.spring.login.vo.LoginVo" />
+		<typeAlias alias="FruitsVo"
+			type="com.bebe.spring.mybatis.vo.FruitsVo" />
+		<typeAlias alias="BoardVO"
+			type="com.bebe.spring.board.vo.BoardVO" />
+	</typeAliases>
 </configuration>
 
 

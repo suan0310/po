@@ -8,10 +8,10 @@
     <!--------------------- 상단 아이디 및 아이콘이 들어가는 공간 --------------------->
     <div class="menubx">
         <h6 class="shop"><a href="#">SHOP</a></h6>
-        <input type="button" value="회원" class="pos">
+        <input type="button" value="관리자" class="pos">
         <h6><a href="#">HONGGILDONG님</a></h4>
             <h6><a href="#">이벤트</a></h6>
-            <h6><a href="#">게시판</a></h6>
+            <h6><a href="/board/admin_notice">게시판</a></h6>
             <h6><a href="#">로그아웃</a></h6>
             <a href="#"><img src="/img/cart.png" alt="cart" width="20px" height="20px"></a>
             <img src="/img/search.png" alt="search" width="20px" height="20px" class="btn">
