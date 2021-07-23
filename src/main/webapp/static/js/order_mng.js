@@ -40,10 +40,10 @@ $('#searchWord').attr("disabled", false);
 
 
 
-function checksts(){
+/*function checksts(){
 	if($('#stsCancel').val() == $('#stsCancelSel').val() && $('#stsDeliverySel').val() == $('#stsDelivery').val()){
 		alert("변동 사항이 없습니다");
 		return false;
 	}
 	return true;
-}
+}*/

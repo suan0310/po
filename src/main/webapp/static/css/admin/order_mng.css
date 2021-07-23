@@ -90,7 +90,7 @@
     font-weight: bold;
 }
 
-#stsCancel, #stsDelivery{
+.stsCancel, .stsDelivery{
 	width: 100px;
 }
 

@@ -9,7 +9,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/admin/order_mng.css?ver=2">
+    <link rel="stylesheet" href="/css/admin/order_mng.css?ver=3">
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
     <title>Document</title>
 </head>
@@ -70,8 +70,8 @@
                             <td>${list.productNo}</td>
                             <td>${list.id}</td>
                             <td>
-                            <input class="stsinput" type="text" value="${list.stsDelivery}" id="stsDelivery" readonly/>
-                            <select class="category" name="stsDelivery" id="stsDeliverySel">
+                            <input class="stsinput" type="text" value="${list.stsDelivery}" class="stsDelivery" readonly/>
+                            <select class="category" name="stsDelivery" class="stsDeliverySel">
                             <c:choose>
                             <c:when test="${list.stsDelivery eq '배송준비'}">
                                 <option value="배송준비">배송준비</option>                        
@@ -90,10 +90,10 @@
 							
 							
                               </select>
-                              <input class="stsCancel" type="text" value="${list.stsCancel}" id="stsCancel" readonly/>
+                              <input class="stsCancel" type="text" value="${list.stsCancel}" class="stsCancel" readonly/>
                               
 
-                              <select class="stsCancelSel" name="stsCancel" id="stsCancelSel">     
+                              <select class="stsCancelSel" name="stsCancel" class="stsCancelSel">     
                              <c:choose>
                                  <c:when test="${list.stsCancel eq '취소대기'}">                       		 
                            		 <option value="취소대기">취소대기</option>
