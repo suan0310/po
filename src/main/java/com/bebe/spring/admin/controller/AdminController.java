@@ -80,13 +80,17 @@ public class AdminController {
 
 		ModelAndView mv = new ModelAndView("/admin/order_mng");
 		mv.addObject("list", oVo);
+		mv.addObject("searchList", osVo);
 
 		return mv;
 	}
 
 	// 주문 관리 페이지에서 배송 수정버튼 눌렀을때
 	@RequestMapping(value = "/sts_update", method = RequestMethod.POST)
-	public String adminOrderStsPost(OrdersVO orderVo) {
+	public String adminOrderStsPost(OrdersVO orderVo,OrdersSearchVO osVo) {
+		System.out.println(osVo.getMainSelect());
+		System.out.println(osVo.getSubSelect());
+		System.out.println(osVo.getSearchWord());
 		System.out.println("관리자 주문관리 POST 진입");
 		adminService.updateOrderSts(orderVo);
 
