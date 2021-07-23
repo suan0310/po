@@ -29,10 +29,14 @@ public class HomeController {
 
 		model.addAttribute("serverTime", formattedDate);
 
+<<<<<<< HEAD
 
 		return "/index/index";
 
 
+=======
+		return "login/login";
+>>>>>>> origin/hj_work
 	}
 	
 

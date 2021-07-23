@@ -10,6 +10,9 @@ public class UsersVO {
 	private String question;
 	private String answer;
 	private String emailDomain;
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/hj_work
 }
 
