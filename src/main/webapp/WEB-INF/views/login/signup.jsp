@@ -8,6 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>bebeshop</title>
     <link rel="stylesheet" href="/css/login/signup.css">
+    <script type="text/javascript">
+  </script>
 </head>
 <body>
     <div class="outbox">
@@ -26,12 +28,12 @@
                         <input type="password" class="repasswd" placeholder="비밀번호를 다시 한번 입력해주세요" required>
                         <br><label>이메일</label><br>
                         <div class="form">
-                            <span class="email"><input type="text" name="email" class="email" caption="이메일" maxlength="80"
+                            <span class="email"><input type="text" name="emailId" class="email" caption="이메일" maxlength="80"
                                     value="" placeholder="입력해주세요"" required></span>
                             <span class="space">@</span>
                             <span class="email"></span>
                             <span class="select">
-                                <select class="select2" >
+                                <select class="select2" name="emailDomain" >
                                     <option value="etc">선택해주세요</option>
                                     <option value="naver.com">naver.com</option>
                                     <option value="gmail.com">gmail.com</option>
@@ -43,17 +45,17 @@
                             <br><label>질문</label><br>
                             <span class="question"></span>
                             <span class="select1"><select class="select1" name="question" > 
-                                    <option value="질문1">질문1</option>
-                                    <option value="질문2">질문2</option>
-                                    <option value="질문3">질문3</option>
-                                    <option value="질문4">질문4</option>
-                                    <option value="질문5">질문5</option>
+                                    <option value="질문1">졸업한 초등학교의 이름은 무엇입니까?</option>
+                                    <option value="질문2">가장 친한 친구의 이름은 무엇입니까?</option>
+                                    <option value="질문3">자신의 인생 좌우명은 무엇입니까?</option>
+                                    <option value="질문4">인상 깊게 읽은 책은 무엇입니까?</option>
+                                    <option value="질문5">내 어린시절 별명은 무엇입니까?</option>
                                 </select>
                             </span>
                         </div>                        
                         <input type="text" name="answer" class="answer" placeholder="답변을 적어주세요" required>
                     </div>                        
-                    <input type="submit" value="회원가입" class="btn">
+                    <input type="submit" value="회원가입" class="btn" onClick="chk()">
                 </div>
                 </form>
         </div>

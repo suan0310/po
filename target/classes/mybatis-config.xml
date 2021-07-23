@@ -26,6 +26,7 @@
           <typeAlias alias="DetailVO" type="com.bebe.spring.vo.DetailVO"/> 
     	  <typeAlias alias="QuestionVO" type="com.bebe.spring.vo.QuestionVO" />
     	  <typeAlias alias="ReviewVO" type="com.bebe.spring.vo.ReviewVO" />
+    	  <typeAlias alias="UsersVO" type="com.bebe.spring.vo.UsersVO" />
     	  <typeAlias alias="BoardVO" type="com.bebe.spring.board.vo.BoardVO" />
     </typeAliases>
 </configuration>
