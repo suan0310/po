@@ -66,7 +66,8 @@
 	<!-- 별점개수 -->
 	<select id="starCnt" resultType="DetailVO" parameterType="DetailVO">
 		select rv_star, count(*) as cnt from review where
-		product_no = #{productNo} group by rv_star
+		product_no = #{productNo} group by rv_star 
+		order by rv_star asc
 	</select>
 
 	<!-- 별점 합 -->
