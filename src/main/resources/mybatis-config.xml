@@ -4,6 +4,7 @@
  "http://mybatis.org/dtd/mybatis-3-config.dtd">
 
 <configuration>
+<<<<<<< HEAD
     <settings>
           <setting name="mapUnderscoreToCamelCase" value="true"/>
           <setting name="jdbcTypeForNull" value="NULL"/>
@@ -29,6 +30,20 @@
     	  <typeAlias alias="ReviewVO" type="com.bebe.spring.vo.ReviewVO" />
     </typeAliases>
 
+=======
+	<settings>
+		<setting name="mapUnderscoreToCamelCase" value="true" />
+		<setting name="jdbcTypeForNull" value="NULL"/>
+	</settings>
+	<typeAliases>
+		<typeAlias alias="LoginVo"
+			type="com.bebe.spring.login.vo.LoginVo" />
+		<typeAlias alias="FruitsVo"
+			type="com.bebe.spring.mybatis.vo.FruitsVo" />
+		<typeAlias alias="BoardVO"
+			type="com.bebe.spring.board.vo.BoardVO" />
+	</typeAliases>
+>>>>>>> origin/jung_work
 </configuration>
 
 

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 반드시 인터페이스로 선언해야 한다. -->
+<mapper namespace="com.bebe.spring.board.dao.BoardDao">
+	<!-- 실행 인터페이스위치 -->
+
+	<!-- resultType은 쿼리를 실행한 뒤 결과가 있을 경우에 String이나 객체를 반환하는 역할, 반대로 데이터를 넣을 
+		경우 parameterType을 사용 -->
+	<select id="noticeList"
+		resultType="com.bebe.spring.board.vo.BoardVO">
+		<!-- SELECT * FROM notice ORDER BY notice_no desc -->
+		SELECT * FROM (
+		SELECT a.*, rownum rnum
+		FROM (
+		SELECT * FROM notice
+		WHERE notice_no > 0
+		ORDER BY notice_no DESC) a
+		WHERE ((#{page} * #{perPageNum}) + 1 ) > rownum)
+		WHERE rnum >= (((#{page}-1)
+		* #{perPageNum}) + 1)
+		ORDER BY notice_no DESC, notice_date DESC
+	</select>
+
+	<select id="faqList"
+		resultType="com.bebe.spring.board.vo.BoardVO">
+		SELECT
+		*
+		FROM faq order by faq_no
+	</select>
+
+	<select id="readNotice"
+		resultType="com.bebe.spring.board.vo.BoardVO">
+		SELECT * FROM notice WHERE notice_no=#{noticeNo}
+	</select>
+
+	<select id="readFaq"
+		resultType="com.bebe.spring.board.vo.BoardVO">
+		SELECT * FROM faq WHERE faq_no=#{faqNo}
+	</select>
+
+	<select id="writeNotice">
+		INSERT INTO notice VALUES(no.NEXTVAL,
+		#{noticeCategory},
+		#{noticeTitle}, #{noticeContent}, SYSDATE)
+	</select>
+
+	<select id="writeFaq">
+		INSERT INTO faq VALUES(faq_sq.NEXTVAL,#{faqTitle},
+		#{faqContent})
+	</select>
+
+	<select id="category"
+		resultType="com.bebe.spring.board.vo.BoardVO">
+		SELECT notice_category FROM notice group by notice_category
+	</select>
+
+	<select id="deleteNotice">
+		delete FROM notice WHERE notice_no=#{noticeNo}
+	</select>
+
+	<select id="deleteFaq">
+		DELETE FROM faq WHERE faq_no=#{faqNo}
+	</select>
+
+	<select id="updateNotice">
+		UPDATE notice SET notice_title = #{noticeTitle},
+		notice_content = #{noticeContent},
+		notice_date = SYSDATE WHERE
+		notice_no = #{noticeNo}
+	</select>
+
+	<select id="updateFaq">
+		UPDATE faq SET faq_title = #{faqTitle},
+		faq_content =
+		#{faqContent}
+		WHERE faq_no = #{faqNo}
+	</select>
+
+	<select id="noticeListCount" resultType="int">
+		<!-- SELECT * FROM ( SELECT ROWNUM num, n.* FROM ( SELECT * FROM notice 
+			ORDER BY notice_no DESC ) n ) WHERE num between #{page} and #{perPageNum} -->
+		SELECT count(notice_no) FROM notice WHERE notice_no > 0
+	</select>
+
+
+
+</mapper> 
