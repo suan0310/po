@@ -39,71 +39,55 @@ public class DetailController {
 		List<DetailVO> listStar = null;
 		int starTotal = 0;
 		Double avg = 0.0;
-		
+
 		Integer rv = detailService.selectOneReview(vo);
-		System.out.println("rv: "+rv);
-		
-		if(rv !=null) {
+
+		if (rv != null) {
 			listStar = detailService.starCnt(vo);
 			starTotal = detailService.starTotal(vo);
 			avg = Math.round(detailService.selectStarAvg(vo) * 10) / 10.0;
 		} else {
-			
 		}
-		
-		System.out.println("listStar " + listStar);
-		System.out.println(starTotal);
-		System.out.println(avg);
-		
+
 		model.addAttribute("detMain", listMain);
 		model.addAttribute("rvOne", listOne);
 		model.addAttribute("rvAll", listAll);
 		model.addAttribute("qsAll", listAllQuestion);
 		model.addAttribute("avg", avg);
 		model.addAttribute("rvStar", listStar);
-		model.addAttribute("sTotal", starTotal);		
+		model.addAttribute("sTotal", starTotal);
 		model.addAttribute("detOptions", listOptions);
 
 		System.out.println("모델데이터 전송");
 		return "/product/detail";
 	}
 
-	@RequestMapping(value="/pop", method = RequestMethod.GET )
+	@RequestMapping(value = "/pop", method = RequestMethod.GET)
 	public String pop(Model model, DetailVO vo, HttpSession session, @RequestParam("userid") String userid) {
 		List<DetailVO> listOneQuestion = detailService.selectOneQuestion(vo);
 		model.addAttribute("qOne", listOneQuestion);
 		return "/product/pop";
 	}
-	
+
 	@ResponseBody
-	@RequestMapping(value="/qna.del", method= RequestMethod.GET)
+	@RequestMapping(value = "/qna.del", method = RequestMethod.GET)
 	public String delQna(Model model, DetailVO vo, @RequestParam("productNo") String productNo) {
 		Integer rs = detailService.delAnswer(vo);
-		if(rs==1) { System.out.println("delAnswer 성공");}
-		rs= detailService.delQuestion(vo);
-		if(rs==1) { System.out.println("delQuestion 성공");}
+		if (rs == 1) {
+			System.out.println("delAnswer 성공");
+		}
+		rs = detailService.delQuestion(vo);
+		if (rs == 1) {
+			System.out.println("delQuestion 성공");
+		}
 		return " ";
 	}
-	
+
 	@ResponseBody
 	@RequestMapping(value = "/updateQuestion", method = RequestMethod.GET)
 	public String updateQuestion(DetailVO vo) {
 		Integer rs = detailService.updateQuestion(vo);
-		
-		if (rs == 1) {
-			System.out.println("업데이트 성공!");
-		} else {
-			System.out.println("실패!");
-		}		
-		return " ";
-	}
-	
-	
-	@ResponseBody
-	@RequestMapping(value = "/updateAnswer", method = RequestMethod.GET)
-	public String updateAnswer(DetailVO vo) {
-		Integer rs = detailService.updateAnswer(vo);
-		
+
 		if (rs == 1) {
 			System.out.println("업데이트 성공!");
 		} else {
@@ -111,12 +95,25 @@ public class DetailController {
 		}
 		return " ";
 	}
-	
+
+	@ResponseBody
+	@RequestMapping(value = "/updateAnswer", method = RequestMethod.GET)
+	public String updateAnswer(DetailVO vo) {
+		Integer rs = detailService.updateAnswer(vo);
+
+		if (rs == 1) {
+			System.out.println("업데이트 성공!");
+		} else {
+			System.out.println("실패!");
+		}
+		return " ";
+	}
+
 	@RequestMapping(value = "/reivew.do", method = RequestMethod.POST)
 	public ModelAndView insertReview(DetailVO vo, @RequestParam("productNo") String productNo) {
 		ModelAndView mv = new ModelAndView();
 		Integer rs = detailService.insertReview(vo);
-		
+
 		if (rs == 1) {
 			System.out.println("성공!");
 		} else {
@@ -135,46 +132,45 @@ public class DetailController {
 		} else {
 			System.out.println("실패!");
 		}
-				
+
 		rs = detailService.insertAnswer(vo);
 		mv.setViewName("redirect:http://localhost/productdetail?productNo=" + productNo);
 		return mv;
 	}
 
-	@RequestMapping(value="/reviewManage", method = RequestMethod.GET)
+	@RequestMapping(value = "/reviewManage", method = RequestMethod.GET)
 	public String reviewManage(Model model, DetailVO vo, @RequestParam("productNo") String productNo) {
 		System.out.println("reviewManage 이동");
 		List<DetailVO> listRvBest1 = detailService.selectRvBest1(vo);
 		List<DetailVO> listRvBest0 = detailService.selectRvBest0(vo);
-		
+
 		model.addAttribute("RvBest1", listRvBest1);
 		model.addAttribute("RvBest0", listRvBest0);
 		return "/product/reviewManage";
 	}
-	
-	
-	
-	@RequestMapping(value="/updateRvBest1", method= RequestMethod.GET)
-	public ModelAndView updateRvBest1(Model model, DetailVO vo, int[] cntRvNo, @RequestParam("productNo") String productNo) {
+
+	@RequestMapping(value = "/updateRvBest1", method = RequestMethod.GET)
+	public ModelAndView updateRvBest1(Model model, DetailVO vo, int[] cntRvNo,
+			@RequestParam("productNo") String productNo) {
 		System.out.println("베스트리뷰 등록");
 		detailService.updateRvBest1(cntRvNo);
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("redirect:http://localhost/productdetail/reviewManage?productNo="+productNo);
+		mv.setViewName("redirect:http://localhost/productdetail/reviewManage?productNo=" + productNo);
 		return mv;
 	}
 
-	
-	@RequestMapping(value="/updateRvBest0", method= RequestMethod.GET)
-	public ModelAndView updateRvBest0(Model model, DetailVO vo, int[] cntRvNo, @RequestParam("productNo") String productNo) {
+	@RequestMapping(value = "/updateRvBest0", method = RequestMethod.GET)
+	public ModelAndView updateRvBest0(Model model, DetailVO vo, int[] cntRvNo,
+			@RequestParam("productNo") String productNo) {
 		System.out.println("베스트리뷰 삭제");
 		detailService.updateRvBest0(cntRvNo);
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("redirect:http://localhost/productdetail/reviewManage?productNo="+productNo);
+		mv.setViewName("redirect:http://localhost/productdetail/reviewManage?productNo=" + productNo);
 		return mv;
 	}
-	
+
 	@ResponseBody
-	@RequestMapping(value="/options.size")
+	@RequestMapping(value = "/options.size")
 	public Map<String, List<DetailVO>> selectSecondOptions(Model model, DetailVO vo) {
 		Map<String, List<DetailVO>> map = new HashMap<String, List<DetailVO>>();
 		List<DetailVO> selectSecondOptions = detailService.selectSecondOptions(vo);
@@ -182,9 +178,9 @@ public class DetailController {
 
 		return map;
 	}
-	
+
 	@ResponseBody
-	@RequestMapping(value="/options.stock")
+	@RequestMapping(value = "/options.stock")
 	public Map<String, Integer> selectStock(Model model, DetailVO vo) {
 
 		Map<String, Integer> map = new HashMap<String, Integer>();
@@ -192,21 +188,21 @@ public class DetailController {
 		map.put("stock", stock);
 		return map;
 	}
-	
-	//cart
+
+	// cart
 	@ResponseBody
-	@RequestMapping(value="/insertCart", method = RequestMethod.GET)
-	public String updateCart(DetailVO vo, Model model, @RequestParam("id") String id ) {
+	@RequestMapping(value = "/insertCart", method = RequestMethod.GET)
+	public String updateCart(DetailVO vo, Model model, @RequestParam("id") String id) {
 		detailService.insertCart(vo);
 		return "";
 	}
-	
-	//order   리턴에 오더매핑주세여
-	@RequestMapping(value="/order", method = RequestMethod.GET)
+
+	// order 리턴에 오더매핑주세여
+	@RequestMapping(value = "/order", method = RequestMethod.GET)
 	public String order(DetailVO vo, Model model) {
 		Integer price = detailService.selectProductPrice(vo);
 		model.addAttribute("order", vo);
 		return "/product/order";
 	}
-	
+
 }
