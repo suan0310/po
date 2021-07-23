@@ -86,12 +86,13 @@ public class AdminController {
 
 	// 주문 관리 페이지에서 배송 수정버튼 눌렀을때
 	@RequestMapping(value = "/sts_update", method = RequestMethod.POST)
-	public ModelAndView adminOrderStsPost(OrdersVO orderVo) {
+	public String adminOrderStsPost(OrdersVO orderVo) {
 		System.out.println("관리자 주문관리 POST 진입");
 		adminService.updateOrderSts(orderVo);
 
-		ModelAndView mav = new ModelAndView("/admin/order_mng");
-		return mav;
+//		ModelAndView mav = new ModelAndView("/admin/order_mng");
+		return "redirect:/admin/order_mng";
+
 	}
 
 	// -------------------------------------------- 상품 추가 페이지
