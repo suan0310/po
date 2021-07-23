@@ -47,7 +47,7 @@
                     <option value="">분류선택</option>
                       </select>
                     <input type="text" name="searchWord"  id="searchWord">
-                    <input type="submit" id="btn" value="검색">
+                    <input type="submit" class="btn" value="검색">
                     </form>
                 </div>
                 <div class="log_table">
@@ -61,7 +61,7 @@
                             <th>주문상태</th>
                         </tr>
                         <c:forEach items="${list}"  var="list">
-                        <form action="sts_update" method="post" onsubmit="return checksts()">
+                        <form action="sts_update" method="post" onsubmit="return checksts()" name="stsform">
                         <tr>
                             <td>
                                <fmt:formatDate value="${list.orderDate}" pattern="yy-MM-dd"/>
@@ -108,7 +108,7 @@
                             </c:otherwise>
                             </c:choose>							      
                               </select>
-                              <input type="submit" id="btn" value="변경">
+                              <input type="button" class="btn" id="stsbtn" value="변경">
                             </td>
                         </tr>
                         </form>
@@ -120,9 +120,36 @@
         </div>
     </div>
 </body>
-
-
 <script type="text/javascript" src="/js/order_mng.js"></script>
+<script type="text/javascript">
+
+stsSet();
+function stsSet(){
+	console.log(${searchList.mainSelect});
+	console.log('${searchList.subSelect}');
+	console.log('${searchList.searchWord}');
+	$("#category").val(${searchList.mainSelect}).attr("selected","selected");
+//	$("#subcategory").val(${searchList.subSelect}).attr("selected","selected");
+	$("#subcategory > option[@value=${searchList.subSelect}]").attr("selected","selected");
+	$("#searchWord").val(${searchList.searchWord}).attr("selected","selected");
+	}
+
+$("#stsbtn").click(function(){
+	
+	var frm = document.stsform;
+	frm.method ="post";
+	frm.action ="sts_update";
+	frm.append("mainSelect",$("#category").val());
+	frm.append("subSelect",$("#subcategory").val());
+	frm.append("searchWord",$("#searchWord").val());
+	
+	frm.submit();	
+});
+
+</script>
+
+
+
 <script type="text/javascript" src="/js/search.js"></script>
 
 </html>
