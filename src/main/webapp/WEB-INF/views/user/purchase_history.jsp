@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -11,7 +12,7 @@
     <link rel="stylesheet" href="/css/user/purchase_history.css">
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 
-    <title>Document</title>
+    <title>bebeshop</title>
 </head>
 
 <body>
@@ -34,10 +35,11 @@
                         <tr>
                             <th style="width: 100px; border-left : hidden;"> 주문번호</th>
                             <th colspan="2">제품정보</th>
-                            <th style="width: 100px;">수량</th>
+                            <th >제품수량</th>
                             <th style="width: 150px;">결제금액</th>
-                            <th style="width: 100px;">문의</th>
-                            <th style="width: 100px; border-right: hidden;">주문취소</th>
+                            <th style="width: 150px;">배송현황</th>
+                            
+                            <th style="width: 150px; border-right: hidden;">취소현황</th>
                         </tr>
                        
                        <c:forEach items="${polist}" var="list">

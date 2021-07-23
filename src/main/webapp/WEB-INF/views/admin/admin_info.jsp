@@ -46,7 +46,7 @@
                 </div>
 
                 <div>
-                	<form action="admin_info" method="post" onsubmit="return check()">
+                	<form action="admin_info" method="post" class="form" onsubmit="return check()">
                     <div class="passwd">
                         <h4>비밀번호변경</h4>
                         <h5>*고객님의 비밀번호를 변경해 주세요.</h5>
@@ -84,7 +84,7 @@
 </body>
 
 <script>
-function check(){
+/* function check(){
 	var newpw = $('#newpw').val();
 	console.log(newpw);
 	var newpwch = $('#newpwch').val();
@@ -94,10 +94,11 @@ function check(){
 		return false;
 	}		
   return confirm('비밀번호를 변경하시겠습니까?');		
-};
+}; */
 </script>
 <script type="text/javascript" src="/js/search.js"></script>
 <script type="text/javascript" src="/js/info.js"></script>
+<script type="text/javascript" src="/js/pwcheck.js"></script>
 
 
 </html>

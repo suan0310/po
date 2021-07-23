@@ -123,3 +123,9 @@
 .menu:nth-of-type(2) {
     transform: scale3d(1.2, 1.2, 0.3) translate(-7%, -5%);
 }
+
+select {
+	width: 250px;
+	height: 30px;
+}
+

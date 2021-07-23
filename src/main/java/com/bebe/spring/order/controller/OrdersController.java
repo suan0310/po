@@ -11,38 +11,32 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.bebe.spring.order.service.OrdersService;
-import com.bebe.spring.user.service.CartService;
-import com.bebe.spring.vo.CartVO;
 import com.bebe.spring.vo.OrdersAddressVO;
+import com.bebe.spring.vo.OrdersVO;
 
 @Controller
-@RequestMapping(value="/order/*")
+@RequestMapping(value = "/order/*")
 public class OrdersController {
 	@Inject
 	OrdersService orderService;
-//	@Inject
-//	CartService cartService;
-//	
-//	@RequestMapping(value = "/order", method = RequestMethod.GET)
-//	public  ModelAndView home(CartVO cv) {
-//			ModelAndView mav= new ModelAndView("/order/order");
-////			int productNo=0;
-////			for(String i:chArr) {
-////				productNo= Integer.parseInt(i);
-////				cv.setProductNo(productNo);
-////				cartService.order(cv);
-////			}
-////			mav.addObject("order",cartService.order(cv));
-//			return mav;
-//	}
-//	
+
 	@RequestMapping(value="/order", method = RequestMethod.POST)
-	public String orderInfo(OrdersAddressVO vo) {
-		System.out.println("구매버튼 누른후 service   ");
-		orderService.insertOrders(vo);
-		System.out.println("data 인서트 ");
-		return "/order/order_sc";
-	}
-	
-	
+	public ModelAndView orderInfo(ModelAndView mav, @RequestParam(value="productNo") Integer[] pn,
+			@RequestParam(value="orderPrice") Integer[] pr, @RequestParam(value="orderColor") String[] color,
+			@RequestParam(value="orderSize") String[] size,@RequestParam(value="orderQty") Integer[] qty,OrdersAddressVO oav) {
+		
+		for(int i =0; i<pn.length;i++) {
+			oav.setProductNo(pn[i]);
+			oav.setOrderPrice(pr[i]);
+			oav.setOrderColor(color[i]);
+			oav.setOrderSize(size[i]);
+			oav.setOrderQty(qty[i]);
+			orderService.insertOrders(oav);
+			orderService.deleteCart(oav);
+		}
+		System.out.println(oav);	
+     	mav.setViewName("/order/order_sc");	
+		return mav;
+	}	
+
 }

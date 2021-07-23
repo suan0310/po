@@ -40,12 +40,10 @@ $('#searchWord').attr("disabled", false);
 
 
 
-/*function checkstsCancel(){
-	var val = $('.stsCancel').val();
-	console.log(val);
-	if(val == "취소" || val == "취소완료"){
-		console.log("if문");
-		$('.stsCancelSel').attr("disabled", true);
+/*function checksts(){
+	if($('#stsCancel').val() == $('#stsCancelSel').val() && $('#stsDeliverySel').val() == $('#stsDelivery').val()){
+		alert("변동 사항이 없습니다");
+		return false;
 	}
-	else $('.stsCancelSel').attr("disabled", false);
+	return true;
 }*/

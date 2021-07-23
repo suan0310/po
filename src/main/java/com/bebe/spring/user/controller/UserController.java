@@ -16,7 +16,7 @@ import com.bebe.spring.vo.OrdersAddressVO;
 import com.bebe.spring.vo.ProductOrdersVO;
 
 @Controller
-@RequestMapping(value="user")
+@RequestMapping(value="/user")
 public class UserController {
 
 	@Resource (name="userService")
@@ -26,7 +26,7 @@ public class UserController {
 	//유저 구매내역 검색
 	@RequestMapping(value="/purchase_history", method = RequestMethod.GET)
 	public ModelAndView userHistoryGet(HttpServletRequest req) {
-		String id = "hoogun30";
+		String id = "okkk";
 		List<ProductOrdersVO> list = userService.selectOrdersList(id);
 		ModelAndView mav = new ModelAndView("/user/purchase_history");
 		mav.addObject("polist", list);
@@ -56,7 +56,7 @@ public class UserController {
 		
 		System.out.println("취소 컨트롤러 진입");
 		userService.updatePostCancel(orderNo);	
-		String id = "hoogun30";
+		String id = "okkk";
 		List<ProductOrdersVO> list = userService.selectOrdersList(id);
 		ModelAndView mav = new ModelAndView("/user/purchase_history");
 		mav.addObject("polist", list);

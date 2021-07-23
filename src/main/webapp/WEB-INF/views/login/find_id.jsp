@@ -14,27 +14,41 @@
 <body>
     <div class="outbox">
         <div class="inbox">
-            <form action="#" method="POST">
+          
                 <div class="findid">
+                  
                     <div class="id">
                         <img src="/img/findid.png" width="90px">
                         <div class="id_test">
                             <h3>아이디 찾기</h3>
                         </div>
                     </div>
-
+					<form action="#" method="POST">
                     <div class="write">
-                        <input type="text" class="text" placeholder=" 이메일을 입력해 주세요."><br>
+                         <span class="email"><input type="text" name="emailId" class="email" caption="이메일" maxlength="80"
+                                    value="" placeholder="입력해주세요"" required></span>
+                            <span class="space">@</span>
+                            <span class="email"></span>
+                            <span class="select">
+                                <select class="select2" name="emailDomain" >
+                                    <option value="etc">선택해주세요</option>
+                                    <option value="naver.com">naver.com</option>
+                                    <option value="gmail.com">gmail.com</option>
+                                    <option value="nate.com">nate.com</option>
+                                    <option value="hanmail.net">hanmail.net</option>
+                                    <option value="korea.com">korea.com</option>
+                                </select><br>
                         <input type="submit" value="확인" class="btn">
                     </div>
+                    </form>
                     <div class="secondinfo">
                         
-                        <button class="btn_info">비밀번호 찾기</button>
-                        <button class="btn_info">로그인</button>
+                        <button class="btn_info"  onClick="location.href='/login/findpasswd'">비밀번호 찾기</button>
+                        <button class="btn_info"  onClick="location.href='/login'">로그인</button>
 
                     </div>
                 </div>
-            </form>
+            
         </div>
     </div>
     

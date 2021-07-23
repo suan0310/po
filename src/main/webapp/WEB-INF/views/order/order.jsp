@@ -35,23 +35,27 @@
 							<tr>
 								<th colspan="2" style="border-left: hidden">제품정보</th>
 								<th style="width: 100px;">수량</th>
-								<th style="width: 100px;">할인금액</th>
+								<th style="width: 100px;">상품금액</th>
 								<th style="border-right: hidden">결제금액</th>
 							</tr>
-							<c:forEach items="${order}" var="cart">
+							<c:forEach items="${order}" var="cart" varStatus="stauts">
+							<c:set var="price" value="${cart.productPrice}" />
+							<c:set var="quantity" value="${cart.quantity}" />
 							<tr>
 								<td style="border-left: hidden" align=right><img
 									src="/img/a.jpg" alt="a" width="120px" height="120px"></td>
 								<td style="border-left: hidden" align="left">
-									<h2>${cart.productName }</h2>
-									<h2>50종 종합(제품명)</h2>
-									<h2>사이즈: S</h2>
-									<h1>8,000원</h1>
+									<input type="hidden" name="productNo" value="${cart.productNo}">
+									<h2 >${cart.productName }</h2>
+									<h2><input type="hidden" name="orderSize" value="${cart.productSize}">
+									 사이즈 : ${cart.productSize}  </h2>
+									<h2><input type="hidden" name="orderColor" value="${cart.productColor}">
+									 컬러 : ${cart.productColor} </h2>
 								</td>
-								<td align=center>4개</td>
-								<td align=center>0원</td>
-								<td style="border-right: hidden" align=center>
-									<h1>8,000원</h1>
+								<td align=center><input type="hidden" name="orderQty" value="${cart.quantity}">${cart.quantity}개</td>
+								<td align=center  >${cart.productPrice}원</td>
+								<td style="border-right: hidden" align=center >
+									<h1><input type="hidden" name="orderPrice" value="${cart.productPrice*cart.quantity}"/> ${cart.productPrice*cart.quantity}원</h1>
 								</td>
 							</tr>
 							</c:forEach>

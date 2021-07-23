@@ -53,8 +53,8 @@
 									<li><a href="/product/searchPage?subCategory=202&page=1">의류</a></li>
 								</ul>
 							</li>
-							<li><a href="/product/searchPage?subCategory=3&page=1 ">사료</a></li>
-							<li><a href="/product/searchPage?subCategory=4&page=1 ">간식</a></li>
+							<li><a href="/product/searchPage?subCategory=301&page=1 ">사료</a></li>
+							<li><a href="/product/searchPage?subCategory=401&page=1 ">간식</a></li>
 						</ul>
 						
 					</div>
@@ -66,7 +66,7 @@
 							<div class="probxs">
 						</c:if>
 						<div class="probx">
-							<a href="#"> <img src="/img/a.jpg" alt="a">
+							<a href="/productdetail?productNo=${row.productNo}"> <img src="${row.productImg1}" alt="a">
 								<h1>${row.productName }</h1>
 								<div class="price">
 									<h4>${row.productPrice }원</h4>

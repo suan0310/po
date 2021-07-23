@@ -15,17 +15,17 @@
     <div class="outbx">
        <div class="inbx">
            <h1>WELCOME</h1>
-           <form action="/login" method="POST">
+           <form action="/login/login" method="post">
                <div class="login">
                    <h1>로그인</h1>
-                   <input name ="id" type="id" class="id" placeholder="아이디">
+                   <input name ="id" type="id" class="id" placeholder="아이디" >
                    <input name="passwd" type="password" class="passwd" placeholder="비밀번호">
                    <!-- 한줄로 내리기 위해 div 처리 -->
                    <div class="checkbx"><input type="checkbox" class="check" checked>&nbsp<label>아이디 저장</label></div>
                    <input type="submit" value="로그인" class="btn">
                    <div class="found"><h6><a href="/login/findid">아이디 찾기</a></h6>&nbsp|&nbsp<h6><a href="/login/findpasswd">비밀번호 찾기</a></h6>&nbsp|&nbsp<h6><a href="/login/constent">회원가입</a></h6></div>
                    <div class="social">
-                    <img src="/img/facebook.jpg" width=25; id="fb";>
+                    <img src="/img/google.png" width=25; id="goo";>
                     <img src="/img/kakao.png" width=25; id="kao";>
                     <img src="/img/naver.png" width=25; id="na">
                     </div>

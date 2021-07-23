@@ -77,11 +77,6 @@
 </body>
 
 
-<script type="text/javascript">
-	$(document).ready(function() {
-		$('.aside').load("user_aside.html");
-	});
-</script>
 
 
 

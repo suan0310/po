@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="/css/admin/product_add.css?ver=2">
+<link rel="stylesheet" href="/css/admin/product_add.css?ver=4">
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <title>Document</title>
 </head>
@@ -28,7 +28,7 @@
 					<h4>상품 추가</h4>
 					<hr style="border: solid black 2px;">
 				</div>
-				<form action="product_add" method="post" onsubmit="return confirm('상품을 등록하시겠습니까?');">
+				<form action="product_add" method="post" onsubmit="return confirm('상품을 등록하시겠습니까?');" enctype="multipart/form-data">
 					<div id="addndel">
 						<input id="add" class="button" type="submit" value="등록">
 					</div>
@@ -56,13 +56,13 @@
 								</div>
 							</div>
 							<div>
-								상품명<br> <input type="text" name="productName" required>
+								상품명<br> <input type="text" name="productName" required style="width:250px;height:30px;font-size:16px;">
 							</div>
 							<div>
-								수량<br> <input type="text" name="productStock" required>
+								수량<br> <input type="text" name="productStock" required style="width:250px;height:30px;font-size:16px;">
 							</div>
 							<div>
-								금액<br> <input type="text" name="productPrice" required>
+								금액<br> <input type="text" name="productPrice" required style="width:250px;height:30px;font-size:16px;">
 							</div>
 							<div>
 								사이즈
@@ -91,16 +91,18 @@
 							</div>
 						</div>
 						<div id="imgbox">
-							제품이미지<br> <input type="file" accept="image/*" value="1" onchange="previewImage(this, 'img1')" /> 
-							<input type="file" accept="image/*" value="2" 	onchange="previewImage(this, 'img2')" /> <br> 
-								<input type="file" accept="image/*" value="3"		onchange="previewImage(this, 'img3')" /> 
-								<input type="file"	accept="image/*" value="4" onchange="previewImage(this, 'img4')" />
+							<h3>제품이미지</h3><br>
+							    첫번째 이미지<input type="file" accept="image/* " class="imgfile"  name="file"	/>
+							    두번째 이미지<input type="file" accept="image/*"  class="imgfile"  	name="file" /><br>
+								세번째 이미지<input type="file" accept="image/*"  class="imgfile" 	name="file"/> 
+								네번째 이미지<input type="file"	accept="image/*"  class="imgfile"  name="file" />  
 							<div class="imgsubbox">
-								<div id="img1"></div>
-								<div id="img2"></div>
-								<div id="img3"></div>
-								<div id="img4"></div>
-							</div>
+								<div id="img1"><img src="" /></div>
+								<div id="img2"><img src="" /></div><br>
+								<div id="img3"><img src="" /></div>
+								<div id="img4"><img src="" /></div> 
+								<%=request.getRealPath("/") %>
+							</div>							
 						</div>
 					</div>
 				</form>
@@ -109,7 +111,21 @@
 	</div>
 </body>
 
+<script type="text/javascript">
 
+$(".imgfile").change(function(){
+	var index = $(".imgfile").index(this) + 1; 		
+		   if(this.files && this.files[0]) {
+		    var reader = new FileReader;
+		    reader.onload = function(data) {
+		     $('#img'+index+' img').attr("src", data.target.result).width(200);        
+		    }
+		    reader.readAsDataURL(this.files[0]);
+		   }
+  });
+  
+  
+  </script>
 <script type="text/javascript" src="/js/search.js"></script>
 <script type="text/javascript " src="/js/admin_product_add.js?ver=2"></script>
 

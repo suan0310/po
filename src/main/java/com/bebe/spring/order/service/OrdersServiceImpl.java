@@ -1,5 +1,9 @@
 package com.bebe.spring.order.service;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
@@ -13,9 +17,15 @@ public class OrdersServiceImpl implements OrdersService {
 	OrdersDAO ordersDAO;
 	
 	@Override
-	public int insertOrders(OrdersAddressVO vo) {
-		System.out.println("service ->DAO ->DB->DAO->service");
-		return ordersDAO.insertOrders(vo);
+	public Integer insertOrders(OrdersAddressVO oav) {
+				return ordersDAO.insertOrders(oav);
 	}
+
+	@Override
+	public Integer deleteCart(OrdersAddressVO oav) {
+		// TODO Auto-generated method stub
+		return ordersDAO.deleteCart(oav);
+	}
+
 
 }

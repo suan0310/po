@@ -50,8 +50,13 @@ td {
   top: 680px;
   width: 500px;
   height: 80px;
-  margin-left: 200px;
+  margin-left: 410px;
 }
+
+.img1{
+	width: 120px;
+}
+
 .detail-order {
   float: right;
   width: 550px;
@@ -83,13 +88,16 @@ td {
   cursor: pointer;
 }
 
+
+
+/*
 .reivew-request-tab {
   float: left;
-  margin-top: 239px;
+  margin-top: 100px;
   margin-left: 300px;
   width: 800px;
-  height: auto;
 }
+*/
 
 #cont1 {
   margin-top: -50px;
@@ -103,6 +111,15 @@ td {
   display: none;
   float: right;
 }
+
+.reivew-request-tab {
+  float: left;
+  margin-top: -1610px;
+  margin-left: 500px;
+  width: 800px;
+}
+
+
 
 .tabmenu label {
   display: inline-block;
@@ -165,7 +182,6 @@ td {
 }
 
 #request-popup-click {  /*답변시*/
-  display: none;
   font-size: 13px;
   border: 1px solid;
   width: 600px;
@@ -173,9 +189,21 @@ td {
   height: 850px;
   position: absolute;
   margin-left: 600px;
-  display: show;
   top: 300px;
 }
+
+
+
+#request-popup-newclick{
+	
+ font-size: 13px;
+  border: 1px solid;
+  width: 300px;
+  background-color:#f7c10c;
+  height: 500px;
+  position: left;
+}
+
 
 .customer-reviews1,
 .customer-reviews2 {
@@ -222,4 +250,14 @@ i {
 #yellowstar{
     color: #f7c10c  ;
 }
+
+#quantity{
+	width: 100px;
+}
+
+.w3-orange{
+	height: 24px; 
+	width: 0;
+}
+
 /* =========================은혜 끝!!! 제품상세페이지 12~17장 ========================= */
