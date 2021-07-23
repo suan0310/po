@@ -11,7 +11,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="/css/product/deatil.css?ver=1">
+<link rel="stylesheet" href="/css/product/detail.css?ver=1">
 <title>Document</title>
 <!--링크들-->
 <script src="http://code.jquery.com/jquery-latest.js"></script>
