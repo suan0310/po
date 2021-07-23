@@ -15,7 +15,7 @@
     <div class="outbx">
        <div class="inbx">
            <h1>WELCOME</h1>
-           <form action="/login" method="get">
+           <form action="/login/login" method="post">
                <div class="login">
                    <h1>로그인</h1>
                    <input name ="id" type="id" class="id" placeholder="아이디" >
