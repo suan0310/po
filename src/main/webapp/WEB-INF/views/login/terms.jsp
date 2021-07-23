@@ -8,12 +8,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>bebeshop</title>
     <link rel="stylesheet" href="/css/login/terms.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript">
+ 	function chk(){
+ 		var c1 = document.querySelector('input[name="checkbox1"]:checked').value;
+ 		var c = document.querySelector('input[name="checkbox"]:checked').value;
+ 				
+ 	            if(c1 == 0 || c == 0){
+ 	            	
+ 	            	alert("모든 약관에 동의하셔야 합니다.");
+ 	              
+ 	 	        }else{
+ 	 	        	alert("회원가입 페이지로 이동합니다.");
+ 	 	        	location.href="/login/signup";
+ 	 	        	
+ 	 	        }
+ 	 
+ 	}
+    </script>
 </head>
 <body>
     <div class="outbox">
         <div class="inbox">
             <h1>JOIN WITH US</h1>
-            <form action="/login/signup" method="GET">
+            <form>
                 <div class="constent">
                     <h1>동의서</h1>
                     <textarea class="text" cols="33" rows="7">[이용약관]                        제1장총칙
@@ -42,8 +60,8 @@
                     - 생성정보 수집 툴을 통한 수집</textarea>
                     <br>
                     <div class="checkbox">
-                        <input type="radio" class="agr" name="checkbox1"></input><label>동의</label>
-                        <input type="radio" class="disagr" name="checkbox1"></input><label>미동의</label>
+                        <input type="radio" class="agr" name="checkbox1" value="1"></input><label>동의</label>
+                        <input type="radio" class="disagr" name="checkbox1" value="0" checked="checked"></input><label>미동의</label>
                     </div>
                     <textarea class="text1" cols="33" rows="7">[이용약관]                        제1장총칙
                                                                     가. 수집하는 개인정보의 항목첫째, 회사는 회원가 입, 원활한 고객상담, 각종 서비스의 제공을 위해 최초 회원가입 당시 아래와 같은 최소한의 개인정보를 필수항목으로 수집하고 있습니다.
@@ -71,10 +89,10 @@
                                         - 생성정보 수집 툴을 통한 수집</textarea>
                     <br>
                     <div class="checkbox">
-                        <input type="radio" class="agr" name="checkbox"></input><label>동의</label>
-                        <input type="radio" class="disagr" name="checkbox"></input><label>미동의</label>
+                        <input type="radio" class="agr" name="checkbox"  value="1"></input><label>동의</label>
+                        <input type="radio" class="disagr" name="checkbox"  value="0" checked="checked"></input><label>미동의</label>
                     </div>
-                    <input type="submit" value="확인" class="btn">
+                    <input type="button" value="확인" class="btn" onClick="chk()">
                 </div>
             </form>
         </div>

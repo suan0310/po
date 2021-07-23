@@ -1,9 +1,19 @@
 package com.bebe.spring.login.service;
 
+import org.springframework.stereotype.Service;
 
-import com.bebe.spring.login.vo.LoginVo;
+import com.bebe.spring.vo.UsersVO;
+
 
 public interface LoginService {
-	int insertUser(LoginVo loginVo);
-	int selectUser(LoginVo loginVo);
+	
+	public int selectUsers(UsersVO usersVO);
+	
+	public int insertUsers(UsersVO usersVO);
+	
+	public int idCheck(UsersVO usersVO);
+	
+	public UsersVO find_passwd(UsersVO usersVO);
+	
+	public UsersVO find_id(UsersVO usersVO);
 }
