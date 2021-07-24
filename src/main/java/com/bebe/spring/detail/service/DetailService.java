@@ -2,6 +2,7 @@ package com.bebe.spring.detail.service;
 
 import java.util.List;
 
+import com.bebe.spring.vo.CartVO;
 import com.bebe.spring.vo.DetailVO;
 
 public interface DetailService {
@@ -36,4 +37,7 @@ public interface DetailService {
 	Integer insertCart(DetailVO vo);
 	List<DetailVO> selectCart(DetailVO vo);
 	Integer selectProductPrice(DetailVO vo);
+	
+	
+	CartVO orderItem(CartVO cv);
 }

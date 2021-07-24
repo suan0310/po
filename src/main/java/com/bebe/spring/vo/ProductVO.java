@@ -21,5 +21,9 @@ public class ProductVO {
 	   private String productImg4;
 	   private int productSales;
 	   private int productTimesale;   
+	   
+	   int quantity;
+	   String productSize;
+	   String productColor;
 	
 }

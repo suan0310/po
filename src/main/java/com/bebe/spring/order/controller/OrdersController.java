@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.bebe.spring.order.service.OrdersService;
+import com.bebe.spring.vo.CartVO;
 import com.bebe.spring.vo.OrdersAddressVO;
 import com.bebe.spring.vo.OrdersVO;
 
@@ -38,5 +39,6 @@ public class OrdersController {
      	mav.setViewName("/order/order_sc");	
 		return mav;
 	}	
+
 
 }

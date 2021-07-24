@@ -118,7 +118,7 @@
 
 .main .Fsale{
     position: relative;
-    top: 350px;
+    top: 150px;
 }
 .main .Fsale .name{
     display: flex;
@@ -176,7 +176,7 @@
 /* -----------------硫붿씤�쁺�뿭(踰좎뒪�듃 由щ럭)--------------------- */ 
 .main .review{
     position: relative;
-    top: 600px;
+    top: 450px;
 }
 .main .review .rvname{
     width: 200px;
