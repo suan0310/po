@@ -8,7 +8,9 @@
 
 	
 	<select id="count" resultType="Integer" parameterType="Criteria">
-		select count(*) from product	where sub_category=#{subCategory}
+		select count(*) from product	where
+		
+		 sub_category=#{subCategory}
 	</select>
 	
 	

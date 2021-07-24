@@ -41,7 +41,6 @@ public class CartController {
 
 	@RequestMapping(value= "/delete",method = RequestMethod.POST)
 	public ModelAndView delete(CartVO cv,@RequestParam(value="RowCheck") List<String> chArr) {
-
 		ModelAndView mav = new ModelAndView("/user/cart2");
 		int productNo=0;
 		for(String i : chArr) {
