@@ -1,8 +1,7 @@
 package com.bebe.spring.order.controller;
 
-import java.util.List;
-
 import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,11 +10,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.bebe.spring.order.service.OrdersService;
-import com.bebe.spring.vo.CartVO;
 import com.bebe.spring.vo.OrdersAddressVO;
-import com.bebe.spring.vo.OrdersVO;
+import com.bebe.spring.vo.UsersVO;
 
 @Controller
+
 @RequestMapping(value = "/order/*")
 public class OrdersController {
 	@Inject
@@ -25,8 +24,11 @@ public class OrdersController {
 	public ModelAndView orderInfo(ModelAndView mav, @RequestParam(value = "productNo") Integer[] pn,
 			@RequestParam(value = "orderPrice") Integer[] pr, @RequestParam(value = "orderColor") String[] color,
 			@RequestParam(value = "orderSize") String[] size, @RequestParam(value = "orderQty") Integer[] qty,
-			OrdersAddressVO oav) {
-
+			OrdersAddressVO oav, HttpSession session) {
+		UsersVO usesVO= (UsersVO) session.getAttribute("UsersVO");
+		String id =usesVO.getId();
+		oav.setId(id);
+		System.out.println(session.getId());
 		for (int i = 0; i < pn.length; i++) {
 			oav.setProductNo(pn[i]);
 			oav.setOrderPrice(pr[i]);
