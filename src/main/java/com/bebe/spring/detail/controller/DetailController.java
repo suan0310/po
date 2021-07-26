@@ -202,12 +202,6 @@ public class DetailController {
 
 	// order 리턴에 오더매핑주세여
 	@RequestMapping(value = "/order", method = RequestMethod.GET)
-<<<<<<< HEAD
-	public String order(DetailVO vo, Model model) {
-		Integer price = detailService.selectProductPrice(vo);
-		model.addAttribute("order", vo);
-		return "/order/order";
-=======
 	public ModelAndView order(CartVO cv,ModelAndView mav) {
 		ArrayList<CartVO> list = new ArrayList<>();
 		mav.setViewName("/order/order");
@@ -216,7 +210,6 @@ public class DetailController {
 		mav.addObject("order",list);	
 		System.out.println(list);
 		return mav;
->>>>>>> origin/oyw_work_backup
 	}
 
 }

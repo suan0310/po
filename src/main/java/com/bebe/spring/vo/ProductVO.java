@@ -20,15 +20,10 @@ public class ProductVO {
 	   private String productImg3;
 	   private String productImg4;
 	   private int productSales;
-	   private int productTimesale;   
-	   
-<<<<<<< HEAD
+	   private int productTimesale;      
+
 	  private String keyword;
 	  int action;
-=======
-	   int quantity;
-	   String productSize;
-	   String productColor;
->>>>>>> origin/oyw_work_backup
+
 	
 }

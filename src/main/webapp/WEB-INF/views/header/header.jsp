@@ -9,19 +9,29 @@
     <!--------------------- 상단 아이디 및 아이콘이 들어가는 공간 --------------------->
     <div class="menubx">
         <h6 class="shop"><a href="/product/searchPage?subCategory=101&page=1">SHOP</a></h6>
-<<<<<<< HEAD
+        <c:choose>
+        <c:when test="${UsersVO.id eq 'admin'}">
         <input type="button" value="관리자" class="pos">
+        </c:when>
+        <c:when test="${empty UsersVO.id}">
+                <input type="button" value="비로그인" class="pos">
+        </c:when>        
+        <c:otherwise>
+         <input type="button" value="회원" class="pos">
+        </c:otherwise>
+        </c:choose>
 
-        <h6><a href="/user/user_info">HONGGILDONG님</a></h4>
-            <h6><a href="/order/order">이벤트</a></h6>
+        <h6><a href="/user/user_info">${UsersVO.id}</a></h4>
             <h6><a href="/board/admin_notice">게시판</a></h6>
-            <h6><a href="/login/login">로그인</a></h6>
-=======
-        <input type="button" value="회원" class="pos">
-        <h6><a href="/user/user_info">${id}님</a></h4>
-            <h6><a href="/board">게시판</a></h6>
-            <h6><a href="#">로그아웃</a></h6>
->>>>>>> origin/oyw_work
+        <c:choose>
+        <c:when test="${empty UsersVO.id}">
+        <h6><a href="/login/login">로그인</a></h6>
+        </c:when>
+        <c:otherwise>
+         <h6><a href="/login/logout">로그아웃</a></h6>
+        </c:otherwise>
+        </c:choose>
+            
             <a href="/user/cart2"><img src="/img/cart.png" alt="cart" width="20px" height="20px"></a>
             <img src="/img/search.png" alt="search" width="20px" height="20px" class="btn">
     </div>
