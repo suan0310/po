@@ -1,7 +1,5 @@
 package com.bebe.spring.login.controller;
 
-import java.io.PrintWriter;
-
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.bebe.spring.login.service.LoginService;
@@ -75,6 +74,29 @@ public class LoginController {
 		loginService.insertUsers(usersVO);
 		return "/login/login";
 	}
+	
+	@RequestMapping(value = "/idChk", method = RequestMethod.POST)
+	@ResponseBody
+	public String idChkPost(UsersVO usersVO) {
+		System.out.println("아이디 중복체크 기능 수행");
+		
+		int result = loginService.idCheck(usersVO);
+		if(result != 0) {
+			
+			return "fail";	// 중복 아이디가 존재
+			
+		} else {
+			
+			return "success";	// 중복 아이디 x
+			
+		}	
+		/*
+		 * loginService.insertUsers(usersVO); return "/login/login";
+		 */
+	}
+	
+	
+	
 
 	@RequestMapping(value = "/findid", method = RequestMethod.GET)
 	public String findidGet() {

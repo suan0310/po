@@ -2,6 +2,7 @@ package com.bebe.spring.detail.dao;
 
 import java.util.List;
 
+import com.bebe.spring.vo.CartVO;
 import com.bebe.spring.vo.DetailVO;
 
 public interface DetailDao {
@@ -39,5 +40,7 @@ public interface DetailDao {
 	List<DetailVO> selectCart(DetailVO vo);
 	Integer selectProductPrice(DetailVO vo);
 	
+	
+	CartVO orderItem(CartVO cv);
 	
 }

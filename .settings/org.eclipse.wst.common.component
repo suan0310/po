@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+<<<<<<< HEAD
+<<<<<<< HEAD
                                 	
+=======
+                                    	
     
+>>>>>>> origin/hj_work2
+    
+=======
+                            	
+>>>>>>> origin/oyw_work
     
     
     
@@ -8,8 +17,17 @@
     
     
     <wb-module deploy-name="spring-1.0.0-BUILD-SNAPSHOT">
+<<<<<<< HEAD
+<<<<<<< HEAD
                                                                         
+=======
+                                                                                
         
+>>>>>>> origin/hj_work2
+        
+=======
+                                                                
+>>>>>>> origin/oyw_work
         
         
         
@@ -17,8 +35,17 @@
         
         
         <wb-resource deploy-path="/" source-path="/target/m2e-wtp/web-resources"/>
+<<<<<<< HEAD
+<<<<<<< HEAD
                                                                 		
+=======
+                                                                        		
         
+>>>>>>> origin/hj_work2
+        
+=======
+                                                        		
+>>>>>>> origin/oyw_work
         
         
         
@@ -26,11 +53,18 @@
         
         
         <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
+                
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
+                
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
+<<<<<<< HEAD
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/test/java"/>
-                                                                		
+                                                                        		
         
+        
+=======
+                                                        		
+>>>>>>> origin/oyw_work
         
         
         
@@ -38,11 +72,23 @@
         
         
         <property name="java-output-path" value="target/classes"/>
+<<<<<<< HEAD
+<<<<<<< HEAD
                         
+=======
+                                
+        
+>>>>>>> origin/hj_work2
         
         <property name="context-root" value="spring"/>
-                                                                	
+                                                                        	
     
+    
+=======
+                
+        <property name="context-root" value="spring"/>
+                                                        	
+>>>>>>> origin/oyw_work
     
     
     
@@ -50,8 +96,17 @@
     
     
     </wb-module>
+<<<<<<< HEAD
+<<<<<<< HEAD
                                 
+=======
+                                    
 
+>>>>>>> origin/hj_work2
+
+=======
+                            
+>>>>>>> origin/oyw_work
 
 
 

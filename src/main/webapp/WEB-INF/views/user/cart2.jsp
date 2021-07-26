@@ -44,7 +44,7 @@
 							
 								<tr>
 									<td style="border-left: hidden" align=right><img
-										src="/img/bebe.png" alt="a" width="120px" height="120px"></td>
+										src="${cart.productImg1 }" alt="a" width="120px" height="120px"></td>
 									<td style="border-left: hidden" align="left">
 										<h3>제품명 : ${cart.productName}</h3>
 										<h3>사이즈 : ${cart.productSize} 컬러 : ${cart.productColor}</h3>
@@ -56,7 +56,7 @@
 										<h1>${cart.quantity*cart.productPrice}원</h1>
 									</td>
 									<td align=center><a
-										href="/product/detail&product_no=${cart.productNo}">문의</a></td>
+										href="/productdetail?productNo=${cart.productNo}">문의</a></td>
 									<td align=center style="border-right: hidden"><input class="RowCheck"
 										type="checkbox" name="RowCheck" value="${cart.productNo }">
 									</td>

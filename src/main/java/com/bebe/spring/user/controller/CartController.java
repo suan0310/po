@@ -41,7 +41,6 @@ public class CartController {
 
 	@RequestMapping(value= "/delete",method = RequestMethod.POST)
 	public ModelAndView delete(CartVO cv,@RequestParam(value="RowCheck") List<String> chArr) {
-
 		ModelAndView mav = new ModelAndView("/user/cart2");
 		int productNo=0;
 		for(String i : chArr) {
@@ -58,18 +57,16 @@ public class CartController {
 	public ModelAndView order(CartVO cv, @RequestParam(value="RowCheck") List<String> chArr) {
 		ModelAndView mav= new ModelAndView("/order/order");
 		ArrayList<CartVO> list = new ArrayList<>();
-		
 		int productNo=0;
 		for(String i:chArr) {
 			productNo= Integer.parseInt(i);
 			cv.setProductNo(productNo);
-//			cartService.order(cv);
 			list.add(cartService.order(cv));
 		}
 		mav.addObject("order", list);
-		System.out.println(mav);
-		System.out.println(cartService.order(cv));
 		return mav;
 	}
+	
+	
 		
 }
