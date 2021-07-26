@@ -4,7 +4,7 @@ import com.bebe.spring.vo.UsersVO;
 
 public interface LoginDAO {
 	
-	int selectUsers(UsersVO usersVO);
+	UsersVO selectUsers(UsersVO usersVO);
 	
 	int insertUsers(UsersVO usersVO);
 	

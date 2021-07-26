@@ -7,7 +7,7 @@ import com.bebe.spring.vo.UsersVO;
 
 public interface LoginService {
 	
-	public int selectUsers(UsersVO usersVO);
+	public UsersVO selectUsers(UsersVO usersVO);
 	
 	public int insertUsers(UsersVO usersVO);
 	

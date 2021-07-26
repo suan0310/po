@@ -32,12 +32,15 @@ public class LoginController {
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public String loginPost(UsersVO usersVO, HttpSession session, RedirectAttributes redirectAttr) {
 		System.out.println("로그인페이지 기능 수행");
+		System.out.println("userid"+usersVO);
+		UsersVO loginUsersVO = loginService.selectUsers(usersVO);
+		System.out.println("userid"+loginUsersVO);
 		
-		if (loginService.selectUsers(usersVO)==1) {
+		if (loginUsersVO != null) {
 			System.out.println("로그인 성공");
 			session.setAttribute("selectUsers", 1);
-			session.setAttribute("UsersVO", usersVO);
-			System.out.println(session+"userid"+usersVO);
+			session.setAttribute("UsersVO", loginUsersVO);
+			System.out.println(session+"userid"+loginUsersVO);
 			return "redirect:/index/index";
 		} else {
 			System.out.println("실패");

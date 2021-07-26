@@ -12,16 +12,17 @@
         <c:choose>
         <c:when test="${UsersVO.id eq 'admin'}">
         <input type="button" value="관리자" class="pos">
+        <h6><a href="/admin/admin_info">${UsersVO.id}</a></h4>
         </c:when>
         <c:when test="${empty UsersVO.id}">
                 <input type="button" value="비로그인" class="pos">
         </c:when>        
         <c:otherwise>
          <input type="button" value="회원" class="pos">
+         <h6><a href="/user/user_info">${UsersVO.id}</a></h4>
         </c:otherwise>
         </c:choose>
-
-        <h6><a href="/user/user_info">${UsersVO.id}</a></h4>
+                
             <h6><a href="/board/admin_notice">게시판</a></h6>
         <c:choose>
         <c:when test="${empty UsersVO.id}">
