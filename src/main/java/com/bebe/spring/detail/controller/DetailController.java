@@ -202,7 +202,7 @@ public class DetailController {
 	public String order(DetailVO vo, Model model) {
 		Integer price = detailService.selectProductPrice(vo);
 		model.addAttribute("order", vo);
-		return "/product/order";
+		return "/order/order";
 	}
 
 }

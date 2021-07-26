@@ -21,5 +21,8 @@ public class ProductVO {
 	   private String productImg4;
 	   private int productSales;
 	   private int productTimesale;   
+	   
+	  private String keyword;
+	  int action;
 	
 }

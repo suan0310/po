@@ -38,12 +38,13 @@
 								<th style="width: 100px;">상품금액</th>
 								<th style="border-right: hidden">결제금액</th>
 							</tr>
+							<c:set var="odp" value ="0"/>
 							<c:forEach items="${order}" var="cart" varStatus="stauts">
 							<c:set var="price" value="${cart.productPrice}" />
 							<c:set var="quantity" value="${cart.quantity}" />
 							<tr>
 								<td style="border-left: hidden" align=right><img
-									src="/img/a.jpg" alt="a" width="120px" height="120px"></td>
+									src="${cart.productImg1}" alt="a" width="120px" height="120px"></td>
 								<td style="border-left: hidden" align="left">
 									<input type="hidden" name="productNo" value="${cart.productNo}">
 									<h2 >${cart.productName }</h2>
@@ -56,8 +57,12 @@
 								<td align=center  >${cart.productPrice}원</td>
 								<td style="border-right: hidden" align=center >
 									<h1><input type="hidden" name="orderPrice" value="${cart.productPrice*cart.quantity}"/> ${cart.productPrice*cart.quantity}원</h1>
+									
 								</td>
+								<c:set var="odp" value="${odp+(cart.productPrice*cart.quantity) }"/>
 							</tr>
+							
+							
 							</c:forEach>
 
 
@@ -133,7 +138,7 @@
 							<h2>주문금액</h2>
 						</td>
 						<td>
-							<h2>34,000원</h2>
+							<h2><c:out value="${odp}"/> 원</h2>
 						</td>
 					</tr>
 					<tr>
@@ -144,7 +149,7 @@
 							<h2>배송비</h2>
 						</td>
 						<td style="border-bottom: 3px dotted black; padding-bottom: 40px;">
-							<h2>0원</h2>
+							<h2>2500원</h2>
 						</td>
 					</tr>
 					<tr>
@@ -153,11 +158,9 @@
 							<h1 style="padding-left: 0px; padding-top: 5%;">최종결제금액</h1>
 						</td>
 						<td>
-							<h2
-								style="padding-top: 10%; font-size: 30px; padding-bottom: 10%; display: inline-block; color: red;">
-								총가격 계산 
-								<h1 style="display: inline-block;">원</h1>
-							</h2>
+							<h1>
+								<c:out value="${odp+2500}"/> 원
+							</h1>
 						</td>
 					</tr>
 				</table>

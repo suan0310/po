@@ -15,34 +15,30 @@ public class SearchServiceImpl implements SearchService {
 	@Inject
 	SearchDAO searchDao;
 	
-
+	@Override
+	public int action(Criteria cri) {
+		System.out.println(cri.getSubCategory());
+		if(cri.getSubCategory()==null || cri.getSubCategory().equals("")) {
+			System.out.println();
+			return 0;
+		}else  {
+			return 1;
+		}
+	}
 	@Override
 	public Integer count(Criteria cri) {
 		return searchDao.count(cri);
 	}
 	@Override
-	public List<ProductVO> getlist(Criteria cri) {
+	public List<Criteria> getlist(Criteria cri) {
 		return searchDao.getlist(cri);
 	}
-
-
 	@Override
 	public Integer scount(Criteria cri) {
-		// TODO Auto-generated method stub
-		System.out.println("쟤");
-		System.out.println(searchDao.scount(cri));
-		System.out.println(cri);
 		return searchDao.scount(cri);
 	}
-
-
 	@Override
-	public List<ProductVO> searchlist(Criteria cri) {
-		// TODO Auto-generated method stub
-		System.out.println("얘");
-		System.out.println(searchDao.searchlist(cri));
-		System.out.println(searchDao);
-		System.out.println(cri);
+	public List<Criteria> searchlist(Criteria cri) {
 		return searchDao.searchlist(cri);
 	}
 
