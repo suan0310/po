@@ -56,7 +56,7 @@
 										<h1>${cart.quantity*cart.productPrice}원</h1>
 									</td>
 									<td align=center><a
-										href="/product/detail&product_no=${cart.productNo}">문의</a></td>
+										href="/productdetail?productNo=${cart.productNo}">문의</a></td>
 									<td align=center style="border-right: hidden"><input class="RowCheck"
 										type="checkbox" name="RowCheck" value="${cart.productNo }">
 									</td>
@@ -74,6 +74,24 @@
 			</div>
 		</div>
 	</div>
+	<script>
+		var tmp=${crat.quantity};
+	</script>
+	
+	<script>
+	 function selOrder(){
+		if(5<tmp){
+	 		//일단 작업대기 
+	 		alert("주문 수량이 재고보다 많습니다.")
+	 	}		
+		else{
+			var frm = document.cart;
+	 		frm.action="/user/goOrder";
+	 		frm.method="get";
+	 		frm.submit();
+	 		}
+ 	}
+	 </script>
 </body>
 
 

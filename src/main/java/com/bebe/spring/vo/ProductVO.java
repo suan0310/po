@@ -26,4 +26,6 @@ public class ProductVO {
 	   String productSize;
 	   String productColor;
 	
+	   private String keyword;
+		  int action;
 }

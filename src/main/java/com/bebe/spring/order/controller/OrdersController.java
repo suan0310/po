@@ -21,12 +21,13 @@ public class OrdersController {
 	@Inject
 	OrdersService orderService;
 
-	@RequestMapping(value="/order", method = RequestMethod.POST)
-	public ModelAndView orderInfo(ModelAndView mav, @RequestParam(value="productNo") Integer[] pn,
-			@RequestParam(value="orderPrice") Integer[] pr, @RequestParam(value="orderColor") String[] color,
-			@RequestParam(value="orderSize") String[] size,@RequestParam(value="orderQty") Integer[] qty,OrdersAddressVO oav) {
-		
-		for(int i =0; i<pn.length;i++) {
+	@RequestMapping(value = "/order", method = RequestMethod.POST)
+	public ModelAndView orderInfo(ModelAndView mav, @RequestParam(value = "productNo") Integer[] pn,
+			@RequestParam(value = "orderPrice") Integer[] pr, @RequestParam(value = "orderColor") String[] color,
+			@RequestParam(value = "orderSize") String[] size, @RequestParam(value = "orderQty") Integer[] qty,
+			OrdersAddressVO oav) {
+
+		for (int i = 0; i < pn.length; i++) {
 			oav.setProductNo(pn[i]);
 			oav.setOrderPrice(pr[i]);
 			oav.setOrderColor(color[i]);
@@ -34,11 +35,13 @@ public class OrdersController {
 			oav.setOrderQty(qty[i]);
 			orderService.insertOrders(oav);
 			orderService.deleteCart(oav);
-		}
-		System.out.println(oav);	
-     	mav.setViewName("/order/order_sc");	
-		return mav;
-	}	
 
+			orderService.sales(oav);
+			orderService.stock(oav);
+		}
+		System.out.println(oav);
+		mav.setViewName("/order/order_sc");
+		return mav;
+	}
 
 }

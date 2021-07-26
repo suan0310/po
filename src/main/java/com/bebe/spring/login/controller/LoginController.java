@@ -39,7 +39,7 @@ public class LoginController {
 			session.setAttribute("selectUsers", 1);
 			session.setAttribute("UsersVO", usersVO);
 			System.out.println(session+"userid"+usersVO);
-			return "/index/index";
+			return "redirect:/index/index";
 		} else {
 			System.out.println("실패");
 			redirectAttr.addFlashAttribute("errorMessage", "아이디나 비밀번호가 틀렸습니다.");
