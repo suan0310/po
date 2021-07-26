@@ -120,7 +120,7 @@
         </div>
     </div>
 </body>
-<script type="text/javascript" src="/js/order_mng.js"></script>
+
 <script type="text/javascript">
 
 stsSet();
@@ -129,6 +129,7 @@ function stsSet(){
 	console.log('${searchList.subSelect}');
 	console.log('${searchList.searchWord}');
 	$("#category").val(${searchList.mainSelect}).attr("selected","selected");
+	itemChange();
 //	$("#subcategory").val(${searchList.subSelect}).attr("selected","selected");
 	$("#subcategory > option[@value=${searchList.subSelect}]").attr("selected","selected");
 	$("#searchWord").val(${searchList.searchWord}).attr("selected","selected");
@@ -146,10 +147,18 @@ $("#stsbtn").click(function(){
 	frm.submit();	
 });
 
+
+
+
+
+
+
+
+
+
+
 </script>
-
-
-
+<!-- <script type="text/javascript" src="/js/order_mng.js"></script> -->
 <script type="text/javascript" src="/js/search.js"></script>
 
 </html>
