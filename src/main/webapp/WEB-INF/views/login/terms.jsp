@@ -19,7 +19,7 @@
  	            	alert("모든 약관에 동의하셔야 합니다.");
  	              
  	 	        }else{
- 	 	        	alert("회원가입 페이지로 이동합니다.");
+ 	 	        	
  	 	        	location.href="/login/signup";
  	 	        	
  	 	        }

@@ -48,7 +48,7 @@
 					</div>
 					<div class="secondinfo">
 						<button class="btn_info" onclick="location='/login/findid'">아이디 찾기</button>
-						<button class="btn_info" onclick="location='/login'">로그인</button>
+						<button class="btn_info" onclick="location='/login/login'">로그인</button>
 					</div>
 				</div>
 			
