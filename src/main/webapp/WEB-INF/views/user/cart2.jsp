@@ -74,6 +74,24 @@
 			</div>
 		</div>
 	</div>
+	<script>
+		var tmp=${crat.quantity};
+	</script>
+	
+	<script>
+	 function selOrder(){
+		if(5<tmp){
+	 		//일단 작업대기 
+	 		alert("주문 수량이 재고보다 많습니다.")
+	 	}		
+		else{
+			var frm = document.cart;
+	 		frm.action="/user/goOrder";
+	 		frm.method="get";
+	 		frm.submit();
+	 		}
+ 	}
+	 </script>
 </body>
 
 

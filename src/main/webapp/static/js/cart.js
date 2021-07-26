@@ -16,9 +16,3 @@ function selDelete(){
 	frm.submit();
 	}
   
- function selOrder(){
- 	var frm = document.cart;
- 	frm.action="/user/goOrder";
- 	frm.method="get";
- 	frm.submit();
- 	}

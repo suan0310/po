@@ -17,6 +17,16 @@
 			<delete id="deleteCart">
 				delete from cart where product_no=#{productNo}
 			</delete>
-
+					
+			
+			<update id="sales">
+				update product set product_sales =product_sales+#{orderQty}
+				where product_no=#{productNo}
+			</update>
+			<update id="stock">
+				update options set product_stock = (product_stock -(#{orderQty}))
+				where product_no=#{productNo} and product_size=#{orderSize} and product_color=#{orderColor}
+				
+			</update>
 		
 </mapper>

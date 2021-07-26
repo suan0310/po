@@ -38,8 +38,11 @@ public class LoginController {
 			session.setAttribute("selectUsers", 1);
 			session.setAttribute("UsersVO", usersVO);
 			System.out.println(session+"userid"+usersVO);
+<<<<<<< HEAD
 			
 			
+=======
+>>>>>>> origin/oyw_work_backup
 			return "redirect:/index/index";
 		} else {
 			System.out.println("실패");

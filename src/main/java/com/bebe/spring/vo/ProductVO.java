@@ -26,4 +26,6 @@ public class ProductVO {
 	  int action;
 
 	
+	   private String keyword;
+		  int action;
 }

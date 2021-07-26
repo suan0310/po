@@ -173,10 +173,9 @@
 			</div>
 		</form>
 	</div>
-<input type="button"  value="취소하기" class="cancel"> 	
-<input	type="button"  value="kakaopay" class="kpay">
-
-
+	
+	<input type="button"  value="취소하기" class="cancel"> 	
+	<input	type="button"  value="kakaopay" class="kpay">
 
 
 	<script>
