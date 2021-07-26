@@ -76,11 +76,9 @@
 						
 						
 						<c:forEach begin="${pg.startPage}" end="${pg.endPage}" var="idx">
-<<<<<<< HEAD
-								<li><a href="/product/searchPage?subCategory=${sbc}&page=${idx}&keyword=${ccc}">${idx}</a></li>	
-=======
+
 								<li><a href="/product/searchPage?subCategory=${sbc}&page=${idx}&keyword=${ccc}">[${idx}]</a></li>	
->>>>>>> origin/oyw_work_backup
+
 						</c:forEach>
 						
 					
