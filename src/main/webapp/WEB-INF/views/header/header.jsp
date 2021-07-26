@@ -10,7 +10,6 @@
     <div class="menubx">
         <h6 class="shop"><a href="/product/searchPage?subCategory=101&page=1">SHOP</a></h6>
         <c:choose>
-<<<<<<< HEAD
         <c:when test="${UsersVO.id eq 'admin'}">
         <input type="button" value="관리자" class="pos">
         <h6><a href="/admin/admin_info">${UsersVO.id}</a></h4>
@@ -22,17 +21,6 @@
          <input type="button" value="회원" class="pos">
          <h6><a href="/user/user_info">${UsersVO.id}</a></h4>
         </c:otherwise>
-=======
-        	<c:when test="${UsersVO.id eq 'admin'}">
-        		<input type="button" value="관리자" class="pos">
-        	</c:when>
-        	<c:when test="${empty UsersVO.id}">
-                <input type="button" value="비로그인" class="pos">
-       		</c:when>        
-        	<c:otherwise>
-         		<input type="button" value="회원" class="pos">
-        	</c:otherwise>
->>>>>>> origin/oyw_work_backup
         </c:choose>
                 
             <h6><a href="/board/admin_notice">게시판</a></h6>
