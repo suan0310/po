@@ -9,10 +9,4 @@
 $(".RowCheck").click(function(){
     $("#allCheck").prop("checked", false);
   });
-function selDelete(){
-	var frm =  document.cart;
-	frm.action="/user/delete";
-	frm.method="post";
-	frm.submit();
-	}
-  
+

@@ -64,38 +64,31 @@
 							</c:forEach>
 					</table>
 					
-					<!--                     <input id="purchaseBtn" type="button" value="모두결제"> -->
-					<input id="purchaseBtn"  type="button"  class="delete" value="삭제하기" onclick= "selDelete()" > 
-					<input id="purchaseBtn" type="button" class ="order" value="선택상품 결제" onclick="selOrder()">
+					
+					<input id="purchaseBtn"  type="button"  class="delete" value="삭제하기" onclick= "selDelete()" /> 
+					<input id="purchaseBtn" type="button" class ="order" value="선택상품 결제" onclick="selOrder()"/>
 					</form>
-					
-					
+
 				</div>
 			</div>
 		</div>
 	</div>
 	<script>
-		var tmp=${crat.quantity};
-	</script>
-	
-	<script>
-	 function selOrder(){
-		if(5<tmp){
-	 		//일단 작업대기 
-	 		alert("주문 수량이 재고보다 많습니다.")
-	 	}		
-		else{
+	 function selDelete(){
+			var frm =  document.cart;
+			frm.action="/user/delete";
+			frm.method="post";
+			frm.submit();
+		}
+
+		function selOrder(){
 			var frm = document.cart;
-	 		frm.action="/user/goOrder";
-	 		frm.method="get";
-	 		frm.submit();
-	 		}
- 	}
-	 </script>
+			frm.action="/user/goOrder";
+			frm.method="get";
+			frm.submit();
+		}
+	</script>
 </body>
-
-
-
 
 
 <script type="text/javascript" src="/js/search.js"></script>
