@@ -43,12 +43,16 @@
 			<button class=slidebtn3></button>
 		</div>
 
+<<<<<<< HEAD
 
 		<!-- /* -----------------메인영역(Time Sale)--------------------- */ -->
 
 		
 
 
+=======
+		<!-- /* -----------------메인영역(Time Sale)--------------------- */ -->
+>>>>>>> origin/oyw_work_backup
 		<section class="Fsale">
 			<h1 class="name">인기상품</h1>
 			<c:forEach items="${Index}" var="row" varStatus="status">

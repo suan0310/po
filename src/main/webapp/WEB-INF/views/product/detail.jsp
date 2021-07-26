@@ -41,8 +41,8 @@
 						<div style="float: left; margin-left: 100px; font-size: 20px;">
 							<input type="hidden" id="tmpMax" />
 							<table>
-								<th colspan="2" style="font-size: 30px; font-weight: bold;">
-									${m.productName}</th>
+								<th  colspan="2" style="font-size: 30px; font-weight: bold;">
+									<input type="hidden" name="productName" value="${m.productName}"> ${m.productName}</input></th>
 								<tr>
 									<td colspan="2">&nbsp</td>
 								</tr>

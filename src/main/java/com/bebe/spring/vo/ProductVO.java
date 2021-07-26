@@ -22,7 +22,13 @@ public class ProductVO {
 	   private int productSales;
 	   private int productTimesale;   
 	   
+<<<<<<< HEAD
 	  private String keyword;
 	  int action;
+=======
+	   int quantity;
+	   String productSize;
+	   String productColor;
+>>>>>>> origin/oyw_work_backup
 	
 }

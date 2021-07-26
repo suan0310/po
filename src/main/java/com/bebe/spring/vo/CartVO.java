@@ -25,4 +25,13 @@ public class CartVO {
 	   private String productImg4;
 	   private int productSales;
 	   private int productTimesale;   
+	  
+	   public void setCartVO(String id, int productNo, String productSize,
+		String productColor, int productPrice, String productName){
+		   this.id=id;
+		   this.productNo=productNo;
+		   this.productSize=productSize;
+		   this.productColor=productColor;
+		   this.productName=productName;
+	   };
 }
