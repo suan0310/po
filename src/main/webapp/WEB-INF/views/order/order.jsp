@@ -9,6 +9,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <link rel="stylesheet" href="/css/order/order.css">
+<script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
+ <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <link
 	href="https://fonts.googleapis.com/css2?family=Handlee&family=Jua&display=swap"
 	rel="stylesheet">
@@ -26,7 +28,7 @@
 
 	<div class="main">
 		<!-- /* -----------------메인영역(주문하기)--------------------- */ -->
-		<form action="/order/order" method="post">
+		<form action="/order/order" method="post" id="orderinfo" name="orderinfo">
 			<div class="orderbx">
 				<h1 class="title">주문하기</h1>
 					<div>
@@ -168,14 +170,17 @@
 
 			<div class="hpay">
 				
-				<input type="submit"  value="결제하기" class="npay"> 
+				<input id="pay" type="submit" value="결제하기" class="npay"> 
+				
 				
 			</div>
 		</form>
+
 	</div>
 	
 	<input type="button"  value="취소하기" class="cancel"> 	
-	<input	type="button"  value="kakaopay" class="kpay">
+	<input type="button"  value="kakaopay" class="kpay"/>
+	<input type="button" id="iamport" value ="아임포트"/>
 
 
 	<script>
@@ -201,6 +206,69 @@
 						}
 					}).open();
 		}
+				
+		
+		//아임포트
+	$("#iamport").click(function iamport(){
+			//가맹점 식별코드
+			alert("아임포트");
+			console.log("아임포트 함수 시작");
+			var IMP = window.IMP;
+			IMP.init('imp46949506');
+			IMP.request_pay({
+			    pg : 'kcp',
+			    pay_method : 'card',
+			    merchant_uid : 'merchant_' + new Date().getTime(),
+			    name : '상품후건' , //결제창에서 보여질 이름
+			    amount : 100, //실제 결제되는 가격
+			    buyer_email : 'iamport@siot.do',
+			    buyer_name : '구매자이름',
+			    buyer_tel : '010-1234-5678',
+			    buyer_addr : '서울 강남구 도곡동',
+			    buyer_postcode : '123-456'
+			}, function(rsp) {
+				console.log(rsp);
+			    if ( rsp.success ) {
+			    	var msg = '결제가 완료되었습니다.';
+			        msg += '고유ID : ' + rsp.imp_uid;
+			        msg += '상점 거래ID : ' + rsp.merchant_uid;
+			        msg += '결제 금액 : ' + rsp.paid_amount;
+			        msg += '카드 승인번호 : ' + rsp.apply_num;
+			        
+			        alert("결제 성공");
+
+			       
+			    } else {
+			    	 var msg = '결제에 실패하였습니다.';
+			         msg += '에러내용 : ' + rsp.error_msg;
+			         
+			         /* 		        var frm = document.orderinfo;
+				        frm.method = 'post';
+				        frm.action = "/order/order"; 
+				        frm.submit();  */
+				        
+
+				           var formData = $("#orderinfo").serialize(); 
+
+				            $.ajax({
+				                cache : false,
+				                url : "/order/order_sc", // 요기에
+				                type : 'POST', 
+				                data : formData, 
+				                success : function(data) {
+				                    alert("데이터 전송 성공")
+				                }, // success 
+				        
+				                error : function(xhr, status) {
+				                    alert(xhr + " : " + status);
+				                }// $.ajax */
+				        }); 
+			      /*    location.href='${path}/order/order_sc'; */
+			    }
+			    alert(msg);
+			});
+		})	
+		
 	</script>
 	<script type="text/javascript" src="/js/search.js"></script>
 </body>
