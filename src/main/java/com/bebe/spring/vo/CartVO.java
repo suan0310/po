@@ -25,6 +25,9 @@ public class CartVO {
 	   private String productImg4;
 	   private int productSales;
 	   private int productTimesale;   
+	   
+	
+		private int productStock;
 	  
 	   public void setCartVO(String id, int productNo, String productSize,
 		String productColor, int productPrice, String productName){

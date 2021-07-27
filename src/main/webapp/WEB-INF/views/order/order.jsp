@@ -18,13 +18,15 @@
 	crossorigin="anonymous"></script>
 <script
 	src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-<title>Document</title>
+
 </head>
 
 <body>
 	<header>
 		<%@ include file="../header/header.jsp"%>
 	</header>
+
+
 
 	<div class="main">
 		<!-- /* -----------------메인영역(주문하기)--------------------- */ -->
@@ -174,9 +176,14 @@
 
 			<div class="hpay">
 				
+<<<<<<< HEAD
 				<input id="pay" type="submit" value="결제하기" class="npay"> 
 				
 				
+=======
+				<input type="submit"  value="결제하기" class="npay"> 
+		
+>>>>>>> origin/oyw_work_backup
 			</div>
 		</form>
 
