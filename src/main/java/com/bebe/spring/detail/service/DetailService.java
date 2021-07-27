@@ -37,15 +37,9 @@ public interface DetailService {
 	Integer insertCart(DetailVO vo);
 	List<DetailVO> selectCart(DetailVO vo);
 	Integer selectProductPrice(DetailVO vo);
-	
-<<<<<<< HEAD
-	
 	CartVO orderItem(CartVO cv);
-=======
 	//order
 	int selectOrder(DetailVO vo);
 
-
->>>>>>> origin/nikki_two
 }
 

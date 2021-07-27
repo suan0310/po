@@ -62,6 +62,10 @@
 									
 								</td>
 								<c:set var="odp" value="${odp+(cart.productPrice*cart.quantity) }"/>
+								<c:set var="oc" value="${stauts.count-1}"/>
+								<c:if test="${stauts.index ==0}">
+								<c:set var="opn" value="${cart.productName}"/>
+								</c:if>
 							</tr>
 							
 							
@@ -219,13 +223,8 @@
 			    pg : 'kcp',
 			    pay_method : 'card',
 			    merchant_uid : 'merchant_' + new Date().getTime(),
-			    name : '상품후건' , //결제창에서 보여질 이름
-			    amount : 100, //실제 결제되는 가격
-			    buyer_email : 'iamport@siot.do',
-			    buyer_name : '구매자이름',
-			    buyer_tel : '010-1234-5678',
-			    buyer_addr : '서울 강남구 도곡동',
-			    buyer_postcode : '123-456'
+			    name : '${opn}' + '외' +' ${oc}'+'개' , //결제창에서 보여질 이름
+			    amount : ${odp}, //실제 결제되는 가격
 			}, function(rsp) {
 				console.log(rsp);
 			    if ( rsp.success ) {
@@ -236,34 +235,27 @@
 			        msg += '카드 승인번호 : ' + rsp.apply_num;
 			        
 			        alert("결제 성공");
+			        
+			           var formData = $("#orderinfo").serialize(); 
 
+			            $.ajax({
+			                cache : false,
+			                url : "/order/order", // 요기에
+			                type : 'POST', 
+			                data : formData, 
+			                success : function(data) {
+			                    alert("데이터 전송 성공")
+			                    location.href='${path}/order/order_sc';
+			                }, // success 
+			        
+			                error : function(xhr, status) {
+			                    alert(xhr + " : " + status);
+			                }// $.ajax */
+			        }); 
 			       
 			    } else {
 			    	 var msg = '결제에 실패하였습니다.';
 			         msg += '에러내용 : ' + rsp.error_msg;
-			         
-			         /* 		        var frm = document.orderinfo;
-				        frm.method = 'post';
-				        frm.action = "/order/order"; 
-				        frm.submit();  */
-				        
-
-				           var formData = $("#orderinfo").serialize(); 
-
-				            $.ajax({
-				                cache : false,
-				                url : "/order/order_sc", // 요기에
-				                type : 'POST', 
-				                data : formData, 
-				                success : function(data) {
-				                    alert("데이터 전송 성공")
-				                }, // success 
-				        
-				                error : function(xhr, status) {
-				                    alert(xhr + " : " + status);
-				                }// $.ajax */
-				        }); 
-			      /*    location.href='${path}/order/order_sc'; */
 			    }
 			    alert(msg);
 			});

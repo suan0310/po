@@ -47,15 +47,18 @@ public class OrdersController {
 		return mav;
 	}
 
-	@RequestMapping(value = "/order_sc", method = RequestMethod.POST)
-	public ModelAndView TEST(ModelAndView mav, @RequestParam(value = "productNo") Integer[] pn,
-			@RequestParam(value = "orderPrice") Integer[] pr, @RequestParam(value = "orderColor") String[] color,
-			@RequestParam(value = "orderSize") String[] size, @RequestParam(value = "orderQty") Integer[] qty) {
-		for(int i = 0; i< pr.length; i++) {
-			System.out.println(pn[i] + pr[i] + color[i] +size[i] + qty[i]);
+//	@RequestMapping(value = "/order_sc", method = RequestMethod.POST)
+//	public void TEST(ModelAndView mav, @RequestParam(value = "productNo") Integer[] pn,
+//			@RequestParam(value = "orderPrice") Integer[] pr, @RequestParam(value = "orderColor") String[] color,
+//			@RequestParam(value = "orderSize") String[] size, @RequestParam(value = "orderQty") Integer[] qty,OrdersAddressVO oav) {
+//		for(int i = 0; i< pr.length; i++) {
+//			System.out.println(pn[i] + pr[i] + color[i] +size[i] + qty[i]);
+//	}
+//		System.out.println(oav);
+//	}
+	
+	@RequestMapping(value = "/order_sc", method = RequestMethod.GET)
+	public String TEST() {
+		return "/order/order_sc";
 	}
-		mav.setViewName("/order/order_sc");
-		return mav;
-	}
-
 }

@@ -1,11 +1,8 @@
 package com.bebe.spring.detail.controller;
 
-<<<<<<< HEAD
-import java.util.ArrayList;
-=======
+
 import java.io.IOException;
-import java.io.PrintWriter;
->>>>>>> origin/nikki_two
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -25,7 +22,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.bebe.spring.detail.service.DetailService;
 import com.bebe.spring.vo.CartVO;
 import com.bebe.spring.vo.DetailVO;
-import com.bebe.spring.vo.ProductVO;
+import com.bebe.spring.vo.UsersVO;
 
 @Controller
 @RequestMapping(value = "/productdetail")
@@ -36,6 +33,12 @@ public class DetailController {
 
 	@RequestMapping(value = "", method = RequestMethod.GET)
 	public String detail(Model model, DetailVO vo, HttpSession session) {
+		
+		System.out.println(vo.getId());
+		UsersVO  usersVO = (UsersVO) session.getAttribute("sessionUser");
+		if(usersVO != null) {
+		vo.setId(usersVO.getId());		
+		}
 		
 		int order= detailService.selectOrder(vo);
 		List<DetailVO> listMain = detailService.selectDetailMain(vo);

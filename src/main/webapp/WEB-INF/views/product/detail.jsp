@@ -82,7 +82,7 @@ String productNo = request.getParameter("productNo");
 							</table>
 							<hr color="grey" size="1px" style="margin-top: 30px;">
 							<br> <input type="hidden" id="id" name="id"
-								value="${UsersVO.id}" /> <input type="hidden" id="productNo"
+								value="${sessionUser.id}" /> <input type="hidden" id="productNo"
 								name="productNo" value="<%=productNo%>" /> <input type="button"
 								id="shopBtn" value="장바구니" onclick="addCart()" /><br> <input
 								type="button" id="orderBtn" value="구매하기" onclick="orderNow()" />
@@ -216,14 +216,14 @@ String productNo = request.getParameter("productNo");
 								리뷰쓰기<br>
 								<div class="customer-reviews2"
 									style="font-size: 12px; margin-top: 20px;">
-									<span id="id_" name="id_"><b> ${UsersVO.id}</b></span>/ <i
+									<span id="id_" name="id_"><b> ${sessionUser.id}</b></span>/ <i
 										class="fa fa-star star-1" id="star"></i> <i
 										class="fa fa-star star-2" id="star"></i> <i
 										class="fa fa-star star-3" id="star"></i> <i
 										class="fa fa-star star-4" id="star"></i> <i
 										class="fa fa-star star-5" id="star"></i> <sub
 										class="autoRating" id="star_"> <span>0</span>
-									</sub> / <input type="hidden" id="id" name="id" value="${UsersVO.id}" />
+									</sub> / <input type="hidden" id="id" name="id" value="${sessionUser.id}" />
 									<input type="hidden" id="productNo" name="productNo"
 										value="<%=productNo%>" /> <input type="hidden" id="rvStar"
 										name="rvStar" /> <sub class="rvDate"><span></span></sub> <br>
@@ -302,7 +302,7 @@ String productNo = request.getParameter("productNo");
 					비밀글&nbsp;<input type="checkbox" id="secret-public" name="qsSecret"
 						value="1" /> &nbsp; 오픈글&nbsp; <input type="checkbox"
 						name="qsSecret" id="secret-public" value="0" /> <input
-						type="hidden" id="id" name="id" value="${UsersVO.id}" /> <input
+						type="hidden" id="id" name="id" value="${sessionUser.id}" /> <input
 						type="hidden" id="productNo" name="productNo"
 						value="<%=productNo%>" />
 				</h6>
@@ -318,17 +318,10 @@ String productNo = request.getParameter("productNo");
 
 	<script>
     //현재 아이디 체크
-    var curUser = "${UsersVO.id}";
-    $(document).ready(function(){
-	    if (curUser== null) {
-	    	console.log("null");
-	    }else{
-	    	console.log("not null");
-	    }
-    	
-    })
+    var curUser = "${sessionUser.id}";
+   
     
-//    console.log("?:  "+"${UsersVO.id}");
+//    console.log("?:  "+"${sessionUser.id}");
     //필요한 변수 선언
     var num;
     var userid;   //question(문의)의 유저아이디
