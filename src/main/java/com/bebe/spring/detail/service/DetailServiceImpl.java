@@ -185,4 +185,11 @@ public class DetailServiceImpl implements DetailService {
 		
 		return detailDao.orderItem(cv);
 	}
+
+@Override
+public int selectOrder(DetailVO vo) {
+	// TODO Auto-generated method stub
+	return detailDao.selectOrder(vo);
+}
+
 }

@@ -46,5 +46,16 @@ public class LoginServiceImpl implements LoginService{
 	}
 
 	
+	@Override
+	public int insertSocialLogin(UsersVO usersVO) {
+		return loginDao.insertSocialLogin(usersVO);
+	}
+	
+	@Override
+	public int selectSocialLogin(UsersVO usersVO) {
+		return loginDao.selectSocialLogin(usersVO);
+	}
+	
+	
 }
 

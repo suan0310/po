@@ -1,11 +1,17 @@
 package com.bebe.spring.detail.controller;
 
+<<<<<<< HEAD
 import java.util.ArrayList;
+=======
+import java.io.IOException;
+import java.io.PrintWriter;
+>>>>>>> origin/nikki_two
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
@@ -30,9 +36,8 @@ public class DetailController {
 
 	@RequestMapping(value = "", method = RequestMethod.GET)
 	public String detail(Model model, DetailVO vo, HttpSession session) {
-
-		session.setAttribute("userid", "admin");
-
+		
+		int order= detailService.selectOrder(vo);
 		List<DetailVO> listMain = detailService.selectDetailMain(vo);
 		List<DetailVO> listOne = detailService.selectOne(vo);
 		List<DetailVO> listAll = detailService.selectReview(vo);
@@ -60,6 +65,7 @@ public class DetailController {
 		model.addAttribute("rvStar", listStar);
 		model.addAttribute("sTotal", starTotal);
 		model.addAttribute("detOptions", listOptions);
+		model.addAttribute("pUser", order);
 
 		System.out.println("모델데이터 전송");
 		return "/product/detail";
@@ -112,16 +118,17 @@ public class DetailController {
 		return " ";
 	}
 
-	@RequestMapping(value = "/reivew.do", method = RequestMethod.POST)
-	public ModelAndView insertReview(DetailVO vo, @RequestParam("productNo") String productNo) {
+	@RequestMapping(value = "/reveiw.do", method = RequestMethod.POST)
+	public ModelAndView insertReview(DetailVO vo, @RequestParam("productNo") String productNo,
+			HttpServletResponse response) throws IOException {
+		
 		ModelAndView mv = new ModelAndView();
-		Integer rs = detailService.insertReview(vo);
-
-		if (rs == 1) {
-			System.out.println("성공!");
-		} else {
-			System.out.println("실패!");
-		}
+			Integer rs = detailService.insertReview(vo);			
+			if (rs == 1) {
+				System.out.println("성공!");
+			} else {
+				System.out.println("실패!");
+			}
 		mv.setViewName("redirect:http://localhost/productdetail?productNo=" + productNo);
 		return mv;
 	}
@@ -175,6 +182,7 @@ public class DetailController {
 	@ResponseBody
 	@RequestMapping(value = "/options.size")
 	public Map<String, List<DetailVO>> selectSecondOptions(Model model, DetailVO vo) {
+		
 		Map<String, List<DetailVO>> map = new HashMap<String, List<DetailVO>>();
 		List<DetailVO> selectSecondOptions = detailService.selectSecondOptions(vo);
 		map.put("size", selectSecondOptions);

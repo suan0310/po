@@ -7,7 +7,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+<<<<<<< HEAD
 import org.springframework.web.bind.annotation.ResponseBody;
+=======
+import org.springframework.web.bind.annotation.RequestParam;
+>>>>>>> origin/nikki_two
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.bebe.spring.login.service.LoginService;
@@ -55,8 +59,6 @@ public class LoginController {
 			session.invalidate();
 			return "redirect:/index/index";
 		}
-
-	
 	
 	
 	@RequestMapping(value = "/signup", method = RequestMethod.GET) 
@@ -167,5 +169,28 @@ public class LoginController {
 		return "/login/terms";
 	}
 	
+	
+	//***************************************소셜로그인
+	@RequestMapping(value="/socailLogin", method = RequestMethod.GET)
+	public String socialLogin(UsersVO usersVO, HttpSession session) {
+		System.out.println(usersVO);
+		String email = usersVO.getId();
+		System.out.println(email);
+
+		int rs = loginService.selectSocialLogin(usersVO);
+		if(rs == 0) {
+			int res = loginService.insertSocialLogin(usersVO);
+			System.out.println("결과 : "+res);
+		}
+
+		session.setAttribute("UsersVO", usersVO);
+		
+		return "/index/index";
+	}
+	
+	@RequestMapping(value="/naverCallback", method = RequestMethod.GET)
+	public String naverCallback() {
+		return "/login/naverCallback";
+	}
 	
 }
