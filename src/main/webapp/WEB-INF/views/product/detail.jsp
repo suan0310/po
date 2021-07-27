@@ -71,7 +71,7 @@ String productNo = request.getParameter("productNo");
 								<tr>
 									<td>사이즈</td>
 									<td><select name="productSize" id="opt2">
-											<option value="" selected>사이즈를 선택하세요</option>
+											<option value="non" selected>사이즈를 선택하세요</option>
 									</select></td>
 								</tr>
 								<tr>
@@ -209,7 +209,11 @@ String productNo = request.getParameter("productNo");
 							</div>
 						</form>
 
+<<<<<<< HEAD
 						<form name="userreviewwrite">
+=======
+						<form name="userReviewWrite">
+>>>>>>> origin/nikki_two
 							<hr color="grey" size="2px"
 								style="margin-top: 20px; margin-bottom: 20px;">
 							<div class="user-reivew">
@@ -227,8 +231,8 @@ String productNo = request.getParameter("productNo");
 									<input type="hidden" id="productNo" name="productNo"
 										value="<%=productNo%>" /> <input type="hidden" id="rvStar"
 										name="rvStar" /> <sub class="rvDate"><span></span></sub> <br>
-									<textarea name="rvContent" cols="72" rows="8" maxlength="300"
-										style="margin-top: 10px;"></textarea>
+									<textarea name="rvContent" id="rvContent" cols="72" rows="8" maxlength="300"
+										style="margin-top: 10px;" required></textarea>
 									<br> <input type="button" id="submitBtn" value="등록"
 										onclick="subReview()" style="float: right; cursor: pointer;" />
 									<br> <br>
@@ -275,8 +279,7 @@ String productNo = request.getParameter("productNo");
 							</tbody>
 						</table>
 						<input type="button" id="show" value="작성하기"
-							onclick="writeRequest()"
-							style="position: absolute; left: 700px; cursor: pointer; font-size: small;" />
+							style="position: absolute; left: 700px; cursor: pointer; font-size: small;"/>
 						<br> <br> <br>
 					</div>
 				</div>
@@ -289,26 +292,34 @@ String productNo = request.getParameter("productNo");
 				<h4>문의하기</h4>
 				<!--작성시-->
 			</center>
-			<form action="/productdetail/question.do" method="post"
-				name="request-popup-write" onsubmit="return confirm('게시글을 등록할까요?');" 
+			<form name="requestPopupWrite"
 			style="position: absolute; left: 100px;">
 				<br>제목 <br> <input type="text" name="qsTitle"
-					id="request-title" style="margin-top: 10px; width: 370px;">
+					id="request-title" required style="margin-top: 10px; width: 370px;">
 				<br> <br>내용 <br>
-				<textarea name="qsContent" id="MumE" cols="50" rows="10"
+				<textarea name="qsContent" id="MunE" cols="50" rows="10" required
 					maxlength="300" style="margin-top: 10px;"></textarea>
 				<br> <br>
 				<h6 style="font-size: 0.67em;">
+<<<<<<< HEAD
 					비밀글&nbsp;<input type="checkbox" id="secret-public" name="qsSecret"
 						value="1" /> &nbsp; 오픈글&nbsp; <input type="checkbox"
 						name="qsSecret" id="secret-public" value="0" /> <input
 						type="hidden" id="id" name="id" value="${sessionUser.id}" /> <input
 						type="hidden" id="productNo" name="productNo"
 						value="<%=productNo%>" />
+=======
+					비밀글&nbsp;<input type="checkbox" id="secret-public" name="qsSecret" value="1"/>
+					&nbsp; 오픈글&nbsp; 
+					<input type="checkbox" name="qsSecret" id="secret-public" value="0"/> 
+					<input	type="hidden" id="id" name="id" value="${UsersVO.id}" />
+					<input	type="hidden" id="productNo" name="productNo" value="<%=productNo%>" />
+>>>>>>> origin/nikki_two
 				</h6>
-				<br> <br> <input type="submit" id="submitBtn" value="등록"
-					style="position: absolute; left: 180px; cursor: pointer;" /> <input
-					type="button" id="submitBtn" value="취소" onclick="hidepop1()"
+				<br> <br>
+				<input type="button" id="submitBtn" value="등록" onclick="subQuestion()"
+					style="position: absolute; left: 180px; cursor: pointer;" /> 
+					<input type="button" id="submitBtn" value="취소" onclick="hidepop1()" 
 					style="position: absolute; left: 90px; cursor: pointer;" />
 			</form>
 		</div>
@@ -318,8 +329,21 @@ String productNo = request.getParameter("productNo");
 
 	<script>
     //현재 아이디 체크
+<<<<<<< HEAD
     var curUser = "${sessionUser.id}";
    
+=======
+    var curUser = "${UsersVO.id}";
+    console.log(curUser);
+    $(document).ready(function(){
+	    if (curUser== null) {
+	    	console.log("null");
+	    }else{
+	    	console.log("not null");
+	    }
+    	
+    })
+>>>>>>> origin/nikki_two
     
 //    console.log("?:  "+"${sessionUser.id}");
     //필요한 변수 선언
@@ -328,6 +352,7 @@ String productNo = request.getParameter("productNo");
     var rvUserid; //review의 유저아이디
     var secret;
     var productNo = $("#productNo").val();
+    var checked;
 	
 	
 	$(document).ready(function(){
@@ -335,12 +360,20 @@ String productNo = request.getParameter("productNo");
 	});
 	
 	function subReview(){
+		if($("#rvContent").val() == ""){
+			alert("리뷰 내용을 입력하세요.");
+			return;
+		}
 		
 		if(curUser!=""){
 			var con = confirm("게시물을 등록할까요? ");
 			if(con){
 				if(${pUser}>0){
+<<<<<<< HEAD
 					var frm = document.userreviewwrite;
+=======
+					var frm = document.userReviewWrite;
+>>>>>>> origin/nikki_two
 			        frm.action = "/productdetail/reveiw.do";
 			        frm.method = "post";
 			        frm.submit();
@@ -351,26 +384,42 @@ String productNo = request.getParameter("productNo");
 		}else{
 			alert("구매한 회원만 리뷰를 등록할 수 있습니다.");
 		}
-		
 	}
 
-	/*
-	function subQuestion(){
-		
-		if(curUser!=""){
-			var con = confirm("게시물을 등록할까요? ");
-			if(con){
-				var frm = document.request-popup-write;
-		        frm.action = "/productdetail/question.do";
-		        frm.method = "post";
-		        frm.submit();
-			}
-		}else{
-			alert("회원만 문의글을 등록할 수 있습니다.");
-		}
-	}*/
 	
-            $(document).ready(function () {
+	$(document).ready(function(){
+		$('input[name=qsSecret]').click(function() {
+		      checked = $("input[type=checkbox]:checked").length;
+		    });		
+	});
+	
+	
+	
+	function subQuestion(){		
+		
+		if($("#request-title").val() == "" || $("#MunE").val() == ""){
+			alert("제목과 내용을 입력하세요.");
+			return;
+		}
+		 
+		if(curUser!=""){
+		      if(checked!=undefined) {
+				var con = confirm("게시물을 등록할까요? ");
+				if(con){
+						var frm = document.requestPopupWrite;
+				        frm.action = "/productdetail/question.do";
+				        frm.method = "post";
+				        frm.submit();
+  			}
+      } else{
+		alert("비밀글, 오픈글을 체크하세요");
+      }
+	}else{
+		alert("회원만 작성할 수 있습니다.");	
+	}
+}
+	
+	        $(document).ready(function () {
                 if (curUser != "admin") {
                     $("input[name=bestRvManage]").hide();
                 }
@@ -446,6 +495,7 @@ String productNo = request.getParameter("productNo");
                             }
                         })
                     }
+                    
                 });
 
                 //재고값받아오기
@@ -567,6 +617,8 @@ String productNo = request.getParameter("productNo");
             function addCart() {
             	if(curUser == ""){
             		alert("회원가입 후 구매가 가능합니다.");
+            	} else if($("#opt1").val() == "non" || $("#opt2").val() =="non"){
+            		alert("옵션을 선택해주세요");
             	} else{
                     var id = $("#id").val();
                     var quantity = $("#quantity").val();
@@ -606,11 +658,11 @@ String productNo = request.getParameter("productNo");
             function orderNow() {
             	if(curUser == ""){
             		alert("회원가입 후 구매가 가능합니다.");
-            	} else{
+            	}else if($("#opt1").val() == "non" || $("#opt2").val() =="non"){
+            		alert("옵션을 선택해주세요");
+            	}else{
                     var max = parseInt($('#tmpMax').val());
                     var qty = parseInt($('#quantity').val());
-                    alert($('#tmpMax').val());
-                    alert($('#quantity').val());
                     if (qty > 0) {
                         if (max >= qty) {
                             var frm = document.order;
@@ -622,8 +674,7 @@ String productNo = request.getParameter("productNo");
                         }
                     }
             	}
-            	
- 
+            
             }
 
             /*별점찍기*/

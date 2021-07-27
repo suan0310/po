@@ -52,7 +52,6 @@ public class DetailController {
 		Double avg = 0.0;
 
 		Integer rv = detailService.selectOneReview(vo);
-
 		if (rv != null) {
 			listStar = detailService.starCnt(vo);
 			starTotal = detailService.starTotal(vo);
