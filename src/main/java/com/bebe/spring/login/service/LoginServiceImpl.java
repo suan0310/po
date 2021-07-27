@@ -15,7 +15,7 @@ public class LoginServiceImpl implements LoginService{
 	
 	
 	@Override
-	public int selectUsers(UsersVO usersVO) {
+	public UsersVO selectUsers(UsersVO usersVO) {
 		
 		return loginDao.selectUsers(usersVO);
 	}

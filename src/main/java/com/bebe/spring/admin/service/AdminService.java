@@ -17,7 +17,7 @@ public interface AdminService {
 	Integer insertProduct(ProductOptionsVO productOpVo);
 	
 	//유저 데이터 검색
-	List<UsersVO> selectUsers();
+	List<UsersVO> selectUsers(String searchWord);
 	
 	//유저 삭제
 	Integer deleteUser(String id);

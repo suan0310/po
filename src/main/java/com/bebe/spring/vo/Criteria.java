@@ -28,7 +28,7 @@ public class Criteria {
 	private int num;
 	private int nuum;
 	
-	
+	int action;
 	public Criteria() {
 		this.page = 1;
 		this.perPageNum =6;

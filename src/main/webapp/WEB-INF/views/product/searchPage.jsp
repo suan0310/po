@@ -22,19 +22,7 @@
 			<div class="nope"></div>
 			<div class="main">
 				<!-- /* -----------------최신순.인기순.가격순--------------------- */ -->
-				<div class="list">
-					<h6>
-						<a href="#">가격순</a>
-					</h6>
-					&nbsp|&nbsp
-					<h6>
-						<a href="#">최신순</a>
-					</h6>
-					&nbsp|&nbsp
-					<h6>
-						<a href="#">인기순</a>
-					</h6>
-				</div>
+				
 
 				<!-- /* -----------------메인영역(검색화면)--------------------- */ -->
 
@@ -57,11 +45,11 @@
 							<li><a href="/product/searchPage?subCategory=401&page=1 ">간식</a></li>
 						</ul>
 						
-					</div>
 					<c:forEach items="${list}" var="row" varStatus="status">
-						<c:if test="${status.index == 0 }">
-							<c:set var="sbc" value="${row.subCategory}" />
-						</c:if>
+						<c:set var="action" value="${row.action }"/>
+						<c:set var="sbc" value="${row.subCategory}" />
+						<c:set var="sbd" value="${row.keyword}" />
+						
 						<c:if test="${status.index %3==0 }">
 							<div class="probxs">
 						</c:if>
@@ -79,19 +67,26 @@
 				</c:forEach>
 
 			</div>
-							<div class="pager">
+				<div class="pager">
 					<ul>
+						
 						<c:if test="${pg.prev}">
-							<li><a href="/product/searchPage?subCategory=${sbc}&page=${pg.startPage-1}">이전</a></li>
+							<li><a href="/product/searchPage?subCategory=${sbc}&page=${pg.startPage-1}&keyword=${ccc}">이전</a></li>
 						</c:if>
-
+						
+						
 						<c:forEach begin="${pg.startPage}" end="${pg.endPage}" var="idx">
-							<li><a href="/product/searchPage?subCategory=${sbc}&page=${idx}">${idx}</a>
-							</li>
+
+								<li><a href="/product/searchPage?subCategory=${sbc}&page=${idx}&keyword=${ccc}">[${idx}]</a></li>	
+
 						</c:forEach>
+						
+					
+						
+						
 
 						<c:if test="${pg.next && pg.endPage > 0}">
-							<li><a href="/product/searchPage?subCategory=${sbc}&page=${pg.startPage+1}">다음</a></li>
+							<li><a href="/product/searchPage?subCategory=${sbc}&page=${pg.endPage+1}&keyword=${ccc}">다음</a></li>
 						</c:if>
 					</ul>
 				</div>
@@ -101,8 +96,7 @@
 			<script>
 				function selChange() {
 					var sel = document.getElementById('cntPerPage').value;
-					location.href = "searchPage?c=${row.sub_category}&nowPage=${paging.nowPage}&cntPerPage="
-						+ sel;
+					location.href = "searchPage?c=${row.sub_category}&nowPage=${paging.nowPage}&cntPerPage="+ sel;
 				}
 			</script>
 		</body>

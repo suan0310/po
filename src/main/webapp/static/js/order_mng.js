@@ -36,7 +36,7 @@ $('#searchWord').attr("disabled", false);
     $('#subcategory').append(option);
 $('#searchWord').attr("disabled", false);
  }  
-  }
+ }
 
 
 

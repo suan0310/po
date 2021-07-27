@@ -8,7 +8,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="/css/admin/product_mng.css?ver=21">
+<link rel="stylesheet" href="/css/admin/product_mng.css">
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <title>Document</title>
 </head>
@@ -43,13 +43,13 @@
                      <option value="">분류 선택</option>
                   </select> 
                   <input id="searchWord" name="searchWord" style="width:250px;height:30px;font-size:16px;"> &nbsp
-                  <input class="button" id="search" type="submit" value="검색">
-               </div>
-            </form>
-         
+                  <input class="button" id="search" type="submit" value="검색">               
+            </form>         
             <input id="delbtn" class="button" value="삭제" type="button" readonly>
-            <div id="productmain" style="overflow:auto; height: 600px;">
-               <div id="productlist" >
+            </div>
+            <div id="productmain" style="overflow:auto; height: 600px; width: 1170px;">
+               <div class="log_table"  id="productlist" >
+               <hr>
             <table id="manager">
                <tr>
                   <th >선택</th>
@@ -61,7 +61,7 @@
                   <th>판매량</th>
                </tr>
 
-               <input type="hidden" value="${map.psVo.searchWord}" id="searchWordval">
+               <input type="hidden" value="${map.psVo.searchWord}" id="searchWordval"/>
                
                <c:forEach var="list" items="${map.productlist}" varStatus="st">
                <c:if test="${st.index ==0}">
@@ -81,7 +81,7 @@
                         <div class="productno" >${list.productNo}</div>
                      </td>
                      <td>
-                     		<img style="width:100px; height: 100px;" alt="제품사진" src="${list.productImg1}">
+                     		<img style="width:80px; height: 80px;" alt="제품사진" src="${list.productImg1}">
                      </td>
                      <td>
                         <!-- 상품 이름 -->
@@ -91,14 +91,16 @@
                         <!-- 금액 -->
                         <div class="price">${list.productPrice}</div>
                      </td>
-                     <td id="option">                  
+                     <td id="option" >      
+                     <div style="overflow:auto; height: 120px;">           
                         <c:forEach var="option" items="${map.optionlist}">   
                            <c:if test="${list.productNo == option.productNo}">
                               <div class="optionC">
                                  <div> ${option.productColor}</div>/<div>${option.productSize}</div>:<div>${option.productStock}</div>
                               </div>
                            </c:if>   
-                        </c:forEach>                        
+                        </c:forEach>   
+                        </div>                      
                         </td>                  
                      <td>
                         <!-- 판매량 -->
@@ -110,21 +112,21 @@
                   </c:forEach>
                   </table>
                   </div>
-                  <div id="opdiv">
+                  <div class="log_table"  id="opdiv">
+                  <hr>
                <table id="optable">      
                <tr>
                   <th width="50px">옵션추가</th>
-
                </tr>   
                <c:forEach var="list" items="${map.productlist}" varStatus="st">               
-               <tr>                                    
+               		<tr>                                    
                      <td>
-                        <div>
+                        <div >
                            <button class="button" onclick="popup(${st.index})">옵션 추가</button>
                         </div>
                      </td>               
                      </tr>
-                           </c:forEach>
+                  </c:forEach>
                </table>   
                </div>                  
             </table>
@@ -145,7 +147,7 @@
       var url = "/admin/productMngOption?pno=" + productno + "&pname="
             + productname;
       /*     var url="/admin/product_mng_option"; */
-      var option = "width=600, height=600, top=400"
+      var option = "width=600, height=200, top=400, left=1400"
       window.open(url, "옵션선택", option).focus();
    }
 </script>

@@ -27,5 +27,17 @@ public class OrdersServiceImpl implements OrdersService {
 		return ordersDAO.deleteCart(oav);
 	}
 
+	@Override
+	public Integer stock(OrdersAddressVO oav) {
+		// TODO Auto-generated method stub
+		return ordersDAO.stock(oav);
+	}
+
+	@Override
+	public Integer sales(OrdersAddressVO oav) {
+		// TODO Auto-generated method stub
+		return ordersDAO.sales(oav);
+	}
+
 
 }

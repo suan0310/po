@@ -1,5 +1,6 @@
 package com.bebe.spring.detail.controller;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -16,7 +17,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.bebe.spring.detail.service.DetailService;
+import com.bebe.spring.vo.CartVO;
 import com.bebe.spring.vo.DetailVO;
+import com.bebe.spring.vo.ProductVO;
 
 @Controller
 @RequestMapping(value = "/productdetail")
@@ -199,10 +202,14 @@ public class DetailController {
 
 	// order 리턴에 오더매핑주세여
 	@RequestMapping(value = "/order", method = RequestMethod.GET)
-	public String order(DetailVO vo, Model model) {
-		Integer price = detailService.selectProductPrice(vo);
-		model.addAttribute("order", vo);
-		return "/product/order";
+	public ModelAndView order(CartVO cv,ModelAndView mav) {
+		ArrayList<CartVO> list = new ArrayList<>();
+		mav.setViewName("/order/order");
+		cv.setProductNo(cv.getProductNo());
+		list.add(cv);
+		mav.addObject("order",list);	
+		System.out.println(list);
+		return mav;
 	}
 
 }
