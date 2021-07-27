@@ -180,6 +180,13 @@ public Integer selectOneReview(DetailVO vo) {
 	// TODO Auto-generated method stub
 	return detailDao.selectOneReview(vo);
 	}
+
+@Override
+public int selectOrder(DetailVO vo) {
+	// TODO Auto-generated method stub
+	return detailDao.selectOrder(vo);
+}
+
 }
 
 

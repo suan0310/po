@@ -10,6 +10,22 @@
 <link rel="stylesheet" href="/css/index/index.css?">
 <script src="https://kit.fontawesome.com/a216194d9c.js"
 	crossorigin="anonymous"></script>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+
+
+<!-- 소셜 -->
+<link href="https://fonts.googleapis.com/css2?family=Handlee&display=swap" rel="stylesheet"></head>
+    <link href="https://fonts.googleapis.com/css2?family=Handlee&family=Jua&display=swap" rel="stylesheet">
+<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+    <script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
+    
+    <meta name="google-signin-scope" content="profile email">
+	<meta name="google-signin-client_id"
+   content="1059402509993-5dgo9oqfau9tharl9cbb1qe4prp40h0j.apps.googleusercontent.com">
+	<script src="https://apis.google.com/js/platform.js" async defer></script>    	
+	<script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
+	<!-- 소셜 -->
+	
 <title>Document</title>
 </head>
 
@@ -20,6 +36,7 @@
 	</header>
 
 	<div class="main">
+
 		<!-- /* -----------------메인영역(slide)--------------------- */ -->
 		<div style="overflow: hidden;">
 			<div class="slide">
@@ -57,7 +74,49 @@
             </div> -->
 
 		<!-- /* -----------------메인영역(Time Sale)--------------------- */ -->
+	
+	
+	<!-- 내가 잠깐쓸게.....은혜... -->
+	<input type="button" value="logout" onclick="signOut()"
+	style="top: -300px;"/>
 
+<script>
+function signOut() {
+
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+    });
+	auth2.disconnect();
+      console.log('User signed out.');
+      $(document).ready(function(){
+	location.replace("/login/logout");    	  
+      });
+
+  }
+  
+    function onLoad() {
+      gapi.load('auth2', function() {
+        gapi.auth2.init();
+      });
+    }
+
+    
+    var curuser = "${UsersVO.id}";
+	console.log("현재세션: "+curuser);
+
+    /*
+    function logout(){	
+		Kakao.init("f0e088ffc8de3aeaca97aa4221edcafb");
+	       Kakao.Auth.logout(function () {
+			alert("로그아웃");
+        });
+        location.replace("/login/logout");
+    }*/
+        	
+    </script>
+    <!-- 은혜끝 -->
+    
+    
 		<section class="Tsale">
 			<h1 class="name">Time Sale</h1>
 			<div class="Tbxs">

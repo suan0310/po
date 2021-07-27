@@ -13,9 +13,17 @@
 	insert into users values(#{id},#{passwd},#{emailId},#{question},#{answer},#{emailDomain})
 </insert>
 
+<insert id="insertSocialLogin"  parameterType="UsersVO">
+	insert into users (id) values(#{id})
+</insert>
+
+<select id="selectSocialLogin" resultType="Integer" parameterType="UsersVO">
+select count(*) from users where id = #{id}
+</select>
+
 <select id="idCheck" resultType="int" parameterType="UsersVO">
 		select count(*) from users where id = #{id}
-	</select>  
+</select>  
 
 	<select id="find_passwd" resultType="UsersVO" parameterType="UsersVO">
 		select passwd from users where id = #{id} AND question=#{question} AND answer=#{answer}

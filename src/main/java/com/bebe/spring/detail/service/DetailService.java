@@ -36,4 +36,10 @@ public interface DetailService {
 	Integer insertCart(DetailVO vo);
 	List<DetailVO> selectCart(DetailVO vo);
 	Integer selectProductPrice(DetailVO vo);
+	
+	//order
+	int selectOrder(DetailVO vo);
+
+
 }
+
