@@ -25,7 +25,7 @@ public class CartController {
 	//테스트용
 	@RequestMapping("/cart2")
 	public ModelAndView cart(ModelAndView mav,HttpSession session,CartVO cv) {
-		UsersVO usesVO= (UsersVO) session.getAttribute("UsersVO");
+		UsersVO usesVO= (UsersVO) session.getAttribute("sessionUser");
 		String id =usesVO.getId();
 		cv.setId(id);
 		System.out.println(cv);
@@ -38,7 +38,7 @@ public class CartController {
 	@RequestMapping(value= "/delete",method = RequestMethod.POST)
 	public ModelAndView delete(CartVO cv,@RequestParam(value="RowCheck") List<String> chArr, HttpSession session) {
 		ModelAndView mav = new ModelAndView("/user/cart2");
-		UsersVO usesVO= (UsersVO) session.getAttribute("UsersVO");
+		UsersVO usesVO= (UsersVO) session.getAttribute("sessionUser");
 		String id =usesVO.getId();
 		cv.setId(id);
 		int productNo=0;
@@ -55,7 +55,7 @@ public class CartController {
 	@RequestMapping(value="/goOrder", method=RequestMethod.GET)
 	public ModelAndView order(CartVO cv, @RequestParam(value="RowCheck") List<String> chArr, HttpSession session) {
 		ModelAndView mav= new ModelAndView("/order/order");
-		UsersVO usesVO= (UsersVO) session.getAttribute("UsersVO");
+		UsersVO usesVO= (UsersVO) session.getAttribute("sessionUser");
 		String id =usesVO.getId();
 		cv.setId(id);
 		ArrayList<CartVO> list = new ArrayList<>();

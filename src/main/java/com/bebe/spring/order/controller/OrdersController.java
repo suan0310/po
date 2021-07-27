@@ -25,7 +25,7 @@ public class OrdersController {
 			@RequestParam(value = "orderPrice") Integer[] pr, @RequestParam(value = "orderColor") String[] color,
 			@RequestParam(value = "orderSize") String[] size, @RequestParam(value = "orderQty") Integer[] qty,
 			OrdersAddressVO oav, HttpSession session) {
-		UsersVO usesVO= (UsersVO) session.getAttribute("UsersVO");
+		UsersVO usesVO= (UsersVO) session.getAttribute("sessionUser");
 		String id =usesVO.getId();
 		oav.setId(id);
 		System.out.println(session.getId());
