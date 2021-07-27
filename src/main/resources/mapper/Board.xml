@@ -25,9 +25,7 @@
 
 	<select id="faqList"
 		resultType="com.bebe.spring.board.vo.BoardVO">
-		SELECT
-		*
-		FROM faq order by faq_no
+		select rownum as rnum, faq_no, faq_title, faq_content from faq 
 	</select>
 
 	<select id="readNotice"
@@ -48,7 +46,16 @@
 
 	<select id="writeFaq">
 		INSERT INTO faq VALUES(faq_sq.NEXTVAL,#{faqTitle},
-		#{faqContent})
+		#{faqContent}) 
+		
+		
+		<!-- faqNo는 0으로만 받아와서 포기 
+		MERGE INTO faq f
+        USING DUAL
+        ON(f.faq_no = ${faqNo})
+        WHEN NOT MATCHED THEN
+        INSERT VALUES(faq_sq.NEXTVAL,#{faqTitle},
+		#{faqContent}) -->
 	</select>
 
 	<select id="category"

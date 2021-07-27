@@ -31,7 +31,7 @@
 						<table>
 							<c:forEach items="${faqList}" var="faqList" begin="0" end="9">
 								<tr>
-									<td><c:out value="${faqList.faqNo}" /></td>
+									<td><c:out value="${faqList.rnum}" /></td>
 									<td><c:out value="${faqList.faqTitle}" /></td>
 									<td><a href="/board/admin_write?faqNo=${faqList.faqNo}&b=2"><c:out value="${faqList.faqContent}" /></a></td>
 								</tr>
@@ -47,7 +47,7 @@
 					<hr color="#000000" size="5px">
 
 					<table>
-						<tr>
+						<tr>                                         
 							<th>NO</th>
 							<th>공지사항</th>
 							<th>공지일자</th>
@@ -57,8 +57,7 @@
 							<tr>
 								<td><c:out value="${noticeList.noticeNo}" /></td>
 								<td><c:out value="${noticeList.noticeCategory}" /></td>
-								<td><fmt:formatDate value="${noticeList.noticeDate}"
-										pattern="yyyy-mm-dd" /></td>
+								<td><fmt:formatDate value="${noticeList.noticeDate}"/></td>
 								<td><a href="/board/admin_write?noticeNo=${noticeList.noticeNo}&b=1"><c:out
 											value="${noticeList.noticeContent}" /></a></td>
 							</tr>
@@ -78,7 +77,7 @@
 							</c:forEach>
 							
 							<li><a href="/board/admin_notice${pageMaker.makeSearch(pageMaker.endPage+1)}"><i class="fas fa-angle-right"></i>&nbsp</a></li>
-							<li><a href="/board/admin_notice${pageMaker.makeSearch(pageMaker.endPage+1)}"><i class="fas fa-angle-double-right"></i></a></li>
+							<li><a href="/board/admin_notice?page=${pageMaker.last}&perPageNum=5"><i class="fas fa-angle-double-right"></i></a></li>
 						
 							
 						</ul>

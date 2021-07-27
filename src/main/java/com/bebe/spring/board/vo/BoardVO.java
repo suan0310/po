@@ -13,9 +13,9 @@ public class BoardVO {
 	private String noticeCategory;
 	private String noticeTitle;
 	private String noticeContent;
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date noticeDate;
 	private String category;
+	private int rnum;
 
 	private Criteria cri;
 	
@@ -77,6 +77,12 @@ public class BoardVO {
 	}
 	public void setNoticeDate(Date noticeDate) {
 		this.noticeDate = noticeDate;
+	}
+	public int getRnum() {
+		return rnum;
+	}
+	public void setRnum(int rnum) {
+		this.rnum = rnum;
 	}
 	
 	

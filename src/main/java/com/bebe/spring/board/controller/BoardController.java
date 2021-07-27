@@ -1,5 +1,7 @@
 package com.bebe.spring.board.controller;
 
+import java.io.PrintWriter;
+
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Controller;
@@ -8,7 +10,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.bebe.spring.board.service.BoardService;
 import com.bebe.spring.board.vo.BoardVO;
@@ -27,7 +28,7 @@ public class BoardController {
 //	jsp, servlet으로 웹을 만들때는 request, session으로 받아오지만 spring은 model로 받아온다
 	public String list(@ModelAttribute("cri") Criteria cri, Model model) throws Exception {
 		model.addAttribute("noticeList", service.noticeList(cri));
-		model.addAttribute("faqList",service.faqList());
+		model.addAttribute("faqList", service.faqList());
 		
 		//페이징 관리
 		PageMaker pageMaker = new PageMaker();
@@ -74,6 +75,7 @@ public class BoardController {
 	public String writeNotice(BoardVO boardVO) throws Exception {
 		service.writeNotice(boardVO);
 		//categroy의 타입 확인
+		
 		System.out.println("입 to the 력");
 		return "redirect:/board/admin_notice";
 	}
@@ -99,21 +101,27 @@ public class BoardController {
 		} else {
 			service.deleteFaq(boardVO.getFaqNo());
 		}
+		
 		System.out.println("삭 to the 제");
 		return "redirect:/board/admin_notice";
 	}
 
+	
 	@RequestMapping(value = "update", method = RequestMethod.POST)
 	public String update(BoardVO boardVO, Model model) throws Exception {
 
-		
 		if(boardVO.getFaqNo() == 0){
 			service.updateNotice(boardVO);
 		}
 		else {
 			service.updateFaq(boardVO);
 		}
-
+		
+		
+//		if(boardVO.getFaqNo() == 10) {
+//			  PrintWriter out = response.getWriter();
+//	            out.println("<script>alert('로그인 정보를 확인해주세요.'); history.back;</script>");
+//		}
 		System.out.println("업 to the 데");
 		return "redirect:/board/admin_notice";
 	}
