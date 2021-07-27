@@ -176,22 +176,17 @@
 
 			<div class="hpay">
 				
-<<<<<<< HEAD
-				<input id="pay" type="submit" value="결제하기" class="npay"> 
+
+				<input id="iamport" type="button" value="결제하기" class="npay"> 
 				
-				
-=======
-				<input type="submit"  value="결제하기" class="npay"> 
-		
->>>>>>> origin/oyw_work_backup
 			</div>
 		</form>
 
 	</div>
 	
-	<input type="button"  value="취소하기" class="cancel"> 	
+<!-- 	<input type="button"  value="취소하기" class="cancel"> 	
 	<input type="button"  value="kakaopay" class="kpay"/>
-	<input type="button" id="iamport" value ="아임포트"/>
+	<input type="button" id="iamport" value ="아임포트"/> -->
 
 
 	<script>

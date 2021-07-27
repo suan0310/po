@@ -34,8 +34,8 @@ String productNo = request.getParameter("productNo");
 				<c:forEach var="m" items="${detMain}">
 					<div class="detail-img-big">
 						<center>
-							<img src="${m.productImg1}" id="bigImg" alt="" width="500px"
-								style="margin-top: 5px;" />
+							<input type="hidden" name="productImg1" value="${m.productImg1}"/>
+							<img src="${m.productImg1}" id="bigImg" alt="" width="500px" 	style="margin-top: 5px;"/>
 						</center>
 					</div>
 					<div class="detail-order">
@@ -209,7 +209,7 @@ String productNo = request.getParameter("productNo");
 							</div>
 						</form>
 
-						<form name="user-reiview-write">
+						<form name="userreviewwrite">
 							<hr color="grey" size="2px"
 								style="margin-top: 20px; margin-bottom: 20px;">
 							<div class="user-reivew">
@@ -340,7 +340,7 @@ String productNo = request.getParameter("productNo");
 			var con = confirm("게시물을 등록할까요? ");
 			if(con){
 				if(${pUser}>0){
-					var frm = document.user-reiview-write;
+					var frm = document.userreviewwrite;
 			        frm.action = "/productdetail/reveiw.do";
 			        frm.method = "post";
 			        frm.submit();

@@ -42,8 +42,8 @@
         		<h6><a href="/login/login">로그인</a></h6>
         	</c:when>
         <c:otherwise>
-<!--          	<h6><a href="/login/logout">로그아웃</a></h6> -->
-         	<input type="button" value="logout" onclick="signOut()"	style="top: -300px;"/>
+          	<h6><a href="/login/logout">로그아웃</a></h6> 
+<!--          	<input type="button" value="logout" onclick="signOut()"	style="top: -300px;"/> -->
         </c:otherwise>
         </c:choose>
         <c:choose>
@@ -77,7 +77,6 @@ function signOut() {
       $(document).ready(function(){
 	location.replace("/login/logout");    	  
       });
-
   }
   
     function onLoad() {

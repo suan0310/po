@@ -8,7 +8,7 @@
 
 <select id="selectOrdersList" parameterType="String" resultType="ProductOrdersVO">
 		<!--  select  a.order_no, a.id, a.product_no, a.order_qty, a.order_price, a.sts_delivery, a.sts_cancel, a.order_date, a.order_color, a.order_size, b.product_name, b.product_price -->
-	  	select  a.*, b.product_name, b.product_price  
+	  	select  a.*, b.product_name, b.product_price,  b.product_img1
      	from (select * from orders) a, (select * from product) b WHERE a.id LIKE #{value} AND b.product_no = a.product_no order by order_date desc
 </select>
 <select id="selectAddress" parameterType="_int" resultType="OrdersAddressVO">
