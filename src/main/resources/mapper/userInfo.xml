@@ -9,7 +9,7 @@
    <update id="modify" parameterType="UsersVO">
    		update users
    		set passwd = #{passwd}
-   		where id = 'aaa'
+   		where id = #{id}
    </update>
     	
 </mapper>

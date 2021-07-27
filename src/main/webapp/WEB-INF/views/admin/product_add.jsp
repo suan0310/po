@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="/css/admin/product_add.css?ver=4">
+<link rel="stylesheet" href="/css/admin/product_add.css">
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <title>Document</title>
 </head>
@@ -101,7 +101,7 @@
 								<div id="img2"><img src="" /></div><br>
 								<div id="img3"><img src="" /></div>
 								<div id="img4"><img src="" /></div> 
-								<%=request.getRealPath("/") %>
+								<%-- <%=request.getRealPath("/") %> --%>
 							</div>							
 						</div>
 					</div>
@@ -118,11 +118,11 @@ $(".imgfile").change(function(){
 		   if(this.files && this.files[0]) {
 		    var reader = new FileReader;
 		    reader.onload = function(data) {
-		     $('#img'+index+' img').attr("src", data.target.result).width(200);        
+		     $('#img'+index+' img').attr("src", data.target.result).width(150);        
 		    }
 		    reader.readAsDataURL(this.files[0]);
 		   }
-  });
+ });
   
   
   </script>

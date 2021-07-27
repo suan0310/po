@@ -4,18 +4,18 @@
 	PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.bebe.spring.usermylog.dao.userMylogDAO">
-	<select id="qlist" resultType="com.bebe.spring.vo.QuestionVO">
+<mapper namespace="com.bebe.spring.usermylog.dao.userMylogDAO" >
+	<select id="qlist" resultType="com.bebe.spring.vo.QuestionVO" parameterType="String">
 		select qs_no, product_no, id, qs_title, qs_content, qs_date
 		from question 
-		where id = 'aaa'
+		where id = '${value}'
 		order by qs_date asc		
 	</select>
 
-	<select id="rlist" resultType="com.bebe.spring.vo.ReviewVO">
+	<select id="rlist" resultType="com.bebe.spring.vo.ReviewVO" parameterType="String">
 		select rv_no, product_no, id, rv_content, rv_date
 		from review 
-		where id = 'aaa'
+		where id = '${value}'
 		order by rv_date asc		
 	</select>
 </mapper>

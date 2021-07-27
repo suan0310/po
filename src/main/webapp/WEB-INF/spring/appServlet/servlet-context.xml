@@ -32,10 +32,8 @@
    </beans:bean>
 
 
-<!-- jason -->
-<beans:bean id="jsonView" class="org.springframework.web.servlet.view.json.MappingJackson2JsonView"/>
-
-
+	<!-- jason -->
+	<beans:bean id="jsonView" class="org.springframework.web.servlet.view.json.MappingJackson2JsonView"/>
 
 
 <beans:bean class="java.lang.String" id="uploadPath">
@@ -53,3 +51,4 @@
    <context:component-scan
       base-package="com.bebe.spring" />
 </beans:beans>
+

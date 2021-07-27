@@ -31,8 +31,8 @@ public class AdminServiceImpl implements AdminService {
 	}
 
 	@Override
-	public List<UsersVO> selectUsers() {		
-		return adminDao.selectUsers();
+	public List<UsersVO> selectUsers(String searchWord) {		
+		return adminDao.selectUsers(searchWord);
 	}
 
 	@Override
@@ -77,6 +77,16 @@ public class AdminServiceImpl implements AdminService {
 	public Integer updateOrderSts(OrdersVO orderVo) {
 		
 		return adminDao.updateOrderSts(orderVo);
+	}
+
+	@Override
+	public Integer updateSales(OrdersVO orderVo) {
+		return adminDao.updateSales(orderVo);
+	}
+
+	@Override
+	public Integer updateStock(OrdersVO orderVo) {
+		return adminDao.updateStock(orderVo);
 	}
 
 	

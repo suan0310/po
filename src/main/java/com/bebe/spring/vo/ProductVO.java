@@ -20,6 +20,9 @@ public class ProductVO {
 	   private String productImg3;
 	   private String productImg4;
 	   private int productSales;
-	   private int productTimesale;   
-	
+	   private int productTimesale;      
+
+	  private String keyword;
+	  int action;
+
 }

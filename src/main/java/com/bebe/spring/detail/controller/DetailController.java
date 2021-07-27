@@ -1,10 +1,14 @@
 package com.bebe.spring.detail.controller;
 
+
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
@@ -16,7 +20,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.bebe.spring.detail.service.DetailService;
+import com.bebe.spring.vo.CartVO;
 import com.bebe.spring.vo.DetailVO;
+import com.bebe.spring.vo.UsersVO;
 
 @Controller
 @RequestMapping(value = "/productdetail")
@@ -27,9 +33,14 @@ public class DetailController {
 
 	@RequestMapping(value = "", method = RequestMethod.GET)
 	public String detail(Model model, DetailVO vo, HttpSession session) {
-
-		session.setAttribute("userid", "admin");
-
+		
+		System.out.println(vo.getId());
+		UsersVO  usersVO = (UsersVO) session.getAttribute("sessionUser");
+		if(usersVO != null) {
+		vo.setId(usersVO.getId());		
+		}
+		
+		int order= detailService.selectOrder(vo);
 		List<DetailVO> listMain = detailService.selectDetailMain(vo);
 		List<DetailVO> listOne = detailService.selectOne(vo);
 		List<DetailVO> listAll = detailService.selectReview(vo);
@@ -41,7 +52,6 @@ public class DetailController {
 		Double avg = 0.0;
 
 		Integer rv = detailService.selectOneReview(vo);
-
 		if (rv != null) {
 			listStar = detailService.starCnt(vo);
 			starTotal = detailService.starTotal(vo);
@@ -57,6 +67,7 @@ public class DetailController {
 		model.addAttribute("rvStar", listStar);
 		model.addAttribute("sTotal", starTotal);
 		model.addAttribute("detOptions", listOptions);
+		model.addAttribute("pUser", order);
 
 		System.out.println("모델데이터 전송");
 		return "/product/detail";
@@ -109,16 +120,17 @@ public class DetailController {
 		return " ";
 	}
 
-	@RequestMapping(value = "/reivew.do", method = RequestMethod.POST)
-	public ModelAndView insertReview(DetailVO vo, @RequestParam("productNo") String productNo) {
+	@RequestMapping(value = "/reveiw.do", method = RequestMethod.POST)
+	public ModelAndView insertReview(DetailVO vo, @RequestParam("productNo") String productNo,
+			HttpServletResponse response) throws IOException {
+		
 		ModelAndView mv = new ModelAndView();
-		Integer rs = detailService.insertReview(vo);
-
-		if (rs == 1) {
-			System.out.println("성공!");
-		} else {
-			System.out.println("실패!");
-		}
+			Integer rs = detailService.insertReview(vo);			
+			if (rs == 1) {
+				System.out.println("성공!");
+			} else {
+				System.out.println("실패!");
+			}
 		mv.setViewName("redirect:http://localhost/productdetail?productNo=" + productNo);
 		return mv;
 	}
@@ -172,6 +184,7 @@ public class DetailController {
 	@ResponseBody
 	@RequestMapping(value = "/options.size")
 	public Map<String, List<DetailVO>> selectSecondOptions(Model model, DetailVO vo) {
+		
 		Map<String, List<DetailVO>> map = new HashMap<String, List<DetailVO>>();
 		List<DetailVO> selectSecondOptions = detailService.selectSecondOptions(vo);
 		map.put("size", selectSecondOptions);
@@ -199,10 +212,16 @@ public class DetailController {
 
 	// order 리턴에 오더매핑주세여
 	@RequestMapping(value = "/order", method = RequestMethod.GET)
-	public String order(DetailVO vo, Model model) {
-		Integer price = detailService.selectProductPrice(vo);
-		model.addAttribute("order", vo);
-		return "/product/order";
+	public ModelAndView order(CartVO cv,ModelAndView mav) {
+		
+		System.out.println(cv.getProductImg1());
+		ArrayList<CartVO> list = new ArrayList<>();
+		mav.setViewName("/order/order");
+		cv.setProductNo(cv.getProductNo());
+		list.add(cv);
+		mav.addObject("order",list);	
+		System.out.println(list);
+		return mav;
 	}
 
 }

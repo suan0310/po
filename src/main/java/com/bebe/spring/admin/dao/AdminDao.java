@@ -12,7 +12,7 @@ import com.bebe.spring.vo.UsersVO;
 public interface AdminDao {
 	Integer updatePasswd(String passwd);
 	Integer insertProduct(ProductOptionsVO productOpVo);
-	List<UsersVO> selectUsers();
+	List<UsersVO> selectUsers(String searchWord);
 	Integer deleteUser(String id);
 	List<ProductOptionsVO> selectProductList(ProductSearchVO psVo);
 	List<OptionsVO> selectOptions();
@@ -21,4 +21,6 @@ public interface AdminDao {
 	Integer insertOptions(OptionsVO optionsVo);
 	List<OrdersVO> selectOrdersList(OrdersSearchVO osVo);
 	Integer updateOrderSts(OrdersVO orderVo);
+	Integer updateSales(OrdersVO orderVo);
+	Integer updateStock(OrdersVO orderVo);
 }

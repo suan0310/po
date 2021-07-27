@@ -9,6 +9,15 @@
     <link rel="stylesheet" href="/css/login/login.css">
     <link href="https://fonts.googleapis.com/css2?family=Handlee&display=swap" rel="stylesheet"></head>
     <link href="https://fonts.googleapis.com/css2?family=Handlee&family=Jua&display=swap" rel="stylesheet">
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+    <script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
+    
+    <meta name="google-signin-scope" content="profile email">
+	<meta name="google-signin-client_id"
+   content="1059402509993-5dgo9oqfau9tharl9cbb1qe4prp40h0j.apps.googleusercontent.com">
+	<script src="https://apis.google.com/js/platform.js" async defer></script>
+    
     <title>bebeshop</title>
 </head>
     <body>
@@ -23,15 +32,105 @@
                    <!-- 한줄로 내리기 위해 div 처리 -->
                    <div class="checkbx"><input type="checkbox" class="check" checked>&nbsp<label>아이디 저장</label></div>
                    <input type="submit" value="로그인" class="btn">
-                   <div class="found"><h6><a href="/login/findid">아이디 찾기</a></h6>&nbsp|&nbsp<h6><a href="/login/findpasswd">비밀번호 찾기</a></h6>&nbsp|&nbsp<h6><a href="/login/constent">회원가입</a></h6></div>
-                   <div class="social">
-                    <img src="/img/google.png" width=25; id="goo";>
-                    <img src="/img/kakao.png" width=25; id="kao";>
-                    <img src="/img/naver.png" width=25; id="na">
-                    </div>
+                   <div class="found"><h6><a href="/login/findid">아이디 찾기</a>
+                   </h6>&nbsp|&nbsp<h6><a href="/login/findpasswd">비밀번호 찾기</a></h6>&nbsp|&nbsp
+                   <h6><a href="/login/constent">회원가입</a></h6>
+                   </div>
                </div>
            </form> 
+           
+           <form name= "socialLogin">
+                   <img src="/img/google.png" id="google" width=25;/>
+                   <div class="social">
+                   <div class="g-signin2 gButton" data-onsuccess="onSignIn">
+                   </div> 
+                   <!-- <div class="g-signin2" onclick="onSignIn()"></div> -->
+                    <img src="/img/kakao.png" width=25; id="kao" onclick="kakaoLogin()"/>
+                    <div id="naver_id_login">
+                    <img src="/img/naver.png" width=25; id="na" onclick="naverLogin()"/>
+                     </div>
+                    <input type="hidden" id="id" name="id" value=""/>
+                    </div>
+           </form>
         </div>
     </div>
+
+
+    <script type="text/javascript">
+/*
+    window.onload = function(){
+        var GoogleUser = {}
+      gapi.load('auth2', function() {
+        var auth2 = gapi.auth2.init({
+          client_id:'1059402509993-5dgo9oqfau9tharl9cbb1qe4prp40h0j.apps.googleusercontent.com,
+          cookiepolicy: 'single_host_origin',
+          scope: 'profile'
+        });
+
+      auth2.attachClickHandler(document.getElementById('google'), {},
+        function(googleUser) {
+            console.log('Signed in: ' + googleUser.getBasicProfile().getName());
+          }, function(error) {
+            console.log('Sign-in error', error);
+          }
+        );
+      });
+    }
+*/    
+       
+//구글로그인
+function onSignIn(googleUser) {
+	  	  var profile = googleUser.getBasicProfile();
+	  	  console.log("ID: " + profile.getId());
+	  	  var email = profile.getEmail();
+	  	$('#id').val(email);
+	  	  console.log("Email: " + email);
+
+	  	var frm = document.socialLogin;
+    	frm.action = "/login/socailLogin";
+    	frm.method = "get";
+    	frm.submit();	  
+
+	  	  //var id_token = googleUser.getAuthResponse().id_token;
+	  	  //console.log("ID Token: " + id_token);
+	  	}
+
+    //카카오로그인
+    function kakaoLogin(){
+    	window.Kakao.init("f0e088ffc8de3aeaca97aa4221edcafb");
+    	window.Kakao.Auth.login({
+    		scope: 'profile_nickname, account_email',
+    		success: function(authObj){
+    			console.log(authObj);
+    			window.Kakao.API.request({
+    				url:'/v2/user/me', 
+    				success: res=>{
+    					const kakao_account = res.kakao_account;
+    					var email = kakao_account.email;
+    					console.log("email : "+email);
+    					$('#id').val(email);
+    					console.log($('#id').val());			
+    					var frm = document.socialLogin;
+				    	frm.action = "/login/socailLogin";
+				    	frm.method = "get";
+				    	frm.submit();
+    				}
+    			});
+    		}
+    	});
+    }
+   
+    //네이버로그인
+	  	var naver_id_login = new naver_id_login("ifOs8Sf6tF3Y_TBfc808", "http://localhost/login/naverCallback");
+	  	var state = naver_id_login.getUniqState();
+	  	naver_id_login.setButton("green", 1, 25);
+	  	naver_id_login.setDomain("http://localhost/login/login");
+	  	naver_id_login.setState(state);
+	  	//naver_id_login.setPopup();
+	  	naver_id_login.init_naver_id_login();
+	  		  
+</script>
 </body>
+
+
 </html>

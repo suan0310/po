@@ -8,11 +8,11 @@ $.validator.addMethod("regex", function (value, element, regexp) {
 $(function () {
   $(".form").validate({
     rules: {
-      passwd: {
-        required: true,
-        regex: "^.*(?=^.{8,15}$)(?=.*d)(?=.*[a-zA-Z]).*$",
-        minlength: 8,
-      },
+      passwd:{
+                required : true, 
+                regex: "^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,16}$",
+                minlength : 8
+            },
       newpwch: {
         required: true,
         equalTo: "#newpw",
@@ -22,8 +22,8 @@ $(function () {
     messages: {
       passwd: {
         required: "비밀번호는 필수 입력입니다.",
-        minlength: "최소 6자리 이상 입력해주세요",
-        regex: "비밀번호에 문자/숫자를 포함해주세요",
+        minlength: "최소 8자리 이상 입력해주세요",
+        regex: "비밀번호에 문자/숫자/특수문자를 포함해주세요",
       },
       newpwch: {
         required: "비밀번호를 확인하세요",

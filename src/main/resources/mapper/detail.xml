@@ -195,8 +195,13 @@
 		a.product_no = b.product_no
 	</select>
 	
-	<select id="selectProductPrice"  parameterType="DetailVO" resultType="Integer">
-		select product_price from product where product_no = #{productNo}
+	<select id="orderItem"  parameterType="CartVO" resultType="CartVO">
+		
+		select c.*,p.* from product p, cart c where p.product_no= #{productNo} 
+	</select>
+
+	<select id="selectOrder" parameterType="DetailVO" resultType="int">
+		select count(*) as count from orders where id = #{id} and product_no = #{productNo}
 	</select>
 
 </mapper>

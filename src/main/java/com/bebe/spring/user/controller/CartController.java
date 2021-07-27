@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,6 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.bebe.spring.user.service.CartService;
 import com.bebe.spring.vo.CartVO;
+import com.bebe.spring.vo.UsersVO;
 
 @Controller
 
@@ -20,56 +22,53 @@ import com.bebe.spring.vo.CartVO;
 public class CartController {
 	@Inject
 	CartService cartService;
-	//일단 성공본
-//	@RequestMapping("/cart")
-//	public ModelAndView cart(ModelAndView mav) {
-//		mav.addObject("cart",cartService.cart());
-//		mav.setViewName("/user/cart");
-//		
-//		return mav;
-//	}
-	
 	//테스트용
 	@RequestMapping("/cart2")
-	public ModelAndView cart(ModelAndView mav) {
-		
-		mav.addObject("cart",cartService.cart());
+	public ModelAndView cart(ModelAndView mav,HttpSession session,CartVO cv) {
+		UsersVO usesVO= (UsersVO) session.getAttribute("sessionUser");
+		String id =usesVO.getId();
+		cv.setId(id);
+		System.out.println(cv);
+		mav.addObject("cart",cartService.cart(cv));
 		mav.setViewName("/user/cart2");
 		
 		return mav;
 	}
 
 	@RequestMapping(value= "/delete",method = RequestMethod.POST)
-	public ModelAndView delete(CartVO cv,@RequestParam(value="RowCheck") List<String> chArr) {
-
+	public ModelAndView delete(CartVO cv,@RequestParam(value="RowCheck") List<String> chArr, HttpSession session) {
 		ModelAndView mav = new ModelAndView("/user/cart2");
+		UsersVO usesVO= (UsersVO) session.getAttribute("sessionUser");
+		String id =usesVO.getId();
+		cv.setId(id);
 		int productNo=0;
 		for(String i : chArr) {
 			productNo= Integer.parseInt(i);
 			cv.setProductNo(productNo);
 			cartService.delete(cv);
 		}
-		mav.addObject("cart",cartService.cart());
+		mav.addObject("cart",cartService.cart(cv));
 	
 		return mav;
 	}
 	
 	@RequestMapping(value="/goOrder", method=RequestMethod.GET)
-	public ModelAndView order(CartVO cv, @RequestParam(value="RowCheck") List<String> chArr) {
+	public ModelAndView order(CartVO cv, @RequestParam(value="RowCheck") List<String> chArr, HttpSession session) {
 		ModelAndView mav= new ModelAndView("/order/order");
+		UsersVO usesVO= (UsersVO) session.getAttribute("sessionUser");
+		String id =usesVO.getId();
+		cv.setId(id);
 		ArrayList<CartVO> list = new ArrayList<>();
-		
 		int productNo=0;
 		for(String i:chArr) {
 			productNo= Integer.parseInt(i);
 			cv.setProductNo(productNo);
-//			cartService.order(cv);
 			list.add(cartService.order(cv));
 		}
 		mav.addObject("order", list);
-		System.out.println(mav);
-		System.out.println(cartService.order(cv));
 		return mav;
 	}
+	
+	
 		
 }
