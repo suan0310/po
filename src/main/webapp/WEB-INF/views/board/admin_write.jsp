@@ -94,12 +94,13 @@
 					<c:if test="${b eq '1'}">
 						<input type="text" class="title" name="noticeTitle"
 							placeholder="제목을 입력해 주세요." value="${readNotice.noticeTitle}">
-							<input type ="hidden" value="${readNotice.noticeNo}" name="noticeNo"/>
+						<input type="hidden" value="${readNotice.noticeNo}"
+							name="noticeNo" />
 					</c:if>
 					<c:if test="${b eq '2'}">
 						<input type="text" class="title" name="faqTitle"
 							placeholder="제목을 입력해 주세요." value="${readFaq.faqTitle}">
-							<input type ="hidden" value="${readFaq.faqNo}" name="faqNo"/>
+						<input type="hidden" value="${readFaq.faqNo}" name="faqNo" />
 					</c:if>
 				</div>
 
@@ -187,11 +188,11 @@
             let answer = confirm(value + " 하시겠습니까?");
             let selectedChoice = document.querySelector('#choice').selectedIndex;
             if (value == "등록") {
-                if (answer == true) {
-                	/* if(title == "" && content ==""){
-                        alert("입력사항을 다시 확인해 주시기 바랍니다.") 
-                     }; */
-                     
+                if (answer == true) {     
+                	/*  if(title == "" || content ==""){
+                         alert("입력사항을 다시 확인해 주시기 바랍니다.")
+                         window.history.back(); 
+                      };  */
                 	if (document.getElementsByTagName('option')[selectedChoice].value == "Best FAQ") {
                 			frm.action = "/board/writeFaq"
                 			frm.method = "post"
@@ -201,7 +202,7 @@
              			frm.method = "post"
              			frm.submit()
                    	 }
-                	 alert("등록되었습니다.") 
+                	 alert("등록되었습니다.")
                 	 }else {
                          location = "/board/admin_write"
                 } 
