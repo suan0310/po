@@ -79,6 +79,16 @@ public class AdminServiceImpl implements AdminService {
 		return adminDao.updateOrderSts(orderVo);
 	}
 
+	@Override
+	public Integer updateSales(OrdersVO orderVo) {
+		return adminDao.updateSales(orderVo);
+	}
+
+	@Override
+	public Integer updateStock(OrdersVO orderVo) {
+		return adminDao.updateStock(orderVo);
+	}
+
 	
 
 	

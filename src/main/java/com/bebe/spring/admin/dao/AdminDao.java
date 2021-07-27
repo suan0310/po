@@ -21,4 +21,6 @@ public interface AdminDao {
 	Integer insertOptions(OptionsVO optionsVo);
 	List<OrdersVO> selectOrdersList(OrdersSearchVO osVo);
 	Integer updateOrderSts(OrdersVO orderVo);
+	Integer updateSales(OrdersVO orderVo);
+	Integer updateStock(OrdersVO orderVo);
 }

@@ -178,6 +178,7 @@
 				
 
 				<input id="iamport" type="button" value="결제하기" class="npay"> 
+				<input type="submit" value="아임포트 없이 결재)" class="npay"> 
 				
 			</div>
 		</form>
