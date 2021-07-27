@@ -39,7 +39,7 @@ public class LoginController {
 		if (loginUsersVO != null) {
 			System.out.println("로그인 성공");
 			session.setAttribute("selectUsers", 1);
-			session.setAttribute("UsersVO", loginUsersVO);
+			session.setAttribute("sessionUser", loginUsersVO);
 			System.out.println(session+"userid"+loginUsersVO);
 			return "redirect:/index/index";
 		} else {

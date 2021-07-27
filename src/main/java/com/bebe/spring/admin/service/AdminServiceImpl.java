@@ -31,8 +31,8 @@ public class AdminServiceImpl implements AdminService {
 	}
 
 	@Override
-	public List<UsersVO> selectUsers() {		
-		return adminDao.selectUsers();
+	public List<UsersVO> selectUsers(String searchWord) {		
+		return adminDao.selectUsers(searchWord);
 	}
 
 	@Override

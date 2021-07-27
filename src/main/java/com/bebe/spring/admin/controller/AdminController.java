@@ -42,9 +42,6 @@ public class AdminController {
 	public String adminInfoGet(HttpServletRequest req) {
 		System.out.println("관리자 인포 GET 진입");
 
-		HttpSession session = req.getSession();
-		session.setAttribute("id", "admin123");
-
 		return "/admin/admin_info";
 	}
 
@@ -222,11 +219,12 @@ public class AdminController {
 	// --------------------------------------------
 	// 유저 관리 페이지 첫 화면
 	@RequestMapping(value = "/user_mng", method = RequestMethod.GET)
-	public ModelAndView adminUsermngGet() {
-		System.out.println("관리자 유저 관리 GET 진입");
-		List<UsersVO> userlist = adminService.selectUsers();
-		ModelAndView mv = new ModelAndView("/admin/user_mng");
+	public ModelAndView adminUsermngGet(String searchWord) {
+		
+		List<UsersVO> userlist = adminService.selectUsers(searchWord);
+		ModelAndView mv = new ModelAndView("/admin/user_mng");		
 		mv.addObject("userlist", userlist);
+		mv.addObject("searchWord", searchWord);
 		return mv;
 	}
 
@@ -235,7 +233,7 @@ public class AdminController {
 	public ModelAndView adminUsermngPost(String id) {
 		System.out.println("관리자 유저관리 POST 진입");
 		adminService.deleteUser(id);
-		List<UsersVO> userlist = adminService.selectUsers();
+		List<UsersVO> userlist = adminService.selectUsers(null);
 		ModelAndView mv = new ModelAndView("/admin/user_mng");
 		mv.addObject("userlist", userlist);
 		return mv;

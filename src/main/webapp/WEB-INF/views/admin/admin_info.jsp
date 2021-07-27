@@ -36,11 +36,11 @@
                     <table class="info_table">
                         <tr>
                             <td id="fixinfo">아이디</td>
-                            <td id="userinfo">${UsersVO.id}</td>
+                            <td id="userinfo">${sessionUser.id}</td>
                         </tr>
                         <tr>
                             <td id="fixinfo">이메일</td>
-                            <td id="userinfo">${UsersVO.emailId}@${UsersVO.emailDomain}</td>
+                            <td id="userinfo">${sessionUser.emailId}@${sessionUser.emailDomain}</td>
                         </tr>
                     </table>
                 </div>

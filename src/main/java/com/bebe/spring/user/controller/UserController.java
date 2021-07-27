@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.bebe.spring.user.service.UserService;
@@ -28,7 +29,7 @@ public class UserController {
 	//유저 구매내역 검색
 	@RequestMapping(value="/purchase_history", method = RequestMethod.GET)
 	public ModelAndView userHistoryGet(HttpServletRequest req, HttpSession session) {
-		UsersVO usesVO = (UsersVO) session.getAttribute("Users");
+		UsersVO usesVO = (UsersVO) session.getAttribute("UsersVO");
 		String id = usesVO.getId();
 		List<ProductOrdersVO> list = userService.selectOrdersList(id);
 		ModelAndView mav = new ModelAndView("/user/purchase_history");
@@ -55,14 +56,16 @@ public class UserController {
 	
 	//취소 버튼 눌렀을때
 	@RequestMapping(value="/post_cancel", method = RequestMethod.GET)
-	public ModelAndView userPostCancelGet(HttpServletRequest req, @RequestParam(value ="on") int orderNo,HttpSession session) {	
+	public ModelAndView userPostCancelGet(HttpServletRequest req, @RequestParam(value ="on") int orderNo ) {	
 		
 		System.out.println("취소 컨트롤러 진입");
-		userService.updatePostCancel(orderNo);	
-		
+		userService.updatePostCancel(orderNo);
+		HttpSession session = req.getSession();
+		UsersVO usersVO = (UsersVO) session.getAttribute("sessionUser");
+		System.out.println(usersVO);
 		//세션에서 아이디 받아오기
-		UsersVO usesVO = (UsersVO) session.getAttribute("Users");
-		String id = usesVO.getId();
+		String id = usersVO.getId();
+		System.out.println(id);
 		
 		List<ProductOrdersVO> list = userService.selectOrdersList(id);
 		ModelAndView mav = new ModelAndView("/user/purchase_history");
