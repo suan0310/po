@@ -87,8 +87,13 @@ td {
   text-decoration: none;
   color: black;
 }
+.next ul li:active a{
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+
 .next ul li i {
   margin-right: 2px;
   margin-left: 2px;
-
 }

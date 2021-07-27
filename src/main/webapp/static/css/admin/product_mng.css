@@ -116,11 +116,15 @@ log_table table tr th {
 	display: flex;
 }
 
-#manager{
-	width:950px;
+#managerTh{
+	width:1150px;
 }
+#manager{
+	width:990px;
+}
+
 #optable{
-	width:200px;
+	width:160px;
 }
 
 .menu:nth-of-type(3) {

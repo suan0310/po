@@ -82,7 +82,7 @@ public class AdminController {
 		return mv;
 	}
 
-	// 주문 관리 페이지에서 배송 수정버튼 눌렀을때
+	// 주문 관리 페이지에서 변경버튼 눌렀을때
 	@RequestMapping(value = "/sts_update", method = RequestMethod.POST)
 	public ModelAndView adminOrderStsPost(OrdersVO orderVo,OrdersSearchVO osVo) {
 		System.out.println(osVo.getMainSelect());
@@ -90,7 +90,15 @@ public class AdminController {
 		System.out.println(osVo.getSearchWord());
 		System.out.println("관리자 주문관리 POST 수정 진입1");
 		adminService.updateOrderSts(orderVo);
+		
+		System.out.println(orderVo.getStsCancel());
+		if(orderVo.getStsCancel().equals("취소완료")) {
+			//판매량 -시키고 재고량 +
+			adminService.updateSales(orderVo);
+			adminService.updateStock(orderVo);
+		}
 		System.out.println("관리자 주문관리 POST 수정 진입2");
+		
 		ModelAndView mav = new ModelAndView("/admin/order_mng");
 		List<OrdersVO> oVo = adminService.selectOrdersList(osVo);
 		mav.addObject("list", oVo);
