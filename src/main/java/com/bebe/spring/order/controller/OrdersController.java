@@ -15,7 +15,7 @@ import com.bebe.spring.vo.UsersVO;
 
 @Controller
 
-@RequestMapping(value = "/order/*")
+@RequestMapping(value = "/order")
 public class OrdersController {
 	@Inject
 	OrdersService orderService;
