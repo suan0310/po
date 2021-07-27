@@ -74,9 +74,9 @@
 				<div class="rvboxs">
 				</c:if>
 					<div class="rvbox right">
-						<span><i class="fa fa-star"></i><i class="fa fa-star"></i><i
-							class="fa fa-star"></i><i class="fa fa-star"></i><i
-							class="fa fa-star"></i>
+						<span><c:forEach begin="1" end="${rev.rvStar}">
+							<i class="fa fa-star"></i>
+						</c:forEach>
 							<h3>${rev.rvStar}</h3> </span>
 						<p>
 							${rev.rvContent}

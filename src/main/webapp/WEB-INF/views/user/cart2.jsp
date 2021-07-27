@@ -50,7 +50,9 @@
 										<h3>사이즈 : ${cart.productSize} 컬러 : ${cart.productColor}</h3>
 										<h4>가격:${cart.productPrice}원</h4>
 									</td>
-									<td align=center>${cart.quantity}</td>
+									<td align=center>
+									<input type="hidden" id="quantity" value="${cart.quantity}"/>
+									${cart.quantity}</td>
 
 									<td align=center>
 										<h1>${cart.quantity*cart.productPrice}원</h1>
@@ -74,6 +76,9 @@
 		</div>
 	</div>
 	<script>
+	
+	var qty = parseInt($('#quantity').val());
+	console.log(qty);
 	 function selDelete(){
 			var frm =  document.cart;
 			frm.action="/user/delete";
@@ -82,10 +87,13 @@
 		}
 
 		function selOrder(){
+
+	
 			var frm = document.cart;
 			frm.action="/user/goOrder";
 			frm.method="get";
 			frm.submit();
+
 		}
 	</script>
 </body>
