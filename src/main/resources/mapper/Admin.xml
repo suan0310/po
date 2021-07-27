@@ -73,8 +73,11 @@
 </select>
 
 
-<select id="selectUsers" resultType="UsersVO">
+<select id="selectUsers" resultType="UsersVO" parameterType="String">
 		SELECT * FROM users WHERE NOT (id = 'admin')
+		<if test="value != null">
+		AND id = '${value}'
+		</if>
 </select>
 
 

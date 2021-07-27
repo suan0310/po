@@ -44,8 +44,8 @@
                        
                        <c:forEach items="${polist}" var="list">
                         <tr>
-                                <td style="width: 100px; border-left: hidden">${list.orderNo}</td>
-                                <td align=right><img src="/img/bebe.png" alt="a" width="120px" height="120px"></td>
+                                <td style="width: 100px; text-align: center;">${list.orderNo}</td>
+                                <td align=right><img src="${list.productImg1}" alt="a" width="100px" height="100px"></td>
                                 <td style="border-left: hidden" align="left">
                                         <h4>${list.productName}</h4>
                                             <h3>${list.orderColor} / ${list.orderSize}</h3>
@@ -76,7 +76,7 @@
 
 function showPopup(num,name){
 var url = "/user/post_info?on="+num+"&name="+name;
-var option = "width=800, height=600, top=400"
+var option = "width=800, height=600, top=200, left=500"
 window.open(url, "배송정보", option).focus();
 }
 

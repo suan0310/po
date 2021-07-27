@@ -46,7 +46,7 @@
                      </form>
                     <div class="secondinfo">
                         <button class="btn_info" onClick="location.href='/login/findid'">아이디 찾기</button>
-                        <button class="btn_info" onClick="location.href='/login'">로그인</button>
+                        <button class="btn_info" onClick="location.href='/login/login'">로그인</button>
                     </div>
                 </div>
            

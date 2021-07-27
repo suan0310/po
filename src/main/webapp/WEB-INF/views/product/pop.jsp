@@ -13,7 +13,7 @@ String userid=request.getParameter("userid"); %>
 			<meta charset="UTF-8">
 			<meta http-equiv="X-UA-Compatible" content="IE=edge">
 			<meta name="viewport" content="width=device-width, initial-scale=1.0">
-			<link rel="stylesheet" href="/css/product/deatil.css">
+			<link rel="stylesheet" href="/css/product/detail.css?ver=1">
 			<title>Document</title>
 			<!--링크들-->
 			<script src="http://code.jquery.com/jquery-latest.js"></script>
@@ -74,7 +74,7 @@ String userid=request.getParameter("userid"); %>
 					var productNo = $("#productNo").val();
 					var qsNo = $("#qsNo").val();
 					var userid = $("#userid").val();
-					var curUser = "${sessionScope.userid}";
+					var curUser = "${UsersVO.id}";
 					console.log("userid: "+userid);
 
 					//alert("userid " + userid + "  curID: " + curUser);

@@ -5,14 +5,14 @@
 <mapper namespace="com.bebe.spring.user.dao.CartDAO">
 	<select id="cart" resultType="CartVO">
 		select p.*,c.* from cart c inner join product p on c.product_no=p.product_no
-		where c.id='okkk'
+		where c.id=#{id}
 	</select>
 	<delete id="delete">
-		delete cart where id='okkk' and product_no=#{productNo}
+		delete cart where id=#{id} and product_no=#{productNo}
 	</delete>
 	<select id="order" resultType="CartVO" parameterType="CartVO">
 		select * from cart inner join product on cart.product_no=
-		product.product_no where cart.id='okkk' and
+		product.product_no where cart.id=#{id} and
 		product.product_no=#{productNo}
 
 	</select>
