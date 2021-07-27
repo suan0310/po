@@ -31,7 +31,7 @@ public interface DetailDao {
 	Integer updateRvBest1(int cntRvNo);
 	Integer updateRvBest0(int cntRvNo);
 	
-	int selectOneReview(DetailVO vo);
+	Integer selectOneReview(DetailVO vo);
 	
 
 	//cart

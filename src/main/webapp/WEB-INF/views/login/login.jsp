@@ -40,7 +40,7 @@
            </form> 
            
            <form name= "socialLogin">
-                   <img src="/img/google.png" width=25;/>
+                   <img src="/img/google.png" id="google" width=25;/>
                    <div class="social">
                    <div class="g-signin2 gButton" data-onsuccess="onSignIn">
                    </div> 
@@ -57,8 +57,28 @@
 
 
     <script type="text/javascript">
+/*
+    window.onload = function(){
+        var GoogleUser = {}
+      gapi.load('auth2', function() {
+        var auth2 = gapi.auth2.init({
+          client_id:'1059402509993-5dgo9oqfau9tharl9cbb1qe4prp40h0j.apps.googleusercontent.com,
+          cookiepolicy: 'single_host_origin',
+          scope: 'profile'
+        });
 
-    //구글로그인
+      auth2.attachClickHandler(document.getElementById('google'), {},
+        function(googleUser) {
+            console.log('Signed in: ' + googleUser.getBasicProfile().getName());
+          }, function(error) {
+            console.log('Sign-in error', error);
+          }
+        );
+      });
+    }
+*/    
+       
+//구글로그인
 function onSignIn(googleUser) {
 	  	  var profile = googleUser.getBasicProfile();
 	  	  console.log("ID: " + profile.getId());
