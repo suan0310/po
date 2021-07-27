@@ -45,6 +45,7 @@ public class DetailVO {
 	private Double avg;
 	private int cnt;
 	private Double sum;
+	private int count;
 
 	// qs
 	private int qsNo;

@@ -16,4 +16,8 @@ public interface LoginService {
 	public UsersVO find_passwd(UsersVO usersVO);
 	
 	public UsersVO find_id(UsersVO usersVO);
+	
+	public int selectSocialLogin(UsersVO usersVO);
+	
+	public int insertSocialLogin(UsersVO usersVO);
 }

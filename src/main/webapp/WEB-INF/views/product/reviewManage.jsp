@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-	<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 
 		<!DOCTYPE html>
 		<html lang="ko">
@@ -10,7 +10,7 @@
 				<meta charset="UTF-8">
 				<meta http-equiv="X-UA-Compatible" content="IE=edge">
 				<meta name="viewport" content="width=device-width, initial-scale=1.0">
-				<link rel="stylesheet" href="/css/product/deatil.css">
+				<link rel="stylesheet" href="/css/product/detail.css?ver=1">
 				<title>Document</title>
 				<!--링크들-->
 				<script src="http://code.jquery.com/jquery-latest.js"></script>
@@ -63,6 +63,7 @@
 									style="padding: 5px; cursor: pointer; width:auto;" />
 							</form>
 						</div>
+						
 						<div class="RvBest0">
 							<form action="/productdetail/updateRvBest1" method="GET" name="addReivew"
 								style="top: auto; left: 460px; text-align: center; margin-top:100px;">
@@ -102,9 +103,11 @@
 							</form>
 
 						</div>
+						
 					</div>
 				</div>
 			</div>
+			
 
 			<script>
 

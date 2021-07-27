@@ -7,7 +7,9 @@
 <html lang="ko">
 
 <head>
-<% String productNo = request.getParameter("productNo"); %>
+<%
+String productNo = request.getParameter("productNo");
+%>
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -68,42 +70,42 @@
 								</tr>
 								<tr>
 									<td>사이즈</td>
-									<td>
-										<select name="productSize" id="opt2">
-												<option value="" selected>사이즈를 선택하세요</option>
-										</select>
-									</td>
+									<td><select name="productSize" id="opt2">
+											<option value="" selected>사이즈를 선택하세요</option>
+									</select></td>
 								</tr>
 								<tr>
 									<td>수량</td>
-									<td><input type="number" id="quantity" name="quantity"	min="1" value="1" /></td>
+									<td><input type="number" id="quantity" name="quantity"
+										min="1" value="1" /></td>
 								</tr>
 							</table>
 							<hr color="grey" size="1px" style="margin-top: 30px;">
-							<br> <input type="hidden" id="id" name="id"	value="${sessionScope.userid}" /> 
-							<input type="hidden" id="productNo" name="productNo" value="<%=productNo%>" /> 
-							<input type="button" id="shopBtn" value="장바구니" onclick="addCart()" /><br>
-							<input type="button" id="orderBtn" value="구매하기" onclick="orderNow()" />
+							<br> <input type="hidden" id="id" name="id"
+								value="${UsersVO.id}" /> <input type="hidden" id="productNo"
+								name="productNo" value="<%=productNo%>" /> <input type="button"
+								id="shopBtn" value="장바구니" onclick="addCart()" /><br> <input
+								type="button" id="orderBtn" value="구매하기" onclick="orderNow()" />
 						</div>
 					</div>
 			</form>
 		</div>
 		<div class="detail-img-small">
 			<div class="smallimg">
-				<img src="${m.productImg1}" class="img1" alt="준비중입니다." /> 
-				<img src="${m.productImg2}" class="img1" alt="준비중입니다." />
-				<img src="${m.productImg3}" class="img1" alt="준비중입니다." /> 
-				<img src="${m.productImg4}" class="img1" alt="준비중입니다." />
+				<img src="${m.productImg1}" class="img1" alt="준비중입니다." /> <img
+					src="${m.productImg2}" class="img1" alt="준비중입니다." /> <img
+					src="${m.productImg3}" class="img1" alt="준비중입니다." /> <img
+					src="${m.productImg4}" class="img1" alt="준비중입니다." />
 			</div>
 		</div>
 		</c:forEach>
 
-		<div class="reivew-request-tab"> 
+		<div class="reivew-request-tab">
 			<div class="tabmenu">
 				<input type="radio" name="tab" id="tab2" /> <label for="tab2"
-					style="font-size: 15px; text-align: center;">문의</label> 
-				<input type="radio" name="tab" id="tab1" checked /> 
-				<label for="tab1" style="font-size: 15px; text-align: center;">리뷰</label>
+					style="font-size: 15px; text-align: center;">문의</label> <input
+					type="radio" name="tab" id="tab1" checked /> <label for="tab1"
+					style="font-size: 15px; text-align: center;">리뷰</label>
 
 				<div id="cont1" style="border: 1px solid black;">
 					<br> <br>
@@ -116,19 +118,20 @@
 								${avg} </span>
 						</div>
 						<div id="starimgsrc">
-							<img src="/img/staron.png" alt="" width="30px"> 
-							<img src="/img/staron.png" alt="" width="30px"> 
-							<img src="/img/staron.png" alt="" width="30px"> 
-							<img src="/img/staron.png" alt="" width="30px"> 
-							<img src="/img/staron.png" alt="" width="30px">
+							<img src="/img/staron.png" alt="" width="30px"> <img
+								src="/img/staron.png" alt="" width="30px"> <img
+								src="/img/staron.png" alt="" width="30px"> <img
+								src="/img/staron.png" alt="" width="30px"> <img
+								src="/img/staron.png" alt="" width="30px">
 						</div>
 						<br> <br>
 					</div>
-					
+
 					<div class="starBars">
 						<div class="w3-light-grey">
-							<div class="w3-orange" id="1star" >
-								<span style="position: absolute; left: 375px; top: 190px;"> 1 </span>
+							<div class="w3-orange" id="1star">
+								<span style="position: absolute; left: 375px; top: 190px;">
+									1 </span>
 							</div>
 						</div>
 						<div class="w3-light-grey">
@@ -138,17 +141,20 @@
 						</div>
 						<div class="w3-light-grey">
 							<div class="w3-orange" id="3star">
-								<span style="position: absolute; left: 375px; top: 250px;"> 3 </span>
+								<span style="position: absolute; left: 375px; top: 250px;">
+									3 </span>
 							</div>
 						</div>
 						<div class="w3-light-grey">
-							<div class="w3-orange" id="4star" >
-								<span style="position: absolute; left: 375px; top: 280px;"> 4 </span>
+							<div class="w3-orange" id="4star">
+								<span style="position: absolute; left: 375px; top: 280px;">
+									4 </span>
 							</div>
 						</div>
 						<div class="w3-light-grey">
-							<div class="w3-orange" id="5star" >
-								<span style="position: absolute; left: 375px; top: 310px;"> 5 </span>
+							<div class="w3-orange" id="5star">
+								<span style="position: absolute; left: 375px; top: 310px;">
+									5 </span>
 							</div>
 						</div>
 					</div>
@@ -156,21 +162,23 @@
 					<div class="scrollTest" style="overflow: auto; height: 500px;">
 
 						<form action="/productdetail/reviewManage" method="get">
-							<input type="hidden" id="productNo" name="productNo" value="<%=productNo%>" />
+							<input type="hidden" id="productNo" name="productNo"
+								value="<%=productNo%>" />
 							<div class="customer-reviews" style="font-size: 12px;">
 								<div class="customer-reviews1">
-									<br> <br> <br>
-									<input type="submit" value="베스트리뷰 관리" id="submitBtn" name="bestRvManage"
+									<br> <br> <br> <input type="submit"
+										value="베스트리뷰 관리" id="submitBtn" name="bestRvManage"
 										style="width: auto;" />
 									<c:forEach var="r" items="${rvOne}">
 										<b>${r.id}</b>/
-                                        <c:forEach var="s" begin="1" end="${r.rvStar}">
+                                        <c:forEach var="s" begin="1"
+											end="${r.rvStar}">
 											<i class="fa fa-star" id="selected"></i>
 										</c:forEach> /
-                                        <fmt:formatDate value="${r.rvDate}" pattern="yy-MM-dd" /> /
+                                        <fmt:formatDate
+											value="${r.rvDate}" pattern="yy-MM-dd" /> /
                                         <table
-											style="width: 520px; min-height: 70px; border: 1px solid black;
-											margin-top: 10px; margin-bottom: 40px;">
+											style="width: 520px; min-height: 70px; border: 1px solid black; margin-top: 10px; margin-bottom: 40px;">
 											<tr>
 												<td colspan="3">${r.rvContent}</td>
 											</tr>
@@ -186,7 +194,8 @@
 												end="${r.rvStar}">
 												<i class="fa fa-star" id="selected"></i>
 											</c:forEach> /
-                                            <fmt:formatDate value="${r.rvDate}" pattern="yy-MM-dd" /> /
+                                            <fmt:formatDate
+												value="${r.rvDate}" pattern="yy-MM-dd" /> /
                                             <table
 												style="width: 520px; min-height: 100px; border: 1px solid black; margin-top: 10px;">
 												<tr>
@@ -200,31 +209,29 @@
 							</div>
 						</form>
 
-						<form action="/productdetail/reivew.do" name="user-reiview-write"
-							onsubmit="return confirm('게시글을 등록할까요?');" method="post">
+						<form name="user-reiview-write">
 							<hr color="grey" size="2px"
 								style="margin-top: 20px; margin-bottom: 20px;">
 							<div class="user-reivew">
 								리뷰쓰기<br>
 								<div class="customer-reviews2"
 									style="font-size: 12px; margin-top: 20px;">
-									<span id="id_" name="id_"><b> ${sessionScope.userid}</b></span>/
-
-									<i class="fa fa-star star-1" id="star"></i> <i
+									<span id="id_" name="id_"><b> ${UsersVO.id}</b></span>/ <i
+										class="fa fa-star star-1" id="star"></i> <i
 										class="fa fa-star star-2" id="star"></i> <i
 										class="fa fa-star star-3" id="star"></i> <i
 										class="fa fa-star star-4" id="star"></i> <i
 										class="fa fa-star star-5" id="star"></i> <sub
 										class="autoRating" id="star_"> <span>0</span>
-									</sub> / <input type="hidden" id="id" name="id"
-										value="${sessionScope.userid}" /> <input type="hidden"
-										id="productNo" name="productNo" value="<%=productNo%>" /> <input
-										type="hidden" id="rvStar" name="rvStar" /> <sub
-										class="rvDate"><span></span></sub> <br>
+									</sub> / <input type="hidden" id="id" name="id" value="${UsersVO.id}" />
+									<input type="hidden" id="productNo" name="productNo"
+										value="<%=productNo%>" /> <input type="hidden" id="rvStar"
+										name="rvStar" /> <sub class="rvDate"><span></span></sub> <br>
 									<textarea name="rvContent" cols="72" rows="8" maxlength="300"
 										style="margin-top: 10px;"></textarea>
-									<br> <input type="submit" id="submitBtn" value="등록"
-										style="float: right; cursor: pointer;" /> <br> <br>
+									<br> <input type="button" id="submitBtn" value="등록"
+										onclick="subReview()" style="float: right; cursor: pointer;" />
+									<br> <br>
 								</div>
 							</div>
 						</form>
@@ -283,8 +290,8 @@
 				<!--작성시-->
 			</center>
 			<form action="/productdetail/question.do" method="post"
-				name="request-popup-write" onsubmit="return confirm('게시글을 등록할까요?');"
-				style="position: absolute; left: 100px;">
+				name="request-popup-write" onsubmit="return confirm('게시글을 등록할까요?');" 
+			style="position: absolute; left: 100px;">
 				<br>제목 <br> <input type="text" name="qsTitle"
 					id="request-title" style="margin-top: 10px; width: 370px;">
 				<br> <br>내용 <br>
@@ -295,8 +302,8 @@
 					비밀글&nbsp;<input type="checkbox" id="secret-public" name="qsSecret"
 						value="1" /> &nbsp; 오픈글&nbsp; <input type="checkbox"
 						name="qsSecret" id="secret-public" value="0" /> <input
-						type="hidden" id="id" name="id" value="${sessionScope.userid}" />
-					<input type="hidden" id="productNo" name="productNo"
+						type="hidden" id="id" name="id" value="${UsersVO.id}" /> <input
+						type="hidden" id="productNo" name="productNo"
 						value="<%=productNo%>" />
 				</h6>
 				<br> <br> <input type="submit" id="submitBtn" value="등록"
@@ -310,17 +317,66 @@
 	<!-- 오류나면 주석해야함   <input type="hidden" id="questionNum" name="qsNo" />  -->
 
 	<script>
+    //현재 아이디 체크
+    var curUser = "${UsersVO.id}";
+    $(document).ready(function(){
+	    if (curUser== null) {
+	    	console.log("null");
+	    }else{
+	    	console.log("not null");
+	    }
+    	
+    })
+    
+//    console.log("?:  "+"${UsersVO.id}");
+    //필요한 변수 선언
+    var num;
+    var userid;   //question(문의)의 유저아이디
+    var rvUserid; //review의 유저아이디
+    var secret;
+    var productNo = $("#productNo").val();
+	
+	
+	$(document).ready(function(){
+		console.log("USER "+${pUser});
+	});
+	
+	function subReview(){
+		
+		if(curUser!=""){
+			var con = confirm("게시물을 등록할까요? ");
+			if(con){
+				if(${pUser}>0){
+					var frm = document.user-reiview-write;
+			        frm.action = "/productdetail/reveiw.do";
+			        frm.method = "post";
+			        frm.submit();
+				}else{
+					alert("구매한 회원만 리뷰를 등록할 수 있습니다.");
+				}
+			}
+		}else{
+			alert("구매한 회원만 리뷰를 등록할 수 있습니다.");
+		}
+		
+	}
 
-            //필요한 변수 선언
-            var num;
-            var userid;   //question(문의)의 유저아이디
-            var rvUserid; //review의 유저아이디
-            var secret;
-            var productNo = $("#productNo").val();
-
-            //현재 아이디 체크
-            var curUser = "${sessionScope.userid}";
-
+	/*
+	function subQuestion(){
+		
+		if(curUser!=""){
+			var con = confirm("게시물을 등록할까요? ");
+			if(con){
+				var frm = document.request-popup-write;
+		        frm.action = "/productdetail/question.do";
+		        frm.method = "post";
+		        frm.submit();
+			}
+		}else{
+			alert("회원만 문의글을 등록할 수 있습니다.");
+		}
+	}*/
+	
             $(document).ready(function () {
                 if (curUser != "admin") {
                     $("input[name=bestRvManage]").hide();
@@ -410,9 +466,10 @@
                         data: "productColor=" + color + "&productNo=" + productNo
                             + "&productSize=" + selectedSize,
                         success: function (data) {
-                            //console.log(data.stock);
                             $('#tmpMax').val(data.stock);
                             $('#quantity').prop('max', $('#tmpMax').val());
+                            console.log("tmp: "+ $('#tmpMax').val);
+                            console.log("qty: "+ $('#quantity').val);
 
                         },
                         error: function (request, status, error) {
@@ -469,9 +526,6 @@
                 num = td.eq(0).text();
                 userid = td.eq(3).text();
                 secret = td.eq(5).text();
-                //console.log("num " + num);
-                //console.log("userid " + userid);
-                //console.log("secret? " + secret);
 
                 $(document).ready(function () {
                     $('#questionNum').val(num);
@@ -504,7 +558,11 @@
 
             $(document).ready(function () {
                 $('#show').click(function () {
-                    $('#request-popup').show();
+                	if(curUser!=""){
+                    $('#request-popup').show();                		
+                	}else{
+                		alert("회원가입 후 작성할 수 있습니다.");
+                	}
                 });
             });
 
@@ -514,52 +572,65 @@
 
             //장바구니 넣기
             function addCart() {
-                var id = $("#id").val();
-                var quantity = $("#quantity").val();
-                var productColor = $("#opt1").val();
-                var productSize = $("#opt2").val();
-                console.log(id + quantity + productColor + productSize);
+            	if(curUser == ""){
+            		alert("회원가입 후 구매가 가능합니다.");
+            	} else{
+                    var id = $("#id").val();
+                    var quantity = $("#quantity").val();
+                    var productColor = $("#opt1").val();
+                    var productSize = $("#opt2").val();
+                    console.log(id + quantity + productColor + productSize);
 
-                var max = 100;
-                var qty = parseInt($('#quantity').val());
+                    var max = 100;
+                    var qty = parseInt($('#quantity').val());
 
-                if (qty > 0) {
-                    if (max >= qty) {
-                        $.ajax({
-                            url: '/productdetail/insertCart',
-                            type: 'GET',
-                            contentType: 'application/json; charset=utf-8',
-                            dataType: "text",
-                            data: "productColor=" + productColor + "&productNo=" + productNo +
-                                "&id=" + id + "&quantity=" + quantity + "&productSize=" + productSize,
-                            success: function (data) {
-                                alert("장바구니에 상품이 담겼습니다.");
-                            },
-                            error: function (request, status, error) {
-                                alert("code = " + request.status + " message = " + request.responseText + " error = " + error); // 실패 시 처리
-                            }
-                        })
+                    if (qty > 0) {
+                        if (max >= qty) {
+                            $.ajax({
+                                url: '/productdetail/insertCart',
+                                type: 'GET',
+                                contentType: 'application/json; charset=utf-8',
+                                dataType: "text",
+                                data: "productColor=" + productColor + "&productNo=" + productNo +
+                                    "&id=" + id + "&quantity=" + quantity + "&productSize=" + productSize,
+                                success: function (data) {
+                                    alert("장바구니에 상품이 담겼습니다.");
+                                },
+                                error: function (request, status, error) {
+                                    alert("code = " + request.status + " message = " + request.responseText + " error = " + error); // 실패 시 처리
+                                }
+                            })
 
-                    } else {
-                        alert("최대 구매수량은 " + max + "개 입니다.");
+                        } else {
+                            alert("최대 구매수량은 " + max + "개 입니다.");
+                        }
                     }
-                }
+            		
+            	}
             }
 
             //구매하기
             function orderNow() {
-                var max = parseInt($('#tmpMax').val());
-                var qty = parseInt($('#quantity').val());
-                if (qty > 0) {
-                    if (max >= qty) {
-                        var frm = document.order;
-                        frm.action = "/productdetail/order";
-                        frm.method = "get";
-                        frm.submit();
-                    } else {
-                        alert("최대 구매수량은 " + max + "개 입니다.");
+            	if(curUser == ""){
+            		alert("회원가입 후 구매가 가능합니다.");
+            	} else{
+                    var max = parseInt($('#tmpMax').val());
+                    var qty = parseInt($('#quantity').val());
+                    alert($('#tmpMax').val());
+                    alert($('#quantity').val());
+                    if (qty > 0) {
+                        if (max >= qty) {
+                            var frm = document.order;
+                            frm.action = "/productdetail/order";
+                            frm.method = "get";
+                            frm.submit();
+                        } else {
+                            alert("최대 구매수량은 " + max + "개 입니다.");
+                        }
                     }
-                }
+            	}
+            	
+ 
             }
 
             /*별점찍기*/
