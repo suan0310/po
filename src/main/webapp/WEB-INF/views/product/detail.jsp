@@ -209,11 +209,8 @@ String productNo = request.getParameter("productNo");
 							</div>
 						</form>
 
-<<<<<<< HEAD
-						<form name="userreviewwrite">
-=======
 						<form name="userReviewWrite">
->>>>>>> origin/nikki_two
+
 							<hr color="grey" size="2px"
 								style="margin-top: 20px; margin-bottom: 20px;">
 							<div class="user-reivew">
@@ -301,20 +298,11 @@ String productNo = request.getParameter("productNo");
 					maxlength="300" style="margin-top: 10px;"></textarea>
 				<br> <br>
 				<h6 style="font-size: 0.67em;">
-<<<<<<< HEAD
-					비밀글&nbsp;<input type="checkbox" id="secret-public" name="qsSecret"
-						value="1" /> &nbsp; 오픈글&nbsp; <input type="checkbox"
-						name="qsSecret" id="secret-public" value="0" /> <input
-						type="hidden" id="id" name="id" value="${sessionUser.id}" /> <input
-						type="hidden" id="productNo" name="productNo"
-						value="<%=productNo%>" />
-=======
 					비밀글&nbsp;<input type="checkbox" id="secret-public" name="qsSecret" value="1"/>
 					&nbsp; 오픈글&nbsp; 
 					<input type="checkbox" name="qsSecret" id="secret-public" value="0"/> 
-					<input	type="hidden" id="id" name="id" value="${UsersVO.id}" />
+					<input	type="hidden" id="id" name="id" value="${sessionUser.id}" />
 					<input	type="hidden" id="productNo" name="productNo" value="<%=productNo%>" />
->>>>>>> origin/nikki_two
 				</h6>
 				<br> <br>
 				<input type="button" id="submitBtn" value="등록" onclick="subQuestion()"
@@ -329,21 +317,7 @@ String productNo = request.getParameter("productNo");
 
 	<script>
     //현재 아이디 체크
-<<<<<<< HEAD
     var curUser = "${sessionUser.id}";
-   
-=======
-    var curUser = "${UsersVO.id}";
-    console.log(curUser);
-    $(document).ready(function(){
-	    if (curUser== null) {
-	    	console.log("null");
-	    }else{
-	    	console.log("not null");
-	    }
-    	
-    })
->>>>>>> origin/nikki_two
     
 //    console.log("?:  "+"${sessionUser.id}");
     //필요한 변수 선언
@@ -369,11 +343,8 @@ String productNo = request.getParameter("productNo");
 			var con = confirm("게시물을 등록할까요? ");
 			if(con){
 				if(${pUser}>0){
-<<<<<<< HEAD
-					var frm = document.userreviewwrite;
-=======
 					var frm = document.userReviewWrite;
->>>>>>> origin/nikki_two
+
 			        frm.action = "/productdetail/reveiw.do";
 			        frm.method = "post";
 			        frm.submit();
