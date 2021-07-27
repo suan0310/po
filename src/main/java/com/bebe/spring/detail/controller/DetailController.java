@@ -52,7 +52,6 @@ public class DetailController {
 		Double avg = 0.0;
 
 		Integer rv = detailService.selectOneReview(vo);
-
 		if (rv != null) {
 			listStar = detailService.starCnt(vo);
 			starTotal = detailService.starTotal(vo);
@@ -214,6 +213,8 @@ public class DetailController {
 	// order 리턴에 오더매핑주세여
 	@RequestMapping(value = "/order", method = RequestMethod.GET)
 	public ModelAndView order(CartVO cv,ModelAndView mav) {
+		
+		System.out.println(cv.getProductImg1());
 		ArrayList<CartVO> list = new ArrayList<>();
 		mav.setViewName("/order/order");
 		cv.setProductNo(cv.getProductNo());

@@ -178,7 +178,7 @@ public class LoginController {
 			System.out.println("결과 : "+res);
 		}
 
-		session.setAttribute("UsersVO", usersVO);
+		session.setAttribute("sessionUser", usersVO);
 		
 		return "/index/index";
 	}

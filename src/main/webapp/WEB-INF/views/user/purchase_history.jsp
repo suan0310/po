@@ -31,41 +31,43 @@
             <div class="mainbox">
                 <div class="orderbx">
                     <h4 class="name3">구매내역</h4>
-                    <table class="order">
+                    <table class="order">          
                         <tr>
                             <th style="width: 100px; border-left : hidden;"> 주문번호</th>
-                            <th colspan="2">제품정보</th>
-                            <th >제품수량</th>
+                            <th width=400px;>제품정보</th>
+                            <th width=100px;>제품수량</th>
                             <th style="width: 150px;">결제금액</th>
-                            <th style="width: 150px;">배송현황</th>
-                            
+                            <th style="width: 150px;">배송현황</th>                            
                             <th style="width: 150px; border-right: hidden;">취소현황</th>
                         </tr>
-                       
+						</table>
+						 <div style="overflow:auto; height: 600px; width: 1170px;">
+						<table class="order">                      
                        <c:forEach items="${polist}" var="list">
                         <tr>
                                 <td style="width: 100px; text-align: center;">${list.orderNo}</td>
-                                <td align=right><img src="${list.productImg1}" alt="a" width="100px" height="100px"></td>
-                                <td style="border-left: hidden" align="left">
+                                <td width=200px; align="right"><img src="${list.productImg1}" alt="a" width="100px" height="100px"></td>
+                                <td width=200px; style="border-left: hidden" align="center">
                                         <h4>${list.productName}</h4>
                                             <h3>${list.orderColor} / ${list.orderSize}</h3>
                                                 <h2>${list.productPrice}원</h2> 
                                 </td>
-                                <td align=center>${list.orderQty}</td>
+                                <td width=150px; align=center>${list.orderQty}</td>
 
-                                <td align=center>
+                                <td width=150px; align=center>
                                     <h1>${list.orderPrice}원</h1>
                                 </td>                                
-                                <td align=center>
+                                <td width=160px; align=center>
                                     <input class="purchaseBtn1"  id="postBtn" type="button" onclick="showPopup(${list.orderNo},'${list.productName}')" value="주문상세">
                                     <h4>${list.stsDelivery}</h4>
                                 </td>
-                                <td align=center style=" border-right: hidden">
+                                <td width=160px; align=center style=" border-right: hidden">
                                     <a href="/user/post_cancel?on=${list.orderNo}" onclick="return stsCheck('${list.stsCancel}');"><input class="purchaseBtn1" id="postCancel" type="button" value="${list.stsCancel}" /></a>
                                 </td>
-                        </tr>
-                        </c:forEach>
+                        </tr>                        
+                        </c:forEach>                        
                     </table>
+                    </div>
                 </div>
             </div>
         </div>

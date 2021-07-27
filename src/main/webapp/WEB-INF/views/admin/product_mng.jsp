@@ -47,11 +47,10 @@
             </form>         
             <input id="delbtn" class="button" value="삭제" type="button" readonly>
             </div>
-            <div id="productmain" style="overflow:auto; height: 600px; width: 1170px;">
-               <div class="log_table"  id="productlist" >
-               <hr>
-            <table id="manager">
-               <tr>
+             <div class="log_table"  id="productlist" >
+             <hr>
+            <table id="managerTh">
+                  <tr>
                   <th >선택</th>
                   <th >품번</th>
                   <th >이미지</th>
@@ -59,8 +58,14 @@
                   <th>금액</th>
                   <th >색상 / 사이즈 : 재고</th>
                   <th>판매량</th>
+                  <th>옵션추가</th>
                </tr>
+               </table>
+               </div>
+            <div id="productmain" style="overflow:auto; height: 600px; width: 1170px;">
 
+               <div class="log_table"  id="productlist" >              
+            	<table id="manager">
                <input type="hidden" value="${map.psVo.searchWord}" id="searchWordval"/>
                
                <c:forEach var="list" items="${map.productlist}" varStatus="st">
@@ -70,24 +75,24 @@
                   <input type="hidden" value="${list.mainCategory}" id="mainCategoryval">                  
                </c:if>
                   <tr>
-                     <td>
+                     <td width=80px;>
                         <!-- 선택 -->
                         <div class="productcheck">
                            <input type="checkbox" value="${list.productNo}" name="checkproductno">
                         </div>
                      </td>
-                     <td>
+                     <td width=80px;>
                         <!-- 상품 번호 -->
                         <div class="productno" >${list.productNo}</div>
                      </td>
-                     <td>
+                     <td width=120px;>
                      		<img style="width:80px; height: 80px;" alt="제품사진" src="${list.productImg1}">
                      </td>
-                     <td>
+                     <td width=120px;>
                         <!-- 상품 이름 -->
                         <div class="productname" >${list.productName}</div>
                      </td>
-                     <td>
+                     <td width=80px;>
                         <!-- 금액 -->
                         <div class="price">${list.productPrice}</div>
                      </td>
@@ -102,7 +107,7 @@
                         </c:forEach>   
                         </div>                      
                         </td>                  
-                     <td>
+                     <td width=120px;>
                         <!-- 판매량 -->
                         <div class="saleamount">${list.productSales}</div>
                      </td>
@@ -113,11 +118,7 @@
                   </table>
                   </div>
                   <div class="log_table"  id="opdiv">
-                  <hr>
-               <table id="optable">      
-               <tr>
-                  <th width="50px">옵션추가</th>
-               </tr>   
+               <table id="optable">    
                <c:forEach var="list" items="${map.productlist}" varStatus="st">               
                		<tr>                                    
                      <td>

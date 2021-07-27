@@ -44,5 +44,9 @@ public interface AdminService {
 	//주문상태 업데이트
 	Integer updateOrderSts(OrdersVO orderVo);
 	
+	//주문취소시 판매량 감소
+	Integer updateSales(OrdersVO orderVo);
+	//주문취소시 재고 증가
+	Integer updateStock(OrdersVO orderVo);
 	
 }

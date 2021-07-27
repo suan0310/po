@@ -58,11 +58,11 @@
                             <th width=100px;>주문번호</th>
                             <th width=100px;>상품번호</th>                           
                             <th width=100px;>회원아이디</th>
-                            <th width=600px;>주문상태</th>
+                            <th width=590px;>주문상태</th>
                         </tr>
                         </table>
                         </div>
-                        <div class="log_table"  style="overflow:auto; height: 550px; width: 1150px;">
+                        <div class="log_table"  style="overflow:auto; height: 550px; width: 1170px;">
                         <table>
                         <c:forEach items="${list}"  var="list" varStatus="index">
                         <form action="sts_update" method="post"  name="stsform">
@@ -73,7 +73,7 @@
                             <td width=100px;><input type="hidden" value="${list.orderNo}" name="orderNo"/> ${list.orderNo}</td>
                             <td width=100px;>${list.productNo}</td>
                             <td width=100px;>${list.id}</td>
-                            <td width=600px;>
+                            <td width=590px;>
                             <input class="stsinput" type="text" value="${list.stsDelivery}" class="stsDelivery" readonly/>
                             <select class="category" name="stsDelivery" class="stsDeliverySel">
                             <c:choose>
@@ -112,7 +112,13 @@
                             </c:otherwise>
                             </c:choose>							      
                               </select>
+
                               <input type="submit" class="btn" id="stsbtn" value="변경">
+                              
+                               <input type="hidden" name ="productNo" value="${list.productNo}"/>
+                               <input type="hidden" name ="orderQty" value="${list.orderQty}"/>
+                               <input type="hidden" name ="orderColor" value="${list.orderColor}"/>
+                               <input type="hidden"  name ="orderSize"  value="${list.orderSize}"/>
                        		   <input type='hidden' name ='mainSelect'  value='${searchList.mainSelect}'/>
                      		   <input type='hidden' name ='subSelect'  value='${searchList.subSelect}'/>
                      		   <input type='hidden' name ='searchWord'  value='${searchList.searchWord}'/> 
