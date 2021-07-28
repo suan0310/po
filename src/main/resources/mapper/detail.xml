@@ -19,7 +19,6 @@
 		#{productNo}
 	</select>
 
-
 	<select id="selectOne" parameterType="DetailVO"
 		resultType="DetailVO">
 		<!-- select id, rv_star, rv_content, rv_date from review where rv_no = 

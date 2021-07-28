@@ -320,7 +320,6 @@ String productNo = request.getParameter("productNo");
     //현재 아이디 체크
     var curUser = "${sessionUser.id}";
     
-//    console.log("?:  "+"${sessionUser.id}");
     //필요한 변수 선언
     var num;
     var userid;   //question(문의)의 유저아이디
@@ -328,12 +327,7 @@ String productNo = request.getParameter("productNo");
     var secret;
     var productNo = $("#productNo").val();
     var checked;
-	
-	
-	$(document).ready(function(){
-		console.log("USER "+${pUser});
-	});
-	
+
 	function subReview(){
 		if($("#rvContent").val() == ""){
 			alert("리뷰 내용을 입력하세요.");
@@ -455,7 +449,7 @@ String productNo = request.getParameter("productNo");
                                     + "</option>");
                                 $("#opt2").append(option);
                                 for (var i = 0; i < len; i++) {
-                                    console.log(data.size[i].productSize);
+                                    //console.log(data.size[i].productSize);
                                     var sizeVal = data.size[i].productSize
                                     var option = $("<option value=" + sizeVal + ">" +
                                         sizeVal + "</option>");
@@ -483,9 +477,6 @@ String productNo = request.getParameter("productNo");
                         success: function (data) {
                             $('#tmpMax').val(data.stock);
                             $('#quantity').prop('max', $('#tmpMax').val());
-                            console.log("tmp: "+ $('#tmpMax').val);
-                            console.log("qty: "+ $('#quantity').val);
-
                         },
                         error: function (request, status, error) {
                             alert("code = " + request.status + " message = " + request.responseText + " error = " + error); // 실패 시 처리
@@ -547,6 +538,7 @@ String productNo = request.getParameter("productNo");
                     var a = $('#questionNum').val();
                 });
 
+                
                 //비밀글처리
                 if (secret == "1") {
                     if (curUser == "admin" || curUser == userid) {
@@ -558,9 +550,10 @@ String productNo = request.getParameter("productNo");
                     openPop();
                 }
 
+                
                 function openPop() {
                     var url = "/productdetail/pop?qsNo=" + num + "&userid=" + userid + "&productNo=" + productNo;
-                    var options = "width=600, height=1000, top=10";
+                    var options = "width=400, height=400, top=8";
                     window.open(url, "pop1", options).focus();
                 }
             });
@@ -596,7 +589,7 @@ String productNo = request.getParameter("productNo");
                     var quantity = $("#quantity").val();
                     var productColor = $("#opt1").val();
                     var productSize = $("#opt2").val();
-                    console.log(id + quantity + productColor + productSize);
+                   // console.log(id + quantity + productColor + productSize);
 
                     var max = 100;
                     var qty = parseInt($('#quantity').val());
@@ -685,7 +678,6 @@ String productNo = request.getParameter("productNo");
                 selectedRating = starClass;
 
                 var abc = $("#star_").text();
-                console.log(abc);
                 $('#rvStar').val(abc);
             });
 
