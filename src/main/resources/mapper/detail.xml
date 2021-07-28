@@ -19,7 +19,6 @@
 		#{productNo}
 	</select>
 
-
 	<select id="selectOne" parameterType="DetailVO"
 		resultType="DetailVO">
 		<!-- select id, rv_star, rv_content, rv_date from review where rv_no = 
@@ -121,7 +120,7 @@
 		INSERT INTO review(rv_no, id, product_no, rv_content, rv_date, rv_star,
 		rv_best)
 		VALUES (
-		SEQ_AI.NEXTVAL, #{id}, #{productNo}, #{rvContent}, TO_DATE(SYSDATE,'YYYY-MM-DD'),
+		SEQ_AI.NEXTVAL, #{id}, #{productNo}, #{rvContent}, SYSDATE,
 		#{rvStar}, 0
 		)
 	</insert>
@@ -135,7 +134,7 @@
 		#{qsTitle},
 		#{qsContent},
 		#{qsSecret},
-		TO_DATE(SYSDATE,'YYYY-MM-DD')
+		SYSDATE
 		)
 	</insert>
 	

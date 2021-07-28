@@ -72,9 +72,6 @@ function onSignIn(googleUser) {
     	frm.action = "/login/socailLogin";
     	frm.method = "get";
     	frm.submit();	  
-
-	  	  //var id_token = googleUser.getAuthResponse().id_token;
-	  	  //console.log("ID Token: " + id_token);
 	  	}
 
     //카카오로그인
