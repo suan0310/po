@@ -41,9 +41,9 @@
         	<c:when test="${empty sessionUser.id}">
         		<h6><a href="/login/login">로그인</a></h6>
         	</c:when>
-        <c:otherwise>
-          	<h6><a href="/login/logout">로그아웃</a></h6> 
-<!--          	<input type="button" value="logout" onclick="signOut()"	style="top: -300px;"/> -->
+        <c:otherwise> 
+				<h6 onclick="signOut()" style="cursor: pointer;">로그아웃</h6>
+
         </c:otherwise>
         </c:choose>
         <c:choose>
@@ -60,11 +60,6 @@
         <div class="search"><input type="text"  value="${keyword}" name="keyword" id="keyword"><i class="fa fa-times" aria-hidden="true"></i></div>
         </form>
 </div>
-
-
-	<!-- 내가 잠깐쓸게.....은혜... -->
-<!-- 	<input type="button" value="logout" onclick="signOut()"
-	style="top: -300px;"/> -->
 
 <script>
 function signOut() {
@@ -85,18 +80,7 @@ function signOut() {
       });
     }
 
-    /*
-    function logout(){	
-		Kakao.init("f0e088ffc8de3aeaca97aa4221edcafb");
-	       Kakao.Auth.logout(function () {
-			alert("로그아웃");
-        });
-        location.replace("/login/logout");
-    }*/
-        	
     </script>
-    <!-- 은혜끝 -->
-
 
 <script type="text/javascript" src="/js/search.js"></script>
 

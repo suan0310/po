@@ -39,6 +39,7 @@ public interface DetailDao {
 	Integer insertCart(DetailVO vo);
 	List<DetailVO> selectCart(DetailVO vo);
 	Integer selectProductPrice(DetailVO vo);
+	int selectDuplicateOpt(DetailVO vo);
 	
 	//order
 	Integer selectOrder(DetailVO vo);

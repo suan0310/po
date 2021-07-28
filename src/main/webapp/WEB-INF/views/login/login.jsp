@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/login/login.css">
+    <link rel="stylesheet" href="/css/login/login.css?ver=1">
     <link href="https://fonts.googleapis.com/css2?family=Handlee&display=swap" rel="stylesheet"></head>
     <link href="https://fonts.googleapis.com/css2?family=Handlee&family=Jua&display=swap" rel="stylesheet">
     <script src="http://code.jquery.com/jquery-latest.js"></script>
@@ -36,47 +36,29 @@
                    </h6>&nbsp|&nbsp<h6><a href="/login/findpasswd">비밀번호 찾기</a></h6>&nbsp|&nbsp
                    <h6><a href="/login/constent">회원가입</a></h6>
                    </div>
+                   </form>
+                   <div class="social">
+                   <form name= "socialLogin">
+                   		<div class="k-signin">
+	                  	 <img src="/img/kakao.png" width=25; id="kao" onclick="kakaoLogin()"/>
+	                 	</div>
+		                  <div class="g-signin2" data-onsuccess="onSignIn" 
+		                   data-width="25" data-height="25" data-longtitle="false">
+		                   </div>
+		                    <div class="n-signin" id="naver_id_login">
+		                    <img src="/img/naver.png" width=25; id="na" onclick="naverLogin()"/>
+		                     </div>
+		                    <input type="hidden" id="id" name="id" value=""/>	                    
+          			  
+          			 </div>
                </div>
            </form> 
            
-           <form name= "socialLogin">
-                   <img src="/img/google.png" id="google" width=25;/>
-                   <div class="social">
-                   <div class="g-signin2 gButton" data-onsuccess="onSignIn">
-                   </div> 
-                   <!-- <div class="g-signin2" onclick="onSignIn()"></div> -->
-                    <img src="/img/kakao.png" width=25; id="kao" onclick="kakaoLogin()"/>
-                    <div id="naver_id_login">
-                    <img src="/img/naver.png" width=25; id="na" onclick="naverLogin()"/>
-                     </div>
-                    <input type="hidden" id="id" name="id" value=""/>
-                    </div>
-           </form>
         </div>
     </div>
 
 
-    <script type="text/javascript">
-/*
-    window.onload = function(){
-        var GoogleUser = {}
-      gapi.load('auth2', function() {
-        var auth2 = gapi.auth2.init({
-          client_id:'1059402509993-5dgo9oqfau9tharl9cbb1qe4prp40h0j.apps.googleusercontent.com,
-          cookiepolicy: 'single_host_origin',
-          scope: 'profile'
-        });
-
-      auth2.attachClickHandler(document.getElementById('google'), {},
-        function(googleUser) {
-            console.log('Signed in: ' + googleUser.getBasicProfile().getName());
-          }, function(error) {
-            console.log('Sign-in error', error);
-          }
-        );
-      });
-    }
-*/    
+    <script type="text/javascript"> 
        
 //구글로그인
 function onSignIn(googleUser) {

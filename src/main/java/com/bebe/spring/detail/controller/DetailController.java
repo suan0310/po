@@ -205,10 +205,27 @@ public class DetailController {
 	// cart
 	@ResponseBody
 	@RequestMapping(value = "/insertCart", method = RequestMethod.GET)
-	public String updateCart(DetailVO vo, Model model, @RequestParam("id") String id) {
-		detailService.insertCart(vo);
-		return "";
+	public Map<String, Integer> updateCart(DetailVO vo, Model model, @RequestParam("id") String id) {
+		Map<String, Integer> map = new HashMap<String, Integer>();
+		
+		int cnt = detailService.selectDuplicateOpt(vo);
+		map.put("cnt", cnt);
+		System.out.println("cnt: ?? "+cnt);
+		if(cnt==0) {detailService.insertCart(vo);}
+		
+		return map;
 	}
+	
+	/*
+	@ResponseBody
+	@RequestMapping(value = "/insertCart", method = RequestMethod.GET)
+	public String updateCart(DetailVO vo, Model model, @RequestParam("id") String id) {
+
+			detailService.insertCart(vo);
+			return "";
+	}
+	 
+	  */
 
 	// order 리턴에 오더매핑주세여
 	@RequestMapping(value = "/order", method = RequestMethod.GET)

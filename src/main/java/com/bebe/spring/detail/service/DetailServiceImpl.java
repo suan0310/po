@@ -192,4 +192,11 @@ public int selectOrder(DetailVO vo) {
 	return detailDao.selectOrder(vo);
 }
 
+@Override
+public int selectDuplicateOpt(DetailVO vo) {
+	// TODO Auto-generated method stub
+	return detailDao.selectDuplicateOpt(vo);
+}
+
+
 }
