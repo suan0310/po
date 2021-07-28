@@ -15,7 +15,7 @@
 					select * from dual
 			</insert>
 			<delete id="deleteCart">
-				delete from cart where product_no=#{productNo}
+				delete from cart where product_no=#{productNo} AND id=#{id}
 			</delete>
 					
 			

@@ -60,7 +60,7 @@
 									<td align=center><a
 										href="/productdetail?productNo=${cart.productNo}">문의</a></td>
 									<td align=center style="border-right: hidden"><input class="RowCheck"
-										type="checkbox" name="RowCheck" value="${cart.productNo }">
+										type="checkbox" name="RowCheck" value="${cart.productNo}">
 									</td>
 								</tr>
 							</c:forEach>
@@ -95,6 +95,24 @@
 			frm.submit();
 
 		}
+		
+/*         var formData = $("#orderinfo").serialize(); 
+
+        $.ajax({
+            cache : false,
+            url : "/order/order", // 요기에
+            type : 'POST', 
+            data : formData, 
+            success : function(data) {
+                alert("데이터 전송 성공")
+                location.href='${path}/order/order_sc';
+            }, // success 
+    
+            error : function(xhr, status) {
+                alert(xhr + " : " + status);
+            }// $.ajax 
+	    });  */
+	    
 	</script>
 </body>
 

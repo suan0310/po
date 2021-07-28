@@ -57,17 +57,22 @@ public class CartController {
 		ModelAndView mav= new ModelAndView("/order/order");
 		UsersVO usesVO= (UsersVO) session.getAttribute("sessionUser");
 		String id =usesVO.getId();
+		System.out.println(cv);
 		cv.setId(id);
 		ArrayList<CartVO> list = new ArrayList<>();
 		int productNo=0;
 		for(String i:chArr) {
 			productNo= Integer.parseInt(i);
 			cv.setProductNo(productNo);
+			
 			list.add(cartService.order(cv));
 		}
 		mav.addObject("order", list);
 		return mav;
 	}
+	
+	
+	
 	
 	
 		
