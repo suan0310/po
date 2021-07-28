@@ -135,7 +135,7 @@
 		#{qsTitle},
 		#{qsContent},
 		#{qsSecret},
-		SYSDATE
+		TO_DATE(SYSDATE,'YYYY-MM-DD')
 		)
 	</insert>
 	
