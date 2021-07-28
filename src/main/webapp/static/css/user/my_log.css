@@ -17,16 +17,12 @@ hr {
     width: 1150px;
 }
 
-.log {
-    margin-left: 30px;
-}
-
 .black>h4 {
     margin: 10px;
 }
 
 #log_date {
-    margin-left: 10px;
+/*     margin-left: 10px; */
     width: 115px;
     height: 23px;
     font-size: 12px;
@@ -62,8 +58,7 @@ hr {
 
 /* 나의 활동 테이블 부분*/
 
-.log_table>table {
-    margin-left: 30px;
+.log_table table {
     width: 1150px;
     text-align: center;
 }
@@ -75,7 +70,7 @@ hr {
     height: 35px;
 }
 
-#table_date {
+ #table_date {
     width: 150px;
 }
 
@@ -85,12 +80,19 @@ hr {
 
 #table_content {
     width: 600px;
-}
+} 
 
 .log_table td {
     font-size: 12px;
     height: 35px;
     border-bottom: #cfcfcf 2px solid;
+}
+
+.mainbox .purchase .name3 {
+  margin-left: 20px;
+  margin-bottom: 20px;
+  font-size: 15px;
+  font-weight: bold;
 }
 
 .menu:nth-of-type(2) {

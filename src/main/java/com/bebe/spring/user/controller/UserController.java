@@ -1,6 +1,9 @@
 package com.bebe.spring.user.controller;
 
+import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 import javax.inject.Inject;
@@ -12,7 +15,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -116,14 +118,20 @@ public class UserController {
 	
 	//문의리뷰나오기
 	@RequestMapping(value ="/mylog", method = RequestMethod.POST)
-	public String getmyloglist(Model model, String select, HttpSession session) throws Exception {
+	public String getmyloglist(Model model, String select, HttpSession session, String logDate) throws Exception {
 		
 		UsersVO uservo = (UsersVO) session.getAttribute("sessionUser");
 		String id = uservo.getId();
-
+		
+		System.out.println(logDate);
+		
+		Map<String, String> map = new HashMap<>();
+		map.put("id", id);
+		map.put("logDate", logDate);
+		
 		if(select.equals("question")) {
 		List<QuestionVO> list = null;
-		list = userMylogService.qlist(id);
+		list = userMylogService.qlist(map);
 		model.addAttribute("list", list);
 		}
 		if(select.equals("review")) {

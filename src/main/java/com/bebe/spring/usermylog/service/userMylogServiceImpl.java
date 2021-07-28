@@ -1,6 +1,7 @@
 package com.bebe.spring.usermylog.service;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -21,9 +22,9 @@ public class userMylogServiceImpl implements userMylogService{
 	}
 
 	@Override
-	public List<QuestionVO> qlist(String id) throws Exception {
+	public List<QuestionVO> qlist(Map<String, String> map) throws Exception {
 		
-		return user.qlist(id);
+		return user.qlist(map);
 	}
 
 	@Override
