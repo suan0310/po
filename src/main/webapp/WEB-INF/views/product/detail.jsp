@@ -42,6 +42,7 @@ String productNo = request.getParameter("productNo");
 						<br>
 						<div style="float: left; margin-left: 100px; font-size: 20px;">
 							<input type="hidden" id="tmpMax" />
+							<input type="hidden" id="optcnt" />
 							<table>
 								<th  colspan="2" style="font-size: 30px; font-weight: bold;">
 									<input type="hidden" name="productName" value="${m.productName}"> ${m.productName}</input></th>
@@ -450,7 +451,7 @@ String productNo = request.getParameter("productNo");
                             success: function (data) {
                                 var len = (Object.keys(data.size).length);
                                 $('#opt2').empty();
-                                var option = $("<option value='' selected> 사이즈를 선택하세요 "
+                                var option = $("<option value='non' selected> 사이즈를 선택하세요 "
                                     + "</option>");
                                 $("#opt2").append(option);
                                 for (var i = 0; i < len; i++) {
@@ -606,11 +607,16 @@ String productNo = request.getParameter("productNo");
                                 url: '/productdetail/insertCart',
                                 type: 'GET',
                                 contentType: 'application/json; charset=utf-8',
-                                dataType: "text",
+                                dataType: "json",
                                 data: "productColor=" + productColor + "&productNo=" + productNo +
                                     "&id=" + id + "&quantity=" + quantity + "&productSize=" + productSize,
                                 success: function (data) {
-                                    alert("장바구니에 상품이 담겼습니다.");
+                                	var duplicate = data.cnt;
+                                	if(duplicate>0) {
+                                		alert("이미 장바구니에 담긴 상품입니다.")
+                                	} else{
+                                		alert("장바구니에 상품이 담겼습니다.");
+                                	}
                                 },
                                 error: function (request, status, error) {
                                     alert("code = " + request.status + " message = " + request.responseText + " error = " + error); // 실패 시 처리
