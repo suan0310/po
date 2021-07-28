@@ -103,10 +103,30 @@ input::placeholder {
   text-decoration-line: none;
   color: #707070;
 }
-/* 카카오 페이스북 네이버  */
+
+
+/* 카카오 페이스북 네이버*/  
 .login .social {
-  margin-top: 10px;
+  margin-top: 20px;
+  margin-left: 80px;
 }
 .login .social img {
-  margin: 5px;
+  margin: 5px;  
+}
+
+/*소셜로그인 위치조정*/
+.g-signin2, .n-signin, .k-signin {
+	display: inline-block;
+	float: left;
+	width:40px;
+	height:40px;
+}
+
+.g-signin2{
+	margin-top: 5px;
+	margin-left: 20px;
+}
+
+#kao{
+	cursor: pointer;
 }

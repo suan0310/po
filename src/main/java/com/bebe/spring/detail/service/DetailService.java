@@ -37,6 +37,8 @@ public interface DetailService {
 	Integer insertCart(DetailVO vo);
 	List<DetailVO> selectCart(DetailVO vo);
 	Integer selectProductPrice(DetailVO vo);
+	int selectDuplicateOpt(DetailVO vo);
+	
 	CartVO orderItem(CartVO cv);
 	//order
 	int selectOrder(DetailVO vo);
