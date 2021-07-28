@@ -136,7 +136,7 @@ public class UserController {
 		}
 		if(select.equals("review")) {
 		List<ReviewVO> list =null;
-		list = userMylogService.rlist(id);
+		list = userMylogService.rlist(map);
 		model.addAttribute("list", list);
 		}
 //		question인지 review인지 알려줌

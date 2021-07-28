@@ -19,7 +19,7 @@ public interface userMylogService {
 	
 	
 	//목록
-	public List<ReviewVO> rlist(String id) throws Exception;
+	public List<ReviewVO> rlist(Map<String, String> map) throws Exception;
 	//조회
 	public ReviewVO rview(int rv_no) throws Exception;
 	

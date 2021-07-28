@@ -14,6 +14,6 @@ public interface userMylogDAO {
 	public ReviewVO rview(int rv_no) throws Exception;
 	
 	List<QuestionVO> qlist(Map<String, String> map) throws Exception;
-	List<ReviewVO> rlist(String id) throws Exception;
+	List<ReviewVO> rlist(Map<String, String> map) throws Exception;
 
 }

@@ -40,9 +40,9 @@ public class userMylogServiceImpl implements userMylogService{
 	}
 
 	@Override
-	public List<ReviewVO> rlist(String id) throws Exception {
+	public List<ReviewVO> rlist(Map<String, String> map) throws Exception {
 		
-		return user.rlist(id);
+		return user.rlist(map);
 	}
 
 	@Override
