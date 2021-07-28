@@ -74,7 +74,7 @@ String userid=request.getParameter("userid"); %>
 					var productNo = $("#productNo").val();
 					var qsNo = $("#qsNo").val();
 					var userid = $("#userid").val();
-					var curUser = "${UsersVO.id}";
+					var curUser = "${sessionUser.id}";
 					console.log("userid: "+userid);
 
 					//alert("userid " + userid + "  curID: " + curUser);
@@ -118,7 +118,6 @@ String userid=request.getParameter("userid"); %>
 							data: "qsNo=" + qsNo + "&qsAnswer=" + qsAnswer,
 							success: function (data) {
 								alert("정상적으로 수정되었습니다.");
-								
 							},
 							error: function (request, status, error) {
 								alert("code = " + request.status + " message = " + request.responseText + " error = " + error); // 실패 시 처리
@@ -165,16 +164,7 @@ String userid=request.getParameter("userid"); %>
 							}
 						})
 					}
-					
-					
-					/*
-						function updateQuestion() {
-						var frm = document.Qna;
-						frm.action = "/productdetail/updateQuestion";
-						frm.method = "get";
-						frm.submit();
-					}
-					*/
+
 				</script>
 				<script type="text/javascript" src="/js/search.js"></script>
 		</body>

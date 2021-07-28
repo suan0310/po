@@ -216,18 +216,6 @@ public class DetailController {
 		return map;
 	}
 	
-	/*
-	@ResponseBody
-	@RequestMapping(value = "/insertCart", method = RequestMethod.GET)
-	public String updateCart(DetailVO vo, Model model, @RequestParam("id") String id) {
-
-			detailService.insertCart(vo);
-			return "";
-	}
-	 
-	  */
-
-	// order 리턴에 오더매핑주세여
 	@RequestMapping(value = "/order", method = RequestMethod.GET)
 	public ModelAndView order(CartVO cv,ModelAndView mav) {
 		
