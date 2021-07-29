@@ -31,8 +31,6 @@
                <h4 class="name3">장바구니</h4>
                <table class="order">
                   <tr>
-
-<<<<<<< HEAD
 							<th colspan="2" style="border-left: hidden;">제품정보</th>
 							<th style="width: 150px;">수량</th>
 							<th style="width: 250px;">결제금액</th>

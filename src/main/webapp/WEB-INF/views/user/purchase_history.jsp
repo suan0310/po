@@ -46,12 +46,19 @@
                        <c:forEach items="${polist}" var="list">
                         <tr>
                                 <td style="width: 100px; text-align: center;">${list.orderNo}</td>
-                                <td width=200px; align="right"><img src="${list.productImg1}" alt="a" width="100px" height="100px"></td>
+                             
+                                <td width=200px; align="right">
+                                <a href="/productdetail?productNo=${list.productNo}">
+                                <img src="${list.productImg1}" alt="a" width="100px" height="100px">
+                                </a></td>
                                 <td width=200px; style="border-left: hidden" align="center">
+                                  <a href="/productdetail?productNo=${list.productNo}">
                                         <h4>${list.productName}</h4>
-                                            <h3>${list.orderColor} / ${list.orderSize}</h3>
-                                                <h2>${list.productPrice}원</h2> 
+                                         <h3>${list.orderColor} / ${list.orderSize}</h3>
+                                         <h2>${list.productPrice}원</h2>
+                                  </a>                                                    
                                 </td>
+                                   </a>                          
                                 <td width=150px; align=center>${list.orderQty}</td>
 
                                 <td width=150px; align=center>
