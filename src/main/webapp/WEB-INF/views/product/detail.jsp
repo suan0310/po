@@ -591,7 +591,7 @@ String productNo = request.getParameter("productNo");
                     var productSize = $("#opt2").val();
                    // console.log(id + quantity + productColor + productSize);
 
-                    var max = parseInt($('#tmpMax').val());
+                    var max = 100;
                     var qty = parseInt($('#quantity').val());
 
                     if (qty > 0) {
