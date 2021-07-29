@@ -39,6 +39,7 @@ String userid=request.getParameter("userid"); %>
 
 
 						<c:forEach var="q" items="${qOne}">
+							<input type="hidden" id="tmpSecret" value="${q.qsSecret}" />
 							<div class="request-popup-write" style="position: absolute; left: 100px;">
 								<br>제목 <br> <input type="text"  id="qsTitle" name="qsTitle" value="${q.qsTitle}"
 									style="margin-top: 10px; width: 420px;"> <br> <br>내용
@@ -49,10 +50,13 @@ String userid=request.getParameter("userid"); %>
 								<textarea id="qsAnswer" name="qsAnswer" cols="50" rows="6" maxlength="200" readonly
 									style="margin-top: 10px;">${q.qsAnswer}</textarea>
 								<br> <br>
+								
 
 								<h6 style="font-size: 0.67em;">
-									비밀글&nbsp; <input type="checkbox" checked id="secret-public" value="secret"
-										disabled /> &nbsp; 오픈글&nbsp; <input type="checkbox" id="secret-public"
+									비밀글&nbsp; 
+									<input type="checkbox" id="secret" value="secret"
+										disabled /> &nbsp; 오픈글&nbsp; 
+										<input type="checkbox" id="public"
 										value="public" disabled />
 								</h6>
 
@@ -75,11 +79,17 @@ String userid=request.getParameter("userid"); %>
 					var qsNo = $("#qsNo").val();
 					var userid = $("#userid").val();
 					var curUser = "${sessionUser.id}";
+					var sec = $('#tmpSecret').val();
 					console.log("userid: "+userid);
 
-					//alert("userid " + userid + "  curID: " + curUser);
-
-
+					$(document).ready(function(){
+						if (sec==0){
+							$('#public').prop("checked", true);
+						} else{
+							$('#secret').prop("checked", true);
+						}
+					});
+					
 					//세션별 사용자 권한처리
 					var str = curUser;
 					console.log("현재 사용자: " + str);

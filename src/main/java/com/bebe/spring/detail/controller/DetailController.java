@@ -34,7 +34,6 @@ public class DetailController {
 	@RequestMapping(value = "", method = RequestMethod.GET)
 	public String detail(Model model, DetailVO vo, HttpSession session) {
 		
-		System.out.println(vo.getId());
 		UsersVO  usersVO = (UsersVO) session.getAttribute("sessionUser");
 		if(usersVO != null) {
 		vo.setId(usersVO.getId());		
@@ -69,7 +68,6 @@ public class DetailController {
 		model.addAttribute("detOptions", listOptions);
 		model.addAttribute("pUser", order);
 
-		System.out.println("모델데이터 전송");
 		return "/product/detail";
 	}
 
@@ -210,7 +208,6 @@ public class DetailController {
 		
 		int cnt = detailService.selectDuplicateOpt(vo);
 		map.put("cnt", cnt);
-		System.out.println("cnt: ?? "+cnt);
 		if(cnt==0) {detailService.insertCart(vo);}
 		
 		return map;
