@@ -32,4 +32,13 @@ public class CartServiceImpl implements CartService {
 		// TODO Auto-generated method stub
 		return cartDAO.order(cv);
 	}
+
+	@Override
+	public Integer checkSoldOut(CartVO cv) {
+		// TODO Auto-generated method stub
+		return cartDAO.checkSoldOut(cv);
+	}
+	
+	
+	
 }

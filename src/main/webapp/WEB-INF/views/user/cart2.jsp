@@ -39,7 +39,7 @@
 							<th style="width: 150px; border-right: hidden;">제품선택<input
 								id="allCheck" type="checkbox" name="allCheck" /></th>
 						</tr>
-						<form  name="cart">
+						<form  name="cart" id="cart">
 							<c:forEach items="${cart}" var="cart">
 							
 								<tr>
@@ -48,6 +48,9 @@
 									<td style="border-left: hidden" align="left">
 										<h3>제품명 : ${cart.productName}</h3>
 										<h3>사이즈 : ${cart.productSize} 컬러 : ${cart.productColor}</h3>
+										<input type="hidden"  name="productName" value="${cart.productName}"/>
+										<input type="hidden"  name="productSize" value="${cart.productSize}"/>
+										<input type="hidden"  name="productColor" value="${cart.productColor}"/>
 										<h4>가격:${cart.productPrice}원</h4>
 									</td>
 									<td align=center>
@@ -59,8 +62,10 @@
 									</td>
 									<td align=center><a
 										href="/productdetail?productNo=${cart.productNo}">문의</a></td>
-									<td align=center style="border-right: hidden"><input class="RowCheck"
-										type="checkbox" name="RowCheck" value="${cart.productNo}">
+									<td align=center style="border-right: hidden">
+									<input class="RowCheck" 	type="checkbox" name="RowCheck" value="${cart.productNo}">
+									<input class="checked" type="hidden"  name="checked" value="false"/>
+									<input type="hidden"  name="productNo" value="${cart.productNo}"/>
 									</td>
 								</tr>
 							</c:forEach>
@@ -68,7 +73,7 @@
 					
 					
 					<input id="purchaseBtn"  type="button"  class="delete" value="삭제하기" onclick= "selDelete()" /> 
-					<input id="purchaseBtn" type="button" class ="order" value="선택상품 결제" onclick="selOrder()"/>
+					<input id="purchaseBtn" type="button" class ="order" value="선택상품 결제" onclick="checkStock()"/>
 					</form>
 
 				</div>
@@ -91,27 +96,34 @@
 	
 			var frm = document.cart;
 			frm.action="/user/goOrder";
-			frm.method="get";
+			frm.method="post";
 			frm.submit();
 
 		}
 		
-/*         var formData = $("#orderinfo").serialize(); 
-
+	function checkStock(){
+			
+       var formData = $("#cart").serialize(); 
+       
         $.ajax({
             cache : false,
-            url : "/order/order", // 요기에
+            url : "/user/checkStock", // 요기에
             type : 'POST', 
             data : formData, 
             success : function(data) {
-                alert("데이터 전송 성공")
-                location.href='${path}/order/order_sc';
+                if(data == ""){
+                	selOrder();
+                }   
+                else{
+                	 alert(decodeURIComponent(data) + " 상품의 재고가 없습니다");
+                }         
             }, // success 
     
             error : function(xhr, status) {
-                alert(xhr + " : " + status);
+            	alert("전송실패");
             }// $.ajax 
-	    });  */
+	    });          
+		}
 	    
 	</script>
 </body>

@@ -10,12 +10,18 @@
 	<delete id="delete">
 		delete cart where id=#{id} and product_no=#{productNo}
 	</delete>
-	<select id="order" resultType="CartVO" parameterType="CartVO">
-		select * from cart inner join product on cart.product_no=
-		product.product_no where cart.id=#{id} and
-		product.product_no=#{productNo}
+<select id="order" resultType="CartVO" parameterType="CartVO">
+   select * from cart inner join product on
+   cart.product_no=product.product_no 
+   where cart.id=#{id} and product.product_no= #{productNo} 
+   and cart.product_size = #{productSize}
+	and cart.product_color = #{productColor}      
+ </select>
+ 
+ <select id="checkSoldOut" resultType="Integer" parameterType="CartVO">
+   SELECT product_stock FROM options WHERE product_no = #{productNo} AND product_color = #{productColor} AND product_size = #{productSize}
+   </select>
 
-	</select>
 </mapper>
 
 

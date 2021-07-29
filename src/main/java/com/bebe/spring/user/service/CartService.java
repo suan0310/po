@@ -9,4 +9,6 @@ public interface CartService {
 		public int delete(CartVO cv);
 		
 		public CartVO order(CartVO cv);
+		
+		public Integer checkSoldOut(CartVO cv);
 }
