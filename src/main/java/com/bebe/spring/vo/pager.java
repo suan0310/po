@@ -9,10 +9,10 @@ import lombok.Data;
 public class pager {
 
 
-	private boolean prev;
-    private boolean next;
-    private int totalCount2;
-    private int totalCount;
+	private boolean prev;	
+    private boolean next; 
+    private int totalCount2; 
+    private int totalCount; 
     private int startPage;
     private int endPage ;
     private int perPageNum =5;
