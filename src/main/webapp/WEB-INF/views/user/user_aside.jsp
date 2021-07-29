@@ -7,7 +7,7 @@
 <div class="half">
     <div class="name">
         <h4>마이페이지</h4> <br>
-        <p>${users.id}님 안녕하세요!</p>
+        <p>${sessionUser.id}님 안녕하세요!</p>
     </div>
     <div class="point">
         <img src="/img/man.png" alt="사람이미지"><br>
