@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+<<<<<<< HEAD
+<<<<<<< HEAD
                                     	
+=======
+                                        	
+    
+>>>>>>> 9650700c0041cf22022c1851c33aa639c9c648b6
+=======
+                                        	
+    
+>>>>>>> 090ac15eccb5277027d5cfc65a752ace06eb67c0
     
     
     
@@ -9,7 +19,17 @@
     
     
     <wb-module deploy-name="spring-1.0.0-BUILD-SNAPSHOT">
+<<<<<<< HEAD
+<<<<<<< HEAD
                                                                                 
+=======
+                                                                                        
+        
+>>>>>>> 9650700c0041cf22022c1851c33aa639c9c648b6
+=======
+                                                                                        
+        
+>>>>>>> 090ac15eccb5277027d5cfc65a752ace06eb67c0
         
         
         
@@ -19,7 +39,17 @@
         
         
         <wb-resource deploy-path="/" source-path="/target/m2e-wtp/web-resources"/>
+<<<<<<< HEAD
+<<<<<<< HEAD
                                                                         		
+=======
+                                                                                		
+        
+>>>>>>> 9650700c0041cf22022c1851c33aa639c9c648b6
+=======
+                                                                                		
+        
+>>>>>>> 090ac15eccb5277027d5cfc65a752ace06eb67c0
         
         
         
@@ -29,11 +59,28 @@
         
         
         <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
+<<<<<<< HEAD
+<<<<<<< HEAD
                 
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
                 
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
                                                                         		
+=======
+=======
+>>>>>>> 090ac15eccb5277027d5cfc65a752ace06eb67c0
+                        
+        
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
+                        
+        
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
+                                                                                		
+        
+<<<<<<< HEAD
+>>>>>>> 9650700c0041cf22022c1851c33aa639c9c648b6
+=======
+>>>>>>> 090ac15eccb5277027d5cfc65a752ace06eb67c0
         
         
         
@@ -43,11 +90,27 @@
         
         
         <property name="java-output-path" value="target/classes"/>
+<<<<<<< HEAD
+<<<<<<< HEAD
                                 
         
         
         <property name="context-root" value="spring"/>
                                                                         	
+=======
+=======
+>>>>>>> 090ac15eccb5277027d5cfc65a752ace06eb67c0
+                                        
+        
+        
+        
+        <property name="context-root" value="spring"/>
+                                                                                	
+    
+<<<<<<< HEAD
+>>>>>>> 9650700c0041cf22022c1851c33aa639c9c648b6
+=======
+>>>>>>> 090ac15eccb5277027d5cfc65a752ace06eb67c0
     
     
     
@@ -57,7 +120,17 @@
     
     
     </wb-module>
+<<<<<<< HEAD
+<<<<<<< HEAD
                                     
+=======
+                                        
+
+>>>>>>> 9650700c0041cf22022c1851c33aa639c9c648b6
+=======
+                                        
+
+>>>>>>> 090ac15eccb5277027d5cfc65a752ace06eb67c0
 
 
 

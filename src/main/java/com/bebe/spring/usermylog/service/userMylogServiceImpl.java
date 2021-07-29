@@ -21,9 +21,9 @@ public class userMylogServiceImpl implements userMylogService{
 	}
 
 	@Override
-	public List<QuestionVO> qlist() throws Exception {
+	public List<QuestionVO> qlist(String id) throws Exception {
 		
-		return user.qlist();
+		return user.qlist(id);
 	}
 
 	@Override
@@ -39,9 +39,9 @@ public class userMylogServiceImpl implements userMylogService{
 	}
 
 	@Override
-	public List<ReviewVO> rlist() throws Exception {
+	public List<ReviewVO> rlist(String id) throws Exception {
 		
-		return user.rlist();
+		return user.rlist(id);
 	}
 
 	@Override

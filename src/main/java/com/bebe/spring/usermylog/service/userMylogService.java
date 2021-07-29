@@ -11,14 +11,14 @@ public interface userMylogService {
 	
 	
 	//문의 목록
-	public List<QuestionVO> qlist() throws Exception;
+	public List<QuestionVO> qlist(String id) throws Exception;
 	//조회
 	public QuestionVO qview(int qs_no) throws Exception;
 	
 	
 	
 	//목록
-	public List<ReviewVO> rlist() throws Exception;
+	public List<ReviewVO> rlist(String id) throws Exception;
 	//조회
 	public ReviewVO rview(int rv_no) throws Exception;
 	

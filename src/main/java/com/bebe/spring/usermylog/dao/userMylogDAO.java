@@ -12,7 +12,7 @@ public interface userMylogDAO {
 	public QuestionVO qview(int qs_no) throws Exception;
 	public ReviewVO rview(int rv_no) throws Exception;
 	
-	List<QuestionVO> qlist() throws Exception;
-	List<ReviewVO> rlist() throws Exception;
+	List<QuestionVO> qlist(String id) throws Exception;
+	List<ReviewVO> rlist(String id) throws Exception;
 
 }

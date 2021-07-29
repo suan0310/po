@@ -15,7 +15,7 @@ public class LoginServiceImpl implements LoginService{
 	
 	
 	@Override
-	public int selectUsers(UsersVO usersVO) {
+	public UsersVO selectUsers(UsersVO usersVO) {
 		
 		return loginDao.selectUsers(usersVO);
 	}
@@ -45,6 +45,17 @@ public class LoginServiceImpl implements LoginService{
 		return loginDao.idCheck(usersVO);
 	}
 
+	
+	@Override
+	public int insertSocialLogin(UsersVO usersVO) {
+		return loginDao.insertSocialLogin(usersVO);
+	}
+	
+	@Override
+	public int selectSocialLogin(UsersVO usersVO) {
+		return loginDao.selectSocialLogin(usersVO);
+	}
+	
 	
 }
 

@@ -10,11 +10,11 @@ public interface SearchDAO {
 	//카테고리별 수량
 	public Integer count(Criteria cri);
 	//출력
-	public List<ProductVO> getlist(Criteria cri);
-	
-	
+	public List<Criteria> getlist(Criteria cri);
+	//검색기준 수량
 	public Integer scount(Criteria cri);
-	public List<ProductVO> searchlist(Criteria cri);
+	//검색상품 출력
+	public List<Criteria> searchlist(Criteria cri);
 
 	
 }

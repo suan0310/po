@@ -10,13 +10,23 @@
 <!-- 	</insert> -->
 			<insert id="insertOrders" parameterType="OrdersAddressVO">
 					insert all
-					into orders values (or_no.nextval,'okkk',#{productNo},#{orderQty},#{orderPrice},'배송준비','취소',SYSDATE,#{orderColor},#{orderSize}) 
-					into address values('okkk',or_no.nextval ,#{zipcode},#{addr},#{addrDetail},#{tel},#{addrReceiver}, #{addrRequest}) 
+					into orders values (or_no.nextval,#{id},#{productNo},#{orderQty},#{orderPrice},'배송준비','취소',SYSDATE,#{orderColor},#{orderSize}) 
+					into address values(#{id},or_no.nextval ,#{zipcode},#{addr},#{addrDetail},#{tel},#{addrReceiver}, #{addrRequest}) 
 					select * from dual
 			</insert>
 			<delete id="deleteCart">
 				delete from cart where product_no=#{productNo}
 			</delete>
-
+					
+			
+			<update id="sales">
+				update product set product_sales =product_sales+#{orderQty}
+				where product_no=#{productNo}
+			</update>
+			<update id="stock">
+				update options set product_stock = (product_stock -(#{orderQty}))
+				where product_no=#{productNo} and product_size=#{orderSize} and product_color=#{orderColor}
+				
+			</update>
 		
 </mapper>

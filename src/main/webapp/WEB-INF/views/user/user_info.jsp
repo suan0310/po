@@ -32,11 +32,11 @@
 							</caption>
 							<tr>
 								<td id="fixinfo">아이디</td>
-								<td id="userinfo">${users.id}님</td>
+								<td id="userinfo">${sessionUser.id}</td>
 							</tr>
 							<tr>
 								<td id="fixinfo">이메일</td>
-								<td id="userinfo">${users.email_id}${users.email_domain}</td>
+								<td id="userinfo">${sessionUser.emailId}${sessionUser.emailDomain}</td>
 							</tr>
 						</table>
 					</div>

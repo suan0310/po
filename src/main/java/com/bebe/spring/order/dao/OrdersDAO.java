@@ -8,4 +8,10 @@ import com.bebe.spring.vo.OrdersAddressVO;
 public interface OrdersDAO {
 	Integer insertOrders(OrdersAddressVO oav );
     Integer deleteCart(OrdersAddressVO oav);
+<<<<<<< HEAD
+=======
+    Integer stock(OrdersAddressVO oav);
+    Integer sales(OrdersAddressVO oav);
+	 
+>>>>>>> branch 'JH_work' of https://github.com/hoogun/bebeShop_project.git
 }
