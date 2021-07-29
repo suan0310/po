@@ -41,7 +41,8 @@ String userid=request.getParameter("userid"); %>
 						<c:forEach var="q" items="${qOne}">
 							<input type="hidden" id="tmpSecret" value="${q.qsSecret}" />
 							<div class="request-popup-write" style="position: absolute; left: 100px;">
-								<br>제목 <br> <input type="text"  id="qsTitle" name="qsTitle" value="${q.qsTitle}"
+								<br>제목 <br> 
+								<input type="text"  id="qsTitle" name="qsTitle" value="${q.qsTitle}"
 									style="margin-top: 10px; width: 420px;"> <br> <br>내용
 								<br>
 								<textarea id="qsContent" name="qsContent" cols="50" rows="6" maxlength="200" readonly
@@ -116,7 +117,6 @@ String userid=request.getParameter("userid"); %>
 						close();
 					}
 
-					
 					function updateAnswer() {
 						var qsAnswer = $("#qsAnswer").val();
 						console.log(qsAnswer);
@@ -145,7 +145,8 @@ String userid=request.getParameter("userid"); %>
 							data: "qsNo=" + qsNo + "&productNo=" + productNo,
 							success: function (data) {
 								alert("정상적으로 삭제되었습니다.");
-								close();
+								window.opener.location.reload();
+								window.close();
 							},
 							error: function (request, status, error) {
 								alert("code = " + request.status + " message = " + request.responseText + " error = " + error); // 실패 시 처리
