@@ -8,7 +8,9 @@
 
 /* -----------------硫붿씤�쁺�뿭--------------------- */
 .main{
-    height: 3500px;
+	display:flex;
+	flex-direction:column;
+    height: 100%;
     width: 80%;
     background-color: #fff;
     margin: 0 auto;
@@ -117,8 +119,9 @@
 /* -----------------硫붿씤�쁺�뿭(�씤湲곗긽�뭹)--------------------- */
 
 .main .Fsale{
+	display:flex;
     position: relative;
-    top: 150px;
+    flex-direction: column;
 }
 .main .Fsale .name{
     display: flex;
@@ -176,7 +179,8 @@
 /* -----------------硫붿씤�쁺�뿭(踰좎뒪�듃 由щ럭)--------------------- */ 
 .main .review{
     position: relative;
-    top: 450px;
+    display: flex;
+    flex-direction: column;
 }
 .main .review .rvname{
     width: 200px;

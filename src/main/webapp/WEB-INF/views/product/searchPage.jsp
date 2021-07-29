@@ -44,12 +44,22 @@
 							<li><a href="/product/searchPage?subCategory=301&page=1 ">사료</a></li>
 							<li><a href="/product/searchPage?subCategory=401&page=1 ">간식</a></li>
 						</ul>
-						
+					<c:choose>
+						<c:when test="${pg.totalCount eq 0}">
+							<div class="nosearch">
+									<c:if test="${ccc eq null}">
+									<h2>해당하는 상품이 없습니다.</h2>
+									</c:if>
+									<c:if test="${ccc ne null }">
+									<h1 style="color:#badbf9">${ccc}</h1><h2>에 해당하는 상품이 없습니다.</h2>
+									</c:if>									
+							</div>
+						</c:when>
+					<c:otherwise>
 					<c:forEach items="${list}" var="row" varStatus="status">
 						<c:set var="action" value="${row.action }"/>
 						<c:set var="sbc" value="${row.subCategory}" />
 						<c:set var="sbd" value="${row.keyword}" />
-						
 						<c:if test="${status.index %3==0 }">
 							<div class="probxs">
 						</c:if>
@@ -65,29 +75,39 @@
 				</div>
 				</c:if>
 				</c:forEach>
-
+				</c:otherwise>
+				</c:choose>
 			</div>
 				<div class="pager">
 					<ul>
 						
+						<c:if test="${pg.next && pg.endPage > 0}">
+							<li><a href="javascript:alert('이전페이지가 없습니다.');"><</a></li>			
+						</c:if>
 						<c:if test="${pg.prev}">
-							<li><a href="/product/searchPage?subCategory=${sbc}&page=${pg.startPage-1}&keyword=${ccc}">이전</a></li>
+							<li><a href="/product/searchPage?subCategory=${sbc}&page=${pg.startPage-1}&keyword=${ccc}"><</a></li>
 						</c:if>
 						
 						
-						<c:forEach begin="${pg.startPage}" end="${pg.endPage}" var="idx">
-
-								<li><a href="/product/searchPage?subCategory=${sbc}&page=${idx}&keyword=${ccc}">[${idx}]</a></li>	
-
+						
+						<c:forEach begin="${pg.startPage}" end="${pg.endPage}" var="idx" varStatus="sta">
+									<li>
+										<a class = "text-${((pg.cri.page)==(pg.startPage+idx-1))? 'orange':''} text-bold"  href="/product/searchPage?subCategory=${sbc}&page=${idx}&keyword=${ccc}"><i class="fa">[${idx}]</i></a>
+									</li>
+							
 						</c:forEach>
 						
-					
+							
 						
+						<c:if test="${pg.next && pg.endPage > 0}">
+							
+							<li><a href="/product/searchPage?subCategory=${sbc}&page=${pg.endPage+1}&keyword=${ccc}">></a></li>			
+						</c:if>
+						<c:if test="${pg.prev}">
+							<li><a href="javascript:alert('다음페이지가 없습니다.');">></a></li>			
+						</c:if>
 						
 
-						<c:if test="${pg.next && pg.endPage > 0}">
-							<li><a href="/product/searchPage?subCategory=${sbc}&page=${pg.endPage+1}&keyword=${ccc}">다음</a></li>
-						</c:if>
 					</ul>
 				</div>
 

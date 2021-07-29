@@ -40,6 +40,7 @@ public class CartController {
 		return mav;
 	}
 
+<<<<<<< HEAD
 	@RequestMapping(value = "/delete", method = RequestMethod.POST)
 	public ModelAndView delete(CartVO cv, @RequestParam(value = "RowCheck") List<String> chArr, HttpSession session) {
 		ModelAndView mav = new ModelAndView("/user/cart2");
@@ -86,6 +87,49 @@ public class CartController {
 	@RequestMapping(value = "/checkStock", method = RequestMethod.POST)
 	public String checkStock(CartVO cv, String[] productNo, String[] checked, String[] productSize,
 			String[] productColor, String[] productName) throws Exception {
+=======
+	@RequestMapping(value= "/delete",method = RequestMethod.POST)
+	public ModelAndView delete(CartVO cv,String[] productColor, String[] productNo ,String[] checked,String[] productSize,  HttpSession session) {
+		ModelAndView mav = new ModelAndView("redirect:/user/cart2");
+		UsersVO usesVO= (UsersVO) session.getAttribute("sessionUser");
+		String id =usesVO.getId();
+		cv.setId(id);
+		for(int i= 0; i<checked.length;i++) {
+			if(checked[i].equals("true")) {
+				cv.setProductNo(Integer.parseInt(productNo[i]));
+				cv.setProductColor(productColor[i]);
+				cv.setProductSize(productSize[i]);
+				cartService.delete(cv);
+			}
+		}
+		return mav;
+	}
+	
+	@RequestMapping(value = "/goOrder", method = RequestMethod.POST)
+	   public ModelAndView order(CartVO cv, String[] productNo, String[] checked, String[] productSize,
+	         String[] productColor, HttpSession session) {
+	      ModelAndView mav = new ModelAndView("/order/order");
+	      UsersVO usesVO = (UsersVO) session.getAttribute("sessionUser");
+	      String id = usesVO.getId();   
+	      ArrayList<CartVO> list = new ArrayList<>();
+	   
+	      
+	      for (int i = 0; i < checked.length; i++) {	
+	         if (checked[i].equals("true")) {
+	            System.out.println((i+1)+"번째 상품을 담습니다");
+	            cv.setProductNo(Integer.parseInt(productNo[i]));
+	            cv.setProductColor(productColor[i]);
+	            cv.setProductSize(productSize[i]);
+	            cv.setId(id);
+	            System.out.println(cv);
+	            list.add(cartService.order(cv));            
+	         }            
+	      }      
+	      System.out.println(list);
+	      mav.addObject("order", list);
+	      return mav;
+	   }
+>>>>>>> origin/oyw_work_backup
 		
 			Integer stock = 0;
 			
@@ -104,3 +148,5 @@ public class CartController {
 		return "";
 	}
 }
+
+	
