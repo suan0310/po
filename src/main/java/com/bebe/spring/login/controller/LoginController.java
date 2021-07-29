@@ -44,19 +44,13 @@ public class LoginController {
 		UsersVO loginUsersVO = loginService.selectUsers(usersVO);
 		System.out.println("userid"+loginUsersVO);
 		
-<<<<<<< HEAD
+		String saveid = request.getParameter("saveId");
+		System.out.println(saveid);
 		if (loginUsersVO != null) {
 			System.out.println("로그인 성공");
 			session.setAttribute("selectUsers", 1);
+//			session.setAttribute("UsersVO", usersVO);
 			session.setAttribute("sessionUser", loginUsersVO);
-			System.out.println(session+"userid"+loginUsersVO);
-=======
-		String saveid = request.getParameter("saveId");
-		System.out.println(saveid);
-		if (loginService.selectUsers(usersVO)==1) {
-			System.out.println("로그인 성공");
-			session.setAttribute("selectUsers", 1);
-			session.setAttribute("UsersVO", usersVO);
 			System.out.println(session+"userid"+usersVO);
 			
 			if(saveid!=null) {
@@ -70,7 +64,6 @@ public class LoginController {
                 response.addCookie(c);
             }
 			
->>>>>>> origin/hj_work2
 			return "redirect:/index/index";
 		} else {
 			System.out.println("실패");
