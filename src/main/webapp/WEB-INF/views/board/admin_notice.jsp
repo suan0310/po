@@ -78,8 +78,7 @@
 							
 							<li><a href="/board/admin_notice${pageMaker.makeSearch(pageMaker.endPage+1)}"><i class="fas fa-angle-right"></i>&nbsp</a></li>
 							<li><a href="/board/admin_notice?page=${pageMaker.last}&perPageNum=5"><i class="fas fa-angle-double-right"></i></a></li>
-						
-							
+
 						</ul>
 					</div>
 				</div>
@@ -94,6 +93,9 @@
 		if (pos == '회원') {
 			button.style = "display: none";
 		};
+		
+		
+		
 	</script>
 </body>
 

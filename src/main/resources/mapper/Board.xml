@@ -2,6 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
+
 <!-- 반드시 인터페이스로 선언해야 한다. -->
 <mapper namespace="com.bebe.spring.board.dao.BoardDao">
 	<!-- 실행 인터페이스위치 -->
@@ -72,7 +73,8 @@
 	</select>
 
 	<select id="updateNotice">
-		UPDATE notice SET notice_title = #{noticeTitle},
+		UPDATE notice SET notice_category = #{noticeCategory},
+		notice_title = #{noticeTitle},
 		notice_content = #{noticeContent},
 		notice_date = SYSDATE WHERE
 		notice_no = #{noticeNo}
@@ -89,6 +91,10 @@
 		<!-- SELECT * FROM ( SELECT ROWNUM num, n.* FROM ( SELECT * FROM notice 
 			ORDER BY notice_no DESC ) n ) WHERE num between #{page} and #{perPageNum} -->
 		SELECT count(notice_no) FROM notice WHERE notice_no > 0
+	</select>
+	
+	<select id="rnumCount" resultType="int">
+		SELECT MAX(rownum) FROM faq
 	</select>
 
 
