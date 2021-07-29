@@ -10,27 +10,81 @@
 <link rel="stylesheet" href="/css/login/signup.css">
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script type="text/javascript">
-    function repwChk(){
-    	var pw = document.querySelector(".passwd");
-    	var repw = document.querySelector(".repasswd");
+
+	function idChk(){
+		var id = $('.id').val();
+    	var num = [0,1,2,3,4,5,6,7,8,9];
+    	var numCnt = 0;
+    	var len = id.length;
     	
-        if(pw.value != repw.value){
-        	alert("비밀번호가 일치하지 않습니다.");
-        	repw.value = '';
-        } 
+    	if(len < 6 || len > 14 || id == null || id == ""){
+    		alert("아이디는 6자 이상, 14자 이하로 작성하여 주십시오.");
+    		return ;
+    		}
+    	
+    	for(var i = 0; i < len; i++){
+    		for(var j = 0; j < num.length; j++){
+    			if(id.charAt(i) == num[j]){
+    				numCnt = numCnt + 1;
+    			}
+    		}
+    	}
+    	
+    	if(numCnt == 0){
+    		alert("숫자가 하나이상 포함되어야 합니다.");
+    		return ;
+    	} 
+    	check();
     }
-    
-	function pwChk(){
+	
+	
+	function check(){
+		
+		var id = $('.id').val(); 
+		var param = {id: id};
+		console.log(id);
+		console.log(param);
+		
+		$.ajax({
+		    url: '/login/idChk',
+		    type: 'POST',
+		    data : param, /* 전송할 데이터 */
+		    contentType: 'application/json; charset=utf-8',
+		    success: function(data){
+		    	if (data == 0) {
+		    		alert("사용 가능한 아이디입니다.");
+		    	} else {
+		    		alert("중복된 아이디입니다.");
+		    		$('.id')[0].value = "";
+		    	}
+		    	
+		    
+		    },
+			error :function(error){
+				console.log("id : " + id);
+		    	console.log("param.id : " + param.id);
+				console.log(error);
+			}
+		 });
+		
+	}
+	
+	
+	function pwChk(Cpasswd){
+	
 		var pw = document.querySelector(".passwd");
 		var SC = ["!","@","#","$","%","^","&","*"];
 		var num = [0,1,2,3,4,5,6,7,8,9];
 		var SCCnt = 0;
 		var numCnt = 0;
+		
     	
 		if(pw.value.length < 8 || pw.value.length > 16){
-    		alert("비밀번호는 8자 이상, 16자 이하로 작성하여 주십시오.");
-    		pw.value = '';
-    		
+    		alert("비밀번호는 8자 이상, 16자 이하로 작성하여 주십시오.").stop();
+    		pw.value = "";    
+    		/* pwFlag = true; */
+
+    		return ;
     	}
     	
     	for(var i = 0; i < pw.value.length; i++){
@@ -42,7 +96,7 @@
     	}
     	if(SCCnt == 0){
     		alert("특수문자가 하나이상 포함되어야 합니다.");
-    		pw.value = '';
+    		return ;
     	}
     	
  		for(var i = 0; i < pw.value.length; i++){
@@ -54,62 +108,39 @@
     	}
     	if(numCnt == 0){
     		alert("숫자가 하나이상 포함되어야 합니다.");
-    		pw.value = '';
     	} 
-    }
-
-	function idChk(){
-    	var id = document.querySelector(".id");
-    	var num = [0,1,2,3,4,5,6,7,8,9];
-    	var numCnt = 0;
     	
-    	if(id.value.length < 6 || id.value.length > 14){
-    		alert("아이디는 6자 이상, 14자 이하로 작성하여 주십시오.");
-    		id.value = '';
-    		}
-    	
-    	for(var i = 0; i < id.value.length; i++){
-    		for(var j = 0; j < num.length; j++){
-    			if(id.value[i] == num[j]){
-    				numCnt = numCnt + 1;
-    			}
-    		}
-    	}
-    	if(numCnt == 0){
-    		alert("숫자가 하나이상 포함되어야 합니다.");
-    		id.value = '';
-    	} 
     }
-	
+    function repwChk(){
+    	var pw = document.querySelector(".passwd");
+    	var repw = document.querySelector(".repasswd");
+    	
+        if(pw.value == ""){
+        	alert("비밀번호를 입력해주세요.");
+        	pw.focus();
+        	return ;
+        }else if(pw.value != repw.value){
+        	
+        	alert("비밀번호가 일치하지 않습니다.");
+        	repw.value = "";
+        	return ;
+        } 
+        
+    }
+    
+    function pwFlagFlip() {
+    	pwFlag = false;
+    }
+    
 	function emailChoice(){
     	var emc = document.querySelector(".select2");
     	
         if(emc.value == "etc"){
         	alert("이메일 도메인을 선택해주세요.");
-        	repw.value = "naver.com";
+        	emc.value = "naver.com";
         } 
     }
-	
-	$('.id').blur(function(){
-		var idChk = $('.id').val();			// .id_input에 입력되는 값
-		var data = {'id' : 'idChk'};				// '컨트롤에 넘길 데이터 이름' : '데이터(.id_input에 입력되는 값)'
-		
-		$.ajax({
-			type : "post",
-			url : "/login/idChk",
-			/* data : data */
-			success : function(result){
-				if(result != 'fail'){
-					$('.idChkNo').style("display","inline-block");
-					$('.idChkOk').style("display", "none");				
-				} else {
-					$('.idChkOk').style("display","inline-block");
-					$('.idChkNo').style("display", "none");				
-				}
-				
-			}// success 종료
-		}); // ajax 종료
-	});// function 종료
+
   </script>
 </head>
 <body>
@@ -117,25 +148,37 @@
 		<div class="inbox">
 			<h1>JOIN WITH US</h1>
 			<form action="/login/signup" method="POST">
-				<div class="signup">
+				<div class="signup" style="height: 450px">
 					<h1>회원가입</h1>
 					<div class="info">
-						<label>아이디 *</label><br> <input type="id" name="id"
-							class="id" placeholder="영문 or 숫자로 6자 이상 입력해주세요" onblur="idChk()"
-							required> <br> 
-							<span class="idChkOk" style="display:none;">사용 가능한 아이디입니다.</span>
-							<span class="idChkNo" style="display:none;">아이디가 이미 존재합니다.</span>
-							<label>비밀번호 *</label><br> <input
-							type="password" name="passwd" class="passwd"
-							placeholder="영문,숫자,특수문자포함 8자 이상" onblur="pwChk()" required>
-						<br> <label>비밀번호 재확인 *</label><br> <input
+						<label>
+							아이디 
+							<span style="color: red">*</span>
+						</label>
+						<br> 
+						<input type="id" name="id"
+							class="id" placeholder="영문 or 숫자로 6자 이상 입력해주세요"
+							required onchange="idChk();"
+							/>
+							<br> 
+							<!-- <span class="idChkOk" style="display:none;">사용 가능한 아이디입니다.</span>
+							<span class="idChkNo" style="display:none;">아이디가 이미 존재합니다.</span> -->
+							<label>비밀번호 <span style="color: red">*</span></label><br>
+							<input
+								type="password" name="passwd" class="passwd"
+								placeholder="영문,숫자,특수문자포함 8자 이상" onchange="pwChk();">
+								 <!-- onclick="pwFlagFlip();"  -->
+						<br> <label>비밀번호 재확인 <span style="color: red">*</span></label><br> 
+						<input
 							type="password" name="repasswd" class="repasswd"
-							placeholder="비밀번호를 다시 한번 입력해주세요" onblur="repwChk()" required>
+							placeholder="비밀번호를 다시 한번 입력해주세요" onchange="repwChk()" >
 						<br> <label>이메일</label><br>
 						<div class="form">
-							<span class="email"><input type="text" name="emailId"
-								class="email" caption="이메일" maxlength="80" value=""
-								placeholder="입력해주세요" " required></span> <span class="space">@</span>
+							<span class="email">
+							<input type="text" name="emailId" class="email" caption="이메일" 
+								maxlength="80" value="" placeholder="입력해주세요" " required>
+							</span> 
+							<span class="space">@</span>
 							<span class="email"></span> <span class="select"> <select
 								class="select2" name="emailDomain" onblur="emailChoice()" required>
 									<option value="etc">선택해주세요</option>
