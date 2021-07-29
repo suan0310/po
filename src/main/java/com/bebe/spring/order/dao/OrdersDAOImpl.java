@@ -3,7 +3,6 @@
 //import javax.inject.Inject;
 //
 //import org.apache.ibatis.session.SqlSession;
-//import org.springframework.stereotype.Repository;
 //
 //import com.bebe.spring.vo.OrdersAddressVO;
 //
@@ -13,7 +12,7 @@
 //	private String namespaceEx = "com.bebe.spring.order.dao.OrdersDAO";
 //
 //	@Override
-//	public int insertOrders(OrdersAddressVO vo) {
+//	public Integer insertOrders(OrdersAddressVO vo) {
 //		return sqlsession.insert(namespaceEx + ".orders", vo);
 //	}
 //
