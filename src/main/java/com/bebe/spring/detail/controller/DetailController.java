@@ -69,7 +69,6 @@ public class DetailController {
 		model.addAttribute("detOptions", listOptions);
 		model.addAttribute("pUser", order);
 
-		System.out.println("모델데이터 전송");
 		return "/product/detail";
 	}
 
@@ -152,7 +151,6 @@ public class DetailController {
 
 	@RequestMapping(value = "/reviewManage", method = RequestMethod.GET)
 	public String reviewManage(Model model, DetailVO vo, @RequestParam("productNo") String productNo) {
-		System.out.println("reviewManage 이동");
 		List<DetailVO> listRvBest1 = detailService.selectRvBest1(vo);
 		List<DetailVO> listRvBest0 = detailService.selectRvBest0(vo);
 
@@ -210,7 +208,6 @@ public class DetailController {
 		
 		int cnt = detailService.selectDuplicateOpt(vo);
 		map.put("cnt", cnt);
-		System.out.println("cnt: ?? "+cnt);
 		if(cnt==0) {detailService.insertCart(vo);}
 		
 		return map;
