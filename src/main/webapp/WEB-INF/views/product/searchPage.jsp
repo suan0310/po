@@ -11,6 +11,7 @@
 
 			<link href="https://fonts.googleapis.com/css2?family=Handlee&display=swap" rel="stylesheet">
 			<script src="https://kit.fontawesome.com/a216194d9c.js" crossorigin="anonymous"></script>
+			<script src="http://code.jquery.com/jquery-latest.js"></script>
 			<title>Document</title>
 		</head>
 

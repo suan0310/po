@@ -110,7 +110,9 @@ String productNo = request.getParameter("productNo");
 
 				<div id="cont1" style="border: 1px solid black;">
 					<br> <br>
-					<h3 style="text-align: center;">강아지 옷 애견 용품 패리스독</h3>
+					<c:forEach var="m" items="${detMain}">
+					<h3 style="text-align: center;">${m.productName}</h3>
+					</c:forEach>
 					<br> <br>
 					<div id="star" style="position: absolute; left: 10px; top: 185px;">
 						<div class="average">
@@ -264,8 +266,6 @@ String productNo = request.getParameter("productNo");
 										<td style="display: none;">${q.qsNo}</td>
 										<td>${q.rownum}</td>
 										<td style="cursor: pointer;">${q.qsTitle}</td>
-										<%-- <td onclick="checkID()" style="cursor: pointer;"> ${q.qsTitle}</td>
-                                            --%>
 										<td>${q.id}</td>
 										<td><fmt:formatDate value="${q.qsDate}"
 												pattern="yy-MM-dd" /></td>
@@ -293,7 +293,7 @@ String productNo = request.getParameter("productNo");
 			<form name="requestPopupWrite"
 			style="position: absolute; left: 100px;">
 				<br>제목 <br> <input type="text" name="qsTitle"
-					id="request-title" required style="margin-top: 10px; width: 370px;">
+					id="request-title" required style="margin-top: 10px; width: 420px;">
 				<br> <br>내용 <br>
 				<textarea name="qsContent" id="MunE" cols="50" rows="10" required
 					maxlength="300" style="margin-top: 10px;"></textarea>
@@ -428,7 +428,6 @@ String productNo = request.getParameter("productNo");
 
             });
 
-
             //상품셀렉트박스
             //상품옵션
             var color = "";
@@ -510,6 +509,8 @@ String productNo = request.getParameter("productNo");
                 $('#bigImg').attr("src", $(this).attr("src"));
             });
 
+        
+            
             //문의글 처리
             $("#questionTable tr").click(function () {
 
@@ -552,11 +553,22 @@ String productNo = request.getParameter("productNo");
 
                 
                 function openPop() {
-                    var url = "/productdetail/pop?qsNo=" + num + "&userid=" + userid + "&productNo=" + productNo;
-                    var options = "width=580, height=630, top=200, left=600";
-                    window.open(url, "pop1", options).focus();
+                	if(num == "리뷰번호"){
+                		return;
+                	}
+	                    var url = "/productdetail/pop?qsNo=" + num + "&userid=" + userid + "&productNo=" + productNo;
+	                    var options = "width=580, height=630, top=200, left=600";
+	                    window.open(url, "pop1", options).focus();                		
+
                 }
             });
+            
+            
+            
+            
+            
+            
+            
 
             $(document).ready(function () {
                 $('#cancel').click(function () {
