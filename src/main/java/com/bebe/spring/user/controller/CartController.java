@@ -1,11 +1,10 @@
 package com.bebe.spring.user.controller;
 
-import java.io.UnsupportedEncodingException;
+
 import java.net.URLEncoder;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
