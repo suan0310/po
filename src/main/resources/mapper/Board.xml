@@ -97,6 +97,6 @@
 		SELECT MAX(rownum) FROM faq
 	</select>
 
-
+	<!-- 최신 수정본 -->
 
 </mapper> 
