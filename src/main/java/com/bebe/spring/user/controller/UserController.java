@@ -44,8 +44,11 @@ public class UserController {
 	//유저 구매내역 검색
 	@RequestMapping(value="/purchase_history", method = RequestMethod.GET)
 	public ModelAndView userHistoryGet(HttpServletRequest req, HttpSession session) {
+		
+		//세션 아이디값 받아오기
 		UsersVO usesVO = (UsersVO) session.getAttribute("sessionUser");
 		String id = usesVO.getId();
+		
 		List<ProductOrdersVO> list = userService.selectOrdersList(id);
 		ModelAndView mav = new ModelAndView("/user/purchase_history");
 		mav.addObject("polist", list);

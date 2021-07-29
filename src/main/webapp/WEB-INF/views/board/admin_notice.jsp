@@ -90,7 +90,7 @@
 		const pos = document.querySelector('.pos').value;
 		const button = document.querySelector('.button');
 
-		if (pos == '회원') {
+		if (pos == '회원' || pos == "비로그인") {
 			button.style = "display: none";
 		};
 		

@@ -146,7 +146,7 @@
         let form = document.createElement("form");
 		let frm = document.frm;
 
-        if(pos == '회원'){
+        if(pos == '회원' || pos=="비로그인"){
             for(let button of buttons){
                 button.style = "display: none";
             }
