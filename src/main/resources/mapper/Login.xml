@@ -14,7 +14,7 @@
 </insert>
 
 <select id="idCheck" resultType="int" parameterType="UsersVO">
-		select count(*) from users where id = #{id}
+		select count(*) from users where id = #{id, jdbcType=VARCHAR}
 	</select>  
 
 	<select id="find_passwd" resultType="UsersVO" parameterType="UsersVO">
