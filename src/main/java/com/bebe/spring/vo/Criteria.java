@@ -29,6 +29,10 @@ public class Criteria {
 	private int nuum;
 	
 	int action;
+	
+
+
+
 	public Criteria() {
 		this.page = 1;
 		this.perPageNum =6;
@@ -66,20 +70,6 @@ public class Criteria {
 
 	public int getPage() {
 		return page;
-	}
-	
-	
-	
-	
-	public String makeQuery() {
-		UriComponentsBuilder uriComponentsBuilder = UriComponentsBuilder.newInstance()
-				.queryParam("page", page)
-				.queryParam("perPageNum", this.perPageNum);
-				
-	
-			uriComponentsBuilder.queryParam("keyword", this.keyword);
-
-		return uriComponentsBuilder.build().encode().toString();
 	}
 	
 }

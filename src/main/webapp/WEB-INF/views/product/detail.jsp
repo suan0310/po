@@ -591,7 +591,11 @@ String productNo = request.getParameter("productNo");
                     var productSize = $("#opt2").val();
                    // console.log(id + quantity + productColor + productSize);
 
+<<<<<<< HEAD
                     var max = parseInt($('#tmpMax').val());
+=======
+                    var max = parseInt($('#tmpMax').val());;
+>>>>>>> origin/oyw_work_backup
                     var qty = parseInt($('#quantity').val());
 
                     if (qty > 0) {

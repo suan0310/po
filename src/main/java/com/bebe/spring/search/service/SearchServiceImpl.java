@@ -17,7 +17,6 @@ public class SearchServiceImpl implements SearchService {
 	
 	@Override
 	public int action(Criteria cri) {
-		System.out.println(cri.getSubCategory());
 		if(cri.getSubCategory()==null || cri.getSubCategory().equals("")) {
 			System.out.println();
 			return 0;
