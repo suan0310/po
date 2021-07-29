@@ -1,9 +1,6 @@
 package com.bebe.spring.login.service;
 
-import org.springframework.stereotype.Service;
-
 import com.bebe.spring.vo.UsersVO;
-
 
 public interface LoginService {
 	
