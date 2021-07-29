@@ -91,7 +91,7 @@
  
 	<select id="selectOneQuestion" resultType="DetailVO" parameterType="DetailVO" >
 		select 
-		a.qs_title, a.qs_content, b.qs_answer 
+		a.qs_title, a.qs_content, a.qs_secret, b.qs_answer
 		from question a, answer b
 		where b.qs_no = a.qs_no 
 		and a.qs_no = #{qsNo}	
