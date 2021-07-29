@@ -76,51 +76,6 @@
 					<input id="purchaseBtn"  type="button"  class="delete" value="삭제하기" onclick= "selDelete()" /> 
 					<input id="purchaseBtn" type="button" class ="order" value="선택상품 결제" onclick="checkStock()"/>
 					</form>
-=======
-                     <th colspan="2" style="border-left: hidden;">제품정보</th>
-                     <th style="width: 150px;">수량</th>
-                     <th style="width: 250px;">결제금액</th>
-                     <th style="width: 150px;">문의</th>
-                     <th style="width: 150px; border-right: hidden;">제품선택<input
-                        id="allCheck" type="checkbox" name="allCheck" /></th>
-                  </tr>
-                  <form  name="cart">
-                     <c:forEach items="${cart}" var="cart">
-                     
-                        <tr>
-                           <td style="border-left: hidden" align=right><img
-                              src="${cart.productImg1 }" alt="a" width="120px" height="120px"></td>
-                           <td style="border-left: hidden" align="left">
-                              <h3>제품명 : ${cart.productName}</h3>
-                              <h3>사이즈 : ${cart.productSize} 컬러 : ${cart.productColor}</h3>
-                              <input type="hidden"  name="productSize" value="${cart.productSize}"/>
-                              <input type="hidden"  name="productColor" value="${cart.productColor}"/>
-                              <h4>가격:${cart.productPrice}원</h4>
-                           </td>
-                           <td align=center>
-                           <input type="hidden" id="quantity" value="${cart.quantity}"/>
-                           ${cart.quantity}</td>
-
-                           <td align=center>
-                              <h1>${cart.quantity*cart.productPrice}원</h1>
-                           </td>
-                           <td align=center><a
-                              href="/productdetail?productNo=${cart.productNo}">문의</a></td>
-                           <td align=center style="border-right: hidden">
-                           <input class="RowCheck"    type="checkbox" name="RowCheck" value="${cart.productNo}">
-                           <input class="checked" type="hidden"  name="checked" value="false"/>
-                           <input type="hidden"  name="productNo" value="${cart.productNo}"/>
-                           </td>
-                        </tr>
-                     </c:forEach>
-               </table>
-               
-               
-               <input id="purchaseBtn"  type="button"  class="delete" value="삭제하기" onclick= "selDelete()" /> 
-               <input id="purchaseBtn" type="button" class ="order" value="선택상품 결제" onclick="selOrder()"/>
-               </form>
->>>>>>> origin/oyw_work_backup
-
             </div>
          </div>
       </div>
@@ -136,15 +91,11 @@
          frm.submit();
       }
 
-      function selOrder(){
-
-<<<<<<< HEAD
-	
+      function selOrder(){	
 			var frm = document.cart;
 			frm.action="/user/goOrder";
 			frm.method="post";
 			frm.submit();
-
 		}
 		
 	function checkStock(){
@@ -172,34 +123,6 @@
 		}
 	    
 	</script>
-=======
-   
-         var frm = document.cart;
-         frm.action="/user/goOrder";
-         frm.method="post";
-         frm.submit();
-
-      }
-      
-/*         var formData = $("#orderinfo").serialize(); 
-
-        $.ajax({
-            cache : false,
-            url : "/order/order", // 요기에
-            type : 'POST', 
-            data : formData, 
-            success : function(data) {
-                alert("데이터 전송 성공")
-                location.href='${path}/order/order_sc';
-            }, // success 
-    
-            error : function(xhr, status) {
-                alert(xhr + " : " + status);
-            }// $.ajax 
-       });  */
-       
-   </script>
->>>>>>> origin/oyw_work_backup
 </body>
 
 
