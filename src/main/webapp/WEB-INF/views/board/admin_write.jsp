@@ -140,7 +140,7 @@
         const pos = document.querySelector('.pos').value;
         const buttons = document.querySelectorAll('.button');
         const choices = document.querySelectorAll('.choice');
-        let category = document.querySelector('#secondChoice').selectedIndex;
+        let category = document.querySelector('#secondChoice');
         let title = document.querySelector('.title').value;
         let content = document.querySelector('.content').value;
         let form = document.createElement("form");
@@ -173,18 +173,22 @@
         function select() {
             let selectedChoice = document.querySelector('#choice').selectedIndex;
             if (document.getElementsByTagName('option')[selectedChoice].value == "Best FAQ") {
-                document.querySelector('#secondChoice').disabled = true
+                document.querySelector('#secondChoice').style.display = 'none' 
                 document.querySelector('.title').setAttribute("name","faqTitle")
                 document.querySelector('.content').setAttribute("name", "faqContent")
             }else{
-                document.querySelector('#secondChoice').disabled = false
+                document.querySelector('#secondChoice').style.display = 'inline-block'
                 document.querySelector('.title').setAttribute("name","noticeTitle")
                 document.querySelector('.content').setAttribute("name", "noticeContent")
             }
         };
+        
 
+	
         function btnU() {
-        	if (!document.querySelector('.title').value || !document.querySelector('.content').value) {
+        	 let selectedChoice = document.querySelector('#choice');
+        	if (!document.querySelector('.title').value || !document.querySelector('.content').value 
+        			|| selectedChoice.value == "공지분류") {
                 alert("입력사항을 다시 확인해 주시기 바랍니다.")
             } else {
             let value = document.querySelector("#btnu").value;
@@ -201,7 +205,7 @@
 	             			frm.method = "post"
 	             			frm.submit()
 	                   	 }
-	                }else {location = "/board/admin_write"} 
+	                };
 	            }else if (value == "수정") {
 	                if (answer == true) {
 	                	<c:if test="${b eq '1'}">		 
