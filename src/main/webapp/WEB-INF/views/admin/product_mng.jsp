@@ -62,7 +62,7 @@
                </tr>
                </table>
                </div>
-            <div id="productmain" style="overflow:auto; height: 600px; width: 1170px;">
+            <div id="productmain" style="overflow:auto; height: 590px; width: 1170px;">
 
                <div class="log_table"  id="productlist" >              
             	<table id="manager">

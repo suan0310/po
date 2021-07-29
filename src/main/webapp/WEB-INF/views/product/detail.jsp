@@ -553,7 +553,7 @@ String productNo = request.getParameter("productNo");
                 
                 function openPop() {
                     var url = "/productdetail/pop?qsNo=" + num + "&userid=" + userid + "&productNo=" + productNo;
-                    var options = "width=400, height=400, top=8";
+                    var options = "width=580, height=630, top=200, left=600";
                     window.open(url, "pop1", options).focus();
                 }
             });
@@ -591,11 +591,8 @@ String productNo = request.getParameter("productNo");
                     var productSize = $("#opt2").val();
                    // console.log(id + quantity + productColor + productSize);
 
-<<<<<<< HEAD
                     var max = parseInt($('#tmpMax').val());
-=======
-                    var max = parseInt($('#tmpMax').val());;
->>>>>>> origin/oyw_work_backup
+
                     var qty = parseInt($('#quantity').val());
 
                     if (qty > 0) {

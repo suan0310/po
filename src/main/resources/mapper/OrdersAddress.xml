@@ -10,11 +10,9 @@
 					select * from dual
 			</insert>
 			<delete id="deleteCart">
-<<<<<<< HEAD
+
 				delete from cart where product_no=#{productNo} AND id=#{id}
-=======
-				delete from cart where product_no=#{productNo} and id=#{id}
->>>>>>> origin/oyw_work_backup
+
 			</delete>
 					
 			

@@ -10,7 +10,7 @@
 	<delete id="delete">
 		delete cart where id=#{id} and product_no=#{productNo} and product_size= #{productSize} and product_color=#{productColor}
 	</delete>
-<<<<<<< HEAD
+	
 <select id="order" resultType="CartVO" parameterType="CartVO">
    select * from cart inner join product on
    cart.product_no=product.product_no 
@@ -22,15 +22,7 @@
  <select id="checkSoldOut" resultType="Integer" parameterType="CartVO">
    SELECT product_stock FROM options WHERE product_no = #{productNo} AND product_color = #{productColor} AND product_size = #{productSize}
    </select>
-=======
 
-	<select id="order" resultType="CartVO" parameterType="CartVO">
-		select * from cart inner join product on
-		cart.product_no=product.product_no 
-		where cart.id=#{id} and product.product_no= #{productNo} 
-		and cart.product_color=#{productColor} and product_size=#{productSize}
-    </select>
->>>>>>> origin/oyw_work_backup
 
 </mapper>
 
