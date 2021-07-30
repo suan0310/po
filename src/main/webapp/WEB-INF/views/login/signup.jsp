@@ -19,6 +19,7 @@
     	
     	if(len < 6 || len > 14 || id == null || id == ""){
     		alert("아이디는 6자 이상, 14자 이하로 작성하여 주십시오.");
+    		id = "";
     		return ;
     		}
     	
@@ -32,6 +33,7 @@
     	
     	if(numCnt == 0){
     		alert("숫자가 하나이상 포함되어야 합니다.");
+    		id = "";
     		return ;
     	} 
     	check();
@@ -96,6 +98,7 @@
     	}
     	if(SCCnt == 0){
     		alert("특수문자가 하나이상 포함되어야 합니다.");
+    		pw.value = ""; 
     		return ;
     	}
     	
@@ -108,6 +111,7 @@
     	}
     	if(numCnt == 0){
     		alert("숫자가 하나이상 포함되어야 합니다.");
+    		pw.value = ""; 
     	} 
     	
     }
@@ -171,7 +175,7 @@
 						<br> <label>비밀번호 재확인 <span style="color: red">*</span></label><br> 
 						<input
 							type="password" name="repasswd" class="repasswd"
-							placeholder="비밀번호를 다시 한번 입력해주세요" onchange="repwChk()" >
+							placeholder="비밀번호를 다시 한번 입력해주세요" onchange="repwChk()" required>
 						<br> <label>이메일</label><br>
 						<div class="form">
 							<span class="email">
