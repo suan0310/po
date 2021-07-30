@@ -84,7 +84,9 @@
 				</div>
 			</div>
 		</div>
+			<%@ include file="../footer/footer.jsp"%>
 	</div>
+
 	<script type="text/javascript" src="/js/search.js"></script>
 	<script>
 		const pos = document.querySelector('.pos').value;
