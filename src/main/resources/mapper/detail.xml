@@ -140,7 +140,7 @@
 	
 	<insert id="insertAnswer"  parameterType="DetailVO">
 		insert into answer values(
-        nextno_answer.nextval, '답변준비중입니다.'
+        nextno_answer.nextval, '답변준비중입니다.', #{productNo}
         )
 	</insert>
 	

@@ -31,11 +31,12 @@ String productNo = request.getParameter("productNo");
 		<!--제품상세페이지-->
 		<div class="main">
 			<form name="order">
-				<c:forEach var="m" items="${detMain}">
+			
+				
 					<div class="detail-img-big">
 						<center>
-							<input type="hidden" name="productImg1" value="${m.productImg1}"/>
-							<img src="${m.productImg1}" id="bigImg" alt="" width="500px" 	style="margin-top: 5px;"/>
+							<input type="hidden" name="productImg1" value="${detMain.productImg1}"/>
+							<img src="${detMain.productImg1}" id="bigImg" alt="" width="500px" 	style="margin-top: 5px;"/>
 						</center>
 					</div>
 					<div class="detail-order">
@@ -45,13 +46,13 @@ String productNo = request.getParameter("productNo");
 							<input type="hidden" id="optcnt" />
 							<table>
 								<th  colspan="2" style="font-size: 30px; font-weight: bold;">
-									<input type="hidden" name="productName" value="${m.productName}"> ${m.productName}</input></th>
+									<input type="hidden" name="productName" value="${detMain.productName}"> ${detMain.productName}</input></th>
 								<tr>
 									<td colspan="2">&nbsp</td>
 								</tr>
 								<tr>
 									<td>판매가</td>
-									<td><input name="productPrice" value="${m.productPrice}"
+									<td><input name="productPrice" value="${detMain.productPrice}"
 										readonly
 										style="border-style: none; width: 100px; text-align: right;" />원
 									</td>
@@ -93,13 +94,12 @@ String productNo = request.getParameter("productNo");
 		</div>
 		<div class="detail-img-small">
 			<div class="smallimg">
-				<img src="${m.productImg1}" class="img1" alt="준비중입니다." /> <img
-					src="${m.productImg2}" class="img1" alt="준비중입니다." /> <img
-					src="${m.productImg3}" class="img1" alt="준비중입니다." /> <img
-					src="${m.productImg4}" class="img1" alt="준비중입니다." />
+				<img src="${detMain.productImg1}" class="img1" alt="준비중입니다." /> <img
+					src="${detMain.productImg2}" class="img1" alt="준비중입니다." /> <img
+					src="${detMain.productImg3}" class="img1" alt="준비중입니다." /> <img
+					src="${detMain.productImg4}" class="img1" alt="준비중입니다." />
 			</div>
 		</div>
-		</c:forEach>
 
 		<div class="reivew-request-tab">
 			<div class="tabmenu">
@@ -110,7 +110,7 @@ String productNo = request.getParameter("productNo");
 
 				<div id="cont1" style="border: 1px solid black;">
 					<br> <br>
-					<h3 style="text-align: center;">강아지 옷 애견 용품 패리스독</h3>
+					<h3 style="text-align: center;">${detMain.productName}</h3>
 					<br> <br>
 					<div id="star" style="position: absolute; left: 10px; top: 185px;">
 						<div class="average">
@@ -264,8 +264,6 @@ String productNo = request.getParameter("productNo");
 										<td style="display: none;">${q.qsNo}</td>
 										<td>${q.rownum}</td>
 										<td style="cursor: pointer;">${q.qsTitle}</td>
-										<%-- <td onclick="checkID()" style="cursor: pointer;"> ${q.qsTitle}</td>
-                                            --%>
 										<td>${q.id}</td>
 										<td><fmt:formatDate value="${q.qsDate}"
 												pattern="yy-MM-dd" /></td>
@@ -293,7 +291,7 @@ String productNo = request.getParameter("productNo");
 			<form name="requestPopupWrite"
 			style="position: absolute; left: 100px;">
 				<br>제목 <br> <input type="text" name="qsTitle"
-					id="request-title" required style="margin-top: 10px; width: 370px;">
+					id="request-title" required style="margin-top: 10px; width: 420px;">
 				<br> <br>내용 <br>
 				<textarea name="qsContent" id="MunE" cols="50" rows="10" required
 					maxlength="300" style="margin-top: 10px;"></textarea>
@@ -317,6 +315,16 @@ String productNo = request.getParameter("productNo");
 	<!-- 오류나면 주석해야함   <input type="hidden" id="questionNum" name="qsNo" />  -->
 
 	<script>
+	
+	console.log("detMA:  "+"${detMain}");
+	
+	if("${detMain}"==""){
+		alert("현재 판매중인 상품이 아닙니다.");
+		//histroy.go(-1);
+		history.back();
+	}
+	
+	
     //현재 아이디 체크
     var curUser = "${sessionUser.id}";
     
@@ -428,7 +436,6 @@ String productNo = request.getParameter("productNo");
 
             });
 
-
             //상품셀렉트박스
             //상품옵션
             var color = "";
@@ -510,6 +517,8 @@ String productNo = request.getParameter("productNo");
                 $('#bigImg').attr("src", $(this).attr("src"));
             });
 
+        
+            
             //문의글 처리
             $("#questionTable tr").click(function () {
 
@@ -552,11 +561,22 @@ String productNo = request.getParameter("productNo");
 
                 
                 function openPop() {
-                    var url = "/productdetail/pop?qsNo=" + num + "&userid=" + userid + "&productNo=" + productNo;
-                    var options = "width=580, height=630, top=200, left=600";
-                    window.open(url, "pop1", options).focus();
+                	if(num == "리뷰번호"){
+                		return;
+                	}
+	                    var url = "/productdetail/pop?qsNo=" + num + "&userid=" + userid + "&productNo=" + productNo;
+	                    var options = "width=580, height=630, top=200, left=600";
+	                    window.open(url, "pop1", options).focus();                		
+
                 }
             });
+            
+            
+            
+            
+            
+            
+            
 
             $(document).ready(function () {
                 $('#cancel').click(function () {
