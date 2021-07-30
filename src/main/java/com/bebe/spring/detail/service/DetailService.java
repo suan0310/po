@@ -7,7 +7,7 @@ import com.bebe.spring.vo.DetailVO;
 
 public interface DetailService {
 	
-	List<DetailVO> selectDetailMain(DetailVO vo);	
+	DetailVO selectDetailMain(DetailVO vo);	
 	List<DetailVO> selectReview(DetailVO vo);
 	List<DetailVO> updateReview(int r_no);
 	List<DetailVO> selectOne(DetailVO vo);

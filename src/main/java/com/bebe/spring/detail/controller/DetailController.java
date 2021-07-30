@@ -40,7 +40,8 @@ public class DetailController {
 		}
 		
 		int order= detailService.selectOrder(vo);
-		List<DetailVO> listMain = detailService.selectDetailMain(vo);
+		DetailVO listMain = detailService.selectDetailMain(vo);
+
 		List<DetailVO> listOne = detailService.selectOne(vo);
 		List<DetailVO> listAll = detailService.selectReview(vo);
 		List<DetailVO> listAllQuestion = detailService.selectAllQuestion(vo);

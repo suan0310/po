@@ -37,7 +37,6 @@ String userid=request.getParameter("userid"); %>
 						<input type="hidden" name="productNo" id="productNo" value="<%=productNo%>" />
 						<input type="hidden" name="qsNo" id="qsNo" value="<%=qsNo%>" />
 
-
 						<c:forEach var="q" items="${qOne}">
 							<input type="hidden" id="tmpSecret" value="${q.qsSecret}" />
 							<div class="request-popup-write" style="position: absolute; left: 100px;">
@@ -84,6 +83,7 @@ String userid=request.getParameter("userid"); %>
 					console.log("userid: "+userid);
 
 					$(document).ready(function(){
+						console.log("??: "+"${qOne}");
 						if (sec==0){
 							$('#public').prop("checked", true);
 						} else{
