@@ -56,5 +56,8 @@ public class DetailVO {
 
 	// answer
 	private String qsAnswer;
+	
+	//order
+	private String STS_DELIVERY;
 
 }
