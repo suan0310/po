@@ -206,7 +206,7 @@ public class LoginController {
 
 		session.setAttribute("sessionUser", usersVO);
 		
-		return "/index/index";
+		return "redirect:/index/index";
 	}
 	
 	@RequestMapping(value="/naverCallback", method = RequestMethod.GET)

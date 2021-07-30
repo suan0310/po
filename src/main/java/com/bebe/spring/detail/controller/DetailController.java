@@ -40,7 +40,8 @@ public class DetailController {
 		}
 		
 		int order= detailService.selectOrder(vo);
-		List<DetailVO> listMain = detailService.selectDetailMain(vo);
+		DetailVO listMain = detailService.selectDetailMain(vo);
+
 		List<DetailVO> listOne = detailService.selectOne(vo);
 		List<DetailVO> listAll = detailService.selectReview(vo);
 		List<DetailVO> listAllQuestion = detailService.selectAllQuestion(vo);
@@ -129,7 +130,7 @@ public class DetailController {
 			} else {
 				System.out.println("실패!");
 			}
-		mv.setViewName("redirect:http://localhost/productdetail?productNo=" + productNo);
+		mv.setViewName("redirect:/productdetail?productNo=" + productNo);
 		return mv;
 	}
 
@@ -144,7 +145,7 @@ public class DetailController {
 		}
 
 		rs = detailService.insertAnswer(vo);
-		mv.setViewName("redirect:http://localhost/productdetail?productNo=" + productNo);
+		mv.setViewName("redirect:/productdetail?productNo=" + productNo);
 		return mv;
 	}
 
@@ -165,7 +166,7 @@ public class DetailController {
 		System.out.println("베스트리뷰 등록");
 		detailService.updateRvBest1(cntRvNo);
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("redirect:http://localhost/productdetail/reviewManage?productNo=" + productNo);
+		mv.setViewName("redirect:/productdetail/reviewManage?productNo=" + productNo);
 		return mv;
 	}
 
@@ -175,7 +176,7 @@ public class DetailController {
 		System.out.println("베스트리뷰 삭제");
 		detailService.updateRvBest0(cntRvNo);
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("redirect:http://localhost/productdetail/reviewManage?productNo=" + productNo);
+		mv.setViewName("redirect:/productdetail/reviewManage?productNo=" + productNo);
 		return mv;
 	}
 

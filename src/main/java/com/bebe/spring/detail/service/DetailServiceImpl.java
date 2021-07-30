@@ -16,7 +16,7 @@ public class DetailServiceImpl implements DetailService {
 	private DetailDao detailDao;
 
 	@Override
-	public List<DetailVO> selectDetailMain(DetailVO vo) {
+	public DetailVO selectDetailMain(DetailVO vo) {
 		// TODO Auto-generated method stub
 		return detailDao.selectDetailMain(vo);
 	}
