@@ -1,5 +1,6 @@
 .mainbox .orderbx {
-    margin-bottom: 100px;
+    display:flex;
+    flex-direction: column;
 }
 
 .mainbox .orderbx .title {
@@ -18,7 +19,7 @@
 }
 
 .mainbox .orderbx .order {
-    width: 1200px;
+    display:flex;
     border-top: 3px solid black;
 }
 
@@ -69,5 +70,6 @@
 }
 
 .formbtn{
-	
+	display: flex;
+	flex-direction: row-reverse;
 }

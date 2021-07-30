@@ -30,15 +30,18 @@
             <div class="orderbx">
                <h4 class="name3">장바구니</h4>
                <table class="order">
+               
                   <tr>
-							<th colspan="2" style="border-left: hidden;">제품정보</th>
+							<th colspan="2" style="border-left: hidden; width:450px">제품정보</th>
 							<th style="width: 150px;">수량</th>
 							<th style="width: 250px;">결제금액</th>
 							<th style="width: 150px;">문의</th>
 							<th style="width: 150px; border-right: hidden;">제품선택<input
 								id="allCheck" type="checkbox" name="allCheck" /></th>
 						</tr>
+						
 						<form  name="cart" id="cart">
+						
 							<c:forEach items="${cart}" var="cart">
 							
 								<tr>
@@ -70,6 +73,7 @@
 									</td>
 								</tr>
 							</c:forEach>
+							
 					</table>
 					
 					<div class= "formbtn">
