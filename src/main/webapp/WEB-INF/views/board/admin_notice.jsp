@@ -76,7 +76,13 @@
 							<a href="/board/admin_notice${pageMaker.makeSearch(idx)}" class="num">[${idx}]</a>&nbsp</li>
 							</c:forEach>
 							
-							<li><a href="/board/admin_notice${pageMaker.makeSearch(pageMaker.endPage+1)}"><i class="fas fa-angle-right"></i>&nbsp</a></li>
+							<c:if test="${pageMaker.next == true}">
+                   			<li><a href="/board/admin_notice${pageMaker.makeSearch(pageMaker.endPage+1)}"><i class="fas fa-angle-right"></i>&nbsp</a></li>
+                    		</c:if>
+                  		    <c:if test="${pageMaker.next == false}">
+                  		    <li><a href="/board/admin_notice${pageMaker.makeSearch(pageMaker.endPage)}"><i class="fas fa-angle-right"></i>&nbsp</a></li>
+                  		    </c:if>
+     
 							<li><a href="/board/admin_notice?page=${pageMaker.last}&perPageNum=5"><i class="fas fa-angle-double-right"></i></a></li>
 
 						</ul>
