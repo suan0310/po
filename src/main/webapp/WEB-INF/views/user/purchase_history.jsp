@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+    <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -49,20 +50,21 @@
                              
                                 <td width=200px; align="right">
                                 <a href="/productdetail?productNo=${list.productNo}">
-                                <img src="${list.productImg1}" alt="a" width="100px" height="100px">
+                                <img src="${list.productImg}" alt="a" width="100px" height="100px">
                                 </a></td>
                                 <td width=200px; style="border-left: hidden" align="center">
                                   <a href="/productdetail?productNo=${list.productNo}">
                                         <h4>${list.productName}</h4>
                                          <h3>${list.orderColor} / ${list.orderSize}</h3>
-                                         <h2>${list.productPrice}원</h2>
+                                         <h2>${list.orderPrice}원</h2>
                                   </a>                                                    
                                 </td>
                                    </a>                          
                                 <td width=150px; align=center>${list.orderQty}</td>
 
                                 <td width=150px; align=center>
-                                    <h1>${list.orderPrice}원</h1>
+                                <fmt:parseNumber var="productPrice" integerOnly="true" value="${list.orderPrice/list.orderQty}"/>
+                                    <h1>${productPrice}원</h1>
                                 </td>                                
                                 <td width=160px; align=center>
                                     <input class="purchaseBtn1"  id="postBtn" type="button" onclick="showPopup(${list.orderNo},'${list.productName}')" value="주문상세">

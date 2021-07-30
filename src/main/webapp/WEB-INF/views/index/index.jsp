@@ -92,7 +92,7 @@
 				</c:forEach>
 	</section>
 	</div>	
-		<%@ include file="../footer/footer.jsp"%>
+	<%@ include file="../footer/footer.jsp"%>
 </body>
 
 

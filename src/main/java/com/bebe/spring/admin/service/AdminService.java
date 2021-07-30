@@ -33,7 +33,7 @@ public interface AdminService {
 	Integer deleteProduct(int[] id);
 	
 	// 삭제된 제품의 옵션삭제
-	Integer deleteOptions(int[] checkproductno);
+	Integer deleteOthers(int[] checkproductno);
 	
 	//선택 옵션 추가
 	Integer insertOptions(OptionsVO optionsVo);

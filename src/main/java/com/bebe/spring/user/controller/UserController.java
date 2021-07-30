@@ -1,6 +1,5 @@
 package com.bebe.spring.user.controller;
 
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -22,6 +21,7 @@ import com.bebe.spring.user.service.UserService;
 import com.bebe.spring.user.service.userInfoService;
 import com.bebe.spring.usermylog.service.userMylogService;
 import com.bebe.spring.vo.OrdersAddressVO;
+import com.bebe.spring.vo.OrdersVO;
 import com.bebe.spring.vo.ProductOrdersVO;
 import com.bebe.spring.vo.QuestionVO;
 import com.bebe.spring.vo.ReviewVO;
@@ -49,7 +49,7 @@ public class UserController {
 		UsersVO usesVO = (UsersVO) session.getAttribute("sessionUser");
 		String id = usesVO.getId();
 		
-		List<ProductOrdersVO> list = userService.selectOrdersList(id);
+		List<OrdersVO> list = userService.selectOrdersList(id);
 		ModelAndView mav = new ModelAndView("/user/purchase_history");
 		mav.addObject("polist", list);
 		return mav;
@@ -85,7 +85,7 @@ public class UserController {
 		String id = usersVO.getId();
 		System.out.println(id);
 		
-		List<ProductOrdersVO> list = userService.selectOrdersList(id);
+		List<OrdersVO> list = userService.selectOrdersList(id);
 		ModelAndView mav = new ModelAndView("/user/purchase_history");
 		mav.addObject("polist", list);
 		
