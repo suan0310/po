@@ -51,6 +51,8 @@
 									src="${cart.productImg1}" alt="a" width="120px" height="120px"></td>
 								<td style="border-left: hidden" align="left">
 									<input type="hidden" name="productNo" value="${cart.productNo}">
+									<input type="hidden" name="productName" value="${cart.productName}">
+									<input type="hidden" name="productImg" value="${cart.productImg1}">
 									<h2 >${cart.productName }</h2>
 									<h2><input type="hidden" name="orderSize" value="${cart.productSize}">
 									 사이즈 : ${cart.productSize}  </h2>
@@ -266,6 +268,7 @@
 		
 	</script>
 	<script type="text/javascript" src="/js/search.js"></script>
+	<%@ include file="../footer/footer.jsp"%>
 </body>
 
 </html>

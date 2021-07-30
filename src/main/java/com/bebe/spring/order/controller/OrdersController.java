@@ -25,6 +25,7 @@ public class OrdersController {
 	public ModelAndView orderInfo(ModelAndView mav, @RequestParam(value = "productNo") Integer[] pn,
 			@RequestParam(value = "orderPrice") Integer[] pr, @RequestParam(value = "orderColor") String[] color,
 			@RequestParam(value = "orderSize") String[] size, @RequestParam(value = "orderQty") Integer[] qty,
+			String[] productName, String[] productImg,
 			OrdersAddressVO oav, HttpSession session) {
 		UsersVO usesVO = (UsersVO) session.getAttribute("sessionUser");
 		String id = usesVO.getId();
@@ -36,6 +37,8 @@ public class OrdersController {
 			oav.setOrderColor(color[i]);
 			oav.setOrderSize(size[i]);
 			oav.setOrderQty(qty[i]);
+			oav.setProductName(productName[i]);
+			oav.setProductImg(productImg[i]);
 			orderService.insertOrders(oav);
 			orderService.deleteCart(oav);
 

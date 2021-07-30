@@ -16,4 +16,6 @@ public class OrdersVO {
 	private Date orderDate;
 	private String orderColor;
 	private String orderSize;
+	private String productName;
+	private String productImg;
 }

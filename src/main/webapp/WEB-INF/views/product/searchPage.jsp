@@ -111,8 +111,8 @@
 
 					</ul>
 				</div>
-
-
+	</div>
+	
 			<script type="text/javascript" src="/js/search.js"></script>
 			<script>
 				function selChange() {
@@ -120,6 +120,8 @@
 					location.href = "searchPage?c=${row.sub_category}&nowPage=${paging.nowPage}&cntPerPage="+ sel;
 				}
 			</script>
+			</div>
+			<%@ include file="../footer/footer.jsp"%>
 		</body>
 
 		</html>

@@ -710,6 +710,7 @@ String productNo = request.getParameter("productNo");
         </script>
 
 	<script type="text/javascript" src="/js/search.js"></script>
+	<%@ include file="../footer/footer.jsp"%>
 </body>
 
 </html>
