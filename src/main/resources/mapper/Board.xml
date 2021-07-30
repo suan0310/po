@@ -26,7 +26,7 @@
 
 	<select id="faqList"
 		resultType="com.bebe.spring.board.vo.BoardVO">
-		select rownum as rnum, faq_no, faq_title, faq_content from faq 
+		select rownum as rnum, faq_no, faq_title, faq_content from faq order by faq_no  desc
 	</select>
 
 	<select id="readNotice"
@@ -96,7 +96,5 @@
 	<select id="rnumCount" resultType="int">
 		SELECT MAX(rownum) FROM faq
 	</select>
-
-
 
 </mapper> 

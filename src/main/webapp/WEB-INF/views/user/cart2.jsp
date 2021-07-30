@@ -30,27 +30,32 @@
             <div class="orderbx">
                <h4 class="name3">장바구니</h4>
                <table class="order">
+               
                   <tr>
-							<th colspan="2" style="border-left: hidden;">제품정보</th>
+							<th colspan="2" style="border-left: hidden; width:450px">제품정보</th>
 							<th style="width: 150px;">수량</th>
 							<th style="width: 250px;">결제금액</th>
 							<th style="width: 150px;">문의</th>
 							<th style="width: 150px; border-right: hidden;">제품선택<input
 								id="allCheck" type="checkbox" name="allCheck" /></th>
 						</tr>
+						
 						<form  name="cart" id="cart">
+						
 							<c:forEach items="${cart}" var="cart">
 							
 								<tr>
 									<td style="border-left: hidden" align=right><img
 										src="${cart.productImg1 }" alt="a" width="120px" height="120px"></td>
-									<td style="border-left: hidden" align="left">
+									<td style="border-left: hidden" align="left"><a
+										href="/productdetail?productNo=${cart.productNo}">
 										<h3>제품명 : ${cart.productName}</h3>
 										<h3>사이즈 : ${cart.productSize} 컬러 : ${cart.productColor}</h3>
 										<input type="hidden"  name="productName" value="${cart.productName}"/>
 										<input type="hidden"  name="productSize" value="${cart.productSize}"/>
 										<input type="hidden"  name="productColor" value="${cart.productColor}"/>
 										<h4>가격:${cart.productPrice}원</h4>
+										</a>
 									</td>
 									<td align=center>
 									<input type="hidden" id="quantity" value="${cart.quantity}"/>
@@ -68,11 +73,13 @@
 									</td>
 								</tr>
 							</c:forEach>
+							
 					</table>
 					
-					
+					<div class= "formbtn">
 					<input id="purchaseBtn"  type="button"  class="delete" value="삭제하기" onclick= "selDelete()" /> 
 					<input id="purchaseBtn" type="button" class ="order" value="선택상품 결제" onclick="checkStock()"/>
+					</div>
 					</form>
             </div>
          </div>
