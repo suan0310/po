@@ -14,7 +14,7 @@
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 
 
-
+ 
 
 <title>Document</title>
 </head>
@@ -26,23 +26,25 @@
 	</header>
 
 	<div class="main">
-
+	
 		<!-- /* -----------------메인영역(slide)--------------------- */ -->
-		<div style="overflow: hidden;">
-			<div class="slide">
-			<c:forEach items="${slide}" var="slide" >
-				<div class="slideimg">
-					<img src="${slide.productImg1}" width="80%" height="800px">
-				</div>
-			</c:forEach>
-			</div>
-		</div>
-		<div class=slidebtn>
-			<button class=slidebtn1></button>
-			<button class=slidebtn2></button>
-			<button class=slidebtn3></button>
-		</div>
-
+		<div class="slide">	
+		    <input type="radio" name="pos" id="pos1" checked>
+		    <input type="radio" name="pos" id="pos2">
+		    <input type="radio" name="pos" id="pos3">
+    	<ul>
+<%-- 		      <li><img src="${slide.productImg1}"/></li> --%>
+		    <c:forEach items="${slide}" var="slide" >
+		    <li><img class="slideImg" src="${slide.productImg1 }"/></li>
+		    </c:forEach>
+    	</ul>
+    <p class="bullet">
+      <label for="pos1">1</label>
+      <label for="pos2">2</label>
+      <label for="pos3">3</label> 
+    </p>
+     
+  </div>
 
 
     
@@ -71,7 +73,8 @@
 	<!-- /* -----------------메인영역(베스트 리뷰)--------------------- */ -->
 	<section class="review">
 			<div class="rvname">
-				<h1>베스트 리뷰</h1>
+			
+				<span class="namebox"><h1>베스트 리뷰</h1></span>
 			</div>
 				<c:forEach items="${rv}" var="rev" varStatus="status">
 				<c:if test="${status.index %2==0 }">

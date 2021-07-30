@@ -90,12 +90,12 @@
 						<tr>
 							<th>받는분</th>
 							<td colspan="2"><input type="text" name="addrReceiver"
-								placeholder="이름을 입력해주세요"></td>
+								placeholder="이름을 입력해주세요" required="required"></td>
 						</tr>
 						<tr>
 							<th>주소</th>
 							<td colspan="2"><input type="text" name="zipcode"
-								id="sample6_postcode" placeholder="우편번호"> <input
+								id="sample6_postcode" placeholder="우편번호" required="required"> <input
 								type="button" onclick="sample6_execDaumPostcode()"
 								value="우편번호 찾기" style="width: 150px;"></td>
 
@@ -105,7 +105,7 @@
 							<td><input type="text" name="addr" id="sample6_address"
 								placeholder="주소"> <input type="text" name="addrDetail"
 								id="sample6_detailAddress" placeholder="상세주소"
-								style="width: 330px;"></td>
+								style="width: 330px;" required="required"></td>
 						</tr>
 						<tr>
 							<th>휴대전화</th>
