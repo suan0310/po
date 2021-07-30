@@ -1,5 +1,7 @@
 package com.bebe.spring.login.controller;
 
+import java.util.List;
+
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -134,14 +136,14 @@ public class LoginController {
 	public String findidPost(UsersVO usersVO, Model model) {
 		System.out.println("아이디 찾기 기능 수행");
 		
-		UsersVO result = loginService.find_id(usersVO);
+		List<UsersVO> result = loginService.find_id(usersVO);
 		
-		if(result == null) {
-			model.addAttribute("check", 1);
-		}else {
-			model.addAttribute("check", 0);
-			model.addAttribute("id", result.getId());
-		}
+		if(result.isEmpty()) model.addAttribute("check", 1);
+		else model.addAttribute("check", 0);
+
+					
+		model.addAttribute("id", result);
+		System.out.println("rs2"+result);
 		return "/login/find_idOK";
 		
 	}

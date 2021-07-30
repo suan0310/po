@@ -1,5 +1,7 @@
 package com.bebe.spring.login.dao;
 
+import java.util.List;
+
 import com.bebe.spring.vo.UsersVO;
 
 public interface LoginDAO {
@@ -12,7 +14,7 @@ public interface LoginDAO {
 
 	public UsersVO find_passwd(UsersVO usersVO);
 	
-	public UsersVO find_id(UsersVO usersVO);
+	public List<UsersVO> find_id(UsersVO usersVO);
 	
 	public int selectSocialLogin(UsersVO usersVO);
 	
