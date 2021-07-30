@@ -35,7 +35,7 @@
     	<ul>
 <%-- 		      <li><img src="${slide.productImg1}"/></li> --%>
 		    <c:forEach items="${slide}" var="slide" >
-		    <li><img class="slideImg" src="/img/a.jpg"/></li>
+		    <li><img class="slideImg" src="${slide.productImg1 }"/></li>
 		    </c:forEach>
     	</ul>
     <p class="bullet">
