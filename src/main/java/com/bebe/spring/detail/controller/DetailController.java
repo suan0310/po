@@ -40,6 +40,7 @@ public class DetailController {
 		}
 		
 		int order= detailService.selectOrder(vo);
+		System.out.println("배송: "+order);
 		DetailVO listMain = detailService.selectDetailMain(vo);
 
 		List<DetailVO> listOne = detailService.selectOne(vo);

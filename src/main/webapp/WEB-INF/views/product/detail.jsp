@@ -352,7 +352,7 @@ String productNo = request.getParameter("productNo");
 			        frm.method = "post";
 			        frm.submit();
 				}else{
-					alert("구매한 회원만 리뷰를 등록할 수 있습니다.");
+					alert("배송완료된 회원만 리뷰를 등록할 수 있습니다.");
 				}
 			}
 		}else{
