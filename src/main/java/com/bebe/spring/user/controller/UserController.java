@@ -103,6 +103,8 @@ public class UserController {
 	@RequestMapping(value ="/user_info", method = RequestMethod.POST)
 	public String modifyPOST(HttpSession session, UsersVO vo, RedirectAttributes ra) throws Exception {
 	
+		
+		
 		userInfoService.modify(vo);	
 		UsersVO userVO = (UsersVO) session.getAttribute("sessionUser");
 		userVO.setPasswd(vo.getPasswd());

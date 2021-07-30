@@ -5,17 +5,18 @@
 
 
 <head>
+
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="/css/index/index.css">
+<link rel="stylesheet" href="/css/index/index.css?ver=1">
 <script src="https://kit.fontawesome.com/a216194d9c.js"
 	crossorigin="anonymous"></script>
 <script src="http://code.jquery.com/jquery-latest.js"></script>
-
-
- 
-
+	<script type="text/javascript" src="/js/search.js"></script>
+	<script type="text/javascript" src="/js/index.js"></script>
+	
+	
 <title>Document</title>
 </head>
 
@@ -35,7 +36,7 @@
     	<ul>
 <%-- 		      <li><img src="${slide.productImg1}"/></li> --%>
 		    <c:forEach items="${slide}" var="slide" >
-		    <li><img class="slideImg" src="${slide.productImg1 }"/></li>
+		    <li><img class="slideImg" src="${slide.productImg1}"/></li>
 		    </c:forEach>
     	</ul>
     <p class="bullet">
@@ -44,11 +45,7 @@
       <label for="pos3">3</label> 
     </p>
      
-  </div>
-
-
-    
-    
+  </div>    
 		<section class="Fsale">
 			<h1 class="name">인기상품</h1>
 			<c:forEach items="${Index}" var="row" varStatus="status">
@@ -94,10 +91,10 @@
 					</c:if>
 				</c:forEach>
 	</section>
-	</div>
-
-	<script type="text/javascript" src="/js/search.js"></script>
-	<script type="text/javascript" src="/js/index.js"></script>
+	</div>	
+		<%@ include file="../footer/footer.jsp"%>
 </body>
+
+
 
 </html>
