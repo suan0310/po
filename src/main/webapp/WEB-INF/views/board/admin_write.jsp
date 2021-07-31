@@ -132,7 +132,7 @@
 				<input type="button" class="button" id="btnu" onclick="btnU()">
 				<input type="button" class="button" id="btnd" onclick="btnD()">
 			</div>
-
+			<%@ include file="../footer/footer.jsp"%>
 		</div>
 	</div>
 	<script type="text/javascript" src="/js/search.js"></script>
@@ -252,7 +252,7 @@
         };
        
     </script>
-    <%@ include file="../footer/footer.jsp"%>
+    
 </body>
 
 </html>

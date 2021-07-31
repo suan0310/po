@@ -232,15 +232,14 @@
 }
 
 .slide{
-    height: 600px;
+    height: 400px;
     transition:  transform 0.5s;
     overflow:hidden;
     position:relative;
 }
 
 .slideImg{
-	margin-top:100px;
-	height:600px;
+	height:400px;
 	width: 100%;
 }
 
@@ -251,15 +250,19 @@
     /* 슬라이드 조작 */
     #pos1:checked ~ ul li:nth-child(1),
     #pos2:checked ~ ul li:nth-child(2),
-    #pos3:checked ~ ul li:nth-child(3),
-    #pos4:checked ~ ul li:nth-child(4){opacity:1;}
+    #pos3:checked ~ ul li:nth-child(3){opacity:1;}
+ 
     /* bullet 조작 */
     #pos1:checked ~ .bullet label:nth-child(1),
     #pos2:checked ~ .bullet label:nth-child(2),
-    #pos3:checked ~ .bullet label:nth-child(3),
-    #pos4:checked ~ .bullet label:nth-child(4){background:#666;}
+    #pos3:checked ~ .bullet label:nth-child(3){background:#666;}
+ 
 
 
 
-
+.slideName{
+	    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+}
 
