@@ -75,7 +75,8 @@
        
 //구글로그인
 function onSignIn(googleUser) {
-	  	  var profile = googleUser.getBasicProfile();
+	  	  
+	var profile = googleUser.getBasicProfile();
 	  	  console.log("ID: " + profile.getId());
 	  	  var email = profile.getEmail();
 	  	$('#id').val(email);
@@ -84,7 +85,7 @@ function onSignIn(googleUser) {
 	  	var frm = document.socialLogin;
     	frm.action = "/login/socailLogin";
     	frm.method = "get";
-    	frm.submit();	  
+    	frm.submit();
 	  	}
 
     //카카오로그인
@@ -113,9 +114,11 @@ function onSignIn(googleUser) {
     }
    
     //네이버로그인
+	  	//var naver_id_login = new naver_id_login("ifOs8Sf6tF3Y_TBfc808", "http://bebeshop.iptime.org:8080/login/naverCallback");
 	  	var naver_id_login = new naver_id_login("ifOs8Sf6tF3Y_TBfc808", "http://localhost/login/naverCallback");
 	  	var state = naver_id_login.getUniqState();
 	  	naver_id_login.setButton("green", 1, 25);
+	  	//naver_id_login.setDomain("http://bebeshop.iptime.org:8080/login/login");
 	  	naver_id_login.setDomain("http://localhost/login/login");
 	  	naver_id_login.setState(state);
 	  	//naver_id_login.setPopup();

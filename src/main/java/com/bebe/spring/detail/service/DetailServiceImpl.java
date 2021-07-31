@@ -93,12 +93,6 @@ public class DetailServiceImpl implements DetailService {
 	}
 
 	@Override
-	public Integer insertAnswer(DetailVO vo) {
-		// TODO Auto-generated method stub
-		return detailDao.insertAnswer(vo);
-	}
-
-	@Override
 	public Integer insertQuestion(DetailVO vo) {
 		// TODO Auto-generated method stub
 		return detailDao.insertQuestion(vo);
@@ -186,17 +180,17 @@ public class DetailServiceImpl implements DetailService {
 		return detailDao.orderItem(cv);
 	}
 
-@Override
-public int selectOrder(DetailVO vo) {
-	// TODO Auto-generated method stub
-	return detailDao.selectOrder(vo);
-}
-
-@Override
-public int selectDuplicateOpt(DetailVO vo) {
-	// TODO Auto-generated method stub
-	return detailDao.selectDuplicateOpt(vo);
-}
+	@Override
+	public int selectOrder(DetailVO vo) {
+		// TODO Auto-generated method stub
+		return detailDao.selectOrder(vo);
+	}
+	
+	@Override
+	public int selectDuplicateOpt(DetailVO vo) {
+		// TODO Auto-generated method stub
+		return detailDao.selectDuplicateOpt(vo);
+	}
 
 
 }

@@ -336,12 +336,23 @@ String productNo = request.getParameter("productNo");
     var productNo = $("#productNo").val();
     var checked;
 
+    function showStar(){
+    	console.log("s: "+$('#rvStar').val());
+    	console.log($('#rvStar').val());
+		//	alert("s: "+$('#rvStar').val());    	
+    }
+    
 	function subReview(){
 		if($("#rvContent").val() == ""){
 			alert("리뷰 내용을 입력하세요.");
 			return;
 		}
 		
+		if ($('#rvStar').val() == 0){
+			alert("최소 별점은 1점입니다.");
+			return;
+		}
+
 		if(curUser!=""){
 			var con = confirm("게시물을 등록할까요? ");
 			if(con){
@@ -572,12 +583,7 @@ String productNo = request.getParameter("productNo");
             });
             
             
-            
-            
-            
-            
-            
-
+         
             $(document).ready(function () {
                 $('#cancel').click(function () {
                     $('#request-popup').hide();
