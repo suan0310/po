@@ -113,10 +113,10 @@ function onSignIn(googleUser) {
     }
    
     //네이버로그인
-	  	var naver_id_login = new naver_id_login("ifOs8Sf6tF3Y_TBfc808", "http://localhost/login/naverCallback");
+	  	var naver_id_login = new naver_id_login("ifOs8Sf6tF3Y_TBfc808", "http://bebeshop.iptime.org:8080/login/naverCallback");
 	  	var state = naver_id_login.getUniqState();
 	  	naver_id_login.setButton("green", 1, 25);
-	  	naver_id_login.setDomain("http://localhost/login/login");
+	  	naver_id_login.setDomain("http://bebeshop.iptime.org:8080/login/login");
 	  	naver_id_login.setState(state);
 	  	//naver_id_login.setPopup();
 	  	naver_id_login.init_naver_id_login();

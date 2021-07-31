@@ -90,7 +90,9 @@
                      </td>
                      <td width=120px;>
                         <!-- 상품 이름 -->
-                        <div class="productname" >${list.productName}</div>
+                        <a href="/productdetail?productNo=${list.productNo}">
+                        <div class="productname">${list.productName}</div>
+                        </a>
                      </td>
                      <td width=80px;>
                         <!-- 금액 -->
