@@ -51,18 +51,15 @@
 									src="${cart.productImg1}" alt="a" width="120px" height="120px"></td>
 								<td style="border-left: hidden" align="left">
 									<input type="hidden" name="productNo" value="${cart.productNo}">
-									<input type="hidden" name="productName" value="${cart.productName}">
 									<input type="hidden" name="productImg" value="${cart.productImg1}">
-									<h2 >${cart.productName }</h2>
-									<h2><input type="hidden" name="orderSize" value="${cart.productSize}">
-									 사이즈 : ${cart.productSize}  </h2>
-									<h2><input type="hidden" name="orderColor" value="${cart.productColor}">
-									 컬러 : ${cart.productColor} </h2>
+									<h2 ><input type="text" name="productName" value="${cart.productName}"    readonly/></h2>
+									<h2>사이즈 : <input type="text" name="orderSize" value="${cart.productSize}"  style="width: 100px;"  readonly/></h2>
+									<h2>컬러 : <input type="text" name="orderColor" value="${cart.productColor}"  style="width: 100px;"  readonly/></h2>
 								</td>
-								<td align=center><input type="hidden" name="orderQty" value="${cart.quantity}">${cart.quantity}개</td>
+								<td align=center><input type="text" name="orderQty" value="${cart.quantity} "  style="width: 40px; text-align: right;"  readonly/> 개</td>
 								<td align=center  >${cart.productPrice}원</td>
 								<td style="border-right: hidden" align=center >
-									<h1><input type="hidden" name="orderPrice" value="${cart.productPrice*cart.quantity}"/> ${cart.productPrice*cart.quantity}원</h1>
+									<h2><input type="text" name="orderPrice" value="${cart.productPrice*cart.quantity} " style="width: 80px; text-align: right;"  readonly/> 원 </h2>
 									
 								</td>
 								<c:set var="odp" value="${odp+(cart.productPrice*cart.quantity) }"/>

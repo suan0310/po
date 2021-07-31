@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<link rel="stylesheet" href="/css/header.css?ver=1">
+<link rel="stylesheet" href="/css/header.css">
 <!-- 소셜 -->
 <link href="https://fonts.googleapis.com/css2?family=Handlee&display=swap" rel="stylesheet"></head>
     <link href="https://fonts.googleapis.com/css2?family=Handlee&family=Jua&display=swap" rel="stylesheet">

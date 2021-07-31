@@ -4,6 +4,7 @@
 
 <mapper namespace="com.bebe.spring.index.dao.IndexDAO">
 	<select id ="newItem" resultType= "ProductVO">
+
 		select product_no, product_img1, product_date from 
       (select rownum rnum, product_no, product_img1,product_date from 
       (select * from product order by product_date desc))

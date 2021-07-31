@@ -3,12 +3,18 @@
     padding: 0;
     box-sizing: border-box;
 }
-
+input:focus { outline: none; }
 body{
     background-color: #badbf9;
     height: 100%;
     margin: 0;
     padding: 0;
+}
+
+.order input{
+	border:none;
+	font-size: 14px;
+    font-family: 'Jua', sans-serif;
 }
 
 /* header .headerbx .search .fa:hover{
