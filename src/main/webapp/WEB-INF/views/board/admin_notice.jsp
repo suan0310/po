@@ -83,8 +83,9 @@
 					</div>
 				</div>
 			</div>
-		</div>
 			<%@ include file="../footer/footer.jsp"%>
+		</div>
+			
 	</div>
 
 	<script type="text/javascript" src="/js/search.js"></script>

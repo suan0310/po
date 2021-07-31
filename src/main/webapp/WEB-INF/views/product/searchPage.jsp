@@ -120,7 +120,8 @@
 					location.href = "searchPage?c=${row.sub_category}&nowPage=${paging.nowPage}&cntPerPage="+ sel;
 				}
 			</script>
-			</div>
+			
+			<div style="width: 100%; height: 50px;"></div>
 			<%@ include file="../footer/footer.jsp"%>
 		</body>
 
