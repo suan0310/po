@@ -37,9 +37,11 @@
 		    <input type="radio" name="pos" id="pos3">
     	<ul>
 <%-- 		      <li><img src="${slide.productImg1}"/></li> --%>
+		     
 		    <c:forEach items="${slide}" var="slide" >
-		    <li><a href= "/productdetail?productNo=${slide.productNo}"><img class="slideImg" src="${slide.productImg1}"/></a></li>
+		   <li><img class="slideImg" src="${slide.productImg1}" onclick="javascript:location.href='../productdetail?productNo=${slide.productNo}'"/></li>
 		    </c:forEach>
+		    
     	</ul>
     <p class="bullet">
       <label for="pos1">1</label>
