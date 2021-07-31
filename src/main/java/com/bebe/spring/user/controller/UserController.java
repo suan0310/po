@@ -46,8 +46,12 @@ public class UserController {
 	public ModelAndView userHistoryGet(HttpServletRequest req, HttpSession session) {
 		
 		//세션 아이디값 받아오기
-		UsersVO usesVO = (UsersVO) session.getAttribute("sessionUser");
-		String id = usesVO.getId();
+		UsersVO userVO = (UsersVO) session.getAttribute("sessionUser");
+		
+		String id ="";
+		if(userVO != null) {
+			id = userVO.getId();
+		}
 		
 		List<OrdersVO> list = userService.selectOrdersList(id);
 		ModelAndView mav = new ModelAndView("/user/purchase_history");
@@ -79,10 +83,12 @@ public class UserController {
 		System.out.println("취소 컨트롤러 진입");
 		userService.updatePostCancel(orderNo);
 		HttpSession session = req.getSession();
-		UsersVO usersVO = (UsersVO) session.getAttribute("sessionUser");
-		System.out.println(usersVO);
+		UsersVO userVO = (UsersVO) session.getAttribute("sessionUser");
 		//세션에서 아이디 받아오기
-		String id = usersVO.getId();
+		String id ="";
+		if(userVO != null) {
+			id = userVO.getId();
+		}
 		System.out.println(id);
 		
 		List<OrdersVO> list = userService.selectOrdersList(id);
@@ -125,8 +131,11 @@ public class UserController {
 	@RequestMapping(value ="/mylog", method = RequestMethod.POST)
 	public String getmyloglist(Model model, String select, HttpSession session, String logDate) throws Exception {
 		
-		UsersVO uservo = (UsersVO) session.getAttribute("sessionUser");
-		String id = uservo.getId();
+		UsersVO userVO = (UsersVO) session.getAttribute("sessionUser");
+		String id ="";
+		if(userVO != null) {
+			id = userVO.getId();
+		}
 		
 		System.out.println(logDate);
 		

@@ -358,6 +358,11 @@ String productNo = request.getParameter("productNo");
 		}else{
 			alert("구매한 회원만 리뷰를 등록할 수 있습니다.");
 		}
+		
+		if ($('#rvStar').val() == 0){
+	         alert("최소 별점은 1점입니다.");
+	         return;
+	      }
 	}
 
 	

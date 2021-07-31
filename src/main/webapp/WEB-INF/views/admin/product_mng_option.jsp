@@ -18,7 +18,7 @@
     
     <select id="selectboxColor" name="productColor" required>
         <option value="">색상</option>
-        <option value="none">선택안함</option>
+        <option value="옵션없음">선택안함</option>
         <option value="red">red</option>
         <option value="blue">blue</option>
         <option value="green">green</option>
@@ -28,7 +28,7 @@
     <input type="text"value="${pName}"/>&nbsp
     <select id="selectboxSize" name="productSize" required>
         <option value="">사이즈</option>
-        <option value="none">선택안함</option>
+        <option value="옵션없음">선택안함</option>
         <option value="S">S</option>
         <option value="M">M</option>
         <option value="L">L</option>

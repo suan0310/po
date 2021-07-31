@@ -69,7 +69,7 @@
 								<div class="sizebtn">
 									<select  id="size" name="productSize"  required>
 										<option value="" >사이즈를 선택하세요</option>
-										<option value="none">선택안함</option>
+										<option value="옵션없음">선택안함</option>
 										<option value="S">S</option>
 										<option value="M">M</option>
 										<option value="L">L</option>
@@ -81,7 +81,7 @@
 								<div class="colorbtn">
 									<select id="color" name="productColor"  required>
 										<option value="" >색상를 선택하세요</option>
-										<option value="none">선택안함</option>
+										<option value="옵션없음">선택안함</option>
 										<option value="red">빨강</option>
 										<option value="blue">파랑</option>
 										<option value="yellow">노랑</option>
@@ -101,7 +101,7 @@
 								<div id="img2"><img src="" /></div><br>
 								<div id="img3"><img src="" /></div>
 								<div id="img4"><img src="" /></div> 
-								 <%=request.getRealPath("/") %>
+								<%--  <%=request.getRealPath("/") %> --%>
 							</div>							
 						</div>
 					</div>

@@ -48,7 +48,7 @@
                     </tr>
                </table>
                </div>
-     		 <div class="log_table"  style="overflow:auto; height: 550px; width: 1150px;">
+     		 <div class="log_table"  style="overflow:auto; height: 550px; width: 1170px;">
      		 <table>
 			<c:forEach var="userlist" items="${userlist}">
 				 <form action="user_mng" method="post" onsubmit="return confirm('삭제하시겠습니까?');">
