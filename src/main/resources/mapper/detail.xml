@@ -126,24 +126,28 @@
 	</insert>
 
 	<insert id="insertQuestion" parameterType="DetailVO">
-	insert into question
-		values(
+	INSERT ALL
+	into question values(
 		nextno_question.nextval,
-		#{productNo},
-		#{id},
-		#{qsTitle},
-		#{qsContent},
-		#{qsSecret},
-		SYSDATE
-		)
-	</insert>
-	
-	<insert id="insertAnswer"  parameterType="DetailVO">
-		insert into answer values(
-        nextno_answer.nextval, '답변준비중입니다.', #{productNo}
+			#{productNo},
+			#{id},
+			#{qsTitle},
+			#{qsContent},
+			#{qsSecret},
+			SYSDATE
+			)
+
+	into answer values(
+        nextno_question.nextval,
+         '답변준비중입니다.', 
+         #{productNo}
         )
+	select * from dual
+	
+	
 	</insert>
 	
+
 	<insert id="updateAnswer" parameterType="DetailVO">
 		update answer 
 		set qs_answer = #{qsAnswer}

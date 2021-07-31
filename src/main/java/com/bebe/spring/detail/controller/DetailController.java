@@ -138,14 +138,15 @@ public class DetailController {
 	@RequestMapping(value = "/question.do", method = RequestMethod.POST)
 	public ModelAndView insertQuestion(DetailVO vo, @RequestParam("productNo") String productNo) {
 		ModelAndView mv = new ModelAndView();
+		
 		Integer rs = detailService.insertQuestion(vo);
+		
 		if (rs == 1) {
 			System.out.println("성공!");
 		} else {
 			System.out.println("실패!");
 		}
 
-		rs = detailService.insertAnswer(vo);
 		mv.setViewName("redirect:/productdetail?productNo=" + productNo);
 		return mv;
 	}
