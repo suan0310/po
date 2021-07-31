@@ -49,17 +49,15 @@
 										src="${cart.productImg1 }" alt="a" width="120px" height="120px"></td>
 									<td style="border-left: hidden" align="left"><a
 										href="/productdetail?productNo=${cart.productNo}">
-										<h3>제품명 : ${cart.productName}</h3>
-										<h3>사이즈 : ${cart.productSize} 컬러 : ${cart.productColor}</h3>
-										<input type="hidden"  name="productName" value="${cart.productName}"/>
-										<input type="hidden"  name="productSize" value="${cart.productSize}"/>
-										<input type="hidden"  name="productColor" value="${cart.productColor}"/>
+										<h3>제품명 : <input type="text"  name="productName" value="${cart.productName}" readonly/></h3>
+										<h3>사이즈: <input type="text"  name="productSize" value="${cart.productSize}"  style="width: 50px " rereadonly/>
+										 컬러:<input type="text"  name="productColor" value="${cart.productColor}" style="width: 50px " readonly/></h3>									
 										<h4>가격:${cart.productPrice}원</h4>
 										</a>
 									</td>
 									<td align=center>
-									<input type="hidden" id="quantity" value="${cart.quantity}"/>
-									${cart.quantity}</td>
+									<input type="text" id="quantity" value="${cart.quantity} "  style="text-align: center;" readonly/>
+									</td>
 
 									<td align=center>
 										<h1>${cart.quantity*cart.productPrice}원</h1>
