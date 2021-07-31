@@ -27,7 +27,9 @@
 	</header>
 
 	<div class="main">
-	
+		<div class="slideName"	>
+		<h1>신상품</h1>
+		</div>
 		<!-- /* -----------------메인영역(slide)--------------------- */ -->
 		<div class="slide">	
 		    <input type="radio" name="pos" id="pos1" checked>
@@ -36,7 +38,7 @@
     	<ul>
 <%-- 		      <li><img src="${slide.productImg1}"/></li> --%>
 		    <c:forEach items="${slide}" var="slide" >
-		    <li><img class="slideImg" src="${slide.productImg1}"/></li>
+		    <li><a href= "/productdetail?productNo=${slide.productNo}"><img class="slideImg" src="${slide.productImg1}"/></a></li>
 		    </c:forEach>
     	</ul>
     <p class="bullet">
@@ -91,8 +93,9 @@
 					</c:if>
 				</c:forEach>
 	</section>
-	</div>	
 	<%@ include file="../footer/footer.jsp"%>
+	</div>	
+	
 </body>
 
 
