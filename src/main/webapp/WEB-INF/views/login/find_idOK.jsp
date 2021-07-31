@@ -25,22 +25,22 @@
                     </div>
 
                     <div class="write">
-                     				<!-- 이름과 전화번호가 일치하지 않을 때-->
-						<c:if test="${check == 1}">
-							<script>
-								opener.document.findform.name.value = "";
-								opener.document.findform.phone.value = "";
-							</script>
+                     				<!-- 일치하지 않을 때 -->
+						<c:if test="${check == 1 }">
+							
 							<br>
 							<label>일치하는 정보가 존재하지 않습니다.</label>
 						</c:if>
 
-						<!-- 이름과 비밀번호가 일치하지 않을 때 -->
+						<!-- 일치할 때 -->
 						<c:if test="${check == 0 }">
 						<br>
-							<label>찾으시는 아이디는(은) ' ${id}' 입니다.</label>
-							<div class="form-label-group">
-							</div>
+						
+						<label>찾으시는 아이디는(은) </label>
+							<c:forEach items="${id}" var="i">							
+							<label>${i.id}</label>
+							</c:forEach>
+						<label>입니다.</label>	
 						</c:if>
 
                     </div>

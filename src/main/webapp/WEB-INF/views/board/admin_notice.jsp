@@ -51,7 +51,7 @@
 							<th>NO</th>
 							<th>공지사항</th>
 							<th>공지일자</th>
-							<th>공지내용</th>
+							<th>공지제목</th>
 						</tr>
 						<c:forEach items="${noticeList}" var="noticeList" begin="0" end="4">
 							<tr>
@@ -59,7 +59,7 @@
 								<td><c:out value="${noticeList.noticeCategory}" /></td>
 								<td><fmt:formatDate value="${noticeList.noticeDate}"/></td>
 								<td><a href="/board/admin_write?noticeNo=${noticeList.noticeNo}&b=1"><c:out
-											value="${noticeList.noticeContent}" /></a></td>
+											value="${noticeList.noticeTitle}" /></a></td>
 							</tr>
 						</c:forEach>
 					</table>
@@ -78,22 +78,27 @@
 							
 							<li><a href="/board/admin_notice${pageMaker.makeSearch(pageMaker.endPage+1)}"><i class="fas fa-angle-right"></i>&nbsp</a></li>
 							<li><a href="/board/admin_notice?page=${pageMaker.last}&perPageNum=5"><i class="fas fa-angle-double-right"></i></a></li>
-						
-							
+
 						</ul>
 					</div>
 				</div>
 			</div>
 		</div>
+			<%@ include file="../footer/footer.jsp"%>
 	</div>
+
 	<script type="text/javascript" src="/js/search.js"></script>
 	<script>
 		const pos = document.querySelector('.pos').value;
 		const button = document.querySelector('.button');
 
-		if (pos == '회원') {
+
+		if (pos == '회원' || pos =="비로그인") {
 			button.style = "display: none";
 		};
+		
+		
+		
 	</script>
 </body>
 

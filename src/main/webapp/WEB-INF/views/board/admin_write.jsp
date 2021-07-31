@@ -88,8 +88,8 @@
 				<div class="postTitle">
 					<h2>* 제목</h2>
 					<c:if test="${b eq '0'}">
-						<input type="text" class="title" placeholder="제목을 입력해 주세요."
-							name="faqTitle">
+						<input type="text" class="title"
+							placeholder="${rumcount .rnum}제목을 입력해 주세요." name="faqTitle">
 					</c:if>
 					<c:if test="${b eq '1'}">
 						<input type="text" class="title" name="noticeTitle"
@@ -140,13 +140,13 @@
         const pos = document.querySelector('.pos').value;
         const buttons = document.querySelectorAll('.button');
         const choices = document.querySelectorAll('.choice');
-        let category = document.querySelector('#secondChoice').selectedIndex;
+        let category = document.querySelector('#secondChoice');
         let title = document.querySelector('.title').value;
         let content = document.querySelector('.content').value;
         let form = document.createElement("form");
 		let frm = document.frm;
 
-        if(pos == '회원'){
+        if(pos == '회원' || pos=="비로그인"){
             for(let button of buttons){
                 button.style = "display: none";
             }
@@ -173,87 +173,86 @@
         function select() {
             let selectedChoice = document.querySelector('#choice').selectedIndex;
             if (document.getElementsByTagName('option')[selectedChoice].value == "Best FAQ") {
-                document.querySelector('#secondChoice').disabled = true
+                document.querySelector('#secondChoice').style.display = 'none' 
                 document.querySelector('.title').setAttribute("name","faqTitle")
                 document.querySelector('.content').setAttribute("name", "faqContent")
             }else{
-                document.querySelector('#secondChoice').disabled = false
+                document.querySelector('#secondChoice').style.display = 'inline-block'
                 document.querySelector('.title').setAttribute("name","noticeTitle")
                 document.querySelector('.content').setAttribute("name", "noticeContent")
             }
         };
+        
 
+	
         function btnU() {
+        	 let selectedChoice = document.querySelector('#choice');
+        	if (!document.querySelector('.title').value || !document.querySelector('.content').value 
+        			|| selectedChoice.value == "공지분류") {
+                alert("입력사항을 다시 확인해 주시기 바랍니다.")
+            } else {
             let value = document.querySelector("#btnu").value;
             let answer = confirm(value + " 하시겠습니까?");
             let selectedChoice = document.querySelector('#choice').selectedIndex;
-            if (value == "등록") {
-                if (answer == true) {     
-                	/*  if(title == "" || content ==""){
-                         alert("입력사항을 다시 확인해 주시기 바랍니다.")
-                         window.history.back(); 
-                      };  */
-                	if (document.getElementsByTagName('option')[selectedChoice].value == "Best FAQ") {
-                			frm.action = "/board/writeFaq"
-                			frm.method = "post"
-                			frm.submit()
-                   	 }else{
-             			frm.action = "/board/writeNotice"
-             			frm.method = "post"
-             			frm.submit()
-                   	 }
-                	 alert("등록되었습니다.")
-                	 }else {
-                         location = "/board/admin_write"
-                } 
-                }else if (value == "수정") {
-                if (answer == true) {
-                	<c:if test="${b eq '1'}">		 
-        			frm.action = "/board/update"
-        			frm.method = "post"
-        			frm.submit() 
-                	</c:if>
-        			
-        			
-                	
-                	<c:if test="${b eq '2'}"> 
-        			frm.action = "/board/update"
-        			frm.method = "post"
-        			frm.submit()    
-                 	</c:if>	
-                  	
-                    alert("수정되었습니다.")
-                } else {
-                    location = "/board/admin_notice"
-                }
-            } 
+	            if (value == "등록") {
+	                if (answer == true) {     
+	                	if (document.getElementsByTagName('option')[selectedChoice].value == "Best FAQ") {
+	                			frm.action = "/board/writeFaq"
+	                			frm.method = "post"
+	                			frm.submit()
+	                   	 }else{
+	             			frm.action = "/board/writeNotice"
+	             			frm.method = "post"
+	             			frm.submit()
+	                   	 }
+	                };
+	            }else if (value == "수정") {
+	                if (answer == true) {
+	                	<c:if test="${b eq '1'}">		 
+	        			frm.action = "/board/update"
+	        			frm.method = "post"
+	        			frm.submit() 
+	                	</c:if>
+	                	<c:if test="${b eq '2'}"> 
+	        			frm.action = "/board/update"
+	        			frm.method = "post"
+	        			frm.submit()    
+	                 	</c:if>	
+	                  	
+	                    alert("수정되었습니다.") 
+	                } else {location = "/board/admin_notice"}
+	            } 
+        	}
         };
 
 
         function btnD() {
-             let value = document.querySelector("#btnd").value;
+            let value = document.querySelector("#btnd").value;
             let answer = confirm(value + " 하시겠습니까?");
             if (value == "취소") {
                 if (answer == true) {
-                    alert("취소되었습니다.")
-                    location = "/board/admin_notice"
-                }
-            } else if (value == "삭제") {
-                if (answer == true) {
-                	<c:if test="${b eq '1'}">		 
-                	location.href = "/board/delete?noticeNo="+${readNotice.noticeNo}+"&b=1" 
-                	</c:if>
-                	<c:if test="${b eq '2'}"> 
-                   	location.href = "/board/delete?faqNo="+${readFaq.faqNo}+"&b=2"               
-                 	</c:if>
-                    alert("삭제되었습니다.")
-                } else {
-                    location = "/board/admin_notice"
-                }
-            } 
+                   alert("취소되었습니다.") 
+                   location = "/board/admin_notice"
+             	} 
+            };
+            if (value == "삭제") {
+              if (answer == true) {
+                  <c:if test="${b eq '1'}">		 
+                  location.href = "/board/delete?noticeNo="+${readNotice.noticeNo}+"&b=1" 
+                  </c:if>
+                  <c:if test="${b eq '2'}"> 
+                  location.href = "/board/delete?faqNo="+${readFaq.faqNo}+"&b=2"               
+                  </c:if>
+                  alert("삭제되었습니다.") 
+              	} else {
+               	location = "/board/admin_notice"
+              }
+            	 
+            };  
         };
        
     </script>
+    <%@ include file="../footer/footer.jsp"%>
 </body>
 
 </html>

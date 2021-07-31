@@ -70,7 +70,7 @@
 							<c:forEach items="${list}" var="r">
 								<tr>
 									<td width=150px;><fmt:formatDate value="${r.rvDate}" pattern="yy-MM-dd" /></td>
-									<td width=130px;><a href="#">${r.productNo}</a></td>
+									<td width=130px;><a href="/productdetail?productNo= ${r.productNo}">${r.productNo}</a></td>
 									<td width=600px;>${r.rvContent}</td>
 								</tr>
 							</c:forEach>

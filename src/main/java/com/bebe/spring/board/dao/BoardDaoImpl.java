@@ -78,5 +78,10 @@ public class BoardDaoImpl implements BoardDao {
 	public void updateFaq(BoardVO boardVO) throws Exception {
 		sqlSession.update("Board.updateFaq");
 	}
+	
+	@Override
+	public int rnumCount() throws Exception{
+		return sqlSession.selectOne("Board.rnumCount");
+	}
 
 }

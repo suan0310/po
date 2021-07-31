@@ -54,7 +54,7 @@
                     <hr>
                     <table>
                         <tr>
-                            <th width=100px;>결재일자</th>
+                            <th width=100px;>결제일자</th>
                             <th width=100px;>주문번호</th>
                             <th width=100px;>상품번호</th>                           
                             <th width=100px;>회원아이디</th>

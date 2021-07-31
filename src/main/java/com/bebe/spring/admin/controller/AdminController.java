@@ -192,7 +192,8 @@ public class AdminController {
 	public ModelAndView adminPoductmngDeletePost(int[] checkproductno, ProductSearchVO psVo) {
 		System.out.println(checkproductno);
 		adminService.deleteProduct(checkproductno);
-		adminService.deleteOptions(checkproductno);
+		adminService.deleteOthers(checkproductno);
+		
 
 		HashMap<String, Object> map = new HashMap<>();
 		map.put("productlist", adminService.selectProductList(psVo));

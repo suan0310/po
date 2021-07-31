@@ -1,15 +1,13 @@
 package com.bebe.spring.user.service;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.bebe.spring.user.dao.UserDao;
 import com.bebe.spring.vo.OrdersAddressVO;
-import com.bebe.spring.vo.ProductOrdersVO;
+import com.bebe.spring.vo.OrdersVO;
 
 @Service ("userService")
 public class UserServiceImpl implements UserService {
@@ -18,7 +16,7 @@ public class UserServiceImpl implements UserService {
 	private UserDao userDao;
 
 	@Override
-	public List<ProductOrdersVO> selectOrdersList(String id) {
+	public List<OrdersVO> selectOrdersList(String id) {
 		return userDao.selectOrdersList(id);
 	}
 

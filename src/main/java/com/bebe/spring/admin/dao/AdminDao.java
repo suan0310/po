@@ -18,6 +18,9 @@ public interface AdminDao {
 	List<OptionsVO> selectOptions();
 	Integer deleteProduct(int checkproductno);
 	Integer deleteOptions(int checkproductno);
+	Integer deleteQuestion(int checkproductno);
+	Integer deleteAnswer(int checkproductno);
+	Integer deleteReview(int checkproductno);
 	Integer insertOptions(OptionsVO optionsVo);
 	List<OrdersVO> selectOrdersList(OrdersSearchVO osVo);
 	Integer updateOrderSts(OrdersVO orderVo);
