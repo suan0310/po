@@ -93,7 +93,7 @@
 						
 						<c:forEach begin="${pg.startPage}" end="${pg.endPage}" var="idx" varStatus="sta">
 									<li>
-										<a class = "text-${((pg.cri.page)==(pg.startPage+idx-1))? 'orange':''} text-bold"  href="/product/searchPage?subCategory=${sbc}&page=${idx}&keyword=${ccc}"><i class="fa">[${idx}]</i></a>
+										<a class = "text-${((pg.cri.page)==(idx))? 'orange':''} text-bold"  href="/product/searchPage?subCategory=${sbc}&page=${idx}&keyword=${ccc}"><i class="fa">[${idx}]</i></a>
 									</li>
 							
 						</c:forEach>
