@@ -15,7 +15,9 @@ src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-
 	</form>
 
 	<script type="text/javascript">
-		var naver_id_login = new naver_id_login("ifOs8Sf6tF3Y_TBfc808", "http://localhost/login/naverCallback");
+	//
+		//var naver_id_login = new naver_id_login("ifOs8Sf6tF3Y_TBfc808", "http://localhost/login/naverCallback");
+		var naver_id_login = new naver_id_login("ifOs8Sf6tF3Y_TBfc808", "http://bebeshop.iptime.org:8080/login/naverCallback");
 		var token = naver_id_login.oauthParams.access_token;
 		naver_id_login.get_naver_userprofile("naverSignInCallback()");
 

@@ -24,7 +24,6 @@ public interface DetailDao {
 	int starTotal(DetailVO vo);	
 	Integer insertReview(DetailVO vo);
 	Integer insertQuestion(DetailVO vo);
-	Integer insertAnswer(DetailVO vo);
 	Integer updateAnswer(DetailVO vo);
 	Integer updateQuestion(DetailVO vo);
 	Integer delQuestion(DetailVO vo);
