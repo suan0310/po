@@ -81,14 +81,14 @@
 			</div>
 				<div class="pager">
 					<ul>
-						
-						<c:if test="${pg.next && pg.endPage > 0}">
-							<li><a href="javascript:alert('이전페이지가 없습니다.');"><</a></li>			
-						</c:if>
-						<c:if test="${pg.prev}">
+						<c:choose>
+						<c:when test="${pg.prev}">
 							<li><a href="/product/searchPage?subCategory=${sbc}&page=${pg.startPage-1}&keyword=${ccc}"><</a></li>
-						</c:if>
-						
+						</c:when>
+						<c:otherwise>
+							<li><a href="javascript:alert('이전페이지가 없습니다.');"><</a></li>			
+						</c:otherwise>
+						</c:choose>
 						
 						
 						<c:forEach begin="${pg.startPage}" end="${pg.endPage}" var="idx" varStatus="sta">
@@ -99,15 +99,15 @@
 						</c:forEach>
 						
 							
-						
-						<c:if test="${pg.next && pg.endPage > 0}">
+						<c:choose>
+						<c:when test="${pg.next && pg.endPage > 0}">
 							
 							<li><a href="/product/searchPage?subCategory=${sbc}&page=${pg.endPage+1}&keyword=${ccc}">></a></li>			
-						</c:if>
-						<c:if test="${pg.prev}">
+						</c:when>
+						<c:otherwise>
 							<li><a href="javascript:alert('다음페이지가 없습니다.');">></a></li>			
-						</c:if>
-						
+						</c:otherwise>
+						</c:choose>
 
 					</ul>
 				</div>
