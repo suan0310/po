@@ -24,4 +24,10 @@
 			UPDATE orders SET sts_cancel = '취소대기'  WHERE order_no = #{orderNo}
 </update>
 
+   <update id="modify" parameterType="UsersVO">
+   		update users
+   		set passwd = #{passwd}
+   		where id = #{id}
+   </update>
+   
 </mapper>

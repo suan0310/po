@@ -58,10 +58,7 @@
 						</c:when>
 					<c:otherwise>
 					<c:forEach items="${list}" var="row" varStatus="status">
-						<c:set var="action" value="${row.action }"/>
-						<c:set var="sbc" value="${row.subCategory}" />
-						<c:set var="sbd" value="${row.keyword}" />
-						<c:if test="${status.index %3==0 }">
+							<c:if test="${status.index %3==0 }">
 							<div class="probxs">
 						</c:if>
 						<div class="probx">
@@ -83,7 +80,7 @@
 					<ul>
 						<c:choose>
 						<c:when test="${pg.prev}">
-							<li><a href="/product/searchPage?subCategory=${sbc}&page=${pg.startPage-1}&keyword=${ccc}"><</a></li>
+							<li><a href="/product/searchPage?subCategory=${pg.cri.subCategory}&page=${pg.startPage-1}&keyword=${ccc}"><</a></li>
 						</c:when>
 						<c:otherwise>
 							<li><a href="javascript:alert('이전페이지가 없습니다.');"><</a></li>			
@@ -93,7 +90,7 @@
 						
 						<c:forEach begin="${pg.startPage}" end="${pg.endPage}" var="idx" varStatus="sta">
 									<li>
-										<a class = "text-${((pg.cri.page)==(idx))? 'orange':''} text-bold"  href="/product/searchPage?subCategory=${sbc}&page=${idx}&keyword=${ccc}"><i class="fa">[${idx}]</i></a>
+										<a class = "text-${((pg.cri.page)==(idx))? 'orange':''} text-bold"  href="/product/searchPage?subCategory=${pg.cri.subCategory}&page=${idx}&keyword=${ccc}"><i class="fa">[${idx}]</i></a>
 									</li>
 							
 						</c:forEach>
@@ -102,7 +99,7 @@
 						<c:choose>
 						<c:when test="${pg.next && pg.endPage > 0}">
 							
-							<li><a href="/product/searchPage?subCategory=${sbc}&page=${pg.endPage+1}&keyword=${ccc}">></a></li>			
+							<li><a href="/product/searchPage?subCategory=${pg.cri.subCategory}&page=${pg.endPage+1}&keyword=${ccc}">></a></li>			
 						</c:when>
 						<c:otherwise>
 							<li><a href="javascript:alert('다음페이지가 없습니다.');">></a></li>			

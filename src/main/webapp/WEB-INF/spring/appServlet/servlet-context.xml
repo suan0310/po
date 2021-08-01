@@ -36,10 +36,11 @@
 	<beans:bean id="jsonView" class="org.springframework.web.servlet.view.json.MappingJackson2JsonView"/>
 
 
-<beans:bean class="java.lang.String" id="uploadPath">
-<!--   <beans:constructor-arg value="C:\project\work\bebeshop\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\bebeshop\resources" />  -->
-  <beans:constructor-arg value="C:\project\work\bebework\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\bebeshop\resources" /> 
-</beans:bean>
+ <beans:bean class="java.lang.String" id="uploadPath">
+<!--   <beans:constructor-arg value="C:\project\work\bebeshop\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\bebeshop\resources" />   -->
+   <beans:constructor-arg value="C:\project\work\bebework\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\bebeshop\resources" /> 
+<!--   <beans:constructor-arg value="bebeshop.iptime.org:8080/var/webapps/" />  -->
+</beans:bean> 
 
 
 <resources mapping="/imgUpload/**" location="/resources/imgUpload/" />

@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.bebe.spring.user.dao.UserDao;
 import com.bebe.spring.vo.OrdersAddressVO;
 import com.bebe.spring.vo.OrdersVO;
+import com.bebe.spring.vo.UsersVO;
 
 @Service ("userService")
 public class UserServiceImpl implements UserService {
@@ -32,7 +33,10 @@ public class UserServiceImpl implements UserService {
 		return userDao.updatePostCancel(orderNo);
 	}
 	
-	
+	@Override
+	public void modify(UsersVO vo) {
+		userDao.modify(vo);
+	}
 	
 	
 	

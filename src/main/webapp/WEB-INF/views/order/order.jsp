@@ -89,7 +89,7 @@
 						<tr>
 							<th>받는분</th>
 							<td colspan="2"><input type="text" name="addrReceiver"
-								placeholder="이름을 입력해주세요" required="required"></td>
+								placeholder="이름을 입력해주세요" required="required" id="addrReceiver"></td>
 						</tr>
 						<tr>
 							<th>주소</th>
@@ -226,7 +226,10 @@
 			    pay_method : 'card',
 			    merchant_uid : 'merchant_' + new Date().getTime(),
 			    name : '${opn}' + '외' +' ${oc}'+'개' , //결제창에서 보여질 이름
-			    amount : ${odp}, //실제 결제되는 가격
+			    amount : 100 ,
+			    	//${odp}, //실제 결제되는 가격
+			   buyer_name  : '${sessionUser.id}',
+			   buyer_email : '${sessionUser.emailId}'+'@'+'${sessionUser.emailDomain}'
 			}, function(rsp) {
 				console.log(rsp);
 			    if ( rsp.success ) {

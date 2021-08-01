@@ -13,7 +13,7 @@
                 <address>경기도 안양시 만안구 자바길23</address>
                 "사업자 등록번호 : 111-11-111111"<br>
                 "통신판매업신고 : 제2021-경기안양-1111호"<br>
-                "이메일 : "<a href="hugun30@bebeshop.com">webmaster@bebeshop.com</a><br>
+                "이메일 : webmaster@bebeshop.com<br>
             </div>
             <div class="callservice">
                 <div class="call">

@@ -18,11 +18,9 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.bebe.spring.user.service.UserService;
-import com.bebe.spring.user.service.userInfoService;
 import com.bebe.spring.usermylog.service.userMylogService;
 import com.bebe.spring.vo.OrdersAddressVO;
 import com.bebe.spring.vo.OrdersVO;
-import com.bebe.spring.vo.ProductOrdersVO;
 import com.bebe.spring.vo.QuestionVO;
 import com.bebe.spring.vo.ReviewVO;
 import com.bebe.spring.vo.UsersVO;
@@ -33,9 +31,6 @@ public class UserController {
 
 	@Resource (name="userService")
 	private UserService userService;
-	
-	@Inject
-	 userInfoService userInfoService;
 	
 	@Inject
 	userMylogService userMylogService;
@@ -111,7 +106,7 @@ public class UserController {
 	
 		
 		
-		userInfoService.modify(vo);	
+		userService.modify(vo);	
 		UsersVO userVO = (UsersVO) session.getAttribute("sessionUser");
 		userVO.setPasswd(vo.getPasswd());
 		session.setAttribute("sessionUser", userVO);
