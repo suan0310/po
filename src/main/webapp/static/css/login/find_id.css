@@ -12,6 +12,7 @@ h3 {
   justify-content: center;
   /* 높이를 기준으로 가운데 정렬 */
   height: 100vh;
+  background-color: #fff;
 }
 .findid {
   align-items: center;
