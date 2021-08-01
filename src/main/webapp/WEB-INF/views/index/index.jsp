@@ -28,8 +28,7 @@
 
 	<div class="main">
 		<div class="slideName"	>
-		<h1>신상품</h1>
-		</div>
+ 		</div>
 		<!-- /* -----------------메인영역(slide)--------------------- */ -->
 		<div class="slide">	
 		    <input type="radio" name="pos" id="pos1" checked>
@@ -38,8 +37,8 @@
     	<ul>
 <%-- 		      <li><img src="${slide.productImg1}"/></li> --%>
 		     
-		   <li><img class="slideImg" src="/img/slide.jpg" onclick="javascript:location.href=''"/></li>
-		   <li><img class="slideImg" src="/img/slide2.jpg" onclick="javascript:location.href=''"/></li>
+		   <li><img class="slideImg" src="/img/slide.jpg" onclick="javascript:location.href='/product/searchPage?subCategory=101&page=1' "/></li>
+		   <li><img class="slideImg" src="/img/slide2.png" onclick="javascript:location.href='/product/searchPage?subCategory=201&page=1'"/></li>
 		   <li><img class="slideImg" src="/img/slide3.jpg" onclick="javascript:location.href=''"/></li>
 		   
 		    <c:forEach items="${slide}" var="slide" >

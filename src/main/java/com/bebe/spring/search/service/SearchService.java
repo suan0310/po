@@ -21,4 +21,5 @@ public interface SearchService {
 	
 	public Integer ccount(Criteria cri);
 	public List<Criteria> llist(Criteria cri);
+
 }

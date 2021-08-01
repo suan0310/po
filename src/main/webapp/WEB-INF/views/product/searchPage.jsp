@@ -24,7 +24,16 @@
 			<div class="main">
 				<!-- /* -----------------최신순.인기순.가격순--------------------- */ -->
 				
-
+				<div>
+				<c:if test="${subCategory eq 101}">
+				</c:if>
+				<c:if test="${subCategory eq 102}">
+				</c:if>
+				<c:if test="${subCategory eq 103}">
+				</c:if>
+				<c:if test="${subCategory eq 104}">
+				</c:if>
+				</div>
 				<!-- /* -----------------메인영역(검색화면)--------------------- */ -->
 
 				<div class="pronav">
