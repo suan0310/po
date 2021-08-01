@@ -23,27 +23,7 @@
 			<div class="nope"></div>
 			<div class="main">
 				<!-- /* -----------------최신순.인기순.가격순--------------------- */ -->
-				
-				<div>
-				<c:if test="${subCategory eq 101}">
-				<h3>강아지 용품</h3>
-				</c:if>
-				<c:if test="${subCategory eq 102}">
-				<h3>강아지 의류</h3>
-				</c:if>
-				<c:if test="${subCategory eq 201}">
-				<h3>고양이 용품</h3> 
-				</c:if>
-				<c:if test="${subCategory eq 202}">
-				<h3>고양이 의류</h3>
-				</c:if>
-				<c:if test="${subCategory eq 301}">
-				<h3>사료</h3>
-				</c:if>
-				<c:if test="${subCategory eq 401}">
-				<h3>간식</h3>
-				</c:if>
-				</div>
+
 				<!-- /* -----------------메인영역(검색화면)--------------------- */ -->
 
 				<div class="pronav">
@@ -64,6 +44,32 @@
 							<li><a href="/product/searchPage?subCategory=301&page=1 ">사료</a></li>
 							<li><a href="/product/searchPage?subCategory=401&page=1 ">간식</a></li>
 						</ul>
+						
+										
+				<div id="subName">
+				<c:if test="${pg.cri.subCategory eq '101'}">
+				<h3>- 강아지 용품</h3>
+				</c:if>
+				<c:if test="${pg.cri.subCategory eq 102}">
+				<h3>- 강아지 의류</h3>
+				</c:if>
+				<c:if test="${pg.cri.subCategory eq 201}">
+				<h3>- 고양이 용품</h3> 
+				</c:if>
+				<c:if test="${pg.cri.subCategory eq 202}">
+				<h3>- 고양이 의류</h3>
+				</c:if>
+				<c:if test="${pg.cri.subCategory eq 301}">
+				<h3>- 사료</h3>
+				</c:if>
+				<c:if test="${pg.cri.subCategory eq 401}">
+				<h3>- 간식</h3>
+				</c:if>
+				<c:if test="${ccc ne null }">
+				<h4>"${ccc}" 에 대한 검색결과</h4>
+				</c:if>	
+				</div>
+				
 					<c:choose>
 						<c:when test="${pg.totalCount eq 0}">
 							<div class="nosearch">
@@ -110,7 +116,7 @@
 						<c:forEach begin="${pg.startPage}" end="${pg.endPage}" var="idx" varStatus="sta">
 									<li>
 
-										<a class = "text-${((pg.cri.page)==(idx))? 'orange':''} text-bold"  href="/product/searchPage?subCategory=${subCategory}&page=${idx}&keyword=${ccc}"><i class="fa">[${idx}]</i></a>
+										<a class = "text-${((pg.cri.page)==(idx))? 'orange':''} text-bold"  href="/product/searchPage?subCategory=${pg.cri.subCategory}&page=${idx}&keyword=${ccc}"><i class="fa">[${idx}]</i></a>
 
 									</li>
 							

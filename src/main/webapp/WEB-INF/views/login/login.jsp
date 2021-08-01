@@ -34,6 +34,9 @@
     <title>bebeshop</title>
 </head>
     <body>
+    			<header id="header">
+				<%@ include file="../header/header.jsp" %>
+			</header>
     <div class="outbx">
        <div class="inbx">
            <h1>WELCOME</h1>
@@ -72,7 +75,13 @@
 
 
     <script type="text/javascript"> 
-       
+    
+    $(document).ready(function(){
+        if("${errorMessage}"!=""){
+        alert("${errorMessage}");
+        }
+        
+     });
 //구글로그인
 function onSignIn(googleUser) {
 	  	  

@@ -4,6 +4,9 @@
   box-sizing: border-box;
 }
 
+body{
+	background-color: #fff;
+}
 /* 눈에 보이지 않는 박스를 이용하여 전체 화면을 잡음 */
 .outbx {
   display: flex;

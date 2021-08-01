@@ -70,7 +70,7 @@ public class LoginController {
 		} else {
 			System.out.println("실패");
 			redirectAttr.addFlashAttribute("errorMessage", "아이디나 비밀번호가 틀렸습니다.");
-			return "/login/login";
+			return "redirect:/login/login";
 		}
 	}	
 	
