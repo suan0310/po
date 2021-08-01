@@ -5,8 +5,9 @@
 <mapper namespace="com.bebe.spring.index.dao.IndexDAO">
 	<select id ="newItem" resultType= "ProductVO">
 
-		select product_no, product_img1, product_date from 
-      (select rownum rnum, product_no, product_img1,product_date from 
+		select product_img1, product_date,product_no,product_name,product_price from 
+      (select rownum rnum, product_img1,product_date , product_no,product_name,product_price from 
+
       (select * from product order by product_date desc))
             where rnum between 1 and 3
 	</select>

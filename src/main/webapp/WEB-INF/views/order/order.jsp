@@ -60,29 +60,19 @@
 								<td align=center  >${cart.productPrice}원</td>
 								<td style="border-right: hidden" align=center >
 									<h2><input type="text" name="orderPrice" value="${cart.productPrice*cart.quantity} " style="width: 80px; text-align: right;"  readonly/> 원 </h2>
-									
 								</td>
 								<c:set var="odp" value="${odp+(cart.productPrice*cart.quantity) }"/>
 								<c:set var="oc" value="${stauts.count-1}"/>
 								<c:if test="${stauts.index ==0}">
 								<c:set var="opn" value="${cart.productName}"/>
 								</c:if>
-							</tr>
-							
-							
+							</tr>	
 							</c:forEach>
-
-
-
 						</table>
 					</div>
 			</div>
-
-
 			<!-- /* -----------------메인영역(배송)--------------------- */ -->
-
 			<div class="postbx">
-
 				<div>
 					<h4 class="name">배송 정보</h4>
 					<table class="post">
@@ -97,7 +87,6 @@
 								id="sample6_postcode" placeholder="우편번호" required="required"> <input
 								type="button" onclick="sample6_execDaumPostcode()"
 								value="우편번호 찾기" style="width: 150px;"></td>
-
 						</tr>
 						<tr>
 							<td></td>
