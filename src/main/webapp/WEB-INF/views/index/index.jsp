@@ -38,8 +38,11 @@
     	<ul>
 <%-- 		      <li><img src="${slide.productImg1}"/></li> --%>
 		     
+		   <li><img class="slideImg" src="/img/slide.jpg" onclick="javascript:location.href=''"/></li>
+		   <li><img class="slideImg" src="/img/slide2.jpg" onclick="javascript:location.href=''"/></li>
+		   <li><img class="slideImg" src="/img/slide3.jpg" onclick="javascript:location.href=''"/></li>
+		   
 		    <c:forEach items="${slide}" var="slide" >
-		   <li><img class="slideImg" src="${slide.productImg1}" onclick="javascript:location.href='../productdetail?productNo=${slide.productNo}'"/></li>
 		    </c:forEach>
 		    
     	</ul>
@@ -50,6 +53,27 @@
     </p>
      
   </div>    
+  	<section class="Fsale">
+			<h1 class="name">신상품</h1>
+					<div class="Fbxs">
+			 <c:forEach items="${slide}" var="slide" >
+						<div class="Fbx">
+					<a href="/productdetail?productNo=${slide.productNo}">
+						<img src="${slide.productImg1}" alt="a">
+					<h1>${slide.productName}</h1>
+						<div class="price">
+							<h4>${slide.productPrice}원</h4> 
+						</div>
+					</a>
+				</div>
+			</c:forEach>
+					</div>
+
+	</section>
+  
+  
+  
+  
 		<section class="Fsale">
 			<h1 class="name">인기상품</h1>
 			<c:forEach items="${Index}" var="row" varStatus="status">
