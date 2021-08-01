@@ -39,7 +39,7 @@
 		     
 		   <li><img class="slideImg" src="/img/slide.jpg" onclick="javascript:location.href='/product/searchPage?subCategory=101&page=1' "/></li>
 		   <li><img class="slideImg" src="/img/slide2.png" onclick="javascript:location.href='/product/searchPage?subCategory=201&page=1'"/></li>
-		   <li><img class="slideImg" src="/img/slide3.jpg" onclick="javascript:location.href=''"/></li>
+		   <li><img class="slideImg" src="/img/slide3.png" onclick="javascript:location.href=''"/></li>
 		   
 		    <c:forEach items="${slide}" var="slide" >
 		    </c:forEach>

@@ -26,12 +26,22 @@
 				
 				<div>
 				<c:if test="${subCategory eq 101}">
+				<h3>강아지 용품</h3>
 				</c:if>
 				<c:if test="${subCategory eq 102}">
+				<h3>강아지 의류</h3>
 				</c:if>
-				<c:if test="${subCategory eq 103}">
+				<c:if test="${subCategory eq 201}">
+				<h3>고양이 용품</h3> 
 				</c:if>
-				<c:if test="${subCategory eq 104}">
+				<c:if test="${subCategory eq 202}">
+				<h3>고양이 의류</h3>
+				</c:if>
+				<c:if test="${subCategory eq 301}">
+				<h3>사료</h3>
+				</c:if>
+				<c:if test="${subCategory eq 401}">
+				<h3>간식</h3>
 				</c:if>
 				</div>
 				<!-- /* -----------------메인영역(검색화면)--------------------- */ -->
