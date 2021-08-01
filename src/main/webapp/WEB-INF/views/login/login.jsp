@@ -34,6 +34,9 @@
     <title>bebeshop</title>
 </head>
     <body>
+    <header>
+			<%@ include file="../header/header.jsp"%>
+		</header>
     <div class="outbx">
        <div class="inbx">
            <h1>WELCOME</h1>
