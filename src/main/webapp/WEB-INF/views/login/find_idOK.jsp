@@ -13,6 +13,9 @@
 </head>
 
 <body>
+    			<header id="header">
+				<%@ include file="../header/header.jsp" %>
+			</header>
     <div class="outbox">
         <div class="inbox">
             
