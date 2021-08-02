@@ -51,6 +51,7 @@ public class BoardController {
 		model.addAttribute("category", service.category(boardVO.getNoticeCategory()));
 
 		if (num == 0) {
+			
 			Integer rnum = service.rnumCount();			
 			 if( rnum == null) rnum =0;
 

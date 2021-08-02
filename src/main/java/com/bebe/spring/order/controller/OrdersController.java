@@ -27,10 +27,11 @@ public class OrdersController {
 			@RequestParam(value = "orderSize") String[] size, @RequestParam(value = "orderQty") Integer[] qty,
 			String[] productName, String[] productImg,
 			OrdersAddressVO oav, HttpSession session) {
-		UsersVO usesVO = (UsersVO) session.getAttribute("sessionUser");
-		String id = usesVO.getId();
+		UsersVO usersVO = (UsersVO) session.getAttribute("sessionUser");
+		String id="";
+		if(usersVO != null)  id = usersVO.getId();				
 		oav.setId(id);
-		System.out.println(session.getId());
+
 		for (int i = 0; i < pn.length; i++) {
 			oav.setProductNo(pn[i]);
 			oav.setOrderPrice(pr[i]);

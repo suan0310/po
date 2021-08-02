@@ -39,7 +39,7 @@ String userid=request.getParameter("userid"); %>
 
 						<c:forEach var="q" items="${qOne}">
 							<input type="hidden" id="tmpSecret" value="${q.qsSecret}" />
-							<div class="request-popup-write" style="position: absolute; left: 100px;">
+							<div class="request-popup-write" style="position: absolute; left:70px;">
 								<br>제목 <br> 
 								<input type="text"  id="qsTitle" name="qsTitle" value="${q.qsTitle}"
 									style="margin-top: 10px; width: 420px;"> <br> <br>내용

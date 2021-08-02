@@ -271,8 +271,11 @@ i {
 
 textarea {
   resize: none;
-  width: 520px;
+  width: 420px;
 }
+#rvContent{
+  width: 520px;
+	}
 
 #opt1, #opt2{
 	width: 250px;
