@@ -24,6 +24,6 @@ public interface BoardService {
 	public void updateNotice(BoardVO boardVO) throws Exception;
 	public void updateFaq(BoardVO boardVO) throws Exception;
 
-	public int rnumCount() throws Exception;
+	public Integer rnumCount() throws Exception;
 	
 }

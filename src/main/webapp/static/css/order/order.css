@@ -14,7 +14,6 @@ body{
 .order input{
 	border:none;
 	font-size: 14px;
-    font-family: 'Jua', sans-serif;
 }
 
 /* header .headerbx .search .fa:hover{
@@ -42,14 +41,12 @@ body{
 .main .orderbx .title{
     font-size: 25px;
     margin-bottom: 50px;
-    font-family: 'Jua', sans-serif;
     font-weight: 100;
     text-align: center;
 }
 .main .orderbx .name{
     margin: 10px;
     font-size: 17px;
-    font-family: 'Jua', sans-serif;
     font-weight: 100;
 }
 
@@ -61,14 +58,12 @@ body{
 .main .orderbx .order th{
     border: 1px solid #E4E4E4;
     font-size: 14px;
-    font-family: 'Jua', sans-serif;
     font-weight: 100;
     padding: 10px;
 }
 .main .orderbx .order td{
     border: 1px solid #E4E4E4;
     font-size: 14px;
-    font-family: 'Jua', sans-serif;
     padding: 15px;
     
 }
@@ -90,7 +85,6 @@ margin-bottom: 100px;
 .main .postbx .name{
     margin: 10px;
     font-size: 17px;
-    font-family: 'Jua', sans-serif;
     font-weight: 100;
 }
 .main .postbx .post{
@@ -100,7 +94,6 @@ margin-bottom: 100px;
 }
 .main .postbx .post th{
     font-size: 17px;
-    font-family: 'Jua', sans-serif;
     font-weight: 100;
     padding: 10px;
 }
@@ -126,7 +119,6 @@ margin-bottom: 100px;
     padding: 8px;
     padding-right: 25px;
     padding-left: 25px;
-    font-family: 'Jua', sans-serif;
     margin-left: 15px;
 }
 .main .postbx .post tr td p{
@@ -148,12 +140,10 @@ margin-bottom: 50px;
 }
 .main .paybx .pay td h1{
     font-size: 25px;
-    font-family: 'Jua', sans-serif;
     font-weight: 100;
 }
 .main .paybx .pay td h2{
     font-size: 15px;
-    font-family: 'Jua', sans-serif;
     font-weight: 100;
 }
 .hpay{
@@ -164,7 +154,6 @@ margin-bottom: 50px;
     height: 40px;
     background-color: #fff;
     color: black;
-    font-family: 'Jua', sans-serif;
     font-weight: 100;
 }
 .main .hpay .npay{
@@ -172,7 +161,6 @@ margin-bottom: 50px;
     height: 40px;
     background-color: black;
     color: white;
-    font-family: 'Jua', sans-serif;
     font-weight: 100;
 }
 .main .hpay .kpay{
@@ -180,6 +168,5 @@ margin-bottom: 50px;
     height: 40px;
     background-color: 	#FEE500;
     color: white;
-    font-family: 'Jua', sans-serif;
     font-weight: 100;
 }

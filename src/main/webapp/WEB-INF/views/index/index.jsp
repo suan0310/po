@@ -36,7 +36,7 @@
     	<ul>
 <%-- 		      <li><img src="${slide.productImg1}"/></li> --%>
 		     
-		   <li><img class="slideImg" src="/img/slide5.png" onclick="javascript:location.href=''"/></li>
+		   <li><img class="slideImg" src="/img/slide5.png" onclick="javascript:location.href='/board/admin_notice'"/></li>
 		   <li><img class="slideImg" src="/img/slide2.jpg" onclick="javascript:location.href='/product/searchPage?subCategory=101&page=1' "/></li>
 		   <li><img class="slideImg" src="/img/slide3.png" onclick="javascript:location.href='/product/searchPage?subCategory=201&page=1'"/></li>
 		   
@@ -106,16 +106,20 @@
 				<c:forEach items="${rv}" var="rev" varStatus="status">
 				<c:if test="${status.index %2==0 }">
 				<div class="rvboxs">
-				</c:if>
+				</c:if>				
 					<div class="rvbox right">
+					<a href="/productdetail?productNo=${rev.productNo}">
 						<span><c:forEach begin="1" end="${rev.rvStar}">
 							<i class="fa fa-star"></i>
 						</c:forEach>
 							<h3>${rev.rvStar}</h3> </span>
-						<p>
-							${rev.rvContent}
-						</p>
+							<div style="display: flex; margin-left: 15px">
+							<div id="revimg"><img alt="test" src="${rev.productImg1}" width="100px" height="100px"></div>
+							<div  id="revcontent" >${rev.rvContent}</div>		
+							</div>		
+						</a>
 					</div>
+
 					<c:if test="${status.index %2==1 }">
 						</div>
 					</c:if>
@@ -123,6 +127,8 @@
 	</section>
 	<%@ include file="../footer/footer.jsp"%>
 	</div>	
+	
+	<%--  <%=request.getRealPath("/") %>  --%>
 	
 </body>
 

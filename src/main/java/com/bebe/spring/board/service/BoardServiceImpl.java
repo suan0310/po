@@ -78,7 +78,7 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public int rnumCount() throws Exception{
+	public Integer rnumCount() throws Exception{
 		return dao.rnumCount();
 	}
 }

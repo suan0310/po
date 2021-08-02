@@ -59,7 +59,7 @@
                                          <h2>${list.orderPrice}원</h2>
                                   </a>                                                    
                                 </td>
-                                   </a>                          
+                                </a>                          
                                 <td width=150px; align=center>${list.orderQty}</td>
 
                                 <td width=150px; align=center>

@@ -100,8 +100,7 @@
 								<div id="img1"><img src="" /></div>
 								<div id="img2"><img src="" /></div><br>
 								<div id="img3"><img src="" /></div>
-								<div id="img4"><img src="" /></div> 
-								<%--  <%=request.getRealPath("/") %> --%>
+								<div id="img4"><img src="" /></div> 								  
 							</div>							
 						</div>
 					</div>

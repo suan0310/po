@@ -37,14 +37,12 @@
 
 
  <beans:bean class="java.lang.String" id="uploadPath">
-<!--   <beans:constructor-arg value="C:\project\work\bebeshop\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\bebeshop\resources" />   -->
-   <beans:constructor-arg value="C:\project\work\bebework\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\bebeshop\resources" /> 
-<!--   <beans:constructor-arg value="bebeshop.iptime.org:8080/var/webapps/" />  -->
+   <beans:constructor-arg value="C:\project\work\bebework\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\bebeshop\resources" />
 </beans:bean> 
 
 
-<resources mapping="/imgUpload/**" location="/resources/imgUpload/" />
 
+<resources mapping="/imgUpload/**" location="/resources/imgUpload/" />
 <beans:bean class="org.springframework.web.multipart.commons.CommonsMultipartResolver" id="multipartResolver">
  <beans:property name="maxUploadSize" value="10485760"/>
 </beans:bean> 

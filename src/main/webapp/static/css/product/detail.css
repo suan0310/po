@@ -186,7 +186,7 @@ td {
   position: absolute;
   margin-left: 600px;
   display: show;
-  top: 300px;
+  top: 750px;
 }
 
 #request-popup-click {  /*답변시*/
@@ -271,6 +271,7 @@ i {
 
 textarea {
   resize: none;
+  width: 520px;
 }
 
 #opt1, #opt2{
@@ -283,3 +284,21 @@ textarea {
 
 
 /* =========================은혜 끝!!! 제품상세페이지 12~17장 ========================= */
+
+/*막대 그래프*/
+ .graph { 
+      position: relative;
+      width: 300px; 
+      border: 1px solid black; 
+      padding: 1px; 
+     margin-bottom:3px;
+  }
+  .graph .bar { 
+      display: block;
+      position: relative;
+      background: #f7c10c; 
+      height: 1.5em; 
+      line-height: 1.5em;            
+  }
+  .graph .bar span { position: absolute; left: 1em; }
+

@@ -24,23 +24,23 @@
 		<div class="main">
 			<div class="total">
 				<div class="FAQ">
-					<h2>BEST FAQ</h2>
+					<h1>BEST FAQ</h1>
 					</br>
 					<hr color="#000000" size="5px">
 					<form role="form" method="GET">
 						<table>
 							<c:forEach items="${faqList}" var="faqList" begin="0" end="9">
-								<tr>
+								<tr onclick="location.href='/board/admin_write?faqNo=${faqList.faqNo}&b=2'" style="cursor:pointer">
 									<td><c:out value="${faqList.rnum}" /></td>
 									<td><c:out value="${faqList.faqTitle}" /></td>
-									<td><a href="/board/admin_write?faqNo=${faqList.faqNo}&b=2"><c:out value="${faqList.faqContent}" /></a></td>
+									<td><c:out value="${faqList.faqContent}" /></td>
 								</tr>
 							</c:forEach>
 						</table>
 				</div>
 				<div class="notice">
 					<div class="buttonMenu">
-						<h2>공지사항</h2>
+						<h1>공지사항</h1>
 						<a href="/board/admin_write?b=0"><input type="button" value="등록" class="button"></a>
 					</div>
 					</br>
@@ -54,12 +54,11 @@
 							<th>공지제목</th>
 						</tr>
 						<c:forEach items="${noticeList}" var="noticeList" begin="0" end="4">
-							<tr>
+							<tr onclick="location.href='/board/admin_write?noticeNo=${noticeList.noticeNo}&b=1'" style="cursor:pointer">
 								<td><c:out value="${noticeList.noticeNo}" /></td>
 								<td><c:out value="${noticeList.noticeCategory}" /></td>
 								<td><fmt:formatDate value="${noticeList.noticeDate}"/></td>
-								<td><a href="/board/admin_write?noticeNo=${noticeList.noticeNo}&b=1"><c:out
-											value="${noticeList.noticeTitle}" /></a></td>
+								<td><c:out value="${noticeList.noticeTitle}" /></td>
 							</tr>
 						</c:forEach>
 					</table>

@@ -6,7 +6,6 @@
 .mainbox .orderbx .title {
     font-size: 25px;
     margin-bottom: 50px;
-    font-family: 'Jua', sans-serif;
     font-weight: 100;
     text-align: center;
 }
@@ -24,17 +23,15 @@
 }
 
 .mainbox .orderbx .order th {
-    background-color: #cfcfcf;
+    background-color: #e4e4e4;
     font-size: 14px;
-    font-family: 'Jua', sans-serif;
     font-weight: 100;
     padding: 10px;
 }
 
 .mainbox .orderbx .order td {
-    border-bottom: 2px solid #cfcfcf;
+    border-bottom: 2px solid #e4e4e4;
     font-size: 14px;
-    font-family: 'Jua', sans-serif;
     padding: 15px;
 }
 
@@ -80,5 +77,4 @@ input:focus{
 	font-weight:bold; 
 	border: none;
 	font-size: 16px;
-    font-family: 'Jua', sans-serif;
 }

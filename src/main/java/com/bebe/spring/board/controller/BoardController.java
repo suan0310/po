@@ -51,8 +51,10 @@ public class BoardController {
 		model.addAttribute("category", service.category(boardVO.getNoticeCategory()));
 
 		if (num == 0) {
-			boardVO.setRnum(service.rnumCount());
-			if (boardVO.getRnum() >= 10) {
+			Integer rnum = service.rnumCount();			
+			 if( rnum == null) rnum =0;
+
+			if (rnum >= 10) {
 				res.setContentType("text/html; charset=utf-8");
 				PrintWriter out = res.getWriter();
 				out.println("<script>alert('Best FAQ는 최대10개까지 게시할 수 있습니다.'); </script>");
@@ -98,7 +100,12 @@ public class BoardController {
 	public String writeFaq(BoardVO boardVO, HttpServletResponse res) throws Exception {
 		PrintWriter out = res.getWriter();
 		res.setContentType("text/html; charset=utf-8");
-		boardVO.setRnum(service.rnumCount());
+		
+		Integer rnum = service.rnumCount();			
+		 if( rnum == null) rnum =0;
+		 
+		boardVO.setRnum(rnum);
+		
 		if (boardVO.getRnum() >= 10) {
 			out.println("<script>alert('Best FAQ 게시물 삭제 후 진행해 주시기 바랍니다.'); </script>");
 			out.println("<script>location.href = '/board/admin_notice'; </script>");
@@ -107,7 +114,7 @@ public class BoardController {
 			service.writeFaq(boardVO);
 			out.println("<script>alert('등록되었습니다.'); location.href = '/board/admin_notice';</script>");
 			out.flush();
-			
+
 		}
 
 		System.out.println("입 to the 력");

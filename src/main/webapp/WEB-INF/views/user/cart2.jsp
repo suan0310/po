@@ -32,10 +32,10 @@
                <table class="order">
                
                   <tr>
-							<th colspan="2" style="border-left: hidden; width:450px">제품정보</th>
-							<th style="width: 150px;">수량</th>
+							<th colspan="2" style="border-left: hidden; width:1000px">제품정보</th>
+							<th style="width: 50px;">수량</th>
 							<th style="width: 250px;">결제금액</th>
-							<th style="width: 150px;">문의</th>
+							<th style="width: 80px;">문의</th>
 							<th style="width: 150px; border-right: hidden;">제품선택<input
 								id="allCheck" type="checkbox" name="allCheck" /></th>
 						</tr>
@@ -47,12 +47,11 @@
 								<tr>
 									<td style="border-left: hidden" align=right><img
 										src="${cart.productImg1 }" alt="a" width="120px" height="120px"></td>
-									<td style="border-left: hidden" align="left"><a
-										href="/productdetail?productNo=${cart.productNo}">
+									<td style="border-left: hidden" align="left"><a href="/productdetail?productNo=${cart.productNo}">
 										<h3>제품명 : <input type="text"  name="productName" value="${cart.productName}" readonly/></h3>
-										<h3>사이즈: <input type="text"  name="productSize" value="${cart.productSize}"  style="width: 50px " rereadonly/>
-										 컬러:<input type="text"  name="productColor" value="${cart.productColor}" style="width: 50px " readonly/></h3>									
-										<h4>가격:${cart.productPrice}원</h4>
+										<h3>사이즈: <input type="text"  name="productSize" value="${cart.productSize}"  style="width: 100px " rereadonly/><br>
+										 컬러: <input type="text"  name="productColor" value="${cart.productColor}" style="width: 100px " readonly/></h3>									
+										<h3>가격: ${cart.productPrice}원</h3>
 										</a>
 									</td>
 									<td align=center>

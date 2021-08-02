@@ -22,7 +22,9 @@
 	</select>
 	
 	<select id="bestRv" resultType="ReviewVO">
-		select * from review 
-		where rv_best='1'
+<!-- 		select * from review 
+		where rv_best='1' -->
+		select a.*, b.product_img1 from review a, product b 
+		where a.rv_best='1' and a.product_no = b.product_no
 	</select>
 </mapper>

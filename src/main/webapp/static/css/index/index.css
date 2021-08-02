@@ -3,6 +3,12 @@
     padding: 0;
     box-sizing: border-box;
 }
+    a { text-decoration: none; color: black; }
+    a:visited { text-decoration: none; }
+    a:hover { text-decoration: none; }
+    a:focus { text-decoration: none; }
+    a:hover, a:active { text-decoration: none; }
+
 
 /* -----------------�뿤�뜑�쁺�뿭--------------------- */
 
@@ -184,11 +190,11 @@
     flex-direction: column;
     margin-bottom: 500px
 }
-.main .review .rvname{
-    
+.main .review .rvname{    
     display: flex;
     justify-content: center;
     margin-top: 30px;
+    font-size: 30px;
 }
 
 .rvname .namebox{
@@ -205,29 +211,29 @@
     align-items: center;
     justify-content: center;
 }
-.main .review .rvboxs .rvbox{
+.main .review .rvboxs  .rvbox{
     font-size: 13px;
     margin-top: 45px;
     border: 1px solid black;
-    width: 400px;
+    width: 500px;
     height: 150px;
     text-align: center;
     padding-top: 15px;
     box-shadow: 5px 5px 10px gray;
 }
 
-.main .review .rvboxs .rvbox.right{
+.main .review .rvboxs  .rvbox.right{
    margin : 2% 5% 2% 5%;
 }
 
-.main .review .rvboxs .rvbox span{
+.main .review .rvboxs  .rvbox span{
     display: flex;
     align-items: center;
     justify-content:center;
     margin-bottom: 5px;
     color: coral;
 }
-.main .review .rvboxs .rvbox span h3{
+.main .review .rvboxs  .rvbox span h3{
     color: black;
 }
 
@@ -268,8 +274,29 @@
 
 
 .slideName{
-	    display: flex;
+	display: flex;
     justify-content: center;
     margin-top: 100px;
+}
+
+#revimg img{
+	border-radius: 70% ;
+	overflow: hidden;
+	 box-shadow: 2px 2px 5px gray;
+}
+
+#revcontent{
+padding-left: 	5px;
+ font-size: 15px; 
+ color: black;
+ width: 360px;
+ text-align: left;
+}
+
+.rvbox{
+    transition: 0.1s ease-in;
+}
+.rvbox:hover{
+    transform: translatey(-20px);
 }
 

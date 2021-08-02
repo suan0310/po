@@ -20,7 +20,6 @@ String productNo = request.getParameter("productNo");
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
 <!-- w3school css적용시 헤더부분 꺠짐 수정필요 -->
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
 
 <body>
@@ -31,65 +30,68 @@ String productNo = request.getParameter("productNo");
 		<!--제품상세페이지-->
 		<div class="main">
 			<form name="order">
-			
-				
-					<div class="detail-img-big">
-						<center>
-							<input type="hidden" name="productImg1" value="${detMain.productImg1}"/>
-							<img src="${detMain.productImg1}" id="bigImg" alt="" ;"/>
-						</center>
-					</div>
-					<div class="detail-order">
+
+
+				<div class="detail-img-big">
+					<center>
+						<input type="hidden" name="productImg1"
+							value="${detMain.productImg1}" /> <img
+							src="${detMain.productImg1}" id="bigImg" alt="" ;"/>
+					</center>
+				</div>
+				<div class="detail-order">
+					<br>
+					<div style="float: left; margin-left: 100px; font-size: 20px;">
+						<input type="hidden" id="tmpMax" /> <input type="hidden"
+							id="optcnt" />
+						<table>
+							<th colspan="2" style="font-size: 30px; font-weight: bold;">
+								<input type="hidden" name="productName"
+								value="${detMain.productName}"> ${detMain.productName}</input>
+							</th>
+							<tr>
+								<td colspan="2">&nbsp</td>
+							</tr>
+							<tr>
+								<td>판매가</td>
+								<td><input name="productPrice"
+									value="${detMain.productPrice}" readonly
+									style="border-style: none; width: 100px; text-align: right;" />원
+								</td>
+							</tr>
+						</table>
+						<hr color="grey" size="1px" style="margin-top: 10px;">
 						<br>
-						<div style="float: left; margin-left: 100px; font-size: 20px;">
-							<input type="hidden" id="tmpMax" />
-							<input type="hidden" id="optcnt" />
-							<table>
-								<th  colspan="2" style="font-size: 30px; font-weight: bold;">
-									<input type="hidden" name="productName" value="${detMain.productName}"> ${detMain.productName}</input></th>
-								<tr>
-									<td colspan="2">&nbsp</td>
-								</tr>
-								<tr>
-									<td>판매가</td>
-									<td><input name="productPrice" value="${detMain.productPrice}"
-										readonly
-										style="border-style: none; width: 100px; text-align: right;" />원
-									</td>
-								</tr>
-							</table>
-							<hr color="grey" size="1px" style="margin-top: 10px;">
-							<br>
-							<table style="padding: 10px; font-size: 15px;">
-								<tr>
-									<td>색상</td>
-									<td><select name="productColor" id="opt1">
-											<option value="non" selected>[필수]색상을 선택하세요</option>
-											<c:forEach var="o" items="${detOptions}">
-												<option value="${o.productColor }">${o.productColor }</option>
-											</c:forEach>
-									</select></td>
-								</tr>
-								<tr>
-									<td>사이즈</td>
-									<td><select name="productSize" id="opt2">
-											<option value="non" selected>[필수]사이즈를 선택하세요</option>
-									</select></td>
-								</tr>
-								<tr>
-									<td>수량</td>
-									<td><input type="number" id="quantity" name="quantity"
-										min="1" value="1" /></td>
-								</tr>
-							</table>
-							<hr color="grey" size="1px" style="margin-top: 30px;">
-							<br> <input type="hidden" id="id" name="id"
-								value="${sessionUser.id}" /> <input type="hidden" id="productNo"
-								name="productNo" value="<%=productNo%>" /> <input type="button"
-								id="shopBtn" value="장바구니" onclick="addCart()" /><br> <input
-								type="button" id="orderBtn" value="구매하기" onclick="orderNow()" />
-						</div>
+						<table style="padding: 10px; font-size: 15px;">
+							<tr>
+								<td>색상</td>
+								<td><select name="productColor" id="opt1">
+										<option value="non" selected>[필수]색상을 선택하세요</option>
+										<c:forEach var="o" items="${detOptions}">
+											<option value="${o.productColor }">${o.productColor }</option>
+										</c:forEach>
+								</select></td>
+							</tr>
+							<tr>
+								<td>사이즈</td>
+								<td><select name="productSize" id="opt2">
+										<option value="non" selected>[필수]사이즈를 선택하세요</option>
+								</select></td>
+							</tr>
+							<tr>
+								<td>수량</td>
+								<td><input type="number" id="quantity" name="quantity"
+									min="1" value="1" /></td>
+							</tr>
+						</table>
+						<hr color="grey" size="1px" style="margin-top: 30px;">
+						<br> <input type="hidden" id="id" name="id"
+							value="${sessionUser.id}" /> <input type="hidden" id="productNo"
+							name="productNo" value="<%=productNo%>" /> <input type="button"
+							id="shopBtn" value="장바구니" onclick="addCart()" /><br> <input
+							type="button" id="orderBtn" value="구매하기" onclick="orderNow()" />
 					</div>
+				</div>
 			</form>
 		</div>
 		<div class="detail-img-small">
@@ -129,34 +131,27 @@ String productNo = request.getParameter("productNo");
 					</div>
 
 					<div class="starBars">
-						<div class="w3-light-grey">
-							<div class="w3-orange" id="1star">
-								<span style="position: absolute; left: 375px; top: 190px;">
-									1 </span>
-							</div>
+						<div class="graph">
+							<strong class="bar" id="1star" style="width: 0%;"> <span>1</span>
+							</strong>
 						</div>
-						<div class="w3-light-grey">
-							<div class="w3-orange" id="2star">
-								<span style="position: absolute; left: 375px; top: 220px;">2</span>
-							</div>
+
+						<div class="graph">
+							<strong class="bar" id="2star" style="width: 0%;"> <span>2</span>
+							</strong>
 						</div>
-						<div class="w3-light-grey">
-							<div class="w3-orange" id="3star">
-								<span style="position: absolute; left: 375px; top: 250px;">
-									3 </span>
-							</div>
+
+						<div class="graph">
+							<strong class="bar" id="3star" style="width: 0%;"> <span>3</span>
+							</strong>
 						</div>
-						<div class="w3-light-grey">
-							<div class="w3-orange" id="4star">
-								<span style="position: absolute; left: 375px; top: 280px;">
-									4 </span>
-							</div>
+						<div class="graph">
+							<strong class="bar" id="4star" style="width: 0%;"> <span>4</span>
+							</strong>
 						</div>
-						<div class="w3-light-grey">
-							<div class="w3-orange" id="5star">
-								<span style="position: absolute; left: 375px; top: 310px;">
-									5 </span>
-							</div>
+						<div class="graph">
+							<strong class="bar" id="5star" style="width: 0%;"> <span>5</span>
+							</strong>
 						</div>
 					</div>
 
@@ -198,7 +193,7 @@ String productNo = request.getParameter("productNo");
                                             <fmt:formatDate
 												value="${r.rvDate}" pattern="yy-MM-dd" /> /
                                             <table
-												style="width: 520px; min-height: 100px; border: 1px solid black; margin-top: 10px;">
+												style="width: 550px; min-height: 100px; border: 1px solid black; margin-top: 10px;">
 												<tr>
 													<td colspan="3">${r.rvContent}</td>
 												</tr>
@@ -225,12 +220,13 @@ String productNo = request.getParameter("productNo");
 										class="fa fa-star star-4" id="star"></i> <i
 										class="fa fa-star star-5" id="star"></i> <sub
 										class="autoRating" id="star_"> <span>0</span>
-									</sub> / <input type="hidden" id="id" name="id" value="${sessionUser.id}" />
-									<input type="hidden" id="productNo" name="productNo"
-										value="<%=productNo%>" /> <input type="hidden" id="rvStar"
-										name="rvStar" /> <sub class="rvDate"><span></span></sub> <br>
-									<textarea name="rvContent" id="rvContent" cols="72" rows="8" maxlength="300"
-										style="margin-top: 10px;" required></textarea>
+									</sub> / <input type="hidden" id="id" name="id"
+										value="${sessionUser.id}" /> <input type="hidden"
+										id="productNo" name="productNo" value="<%=productNo%>" /> <input
+										type="hidden" id="rvStar" name="rvStar" /> <sub
+										class="rvDate"><span></span></sub> <br>
+									<textarea name="rvContent" id="rvContent" cols="72" rows="8"
+										maxlength="300" style="margin-top: 10px;" required></textarea>
 									<br> <input type="button" id="submitBtn" value="등록"
 										onclick="subReview()" style="float: right; cursor: pointer;" />
 									<br> <br>
@@ -275,7 +271,7 @@ String productNo = request.getParameter("productNo");
 							</tbody>
 						</table>
 						<input type="button" id="show" value="작성하기"
-							style="position: absolute; left: 700px; cursor: pointer; font-size: small;"/>
+							style="position: absolute; left: 700px; cursor: pointer; font-size: small;" />
 						<br> <br> <br>
 					</div>
 				</div>
@@ -289,7 +285,7 @@ String productNo = request.getParameter("productNo");
 				<!--작성시-->
 			</center>
 			<form name="requestPopupWrite"
-			style="position: absolute; left: 100px;">
+				style="position: absolute; left: 100px;">
 				<br>제목 <br> <input type="text" name="qsTitle"
 					id="request-title" required style="margin-top: 10px; width: 420px;">
 				<br> <br>내용 <br>
@@ -297,16 +293,17 @@ String productNo = request.getParameter("productNo");
 					maxlength="300" style="margin-top: 10px;"></textarea>
 				<br> <br>
 				<h6 style="font-size: 0.67em;" id="h6tag">
-					비밀글&nbsp;<input type="checkbox" id="secret-public" name="qsSecret" value="1"/>
-					&nbsp; 오픈글&nbsp; 
-					<input type="checkbox" name="qsSecret" id="secret-public" value="0"/> 
-					<input	type="hidden" id="id" name="id" value="${sessionUser.id}" />
-					<input	type="hidden" id="productNo" name="productNo" value="<%=productNo%>" />
+					비밀글&nbsp;<input type="checkbox" id="secret-public" name="qsSecret"
+						value="1" /> &nbsp; 오픈글&nbsp; <input type="checkbox"
+						name="qsSecret" id="secret-public" value="0" /> <input
+						type="hidden" id="id" name="id" value="${sessionUser.id}" /> <input
+						type="hidden" id="productNo" name="productNo"
+						value="<%=productNo%>" />
 				</h6>
-				<br> <br>
-				<input type="button" id="submitBtn" value="등록" onclick="subQuestion()"
-					style="position: absolute; left: 180px; cursor: pointer;" /> 
-					<input type="button" id="submitBtn" value="취소" onclick="hidepop1()" 
+				<br> <br> <input type="button" id="submitBtn" value="등록"
+					onclick="subQuestion()"
+					style="position: absolute; left: 180px; cursor: pointer;" /> <input
+					type="button" id="submitBtn" value="취소" onclick="hidepop1()"
 					style="position: absolute; left: 90px; cursor: pointer;" />
 			</form>
 		</div>
