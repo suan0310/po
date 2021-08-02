@@ -13,7 +13,6 @@
 <script src="https://kit.fontawesome.com/a216194d9c.js"
 	crossorigin="anonymous"></script>
 <script src="http://code.jquery.com/jquery-latest.js"></script>
-	<script type="text/javascript" src="/js/search.js"></script>
 	<script type="text/javascript" src="/js/index.js"></script>
 	
 	
@@ -37,7 +36,7 @@
     	<ul>
 <%-- 		      <li><img src="${slide.productImg1}"/></li> --%>
 		     
-		   <li><img class="slideImg" src="/img/slide.png" onclick="javascript:location.href=''"/></li>
+		   <li><img class="slideImg" src="/img/slide5.png" onclick="javascript:location.href=''"/></li>
 		   <li><img class="slideImg" src="/img/slide2.jpg" onclick="javascript:location.href='/product/searchPage?subCategory=101&page=1' "/></li>
 		   <li><img class="slideImg" src="/img/slide3.png" onclick="javascript:location.href='/product/searchPage?subCategory=201&page=1'"/></li>
 		   
@@ -54,6 +53,7 @@
   </div>    
   	<section class="Fsale">
 			<h1 class="name">신상품</h1>
+
 					<div class="Fbxs">
 			 <c:forEach items="${slide}" var="slide" >
 						<div class="Fbx">
@@ -71,10 +71,11 @@
 	</section>
   
   
-  
+  			<h1 style="border-top: 2px solid #badbf9;"></h1>
   
 		<section class="Fsale">
 			<h1 class="name">인기상품</h1>
+
 			<c:forEach items="${Index}" var="row" varStatus="status">
 				<c:if test="${status.index %3==0 }">
 					<div class="Fbxs">
@@ -94,11 +95,13 @@
 			</c:forEach>
 
 	</section>
+					<h1 style="border-top: 2px solid #badbf9;"></h1>
 	<!-- /* -----------------메인영역(베스트 리뷰)--------------------- */ -->
 	<section class="review">
-			<div class="rvname">
-			
-				<span class="namebox"><h1>베스트 리뷰</h1></span>
+			<div class="rvname">			
+				<!-- <span class="namebox"><h1>베스트 리뷰</h1></span> -->
+				<h1 class="name">베스트 리뷰</h1>
+
 			</div>
 				<c:forEach items="${rv}" var="rev" varStatus="status">
 				<c:if test="${status.index %2==0 }">

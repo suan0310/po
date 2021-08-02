@@ -65,7 +65,7 @@
 				<c:if test="${pg.cri.subCategory eq 401}">
 				<h3>- 간식</h3>
 				</c:if>
-				<c:if test="${ccc ne null }">
+				<c:if test="${ccc ne null && !(empty ccc) }">
 				<h4>"${ccc}" 에 대한 검색결과</h4>
 				</c:if>	
 				</div>

@@ -13,7 +13,7 @@ String productNo = request.getParameter("productNo");
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="/css/product/detail.css?ver=1">
+<link rel="stylesheet" href="/css/product/detail.css">
 <title>Document</title>
 <!--링크들-->
 <script src="http://code.jquery.com/jquery-latest.js"></script>
@@ -36,7 +36,7 @@ String productNo = request.getParameter("productNo");
 					<div class="detail-img-big">
 						<center>
 							<input type="hidden" name="productImg1" value="${detMain.productImg1}"/>
-							<img src="${detMain.productImg1}" id="bigImg" alt="" width="500px" 	style="margin-top: 5px;"/>
+							<img src="${detMain.productImg1}" id="bigImg" alt="" ;"/>
 						</center>
 					</div>
 					<div class="detail-order">
@@ -64,7 +64,7 @@ String productNo = request.getParameter("productNo");
 								<tr>
 									<td>색상</td>
 									<td><select name="productColor" id="opt1">
-											<option value="non" selected>색상을 선택하세요</option>
+											<option value="non" selected>[필수]색상을 선택하세요</option>
 											<c:forEach var="o" items="${detOptions}">
 												<option value="${o.productColor }">${o.productColor }</option>
 											</c:forEach>
@@ -73,7 +73,7 @@ String productNo = request.getParameter("productNo");
 								<tr>
 									<td>사이즈</td>
 									<td><select name="productSize" id="opt2">
-											<option value="non" selected>사이즈를 선택하세요</option>
+											<option value="non" selected>[필수]사이즈를 선택하세요</option>
 									</select></td>
 								</tr>
 								<tr>
@@ -296,7 +296,7 @@ String productNo = request.getParameter("productNo");
 				<textarea name="qsContent" id="MunE" cols="50" rows="10" required
 					maxlength="300" style="margin-top: 10px;"></textarea>
 				<br> <br>
-				<h6 style="font-size: 0.67em;">
+				<h6 style="font-size: 0.67em;" id="h6tag">
 					비밀글&nbsp;<input type="checkbox" id="secret-public" name="qsSecret" value="1"/>
 					&nbsp; 오픈글&nbsp; 
 					<input type="checkbox" name="qsSecret" id="secret-public" value="0"/> 
@@ -468,7 +468,7 @@ String productNo = request.getParameter("productNo");
                             success: function (data) {
                                 var len = (Object.keys(data.size).length);
                                 $('#opt2').empty();
-                                var option = $("<option value='non' selected> 사이즈를 선택하세요 "
+                                var option = $("<option value='non' selected> [필수]사이즈를 선택하세요 "
                                     + "</option>");
                                 $("#opt2").append(option);
                                 for (var i = 0; i < len; i++) {

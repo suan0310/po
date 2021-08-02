@@ -10,7 +10,7 @@
 } */
 /* -----------------메인영역--------------------- */
 
-h6 {
+#h6tag{
   display: block;
   font-size: 0.67em;
   margin-top: 2.33em;
@@ -21,7 +21,7 @@ h6 {
 }
 
 .main {
-  height: 2500px;
+  height: 2000px;
   width: 80%;
   background-color: #fff;
   margin: 0 auto;
@@ -50,11 +50,18 @@ td {
   top: 680px;
   width: 500px;
   height: 80px;
-  margin-left: 410px;
+  margin-left: 395px;
 }
 
 .img1{
 	width: 120px;
+	height: 120px;
+/* 	object-fit:cover; */
+}
+#bigImg{
+	margin-top:5px;
+	width: 500px;
+	height: 500px;
 }
 
 .detail-order {
@@ -114,7 +121,7 @@ td {
 
 .reivew-request-tab {
   float: left;
-  margin-top: -1610px;
+  margin-top: -1200px;
   margin-left: 500px;
   width: 800px;
 }
@@ -131,6 +138,7 @@ td {
   font-size: 12px;
   text-align: center;
   cursor: pointer;
+  margin-top: 90px;
 }
 
 .tabmenu > div {
@@ -263,6 +271,14 @@ i {
 
 textarea {
   resize: none;
+}
+
+#opt1, #opt2{
+	width: 250px;
+	height: 30px;
+}
+#quantity{
+		height: 30px;
 }
 
 

@@ -34,15 +34,9 @@
     <title>bebeshop</title>
 </head>
     <body>
-<<<<<<< HEAD
-    			<header id="header">
-				<%@ include file="../header/header.jsp" %>
-			</header>
-=======
     <header>
 			<%@ include file="../header/header.jsp"%>
 		</header>
->>>>>>> oyw_work_backup
     <div class="outbx">
        <div class="inbx">
            <h1>WELCOME</h1>

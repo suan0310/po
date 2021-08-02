@@ -20,7 +20,7 @@ public class IndexController {
 	
 	@RequestMapping(value= "/index", method = RequestMethod.GET)
 	public ModelAndView Index(ModelAndView mav,ProductVO pv, ReviewVO rv) {
-		
+		System.out.println("index페이지 접근");
 		System.out.println(pv);
 		mav.addObject("slide", indexService.newItem(pv));
 		mav.addObject("Index", indexService.hotItem(pv));

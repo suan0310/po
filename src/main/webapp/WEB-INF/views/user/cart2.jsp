@@ -94,12 +94,17 @@
          frm.submit();
       }
 
-      function selOrder(){	
-			var frm = document.cart;
-			frm.action="/user/goOrder";
-			frm.method="post";
-			frm.submit();
-		}
+    function selOrder(){
+        var cnt = $("input[name='RowCheck']:checked").length;
+         if(cnt == 0){
+             alert("선택된 상품이 없습니다.");
+         }else{
+        var frm = document.cart;
+        frm.action="/user/goOrder";
+        frm.method="post";
+        frm.submit();
+         }
+     }
 		
 	function checkStock(){
 			

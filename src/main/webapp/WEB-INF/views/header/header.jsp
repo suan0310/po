@@ -14,6 +14,7 @@
    content="1059402509993-5dgo9oqfau9tharl9cbb1qe4prp40h0j.apps.googleusercontent.com">
 	<script src="https://apis.google.com/js/platform.js" async defer></script>    	
 	<script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 	<!-- 소셜 -->
 	
 <div class="headerbx">
@@ -25,33 +26,33 @@
         <c:choose>
         <c:when test="${sessionUser.id eq 'admin'}">
         <input type="button" value="관리자" class="pos">
-        <h6><a href="/admin/admin_info">${sessionUser.id}</a></h4>
+        <h6 class="headertag"><a href="/admin/admin_info">${sessionUser.id}</a></h6>
         </c:when>
         <c:when test="${empty sessionUser.id}">
                 <input type="button" value="비로그인" class="pos">
         </c:when>        
         <c:otherwise>
          <input type="button" value="회원" class="pos">
-         <h6><a href="/user/user_info">${sessionUser.id}</a></h4>
+         <h6 class="headertag"><a href="/user/user_info">${sessionUser.id}</a></h6>
         </c:otherwise>
         </c:choose>
                 
-            <h6><a href="/board/admin_notice">게시판</a></h6>
+            <h6 class="headertag"><a href="/board/admin_notice">게시판</a></h6>
         <c:choose>
         	<c:when test="${empty sessionUser.id}">
-        		<h6><a href="/login/login">로그인</a></h6>
+        		<h6 class="headertag"><a href="/login/login">로그인</a></h6>
         	</c:when>
         <c:otherwise> 
-				<h6 onclick="signOut()" style="cursor: pointer;">로그아웃</h6>
+				<h6 onclick="signOut()" style="cursor: pointer;" class="headertag">로그아웃</h6>
 
         </c:otherwise>
         </c:choose>
         <c:choose>
          	<c:when test="${empty sessionUser.id}">
-            <a onclick="alert('로그인 후 이용해주세요.')"><img src="/img/cart.png" alt="cart" width="20px" height="20px"></a>
+            <a onclick="alert('로그인 후 이용해주세요.')" class="headertag"><img src="/img/cart.png" alt="cart" width="20px" height="20px"></a>
             </c:when>
             <c:otherwise>
-         	<a href="/user/cart2"><img src="/img/cart.png" alt="cart" width="20px" height="20px"></a>
+         	<a href="/user/cart2" class="headertag"><img src="/img/cart.png" alt="cart" width="20px" height="20px"></a>
         	</c:otherwise>
         </c:choose>
             <img src="/img/search.png" alt="search" width="20px" height="20px" class="btn">

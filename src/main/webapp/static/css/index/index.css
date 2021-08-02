@@ -59,7 +59,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 20px;
+    font-size: 30px;
 }
 .main .Tsale .Tbxs{
     display: flex;
@@ -127,7 +127,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 20px;
+    font-size: 30px;
     margin-top: 30px;
 }
 .main .Fsale .Fbxs{
@@ -146,7 +146,7 @@
     width: 250px;
     height: 300px;
     margin: 20px;
-/*     box-shadow: 5px 5px 3px #0909094a; */
+    box-shadow: 5px 5px 3px #0909094a;  
 }
 .main .Fsale .Fbxs .Fbx a{
     text-decoration: none;
