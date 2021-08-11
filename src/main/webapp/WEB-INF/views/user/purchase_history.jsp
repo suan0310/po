@@ -35,14 +35,14 @@
                     <table class="order">          
                         <tr>
                             <th style="width: 100px; border-left : hidden;"> 주문번호</th>
-                            <th width=400px;>제품정보</th>
+                            <th width=600px;>제품정보</th>
                             <th width=100px;>제품수량</th>
                             <th style="width: 150px;">결제금액</th>
                             <th style="width: 150px;">배송현황</th>                            
                             <th style="width: 150px; border-right: hidden;">취소현황</th>
                         </tr>
 						</table>
-						 <div style="overflow:auto; height: 600px; width: 1170px;">
+						 <div style="overflow:auto; height: 600px; width: 1150px;">
 						<table class="order">                      
                        <c:forEach items="${polist}" var="list">
                         <tr>
@@ -52,7 +52,7 @@
                                 <a href="/productdetail?productNo=${list.productNo}">
                                 <img src="${list.productImg}" alt="a" width="100px" height="100px">
                                 </a></td>
-                                <td width=200px; style="border-left: hidden" align="center">
+                                <td width=420px; style="border-left: hidden" align="center">
                                   <a href="/productdetail?productNo=${list.productNo}">
                                         <h4>${list.productName}</h4>
                                          <h3>${list.orderColor} / ${list.orderSize}</h3>
