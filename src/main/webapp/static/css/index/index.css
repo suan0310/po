@@ -3,12 +3,20 @@
     padding: 0;
     box-sizing: border-box;
 }
+    a { text-decoration: none; color: black; }
+    a:visited { text-decoration: none; }
+    a:hover { text-decoration: none; }
+    a:focus { text-decoration: none; }
+    a:hover, a:active { text-decoration: none; }
+
 
 /* -----------------�뿤�뜑�쁺�뿭--------------------- */
 
 /* -----------------硫붿씤�쁺�뿭--------------------- */
 .main{
-    height: 3500px;
+	display:flex;
+	flex-direction:column;
+    height: 100%;
     width: 80%;
     background-color: #fff;
     margin: 0 auto;
@@ -57,7 +65,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 20px;
+    font-size: 30px;
 }
 .main .Tsale .Tbxs{
     display: flex;
@@ -117,14 +125,16 @@
 /* -----------------硫붿씤�쁺�뿭(�씤湲곗긽�뭹)--------------------- */
 
 .main .Fsale{
+	display:flex;
     position: relative;
-    top: 350px;
+    flex-direction: column;
 }
 .main .Fsale .name{
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 20px;
+    font-size: 30px;
+    margin-top: 30px;
 }
 .main .Fsale .Fbxs{
     display: flex;
@@ -142,7 +152,7 @@
     width: 250px;
     height: 300px;
     margin: 20px;
-    box-shadow: 5px 5px 3px #0909094a;
+    box-shadow: 5px 5px 3px #0909094a;  
 }
 .main .Fsale .Fbxs .Fbx a{
     text-decoration: none;
@@ -176,72 +186,117 @@
 /* -----------------硫붿씤�쁺�뿭(踰좎뒪�듃 由щ럭)--------------------- */ 
 .main .review{
     position: relative;
-    top: 600px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 500px
 }
-.main .review .rvname{
-    width: 200px;
-    height: 100px;
-    border: 5px solid black;
+.main .review .rvname{    
     display: flex;
     justify-content: center;
-    align-items: center;
+    margin-top: 30px;
+    font-size: 30px;
+}
+
+.rvname .namebox{
+	display:flex;
+	width: 200px;
+	height: 80px;
+    border: 5px solid black;
     border-style: double;
-    margin-left: 44%;
+    align-items: center;
+    justify-content: center;
 }
 .main .review .rvboxs{
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.main .review .rvboxs .rvbox{
+.main .review .rvboxs  .rvbox{
     font-size: 13px;
     margin-top: 45px;
     border: 1px solid black;
-    width: 400px;
+    width: 500px;
     height: 150px;
     text-align: center;
     padding-top: 15px;
     box-shadow: 5px 5px 10px gray;
 }
 
-.main .review .rvboxs .rvbox.right{
+.main .review .rvboxs  .rvbox.right{
    margin : 2% 5% 2% 5%;
 }
 
-.main .review .rvboxs .rvbox span{
+.main .review .rvboxs  .rvbox span{
     display: flex;
     align-items: center;
     justify-content:center;
     margin-bottom: 5px;
     color: coral;
 }
-.main .review .rvboxs .rvbox span h3{
+.main .review .rvboxs  .rvbox span h3{
     color: black;
 }
 
 .slide{
-    width: 300vw;
-    height: 600px;
+    height: 400px;
     transition:  transform 0.5s;
+    overflow:hidden;
+    position:relative;
 }
 
-.slideimg{
-    width: 100vw;
-    height: 200px;
-    float: left;
-}
-.slidebtn{
-    margin-top: 10px;
-    text-align: center;
-    
+.slideImg{
+	height:400px;
+	width: 100%;
+
 }
 
-.slidebtn1,
-.slidebtn2,
-.slidebtn3{
-    width: 20px;
-    height: 20px;
-    background-color: #badbf9;
-    border: none;
+    .slide li{position:absolute;left:0;right:0;top:0;bottom:0;opacity:0;transition:1s;
+    	cursor:pointer;}
+    .slide input{display:none;}
+    .slide .bullet{position:absolute;bottom:20px;left:0;right:0;text-align:center;z-index:10;}
+    .slide .bullet label{width:10px;height:10px;border-radius:10px;border:2px solid #666;display:inline-block;background:#fff;font-size:0;transition:0.5s;cursor:pointer;}
+
+
+    #pos1~ ul li:nth-child(1),
+    #pos2 ~ ul li:nth-child(2),
+    #pos3~ ul li:nth-child(3){display:none;}
+    /* 슬라이드 조작 */
+    #pos1:checked ~ ul li:nth-child(1),
+    #pos2:checked ~ ul li:nth-child(2),
+    #pos3:checked ~ ul li:nth-child(3){opacity:1; display:block; }
+ 
+    /* bullet 조작 */
+    #pos1:checked ~ .bullet label:nth-child(1),
+    #pos2:checked ~ .bullet label:nth-child(2),
+    #pos3:checked ~ .bullet label:nth-child(3){background:#666;}
+ 
+
+
+
+.slideName{
+	display: flex;
+    justify-content: center;
+    margin-top: 100px;
+}
+
+#revimg img{
+	border-radius: 70% ;
+	overflow: hidden;
+	 box-shadow: 2px 2px 5px gray;
+}
+
+#revcontent{
+padding-left: 	5px;
+ font-size: 15px; 
+ color: black;
+ width: 360px;
+ text-align: left;
+}
+
+.rvbox{
+    transition: 0.1s ease-in;
+}
+.rvbox:hover{
+    transform: translatey(-20px);
 }
 

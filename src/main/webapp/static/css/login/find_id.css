@@ -12,6 +12,7 @@ h3 {
   justify-content: center;
   /* 높이를 기준으로 가운데 정렬 */
   height: 100vh;
+  background-color: #fff;
 }
 .findid {
   align-items: center;
@@ -21,7 +22,7 @@ h3 {
   width: 100%;
   height: 320px;
 }
-img {
+.outbox img {
   margin-top: 20px;
 }
 
@@ -72,7 +73,6 @@ img {
 .findid .secondinfo {
   width: 100%;
   height: 70px;
-  font-family: "맑은 고딕", sans-serif;
   font-size: 15px;
   text-align: center;
   margin-top: 35px;

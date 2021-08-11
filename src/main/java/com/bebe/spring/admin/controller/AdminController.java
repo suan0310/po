@@ -1,6 +1,7 @@
 package com.bebe.spring.admin.controller;
 
 import java.io.File;
+import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -32,18 +33,16 @@ public class AdminController {
 	@Resource(name = "adminService")
 	private AdminService adminService;
 
-	@Resource(name = "uploadPath")
-	private String uploadPath;
-
+	
+@Resource(name = "uploadPath") 
+private String uploadPath;
+	
 	// -------------------------------------------- 관리자 정보 페이지
 	// --------------------------------------------
 	// 관리자 정보 페이지 첫 화면
 	@RequestMapping(value = "/admin_info", method = RequestMethod.GET)
 	public String adminInfoGet(HttpServletRequest req) {
 		System.out.println("관리자 인포 GET 진입");
-
-		HttpSession session = req.getSession();
-		session.setAttribute("id", "admin123");
 
 		return "/admin/admin_info";
 	}
@@ -85,17 +84,28 @@ public class AdminController {
 		return mv;
 	}
 
-	// 주문 관리 페이지에서 배송 수정버튼 눌렀을때
+	// 주문 관리 페이지에서 변경버튼 눌렀을때
 	@RequestMapping(value = "/sts_update", method = RequestMethod.POST)
-	public String adminOrderStsPost(OrdersVO orderVo,OrdersSearchVO osVo) {
+	public ModelAndView adminOrderStsPost(OrdersVO orderVo, OrdersSearchVO osVo) {
 		System.out.println(osVo.getMainSelect());
 		System.out.println(osVo.getSubSelect());
 		System.out.println(osVo.getSearchWord());
-		System.out.println("관리자 주문관리 POST 진입");
+		System.out.println("관리자 주문관리 POST 수정 진입1");
 		adminService.updateOrderSts(orderVo);
 
-//		ModelAndView mav = new ModelAndView("/admin/order_mng");
-		return "redirect:/admin/order_mng";
+		System.out.println(orderVo.getStsCancel());
+		if (orderVo.getStsCancel().equals("취소완료")) {
+			// 판매량 -시키고 재고량 +
+			adminService.updateSales(orderVo);
+			adminService.updateStock(orderVo);
+		}
+		System.out.println("관리자 주문관리 POST 수정 진입2");
+
+		ModelAndView mav = new ModelAndView("/admin/order_mng");
+		List<OrdersVO> oVo = adminService.selectOrdersList(osVo);
+		mav.addObject("list", oVo);
+		mav.addObject("searchList", osVo);
+		return mav;
 
 	}
 
@@ -110,9 +120,10 @@ public class AdminController {
 
 	// 상품 추가 페이지에서 추가버튼 눌렀을 때
 	@RequestMapping(value = "/product_add", method = RequestMethod.POST)
-	public String adminProductaddPost(ProductOptionsVO productOpVo, MultipartFile[] file) throws Exception {
+	public String adminProductaddPost(ProductOptionsVO productOpVo, MultipartFile[] file, HttpServletRequest request) throws Exception {
 		System.out.println("관리자 상품관리 POST 진입");
-
+		
+		
 		// 파일 업로드 처리 로직
 		String imgUploadPath = uploadPath + File.separator + "imgUpload";
 //		String ymdPath = UploadFileUtils.calcPath(imgUploadPath);
@@ -184,7 +195,7 @@ public class AdminController {
 	public ModelAndView adminPoductmngDeletePost(int[] checkproductno, ProductSearchVO psVo) {
 		System.out.println(checkproductno);
 		adminService.deleteProduct(checkproductno);
-		adminService.deleteOptions(checkproductno);
+		adminService.deleteOthers(checkproductno);
 
 		HashMap<String, Object> map = new HashMap<>();
 		map.put("productlist", adminService.selectProductList(psVo));
@@ -219,11 +230,12 @@ public class AdminController {
 	// --------------------------------------------
 	// 유저 관리 페이지 첫 화면
 	@RequestMapping(value = "/user_mng", method = RequestMethod.GET)
-	public ModelAndView adminUsermngGet() {
-		System.out.println("관리자 유저 관리 GET 진입");
-		List<UsersVO> userlist = adminService.selectUsers();
+	public ModelAndView adminUsermngGet(String searchWord) {
+
+		List<UsersVO> userlist = adminService.selectUsers(searchWord);
 		ModelAndView mv = new ModelAndView("/admin/user_mng");
 		mv.addObject("userlist", userlist);
+		mv.addObject("searchWord", searchWord);
 		return mv;
 	}
 
@@ -232,7 +244,7 @@ public class AdminController {
 	public ModelAndView adminUsermngPost(String id) {
 		System.out.println("관리자 유저관리 POST 진입");
 		adminService.deleteUser(id);
-		List<UsersVO> userlist = adminService.selectUsers();
+		List<UsersVO> userlist = adminService.selectUsers(null);
 		ModelAndView mv = new ModelAndView("/admin/user_mng");
 		mv.addObject("userlist", userlist);
 		return mv;

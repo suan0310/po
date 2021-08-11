@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE configuration
  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
@@ -32,3 +33,39 @@
 </configuration>
 
 
+=======
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+    <settings>
+          <setting name="mapUnderscoreToCamelCase" value="true"/>
+          <setting name="jdbcTypeForNull" value="NULL"/>
+    </settings>
+    <typeAliases>
+          <typeAlias alias= "OrdersAddressVO" type="com.bebe.spring.vo.OrdersAddressVO"/>
+          <typeAlias alias="ProductVO" type ="com.bebe.spring.vo.ProductVO"/>
+          <typeAlias alias="Criteria" type="com.bebe.spring.vo.Criteria"/>
+          <typeAlias alias="pager" type="com.bebe.spring.vo.pager"/>
+          <typeAlias alias="ReviewVO" type = "com.bebe.spring.vo.ReviewVO"/>
+          <typeAlias alias="CartVO" type="com.bebe.spring.vo.CartVO"/>
+          <typeAlias alias="UsersVO" type="com.bebe.spring.vo.UsersVO" />
+          <typeAlias alias="ProductOptionsVO" type="com.bebe.spring.vo.ProductOptionsVO"/> 
+          <typeAlias alias="ProductSearchVO" type="com.bebe.spring.vo.ProductSearchVO"/> 
+          <typeAlias alias="OptionsVO" type="com.bebe.spring.vo.OptionsVO"/> 
+          <typeAlias alias="OrdersVO" type="com.bebe.spring.vo.OrdersVO"/> 
+          <typeAlias alias="OrdersSearchVO" type="com.bebe.spring.vo.OrdersSearchVO"/> 
+          <typeAlias alias="ProductOrdersVO" type="com.bebe.spring.vo.ProductOrdersVO"/> 
+          <typeAlias alias="OrdersAddressVO" type="com.bebe.spring.vo.OrdersAddressVO"/> 
+          <typeAlias alias="DetailVO" type="com.bebe.spring.vo.DetailVO"/> 
+    	  <typeAlias alias="QuestionVO" type="com.bebe.spring.vo.QuestionVO" />
+    	  <typeAlias alias="ReviewVO" type="com.bebe.spring.vo.ReviewVO" />
+    	  <typeAlias alias="UsersVO" type="com.bebe.spring.vo.UsersVO" />
+    	  <typeAlias alias="BoardVO" type="com.bebe.spring.board.vo.BoardVO" />
+    </typeAliases>
+</configuration>
+
+
+>>>>>>> hg_main

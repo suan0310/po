@@ -32,19 +32,17 @@
    </beans:bean>
 
 
-<!-- jason -->
-<beans:bean id="jsonView" class="org.springframework.web.servlet.view.json.MappingJackson2JsonView"/>
+	<!-- jason -->
+	<beans:bean id="jsonView" class="org.springframework.web.servlet.view.json.MappingJackson2JsonView"/>
 
 
+ <beans:bean class="java.lang.String" id="uploadPath">
+   <beans:constructor-arg value="C:\project\work\bebework\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\bebeshop\resources" />
+</beans:bean> 
 
-
-<beans:bean class="java.lang.String" id="uploadPath">
-  <beans:constructor-arg value="C:\project\work\bebeshop\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\bebeshop\resources" /> 
-</beans:bean>
 
 
 <resources mapping="/imgUpload/**" location="/resources/imgUpload/" />
-
 <beans:bean class="org.springframework.web.multipart.commons.CommonsMultipartResolver" id="multipartResolver">
  <beans:property name="maxUploadSize" value="10485760"/>
 </beans:bean> 
@@ -53,3 +51,4 @@
    <context:component-scan
       base-package="com.bebe.spring" />
 </beans:beans>
+

@@ -17,7 +17,7 @@ public interface AdminService {
 	Integer insertProduct(ProductOptionsVO productOpVo);
 	
 	//유저 데이터 검색
-	List<UsersVO> selectUsers();
+	List<UsersVO> selectUsers(String searchWord);
 	
 	//유저 삭제
 	Integer deleteUser(String id);
@@ -33,7 +33,7 @@ public interface AdminService {
 	Integer deleteProduct(int[] id);
 	
 	// 삭제된 제품의 옵션삭제
-	Integer deleteOptions(int[] checkproductno);
+	Integer deleteOthers(int[] checkproductno);
 	
 	//선택 옵션 추가
 	Integer insertOptions(OptionsVO optionsVo);
@@ -44,5 +44,9 @@ public interface AdminService {
 	//주문상태 업데이트
 	Integer updateOrderSts(OrdersVO orderVo);
 	
+	//주문취소시 판매량 감소
+	Integer updateSales(OrdersVO orderVo);
+	//주문취소시 재고 증가
+	Integer updateStock(OrdersVO orderVo);
 	
 }

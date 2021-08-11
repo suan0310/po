@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="/css/admin/product_add.css?ver=4">
+<link rel="stylesheet" href="/css/admin/product_add.css">
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <title>Document</title>
 </head>
@@ -69,7 +69,7 @@
 								<div class="sizebtn">
 									<select  id="size" name="productSize"  required>
 										<option value="" >사이즈를 선택하세요</option>
-										<option value="none">선택안함</option>
+										<option value="옵션없음">선택안함</option>
 										<option value="S">S</option>
 										<option value="M">M</option>
 										<option value="L">L</option>
@@ -81,7 +81,7 @@
 								<div class="colorbtn">
 									<select id="color" name="productColor"  required>
 										<option value="" >색상를 선택하세요</option>
-										<option value="none">선택안함</option>
+										<option value="옵션없음">선택안함</option>
 										<option value="red">빨강</option>
 										<option value="blue">파랑</option>
 										<option value="yellow">노랑</option>
@@ -100,8 +100,7 @@
 								<div id="img1"><img src="" /></div>
 								<div id="img2"><img src="" /></div><br>
 								<div id="img3"><img src="" /></div>
-								<div id="img4"><img src="" /></div> 
-								<%=request.getRealPath("/") %>
+								<div id="img4"><img src="" /></div> 								  
 							</div>							
 						</div>
 					</div>
@@ -118,11 +117,11 @@ $(".imgfile").change(function(){
 		   if(this.files && this.files[0]) {
 		    var reader = new FileReader;
 		    reader.onload = function(data) {
-		     $('#img'+index+' img').attr("src", data.target.result).width(200);        
+		     $('#img'+index+' img').attr("src", data.target.result).width(150);        
 		    }
 		    reader.readAsDataURL(this.files[0]);
 		   }
-  });
+ });
   
   
   </script>

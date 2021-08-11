@@ -12,6 +12,10 @@
 </head>
 
 <body>
+
+ <header>
+			<%@ include file="../header/header.jsp"%>
+		</header>
     <div class="outbox">
         <div class="inbox">
           
@@ -37,14 +41,14 @@
                                     <option value="nate.com">nate.com</option>
                                     <option value="hanmail.net">hanmail.net</option>
                                     <option value="korea.com">korea.com</option>
-                                </select><br>
+                                </select><br><br>
                         <input type="submit" value="확인" class="btn">
                     </div>
                     </form>
                     <div class="secondinfo">
                         
                         <button class="btn_info"  onClick="location.href='/login/findpasswd'">비밀번호 찾기</button>
-                        <button class="btn_info"  onClick="location.href='/login'">로그인</button>
+                        <button class="btn_info"  onClick="location.href='/login/login'">로그인</button>
 
                     </div>
                 </div>

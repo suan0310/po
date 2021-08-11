@@ -7,10 +7,11 @@
 			<meta charset="UTF-8">
 			<meta http-equiv="X-UA-Compatible" content="IE=edge">
 			<meta name="viewport" content="width=device-width, initial-scale=1.0">
-			<link rel="stylesheet" href="/css/product/search.css">
+			<link rel="stylesheet" href="/css/product/search.css?ver=1">
 
 			<link href="https://fonts.googleapis.com/css2?family=Handlee&display=swap" rel="stylesheet">
 			<script src="https://kit.fontawesome.com/a216194d9c.js" crossorigin="anonymous"></script>
+			<script src="http://code.jquery.com/jquery-latest.js"></script>
 			<title>Document</title>
 		</head>
 
@@ -22,19 +23,6 @@
 			<div class="nope"></div>
 			<div class="main">
 				<!-- /* -----------------최신순.인기순.가격순--------------------- */ -->
-				<div class="list">
-					<h6>
-						<a href="#">가격순</a>
-					</h6>
-					&nbsp|&nbsp
-					<h6>
-						<a href="#">최신순</a>
-					</h6>
-					&nbsp|&nbsp
-					<h6>
-						<a href="#">인기순</a>
-					</h6>
-				</div>
 
 				<!-- /* -----------------메인영역(검색화면)--------------------- */ -->
 
@@ -57,12 +45,45 @@
 							<li><a href="/product/searchPage?subCategory=401&page=1 ">간식</a></li>
 						</ul>
 						
-					</div>
+										
+				<div id="subName">
+				<c:if test="${pg.cri.subCategory eq '101'}">
+				<h3>- 강아지 용품</h3>
+				</c:if>
+				<c:if test="${pg.cri.subCategory eq 102}">
+				<h3>- 강아지 의류</h3>
+				</c:if>
+				<c:if test="${pg.cri.subCategory eq 201}">
+				<h3>- 고양이 용품</h3> 
+				</c:if>
+				<c:if test="${pg.cri.subCategory eq 202}">
+				<h3>- 고양이 의류</h3>
+				</c:if>
+				<c:if test="${pg.cri.subCategory eq 301}">
+				<h3>- 사료</h3>
+				</c:if>
+				<c:if test="${pg.cri.subCategory eq 401}">
+				<h3>- 간식</h3>
+				</c:if>
+				<c:if test="${ccc ne null && !(empty ccc) }">
+				<h4>"${ccc}" 에 대한 검색결과</h4>
+				</c:if>	
+				</div>
+				
+					<c:choose>
+						<c:when test="${pg.totalCount eq 0}">
+							<div class="nosearch">
+									<c:if test="${ccc eq null}">
+									<h2>해당하는 상품이 없습니다.</h2>
+									</c:if>
+									<c:if test="${ccc ne null }">
+									<h1 style="color:#badbf9">${ccc}</h1><h2>에 해당하는 상품이 없습니다.</h2>
+									</c:if>									
+							</div>
+						</c:when>
+					<c:otherwise>
 					<c:forEach items="${list}" var="row" varStatus="status">
-						<c:if test="${status.index == 0 }">
-							<c:set var="sbc" value="${row.subCategory}" />
-						</c:if>
-						<c:if test="${status.index %3==0 }">
+							<c:if test="${status.index %3==0 }">
 							<div class="probxs">
 						</c:if>
 						<div class="probx">
@@ -77,34 +98,57 @@
 				</div>
 				</c:if>
 				</c:forEach>
-
+				</c:otherwise>
+				</c:choose>
 			</div>
-							<div class="pager">
+				<div class="pager">
 					<ul>
-						<c:if test="${pg.prev}">
-							<li><a href="/product/searchPage?subCategory=${sbc}&page=${pg.startPage-1}">이전</a></li>
-						</c:if>
+						<c:choose>
+						<c:when test="${pg.prev}">
+							<li><a href="/product/searchPage?subCategory=${pg.cri.subCategory}&page=${pg.startPage-1}&keyword=${ccc}"><</a></li>
+						</c:when>
+						<c:otherwise>
+							<li><a href="javascript:alert('이전페이지가 없습니다.');"><</a></li>			
+						</c:otherwise>
+						</c:choose>
+						
+						
+						<c:forEach begin="${pg.startPage}" end="${pg.endPage}" var="idx" varStatus="sta">
+									<li>
 
-						<c:forEach begin="${pg.startPage}" end="${pg.endPage}" var="idx">
-							<li><a href="/product/searchPage?subCategory=${sbc}&page=${idx}">${idx}</a>
-							</li>
+										<a class = "text-${((pg.cri.page)==(idx))? 'orange':''} text-bold"  href="/product/searchPage?subCategory=${pg.cri.subCategory}&page=${idx}&keyword=${ccc}"><i class="fa">[${idx}]</i></a>
+
+									</li>
+							
 						</c:forEach>
+						
+							
+						<c:choose>
+						<c:when test="${pg.next && pg.endPage > 0}">
+							
 
-						<c:if test="${pg.next && pg.endPage > 0}">
-							<li><a href="/product/searchPage?subCategory=${sbc}&page=${pg.startPage+1}">다음</a></li>
-						</c:if>
+							<li><a href="/product/searchPage?subCategory=${pg.cri.subCategory}&page=${pg.endPage+1}&keyword=${ccc}">></a></li>			
+
+						</c:when>
+						<c:otherwise>
+							<li><a href="javascript:alert('다음페이지가 없습니다.');">></a></li>			
+						</c:otherwise>
+						</c:choose>
+
 					</ul>
 				</div>
-
-
+	</div>
+	
 			<script type="text/javascript" src="/js/search.js"></script>
 			<script>
 				function selChange() {
 					var sel = document.getElementById('cntPerPage').value;
-					location.href = "searchPage?c=${row.sub_category}&nowPage=${paging.nowPage}&cntPerPage="
-						+ sel;
+					location.href = "searchPage?c=${row.sub_category}&nowPage=${paging.nowPage}&cntPerPage="+ sel;
 				}
 			</script>
+			
+			<div style="width: 100%; height: 50px;"></div>
+			<%@ include file="../footer/footer.jsp"%>
 		</body>
 
 		</html>

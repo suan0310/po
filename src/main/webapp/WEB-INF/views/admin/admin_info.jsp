@@ -9,7 +9,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/info.css">
-    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 
 
 <title>Document</title>
@@ -36,11 +35,14 @@
                     <table class="info_table">
                         <tr>
                             <td id="fixinfo">아이디</td>
-                            <td id="userinfo">${id}</td>
+                            <td id="userinfo">${sessionUser.id}
+                            	<input type="hidden" name="id" value="${sessionUser.id}">
+								<input type="hidden" id="passwd" value="${sessionUser.passwd}">
+                            </td>
                         </tr>
                         <tr>
                             <td id="fixinfo">이메일</td>
-                            <td id="userinfo">admin@spring.com</td>
+                            <td id="userinfo">${sessionUser.emailId}@${sessionUser.emailDomain}</td>
                         </tr>
                     </table>
                 </div>
@@ -82,22 +84,7 @@
         </div>
     </div>
 </body>
-
-<script>
-/* function check(){
-	var newpw = $('#newpw').val();
-	console.log(newpw);
-	var newpwch = $('#newpwch').val();
-	console.log(newpwch);
-	if(newpw != newpwch) {
-		alert("비밀번호가 같지않습니다");
-		return false;
-	}		
-  return confirm('비밀번호를 변경하시겠습니까?');		
-}; */
-</script>
-<script type="text/javascript" src="/js/search.js"></script>
-<script type="text/javascript" src="/js/info.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
 <script type="text/javascript" src="/js/pwcheck.js"></script>
 
 

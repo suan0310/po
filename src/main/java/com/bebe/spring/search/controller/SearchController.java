@@ -19,40 +19,41 @@ public class SearchController {
 	@Inject
 	SearchService searchService;
 	//카테고리별 페이지 처리, 제품출력
+//	@RequestMapping(value ="/searchPage",method = RequestMethod.GET)
+//	public ModelAndView searchList( ModelAndView mav,  Criteria cri ) {
+//		pager pg = new pager();
+//		if(searchService.action(cri)==0) {	
+//			int num =searchService.scount(cri);
+//			pg.setCri(cri);
+//			pg.setTotalCount(num);
+//			mav.addObject("list",searchService.searchlist(cri));
+//			mav.addObject("ccc",cri.getKeyword());
+//			mav.addObject("pg",pg);
+//			System.out.println(searchService.searchlist(cri));
+//			System.out.println(mav);
+//			mav.setViewName("/product/searchPage");
+//		}else {		
+//			int num =searchService.count(cri);
+//			pg.setCri(cri);
+//			pg.setTotalCount(num);
+//			mav.setViewName("/product/searchPage");
+//			mav.addObject("list",searchService.getlist(cri));
+//			mav.addObject("pg",pg);
+//		}	
+//		return mav;
+//	}
+	
 	@RequestMapping(value ="/searchPage",method = RequestMethod.GET)
-	public ModelAndView searchList( ModelAndView mav,  Criteria cri) {
-	
+	public ModelAndView searchList( ModelAndView mav,  Criteria cri ) {
 		pager pg = new pager();
-		int num =searchService.count(cri);
-		pg.setCri(cri);
-
-		pg.setTotalCount(num);
 		
-		mav.setViewName("/product/searchPage");
-		mav.addObject("list",searchService.getlist(cri));
-		mav.addObject("pg",pg);
-		
+			int num =searchService.ccount(cri);
+			pg.setCri(cri);
+			pg.setTotalCount(num);
+			mav.addObject("list",searchService.llist(cri));
+			mav.addObject("ccc",cri.getKeyword());
+			mav.addObject("pg",pg);
+			mav.setViewName("/product/searchPage");
 		return mav;
 	}
-	@RequestMapping(value = "/searchPage2")
-	public ModelAndView searchList2( ModelAndView mav, Criteria cri) {
-		System.out.println("일단");
-		System.out.println(cri);
-		
-		pager pg = new pager();
-		int num =searchService.scount(cri);
-		pg.setCri(cri);
-
-		pg.setTotalCount(num);
-		
-		mav.setViewName("/product/searchPage");
-		mav.addObject("list",searchService.searchlist(cri));
-		mav.addObject("pg",pg);
-		System.out.println(searchService.searchlist(cri));
-		System.out.println("출력");
-		return mav;
-	}
-
-	
-
 }

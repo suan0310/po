@@ -9,6 +9,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="/css/info.css">
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <title>bebeshop</title>
 </head>
 <body>
@@ -24,7 +25,7 @@
 			</div>
 
 			<div class="mainbox">
-				<form method="post" action="user_info" class="form" id="form">
+				<form method="post" action="user_info" class="form" id="form" >
 					<div class="info">
 						<table class="info_table">
 							<caption>
@@ -32,11 +33,14 @@
 							</caption>
 							<tr>
 								<td id="fixinfo">아이디</td>
-								<td id="userinfo">${users.id}님</td>
+								<td id="userinfo">${sessionUser.id}
+								<input type="hidden" name="id" value="${sessionUser.id}">
+								<input type="hidden" id="passwd" value="${sessionUser.passwd}">
+								</td>
 							</tr>
 							<tr>
 								<td id="fixinfo">이메일</td>
-								<td id="userinfo">${users.email_id}${users.email_domain}</td>
+								<td id="userinfo">${sessionUser.emailId}@${sessionUser.emailDomain}</td>
 							</tr>
 						</table>
 					</div>
@@ -74,7 +78,7 @@
 			</div>
 		</div>
 	</div>
-	<script src="//code.jquery.com/jquery-3.1.1.min.js"></script>
+	
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
 	<script src="/js/pwcheck.js"></script>
 </body>

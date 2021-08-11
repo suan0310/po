@@ -13,7 +13,7 @@ String userid=request.getParameter("userid"); %>
 			<meta charset="UTF-8">
 			<meta http-equiv="X-UA-Compatible" content="IE=edge">
 			<meta name="viewport" content="width=device-width, initial-scale=1.0">
-			<link rel="stylesheet" href="/css/product/deatil.css">
+			<link rel="stylesheet" href="/css/product/detail.css?ver=1">
 			<title>Document</title>
 			<!--링크들-->
 			<script src="http://code.jquery.com/jquery-latest.js"></script>
@@ -37,10 +37,11 @@ String userid=request.getParameter("userid"); %>
 						<input type="hidden" name="productNo" id="productNo" value="<%=productNo%>" />
 						<input type="hidden" name="qsNo" id="qsNo" value="<%=qsNo%>" />
 
-
 						<c:forEach var="q" items="${qOne}">
-							<div class="request-popup-write" style="position: absolute; left: 100px;">
-								<br>제목 <br> <input type="text"  id="qsTitle" name="qsTitle" value="${q.qsTitle}"
+							<input type="hidden" id="tmpSecret" value="${q.qsSecret}" />
+							<div class="request-popup-write" style="position: absolute; left:70px;">
+								<br>제목 <br> 
+								<input type="text"  id="qsTitle" name="qsTitle" value="${q.qsTitle}"
 									style="margin-top: 10px; width: 420px;"> <br> <br>내용
 								<br>
 								<textarea id="qsContent" name="qsContent" cols="50" rows="6" maxlength="200" readonly
@@ -49,10 +50,13 @@ String userid=request.getParameter("userid"); %>
 								<textarea id="qsAnswer" name="qsAnswer" cols="50" rows="6" maxlength="200" readonly
 									style="margin-top: 10px;">${q.qsAnswer}</textarea>
 								<br> <br>
+								
 
 								<h6 style="font-size: 0.67em;">
-									비밀글&nbsp; <input type="checkbox" checked id="secret-public" value="secret"
-										disabled /> &nbsp; 오픈글&nbsp; <input type="checkbox" id="secret-public"
+									비밀글&nbsp; 
+									<input type="checkbox" id="secret" value="secret"
+										disabled /> &nbsp; 오픈글&nbsp; 
+										<input type="checkbox" id="public"
 										value="public" disabled />
 								</h6>
 
@@ -74,12 +78,19 @@ String userid=request.getParameter("userid"); %>
 					var productNo = $("#productNo").val();
 					var qsNo = $("#qsNo").val();
 					var userid = $("#userid").val();
-					var curUser = "${sessionScope.userid}";
+					var curUser = "${sessionUser.id}";
+					var sec = $('#tmpSecret').val();
 					console.log("userid: "+userid);
 
-					//alert("userid " + userid + "  curID: " + curUser);
-
-
+					$(document).ready(function(){
+						console.log("??: "+"${qOne}");
+						if (sec==0){
+							$('#public').prop("checked", true);
+						} else{
+							$('#secret').prop("checked", true);
+						}
+					});
+					
 					//세션별 사용자 권한처리
 					var str = curUser;
 					console.log("현재 사용자: " + str);
@@ -106,7 +117,6 @@ String userid=request.getParameter("userid"); %>
 						close();
 					}
 
-					
 					function updateAnswer() {
 						var qsAnswer = $("#qsAnswer").val();
 						console.log(qsAnswer);
@@ -118,7 +128,6 @@ String userid=request.getParameter("userid"); %>
 							data: "qsNo=" + qsNo + "&qsAnswer=" + qsAnswer,
 							success: function (data) {
 								alert("정상적으로 수정되었습니다.");
-								
 							},
 							error: function (request, status, error) {
 								alert("code = " + request.status + " message = " + request.responseText + " error = " + error); // 실패 시 처리
@@ -136,7 +145,8 @@ String userid=request.getParameter("userid"); %>
 							data: "qsNo=" + qsNo + "&productNo=" + productNo,
 							success: function (data) {
 								alert("정상적으로 삭제되었습니다.");
-								close();
+								window.opener.location.reload();
+								window.close();
 							},
 							error: function (request, status, error) {
 								alert("code = " + request.status + " message = " + request.responseText + " error = " + error); // 실패 시 처리
@@ -165,16 +175,7 @@ String userid=request.getParameter("userid"); %>
 							}
 						})
 					}
-					
-					
-					/*
-						function updateQuestion() {
-						var frm = document.Qna;
-						frm.action = "/productdetail/updateQuestion";
-						frm.method = "get";
-						frm.submit();
-					}
-					*/
+
 				</script>
 				<script type="text/javascript" src="/js/search.js"></script>
 		</body>

@@ -2,11 +2,12 @@ package com.bebe.spring.detail.dao;
 
 import java.util.List;
 
+import com.bebe.spring.vo.CartVO;
 import com.bebe.spring.vo.DetailVO;
 
 public interface DetailDao {
 
-	List<DetailVO> selectDetailMain(DetailVO vo);
+	DetailVO selectDetailMain(DetailVO vo);
 	List<DetailVO> selectReview(DetailVO vo);
 	List<DetailVO> updateReview(int r_no);
 	List<DetailVO> selectOne(DetailVO vo);
@@ -23,7 +24,6 @@ public interface DetailDao {
 	int starTotal(DetailVO vo);	
 	Integer insertReview(DetailVO vo);
 	Integer insertQuestion(DetailVO vo);
-	Integer insertAnswer(DetailVO vo);
 	Integer updateAnswer(DetailVO vo);
 	Integer updateQuestion(DetailVO vo);
 	Integer delQuestion(DetailVO vo);
@@ -38,6 +38,11 @@ public interface DetailDao {
 	Integer insertCart(DetailVO vo);
 	List<DetailVO> selectCart(DetailVO vo);
 	Integer selectProductPrice(DetailVO vo);
+	int selectDuplicateOpt(DetailVO vo);
 	
+	//order
+	Integer selectOrder(DetailVO vo);
+	
+	CartVO orderItem(CartVO cv);
 	
 }

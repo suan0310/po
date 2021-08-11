@@ -13,7 +13,7 @@ import com.bebe.spring.vo.ProductOptionsVO;
 import com.bebe.spring.vo.ProductSearchVO;
 import com.bebe.spring.vo.UsersVO;
 
-@Service ("adminService")
+@Service("adminService")
 public class AdminServiceImpl implements AdminService {
 
 	@Autowired
@@ -21,18 +21,18 @@ public class AdminServiceImpl implements AdminService {
 
 	@Override
 	public Integer updatePasswd(String passwd) {
-			return adminDao.updatePasswd(passwd);
+		return adminDao.updatePasswd(passwd);
 	}
 
 	@Override
 	public Integer insertProduct(ProductOptionsVO productOpVo) {
 		return adminDao.insertProduct(productOpVo);
-		
+
 	}
 
 	@Override
-	public List<UsersVO> selectUsers() {		
-		return adminDao.selectUsers();
+	public List<UsersVO> selectUsers(String searchWord) {
+		return adminDao.selectUsers(searchWord);
 	}
 
 	@Override
@@ -44,7 +44,7 @@ public class AdminServiceImpl implements AdminService {
 	public List<ProductOptionsVO> selectProductList(ProductSearchVO psVo) {
 		return adminDao.selectProductList(psVo);
 	}
-	
+
 	@Override
 	public List<OptionsVO> selectOptions() {
 		return adminDao.selectOptions();
@@ -52,13 +52,23 @@ public class AdminServiceImpl implements AdminService {
 
 	@Override
 	public Integer deleteProduct(int[] checkproductno) {
-		for(int id : checkproductno) adminDao.deleteProduct(id);			
+		for (int id : checkproductno)
+			adminDao.deleteProduct(id);
 		return null;
 	}
 
 	@Override
-	public Integer deleteOptions(int[] checkproductno) {
-		for(int id : checkproductno) adminDao.deleteOptions(id);		
+	public Integer deleteOthers(int[] checkproductno) {
+		for (int productNo : checkproductno) {
+			// 해당 상품번호의 모든 옵션 삭제
+			adminDao.deleteOptions(productNo);
+			// 상품 문의 삭제
+			adminDao.deleteQuestion(productNo);
+			// 상품 답변 삭제
+			adminDao.deleteAnswer(productNo);
+			// 상품 리뷰 삭제
+			adminDao.deleteReview(productNo);
+		}
 		return null;
 	}
 
@@ -68,19 +78,25 @@ public class AdminServiceImpl implements AdminService {
 	}
 
 //주문 내역 검색
-	@Override 
+	@Override
 	public List<OrdersVO> selectOrdersList(OrdersSearchVO osVo) {
 		return adminDao.selectOrdersList(osVo);
 	}
 
 	@Override
 	public Integer updateOrderSts(OrdersVO orderVo) {
-		
+
 		return adminDao.updateOrderSts(orderVo);
 	}
 
-	
+	@Override
+	public Integer updateSales(OrdersVO orderVo) {
+		return adminDao.updateSales(orderVo);
+	}
 
-	
+	@Override
+	public Integer updateStock(OrdersVO orderVo) {
+		return adminDao.updateStock(orderVo);
+	}
 
 }

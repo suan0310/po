@@ -1,5 +1,7 @@
 package com.bebe.spring.login.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,7 +17,7 @@ public class LoginServiceImpl implements LoginService{
 	
 	
 	@Override
-	public int selectUsers(UsersVO usersVO) {
+	public UsersVO selectUsers(UsersVO usersVO) {
 		
 		return loginDao.selectUsers(usersVO);
 	}
@@ -34,8 +36,8 @@ public class LoginServiceImpl implements LoginService{
 	}
 	
 	@Override
-	public UsersVO find_id(UsersVO usersVO) {
-		
+	public List<UsersVO> find_id(UsersVO usersVO) {
+		 
 		return loginDao.find_id(usersVO);
 	}
 
@@ -45,6 +47,17 @@ public class LoginServiceImpl implements LoginService{
 		return loginDao.idCheck(usersVO);
 	}
 
+	
+	@Override
+	public int insertSocialLogin(UsersVO usersVO) {
+		return loginDao.insertSocialLogin(usersVO);
+	}
+	
+	@Override
+	public int selectSocialLogin(UsersVO usersVO) {
+		return loginDao.selectSocialLogin(usersVO);
+	}
+	
 	
 }
 

@@ -9,6 +9,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <link rel="stylesheet" href="/css/order/order.css">
+<script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
+ <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <link
 	href="https://fonts.googleapis.com/css2?family=Handlee&family=Jua&display=swap"
 	rel="stylesheet">
@@ -16,7 +18,7 @@
 	crossorigin="anonymous"></script>
 <script
 	src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-<title>Document</title>
+
 </head>
 
 <body>
@@ -24,9 +26,11 @@
 		<%@ include file="../header/header.jsp"%>
 	</header>
 
+
+
 	<div class="main">
 		<!-- /* -----------------메인영역(주문하기)--------------------- */ -->
-		<form action="/order/order" method="post">
+		<form action="/order/order" method="post" id="orderinfo" name="orderinfo">
 			<div class="orderbx">
 				<h1 class="title">주문하기</h1>
 					<div>
@@ -38,61 +42,58 @@
 								<th style="width: 100px;">상품금액</th>
 								<th style="border-right: hidden">결제금액</th>
 							</tr>
+							<c:set var="odp" value ="0"/>
 							<c:forEach items="${order}" var="cart" varStatus="stauts">
 							<c:set var="price" value="${cart.productPrice}" />
 							<c:set var="quantity" value="${cart.quantity}" />
 							<tr>
 								<td style="border-left: hidden" align=right><img
-									src="/img/a.jpg" alt="a" width="120px" height="120px"></td>
+									src="${cart.productImg1}" alt="a" width="120px" height="120px"></td>
 								<td style="border-left: hidden" align="left">
 									<input type="hidden" name="productNo" value="${cart.productNo}">
-									<h2 >${cart.productName }</h2>
-									<h2><input type="hidden" name="orderSize" value="${cart.productSize}">
-									 사이즈 : ${cart.productSize}  </h2>
-									<h2><input type="hidden" name="orderColor" value="${cart.productColor}">
-									 컬러 : ${cart.productColor} </h2>
+									<input type="hidden" name="productImg" value="${cart.productImg1}">
+									<h2 ><input type="text" name="productName" value="${cart.productName}"    readonly/></h2>
+									<h2>사이즈 : <input type="text" name="orderSize" value="${cart.productSize}"  style="width: 100px;"  readonly/></h2>
+									<h2>컬러 : <input type="text" name="orderColor" value="${cart.productColor}"  style="width: 100px;"  readonly/></h2>
 								</td>
-								<td align=center><input type="hidden" name="orderQty" value="${cart.quantity}">${cart.quantity}개</td>
+								<td align=center><input type="text" name="orderQty" value="${cart.quantity} "  style="width: 40px; text-align: right;"  readonly/> 개</td>
 								<td align=center  >${cart.productPrice}원</td>
 								<td style="border-right: hidden" align=center >
-									<h1><input type="hidden" name="orderPrice" value="${cart.productPrice*cart.quantity}"/> ${cart.productPrice*cart.quantity}원</h1>
+									<h2><input type="text" name="orderPrice" value="${cart.productPrice*cart.quantity} " style="width: 80px; text-align: right;"  readonly/> 원 </h2>
 								</td>
-							</tr>
+								<c:set var="odp" value="${odp+(cart.productPrice*cart.quantity) }"/>
+								<c:set var="oc" value="${stauts.count-1}"/>
+								<c:if test="${stauts.index ==0}">
+								<c:set var="opn" value="${cart.productName}"/>
+								</c:if>
+							</tr>	
 							</c:forEach>
-
-
-
 						</table>
 					</div>
 			</div>
-
-
 			<!-- /* -----------------메인영역(배송)--------------------- */ -->
-
 			<div class="postbx">
-
 				<div>
 					<h4 class="name">배송 정보</h4>
 					<table class="post">
 						<tr>
 							<th>받는분</th>
 							<td colspan="2"><input type="text" name="addrReceiver"
-								placeholder="이름을 입력해주세요"></td>
+								placeholder="이름을 입력해주세요" required="required" id="addrReceiver"></td>
 						</tr>
 						<tr>
 							<th>주소</th>
 							<td colspan="2"><input type="text" name="zipcode"
-								id="sample6_postcode" placeholder="우편번호"> <input
+								id="sample6_postcode" placeholder="우편번호" required="required"> <input
 								type="button" onclick="sample6_execDaumPostcode()"
 								value="우편번호 찾기" style="width: 150px;"></td>
-
 						</tr>
 						<tr>
 							<td></td>
 							<td><input type="text" name="addr" id="sample6_address"
 								placeholder="주소"> <input type="text" name="addrDetail"
 								id="sample6_detailAddress" placeholder="상세주소"
-								style="width: 330px;"></td>
+								style="width: 330px;" required="required"></td>
 						</tr>
 						<tr>
 							<th>휴대전화</th>
@@ -133,7 +134,7 @@
 							<h2>주문금액</h2>
 						</td>
 						<td>
-							<h2>34,000원</h2>
+							<h2><c:out value="${odp}"/> 원</h2>
 						</td>
 					</tr>
 					<tr>
@@ -144,7 +145,7 @@
 							<h2>배송비</h2>
 						</td>
 						<td style="border-bottom: 3px dotted black; padding-bottom: 40px;">
-							<h2>0원</h2>
+							<h2>2500원</h2>
 						</td>
 					</tr>
 					<tr>
@@ -153,11 +154,9 @@
 							<h1 style="padding-left: 0px; padding-top: 5%;">최종결제금액</h1>
 						</td>
 						<td>
-							<h2
-								style="padding-top: 10%; font-size: 30px; padding-bottom: 10%; display: inline-block; color: red;">
-								총가격 계산 
-								<h1 style="display: inline-block;">원</h1>
-							</h2>
+							<h1>
+								<c:out value="${odp+2500}"/> 원
+							</h1>
 						</td>
 					</tr>
 				</table>
@@ -165,15 +164,18 @@
 
 			<div class="hpay">
 				
-				<input type="submit"  value="결제하기" class="npay"> 
+
+				<input id="iamport" type="button" value="결제하기" class="npay"> 
+				<input type="submit" value="아임포트 없이 결재)" class="npay"> 
 				
 			</div>
 		</form>
+
 	</div>
-<input type="button"  value="취소하기" class="cancel"> 	
-<input	type="button"  value="kakaopay" class="kpay">
-
-
+	
+<!-- 	<input type="button"  value="취소하기" class="cancel"> 	
+	<input type="button"  value="kakaopay" class="kpay"/>
+	<input type="button" id="iamport" value ="아임포트"/> -->
 
 
 	<script>
@@ -199,8 +201,63 @@
 						}
 					}).open();
 		}
+				
+		
+		//아임포트
+	$("#iamport").click(function iamport(){
+			//가맹점 식별코드
+			alert("아임포트");
+			console.log("아임포트 함수 시작");
+			var IMP = window.IMP;
+			IMP.init('imp46949506');
+			IMP.request_pay({
+			    pg : 'kcp',
+			    pay_method : 'card',
+			    merchant_uid : 'merchant_' + new Date().getTime(),
+			    name : '${opn}' + '외' +' ${oc}'+'개' , //결제창에서 보여질 이름
+			    amount : 100 ,
+			    	//${odp}, //실제 결제되는 가격
+			   buyer_name  : '${sessionUser.id}',
+			   buyer_email : '${sessionUser.emailId}'+'@'+'${sessionUser.emailDomain}'
+			}, function(rsp) {
+				console.log(rsp);
+			    if ( rsp.success ) {
+			    	var msg = '결제가 완료되었습니다.';
+			        msg += '고유ID : ' + rsp.imp_uid;
+			        msg += '상점 거래ID : ' + rsp.merchant_uid;
+			        msg += '결제 금액 : ' + rsp.paid_amount;
+			        msg += '카드 승인번호 : ' + rsp.apply_num;
+			        
+			        alert("결제 성공");
+			        
+			           var formData = $("#orderinfo").serialize(); 
+
+			            $.ajax({
+			                cache : false,
+			                url : "/order/order", // 요기에
+			                type : 'POST', 
+			                data : formData, 
+			                success : function(data) {
+			                    alert("데이터 전송 성공")
+			                    location.href='${path}/order/order_sc';
+			                }, // success 
+			        
+			                error : function(xhr, status) {
+			                    alert(xhr + " : " + status);
+			                }// $.ajax */
+			        }); 
+			       
+			    } else {
+			    	 var msg = '결제에 실패하였습니다.';
+			         msg += '에러내용 : ' + rsp.error_msg;
+			    }
+			    alert(msg);
+			});
+		})	
+		
 	</script>
 	<script type="text/javascript" src="/js/search.js"></script>
+	<%@ include file="../footer/footer.jsp"%>
 </body>
 
 </html>

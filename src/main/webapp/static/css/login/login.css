@@ -3,6 +3,10 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+body{
+	background-color: #fff;
+}
 /* 눈에 보이지 않는 박스를 이용하여 전체 화면을 잡음 */
 .outbx {
   display: flex;
@@ -10,12 +14,12 @@
   justify-content: center;
   /* 높이를 기준으로 가운데 정렬 */
   height: 100vh;
+  background-color: #fff;
 }
 div h1 {
   /* 글자 가운데 정렬 */
   text-align: center;
   font-size: 40px;
-  font-family: "맑은 고딕";
   font-weight: bold;
   margin-bottom: 10px;
 }
@@ -30,7 +34,6 @@ div h1 {
 }
 .login h1 {
   font-size: 20px;
-  font-family: "맑은 고딕", sans-serif;
   margin-top: 50px;
   margin-bottom: 30px;
 }
@@ -102,10 +105,30 @@ input::placeholder {
   text-decoration-line: none;
   color: #707070;
 }
-/* 카카오 페이스북 네이버  */
+
+
+/* 카카오 페이스북 네이버*/  
 .login .social {
-  margin-top: 10px;
+  margin-top: 20px;
+  margin-left: 80px;
 }
 .login .social img {
-  margin: 5px;
+  margin: 5px;  
+}
+
+/*소셜로그인 위치조정*/
+.g-signin2, .n-signin, .k-signin {
+	display: inline-block;
+	float: left;
+	width:40px;
+	height:40px;
+}
+
+.g-signin2{
+	margin-top: 5px;
+	margin-left: 20px;
+}
+
+#kao{
+	cursor: pointer;
 }

@@ -5,7 +5,6 @@
 .mainbox .orderbx .title {
   font-size: 25px;
   margin-bottom: 50px;
-  font-family: "Jua", sans-serif;
   font-weight: 100;
   text-align: center;
 }
@@ -18,13 +17,12 @@
 }
 
 .mainbox .orderbx .order {
-  width: 1150px;
+    display:flex;
   border-top: 3px solid black;
 }
 
 .mainbox .orderbx .order th {
   font-size: 14px;
-  font-family: "Jua", sans-serif;
   font-weight: 100;
   padding: 10px;
   background-color: #e4e4e4;
@@ -33,7 +31,6 @@
 .mainbox .orderbx .order td {
   border-bottom: 2px solid #e4e4e4;
   font-size: 14px;
-  font-family: "Jua", sans-serif;
   padding: 15px;
 }
 

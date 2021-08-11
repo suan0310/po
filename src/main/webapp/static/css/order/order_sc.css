@@ -6,7 +6,7 @@
 body{
     background-color: #badbf9;
 }
-/* -----------------메인영역--------------------- */
+/* -----------------硫붿씤�쁺�뿭--------------------- */
 .main{
     height: 100vh;
     width: 80%;
@@ -24,21 +24,18 @@ body{
 }
 .main .confirm h1{
     font-size: 35px;
-    font-family: 'Jua', sans-serif;
     margin-top: 40px;
     margin-bottom: 30px;
     font-weight: 200;
 }
 .main .confirm h4{
     font-size: 20px;
-    font-family: 'Jua', sans-serif;
     margin-top: 40px;
     margin-bottom: 30px;
     font-weight: 200;
 }
 .main .confirm a input{
     font-size: 20px;
-    font-family: 'Jua', sans-serif;
     width: 150px;
     height: 55px;
     background-color: #badbf9;

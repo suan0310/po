@@ -13,4 +13,6 @@ public class ReviewVO {
 	private Date rvDate;
 	private int rvStar;
 	private int rvBest;
+	
+	private String productImg1;
 }

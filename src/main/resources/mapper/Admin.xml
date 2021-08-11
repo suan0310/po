@@ -52,6 +52,7 @@
  		 <if test="searchWord != null">
 		 	AND product_name LIKE '%'||#{searchWord}||'%'
 		 </if> 
+		 ORDER BY product_date DESC
 </select>
 
 <select id="selectOrdersList" resultType="OrdersVO">
@@ -70,11 +71,15 @@
 		 	WHERE order_no = #{searchWord}
 		 </when> 
 		 </choose>
+		 ORDER BY order_date  DESC
 </select>
 
 
-<select id="selectUsers" resultType="UsersVO">
+<select id="selectUsers" resultType="UsersVO" parameterType="String">
 		SELECT * FROM users WHERE NOT (id = 'admin')
+		<if test="value != null">
+		AND id = '${value}'
+		</if>
 </select>
 
 
@@ -95,8 +100,29 @@
 		DELETE FROM options WHERE product_no = ${value}
 </delete> 
 
+<delete id="deleteQuestion" parameterType="int">
+		DELETE FROM question WHERE product_no = ${value}
+</delete> 
+
+<delete id="deleteAnswer" parameterType="int">
+		DELETE FROM answer WHERE product_no = ${value}
+</delete> 
+
+<delete id="deleteReview" parameterType="int">
+		DELETE FROM review WHERE product_no = ${value}
+</delete> 
+
 <update id="updateOrderSts" parameterType="OrdersVO">
 		UPDATE orders SET sts_delivery = #{stsDelivery} , sts_cancel = #{stsCancel} WHERE order_no = #{orderNo}
+</update>
+
+<update id="updateSales" parameterType="OrdersVO">
+		UPDATE product SET product_sales = (product_sales - #{orderQty}) WHERE product_no = #{productNo}
+</update>
+
+<update id="updateStock" parameterType="OrdersVO">
+		UPDATE options SET product_stock = (product_stock + #{orderQty}) WHERE product_no = #{productNo} 
+		AND product_color = #{orderColor} AND product_size = #{orderSize}
 </update>
 
 

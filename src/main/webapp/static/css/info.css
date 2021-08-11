@@ -97,7 +97,6 @@ td {
   font-weight: bold;
 }
 
-<<<<<<< HEAD
 .button {
     width: 100px;
     height: 30px;
@@ -110,20 +109,7 @@ td {
 .button:hover {
     color: #badbf9;
     background-color: white;
-=======
-.btn {
-  width: 100px;
-  height: 30px;
-  background-color: #badbf9;
-  color: white;
-  font-weight: bold;
-  border: 1px #badbf9;
-}
 
-.btn:hover {
-  color: #badbf9;
-  background-color: white;
->>>>>>> origin/suan_work
 }
 
 .menu:nth-of-type(1) {

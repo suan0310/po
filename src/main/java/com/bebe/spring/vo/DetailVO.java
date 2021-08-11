@@ -7,6 +7,13 @@ import lombok.Data;
 @Data
 public class DetailVO {
 
+	public DetailVO() {
+		this.productImg1 = "/img/unnamed.jpg";
+		this.productImg2 = "/img/unnamed.jpg";
+		this.productImg3 = "/img/unnamed.jpg";
+		this.productImg4 = "/img/unnamed.jpg";
+	}
+
 	private String subCategory;
 	private String mainCategory;
 	private int rownum;
@@ -15,7 +22,7 @@ public class DetailVO {
 	private String mainCategoryName;
 	private String productName;
 	private int productPrice;
-	private String productImg1;
+	private String productImg1;;
 	private String productImg2;
 	private String productImg3;
 	private String productImg4;
@@ -45,6 +52,7 @@ public class DetailVO {
 	private Double avg;
 	private int cnt;
 	private Double sum;
+	private int count;
 
 	// qs
 	private int qsNo;
@@ -55,5 +63,8 @@ public class DetailVO {
 
 	// answer
 	private String qsAnswer;
+	
+	//order
+	private String STS_DELIVERY;
 
 }

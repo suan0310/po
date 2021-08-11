@@ -1,6 +1,9 @@
 package com.bebe.spring.board.controller;
 
+import java.io.PrintWriter;
+
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -8,7 +11,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.bebe.spring.board.service.BoardService;
 import com.bebe.spring.board.vo.BoardVO;
@@ -27,33 +29,45 @@ public class BoardController {
 //	jsp, servlet으로 웹을 만들때는 request, session으로 받아오지만 spring은 model로 받아온다
 	public String list(@ModelAttribute("cri") Criteria cri, Model model) throws Exception {
 		model.addAttribute("noticeList", service.noticeList(cri));
-		model.addAttribute("faqList",service.faqList());
-		
-		//페이징 관리
+		model.addAttribute("faqList", service.faqList());
+
+		// 페이징 관리
 		PageMaker pageMaker = new PageMaker();
 		pageMaker.setCri(cri);
 		pageMaker.setTotalCount(service.noticeListCount(cri));
 		model.addAttribute("pageMaker", pageMaker);
-		
+
+		System.out.println();
 		System.out.println("admin_notice");
 		return "board/admin_notice";
 	}
 
-	
-	
 	@RequestMapping(value = "admin_write", method = RequestMethod.GET)
-	public String read(BoardVO boardVO, Model model, @RequestParam("b") int num) throws Exception {
+	public String read(BoardVO boardVO, Model model, @RequestParam("b") int num, HttpServletResponse res)
+			throws Exception {
 //		model.addAttribute("key", 원하는 내용)
 //		BoardVO에 있는 noticeNo를 넣어서 readNotice에 저장합니다.
 		model.addAttribute("b", num);
 		model.addAttribute("category", service.category(boardVO.getNoticeCategory()));
 
-		if (num == 1) {
+		if (num == 0) {
+			
+			Integer rnum = service.rnumCount();			
+			 if( rnum == null) rnum =0;
+
+			if (rnum >= 10) {
+				res.setContentType("text/html; charset=utf-8");
+				PrintWriter out = res.getWriter();
+				out.println("<script>alert('Best FAQ는 최대10개까지 게시할 수 있습니다.'); </script>");
+				out.flush();
+			}
+		} else if (num == 1) {
 			model.addAttribute("readNotice", service.readNotice(boardVO.getNoticeNo()));
+
 		} else if (num == 2) {
 			model.addAttribute("readFaq", service.readFaq(boardVO.getFaqNo()));
-		} 
-		
+		}
+
 		System.out.println("admin_write");
 		return "board/admin_write";
 	}
@@ -70,19 +84,42 @@ public class BoardController {
 	 * 1대1로 객체에 바인딩 (어떤 데이터를 set해주는 setter함수가 없다면 매핑이 되지 않는다. 하지만 requestbody는 데이터를
 	 * 변환시키는 것이기에 setter없이도 가능)
 	 */
+	// 등록
 	@RequestMapping(value = "writeNotice", method = RequestMethod.POST)
-	public String writeNotice(BoardVO boardVO) throws Exception {
+	public String writeNotice(BoardVO boardVO, HttpServletResponse res) throws Exception {
+		res.setContentType("text/html; charset=utf-8");
+		PrintWriter out = res.getWriter();
+		out.println("<script>alert('등록되었습니다.'); location.href = '/board/admin_notice';</script>");
+		out.flush();
 		service.writeNotice(boardVO);
-		//categroy의 타입 확인
+
 		System.out.println("입 to the 력");
-		return "redirect:/board/admin_notice";
+		return "board/admin_notice";
 	}
-	
+
 	@RequestMapping(value = "writeFaq", method = RequestMethod.POST)
-	public String writeFaq(BoardVO boardVO) throws Exception {
-		service.writeFaq(boardVO);
+	public String writeFaq(BoardVO boardVO, HttpServletResponse res) throws Exception {
+		PrintWriter out = res.getWriter();
+		res.setContentType("text/html; charset=utf-8");
+		
+		Integer rnum = service.rnumCount();			
+		 if( rnum == null) rnum =0;
+		 
+		boardVO.setRnum(rnum);
+		
+		if (boardVO.getRnum() >= 10) {
+			out.println("<script>alert('Best FAQ 게시물 삭제 후 진행해 주시기 바랍니다.'); </script>");
+			out.println("<script>location.href = '/board/admin_notice'; </script>");
+			out.flush();
+		} else {
+			service.writeFaq(boardVO);
+			out.println("<script>alert('등록되었습니다.'); location.href = '/board/admin_notice';</script>");
+			out.flush();
+
+		}
+
 		System.out.println("입 to the 력");
-		return "redirect:/board/admin_notice";
+		return "/board/admin_notice";
 	}
 //	요청에 대해 어떤 controller, 어떤 메소드가 필요할지를 맵핑하기 위한 어노테이션
 	/*
@@ -92,31 +129,32 @@ public class BoardController {
 	 * request 헤더가 일치할 경우에만 url이 호출
 	 */
 
+	// 삭제
 	@RequestMapping(value = "delete", method = RequestMethod.GET)
 	public String delete(BoardVO boardVO, Model model, @RequestParam("b") int num) throws Exception {
+
 		if (num == 1) {
 			service.deleteNotice(boardVO.getNoticeNo());
 		} else {
 			service.deleteFaq(boardVO.getFaqNo());
 		}
+
 		System.out.println("삭 to the 제");
 		return "redirect:/board/admin_notice";
 	}
 
+	// 수정
 	@RequestMapping(value = "update", method = RequestMethod.POST)
 	public String update(BoardVO boardVO, Model model) throws Exception {
 
-		
-		if(boardVO.getFaqNo() == 0){
+		if (boardVO.getFaqNo() == 0) {
 			service.updateNotice(boardVO);
-		}
-		else {
+		} else {
 			service.updateFaq(boardVO);
 		}
 
 		System.out.println("업 to the 데");
 		return "redirect:/board/admin_notice";
 	}
-	
 
 }

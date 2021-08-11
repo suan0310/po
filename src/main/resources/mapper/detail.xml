@@ -19,7 +19,6 @@
 		#{productNo}
 	</select>
 
-
 	<select id="selectOne" parameterType="DetailVO"
 		resultType="DetailVO">
 		<!-- select id, rv_star, rv_content, rv_date from review where rv_no = 
@@ -92,7 +91,7 @@
  
 	<select id="selectOneQuestion" resultType="DetailVO" parameterType="DetailVO" >
 		select 
-		a.qs_title, a.qs_content, b.qs_answer 
+		a.qs_title, a.qs_content, a.qs_secret, b.qs_answer
 		from question a, answer b
 		where b.qs_no = a.qs_no 
 		and a.qs_no = #{qsNo}	
@@ -121,30 +120,34 @@
 		INSERT INTO review(rv_no, id, product_no, rv_content, rv_date, rv_star,
 		rv_best)
 		VALUES (
-		SEQ_AI.NEXTVAL, #{id}, #{productNo}, #{rvContent}, TO_DATE(SYSDATE,'YYYY-MM-DD'),
+		SEQ_AI.NEXTVAL, #{id}, #{productNo}, #{rvContent}, SYSDATE,
 		#{rvStar}, 0
 		)
 	</insert>
 
 	<insert id="insertQuestion" parameterType="DetailVO">
-	insert into question
-		values(
+	INSERT ALL
+	into question values(
 		nextno_question.nextval,
-		#{productNo},
-		#{id},
-		#{qsTitle},
-		#{qsContent},
-		#{qsSecret},
-		TO_DATE(SYSDATE,'YYYY-MM-DD')
-		)
-	</insert>
-	
-	<insert id="insertAnswer"  parameterType="DetailVO">
-		insert into answer values(
-        nextno_answer.nextval, '답변준비중입니다.'
+			#{productNo},
+			#{id},
+			#{qsTitle},
+			#{qsContent},
+			#{qsSecret},
+			SYSDATE
+			)
+
+	into answer values(
+        nextno_question.nextval,
+         '답변준비중입니다.', 
+         #{productNo}
         )
+	select * from dual
+	
+	
 	</insert>
 	
+
 	<insert id="updateAnswer" parameterType="DetailVO">
 		update answer 
 		set qs_answer = #{qsAnswer}
@@ -195,8 +198,21 @@
 		a.product_no = b.product_no
 	</select>
 	
-	<select id="selectProductPrice"  parameterType="DetailVO" resultType="Integer">
-		select product_price from product where product_no = #{productNo}
+	<select id="orderItem"  parameterType="CartVO" resultType="CartVO">
+		
+		select c.*,p.* from product p, cart c where p.product_no= #{productNo} 
+	</select>
+
+	<select id="selectOrder" parameterType="DetailVO" resultType="int">
+		select count(*) as count from orders where id = #{id} and product_no = #{productNo}
+		and STS_DELIVERY = '배송완료'  
+			</select>
+	
+	<select id="selectDuplicateOpt" parameterType="DetailVO" resultType="int">
+		select count(*) as count from cart where product_no = #{productNo}
+		and product_color = #{productColor}
+		and product_size = #{productSize}
+		and id = #{id}
 	</select>
 
 </mapper>

@@ -2,6 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
+
 <!-- 반드시 인터페이스로 선언해야 한다. -->
 <mapper namespace="com.bebe.spring.board.dao.BoardDao">
 	<!-- 실행 인터페이스위치 -->
@@ -25,9 +26,7 @@
 
 	<select id="faqList"
 		resultType="com.bebe.spring.board.vo.BoardVO">
-		SELECT
-		*
-		FROM faq order by faq_no
+		select rownum as rnum, faq_no, faq_title, faq_content from faq order by faq_no  desc
 	</select>
 
 	<select id="readNotice"
@@ -48,7 +47,16 @@
 
 	<select id="writeFaq">
 		INSERT INTO faq VALUES(faq_sq.NEXTVAL,#{faqTitle},
-		#{faqContent})
+		#{faqContent}) 
+		
+		
+		<!-- faqNo는 0으로만 받아와서 포기 
+		MERGE INTO faq f
+        USING DUAL
+        ON(f.faq_no = ${faqNo})
+        WHEN NOT MATCHED THEN
+        INSERT VALUES(faq_sq.NEXTVAL,#{faqTitle},
+		#{faqContent}) -->
 	</select>
 
 	<select id="category"
@@ -65,7 +73,8 @@
 	</select>
 
 	<select id="updateNotice">
-		UPDATE notice SET notice_title = #{noticeTitle},
+		UPDATE notice SET notice_category = #{noticeCategory},
+		notice_title = #{noticeTitle},
 		notice_content = #{noticeContent},
 		notice_date = SYSDATE WHERE
 		notice_no = #{noticeNo}
@@ -83,7 +92,9 @@
 			ORDER BY notice_no DESC ) n ) WHERE num between #{page} and #{perPageNum} -->
 		SELECT count(notice_no) FROM notice WHERE notice_no > 0
 	</select>
-
-
+	
+	<select id="rnumCount" resultType="int">
+		SELECT MAX(rownum) FROM faq
+	</select>
 
 </mapper> 

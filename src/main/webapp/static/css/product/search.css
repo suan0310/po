@@ -5,6 +5,7 @@
 }
 body{
     background-color: #badbf9;
+   	
 }
 a{
     text-decoration-line: none;
@@ -16,11 +17,12 @@ a{
 .main{ 
     display: flex;
     flex-direction: column;
-    justify-content: center;
+  
     align-items: center;
-    width: 1000px;
+    width: 80%;
     background-color: #fff;
     margin: 0 auto;
+    height: 100%;
 }
 
 ul,li{
@@ -156,4 +158,25 @@ ul,li{
 
 .pager ul li{ 
     display: inline-block;
+}
+
+.text-orange{
+	color : #ff6a00;	    	
+}
+.text-bold{
+	font-weight: bold;
+}
+
+.nosearch{
+	display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+    width: 1000px;
+    height: 770px;
+	
+}
+
+#subName{
+margin-right: 100px;
 }

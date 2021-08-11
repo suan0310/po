@@ -1,11 +1,17 @@
+*{
+	font-family: 'Gowun Dodum', sans-serif;
+	font-size: 99%;
+}
+
+
 body{
     background-color: #badbf9;
     height: 100%;
     margin: 0;
     padding: 0;
   }
-  /* -----------------헤더영역--------------------- */
-  /* 투명하게 하는거 추가 필요 */
+  /* -----------------�뿤�뜑�쁺�뿭--------------------- */
+  /* �닾紐낇븯寃� �븯�뒗嫄� 異붽� �븘�슂 */
   header{
     width: 100vw;
     height: 100px;
@@ -22,7 +28,7 @@ body{
   header .headerbx .menubx{
     display: flex;
     float: right;
-    width: 460px;
+    width: 700px;
     justify-content: center;
     align-items: center;
     margin-top: 40px;
@@ -31,14 +37,16 @@ body{
     font-size: 22px;
     text-decoration: none;
     margin-right: 10px;
+
   }
   header .headerbx .menubx input{
     border-radius: 20px 20px;
     background-color: #badbf9;
-    width: 40px;
-    height: 20px;
-    font-size: 10px;
+    width: 70px;
+    height: 25px;
+    font-size: 15px;
     margin-right: 10px;   
+    font-weight: bold;
   }
   header .headerbx .menubx h6 a{
     margin-right: 10px;
@@ -46,7 +54,7 @@ body{
     color: black;
   }
   header .headerbx .menubx img{
-    margin-right: 10px;
+    margin: 10px;
     cursor: pointer;
   }
   header .headerbx .search{
@@ -71,4 +79,8 @@ body{
     padding-left: 10px;
     padding-top: 6px;
     cursor: pointer;
+  }
+  
+.headertag{
+  margin-left: 10px;
   }

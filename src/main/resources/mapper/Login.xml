@@ -5,16 +5,24 @@
  <mapper namespace= "com.bebe.spring.login.dao.LoginDAO">
  <!-- 실행 인터페이스위치 -->
  
-<select id="selectUsers" resultType="int" parameterType="UsersVO">
-		select count(*) from users where id = #{id} AND passwd=#{passwd}
+<select id="selectUsers" resultType="UsersVO" parameterType="UsersVO">
+		select * from users where id = #{id} AND passwd=#{passwd}
 	</select>  
 
 <insert id="insertUsers" parameterType="UsersVO">
 	insert into users values(#{id},#{passwd},#{emailId},#{question},#{answer},#{emailDomain})
 </insert>
 
+<insert id="insertSocialLogin"  parameterType="UsersVO">
+	insert into users (id) values(#{id})
+</insert>
+
+<select id="selectSocialLogin" resultType="Integer" parameterType="UsersVO">
+select count(*) from users where id = #{id}
+</select>
+
 <select id="idCheck" resultType="int" parameterType="UsersVO">
-		select count(*) from users where id = #{id}
+		select count(*) from users where id = #{id, jdbcType=VARCHAR}
 	</select>  
 
 	<select id="find_passwd" resultType="UsersVO" parameterType="UsersVO">
