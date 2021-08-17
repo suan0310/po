@@ -16,6 +16,9 @@
 ## ◖참여인원◗   
 6명
 
+## ◖ERD◗ 
+![image](https://user-images.githubusercontent.com/80302803/129681916-96d11bb0-955c-46bb-8f1a-49886719e07b.png)
+
 ## ◖담당파트◗   
 ◦유저   
  사이드바   
