@@ -41,5 +41,5 @@
 
 ◦로그인   
  소셜로그인(구글)
- ![buy](https://user-images.githubusercontent.com/80302803/129681305-ad68720b-1215-428a-af9f-1db68b89c562.png)
+![login](https://user-images.githubusercontent.com/80302803/129681372-a231f0da-aad9-4d59-97f1-984dcdd560b1.png)
 
