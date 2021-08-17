@@ -40,6 +40,6 @@
  ![buy](https://user-images.githubusercontent.com/80302803/129681294-a2c30559-9a92-4df3-a3f4-254a5e6e7fed.png)
 
 ◦로그인   
- 소셜로그인(구글)
+ 소셜로그인(구글)   
 ![login](https://user-images.githubusercontent.com/80302803/129681372-a231f0da-aad9-4d59-97f1-984dcdd560b1.png)
 
