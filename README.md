@@ -22,7 +22,7 @@
 ## ◖담당파트◗   
 ◦유저   
  사이드바   
- 회원정보 및 비밀변호 변경   
+ 회원정보 및 비밀번호 변경   
  나의활동   
  구매내역   
 ◦로그인   
@@ -33,7 +33,7 @@
  사이드바   
  ![side](https://user-images.githubusercontent.com/80302803/129681127-de7df152-af79-438e-9e26-dcd3fbfedb37.png)
 
- 회원정보 및 비밀변호 변경   
+ 회원정보 및 비밀번호 변경   
  ![info](https://user-images.githubusercontent.com/80302803/129681252-7b7697b4-21cc-4c5f-ab58-576234bd5679.png)
 * 영문, 숫자, 특수문자를 모두 사용하여야 변경가능
 * Mybatis 쿼리문으로 동일 비밀번호 유무 확인
