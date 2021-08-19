@@ -30,7 +30,7 @@
  
 ## ◖담당화면 및 기능◗   
 ◦유저   
- 사이드바   
+      사이드바   
  ![side](https://user-images.githubusercontent.com/80302803/129681127-de7df152-af79-438e-9e26-dcd3fbfedb37.png)
 
  회원정보 및 비밀번호 변경   
