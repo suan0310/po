@@ -30,7 +30,7 @@
  
 ## ◖담당화면 및 기능◗   
 ◦유저   
-      사이드바   
+ 사이드바   
  ![side](https://user-images.githubusercontent.com/80302803/129681127-de7df152-af79-438e-9e26-dcd3fbfedb37.png)
 
  회원정보 및 비밀번호 변경   
@@ -39,7 +39,7 @@
 * Mybatis 쿼리문으로 동일 비밀번호 유무 확인
 * JS 기능을 통해 비밀번호 재확인 여부 확인 및 동일 유무 alert창으로 표현 
  나의활동   
- ![info](https://user-images.githubusercontent.com/80302803/129681278-676b89cc-f23d-4074-bfb6-6c1ea6e9f377.png)
+![mylog](https://user-images.githubusercontent.com/80302803/129999023-b677f414-69e2-4a71-9613-79784f500017.png)
 * 회원정보 List를 이용하여 문의와 리뷰내역을 각각 받아오도록 설정
 * JSTL을 이용해 날짜 설정 기준날 이후 내용 표시
 
