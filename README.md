@@ -55,4 +55,4 @@
 ![login](https://user-images.githubusercontent.com/80302803/129681372-a231f0da-aad9-4d59-97f1-984dcdd560b1.png)
 
 * 해당 소셜 로그인 이미지 클릭시 각 주체의 로그인 및 로그인 처리
-* 로그인 이메일을 데이터로 받아 DB에 저장하여 
+* 로그인 이메일을 데이터로 받아 DB에 저장
