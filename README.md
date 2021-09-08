@@ -6,7 +6,7 @@
    
 ◦spring framework 5.x   
 ◦oracle 11g, mybatis   
-◦vscode, html, css, jquery, ajax   
+◦vscode, html, css, jquery
 ◦apache tomcat 8.5   
 ◦git   
 
